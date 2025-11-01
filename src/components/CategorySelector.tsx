@@ -192,7 +192,7 @@ export function CategorySelector({
                     className="absolute inset-0 rounded-full"
                     style={{ 
                       backgroundColor: colors.cardColor,
-                      transform: isSelected ? 'translateX(0%)' : 'translateX(-100%)',
+                      transform: isSelected ? 'translateX(0%)' : 'translateX(calc(-100% + 48px))',
                       transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                       zIndex: 1
                     }}
