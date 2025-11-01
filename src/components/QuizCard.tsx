@@ -620,9 +620,6 @@ export function QuizCard({
           onClick={(e) => {
             e.stopPropagation();
             setIsEditing(!isEditing);
-            if (!isEditing && !editedText) {
-              setEditedText(question.question);
-            }
           }}
         >
           {isEditing ? (
