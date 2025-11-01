@@ -212,7 +212,7 @@ export function CategorySelector({
             
             <button
               onClick={handleClose}
-              className="text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors"
+              className="text-white bg-white/10 hover:bg-white/15 p-2 rounded-full transition-colors"
             >
               <X className="h-6 w-6" strokeWidth={1} />
             </button>
