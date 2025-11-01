@@ -471,7 +471,8 @@ export function QuizCard({
             borderRadius: '50%',
             backgroundColor: categoryColors.pageBg,
             pointerEvents: 'none',
-            zIndex: 0
+            zIndex: 150,
+            mixBlendMode: 'color-dodge'
           }}
         >
           {/* Eyes container - centered vertically in visible monster portion */}
