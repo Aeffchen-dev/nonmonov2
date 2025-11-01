@@ -481,8 +481,8 @@ export function QuizCard({
       ref={cardRef}
       className={`relative w-full max-w-[500px] mx-auto rounded-[2rem] select-none`}
       style={{
-        height: 'calc(100% - 16px)',
-        maxHeight: 'calc(100% - 16px)',
+        height: 'calc(100% - 24px)',
+        maxHeight: 'calc(100% - 24px)',
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 24px rgba(0, 0, 0, 0.16)'
