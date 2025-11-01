@@ -532,10 +532,9 @@ export function QuizCard({
             className={monsterVariation.pillSide === 'right' ? 'right-8 lg:right-10' : 'left-8 lg:left-10'}
             style={{
               position: 'absolute',
-              top: '2rem',
               bottom: '2rem',
-              display: 'flex',
-              alignItems: 'flex-end',
+              transformOrigin: monsterVariation.pillSide === 'right' ? 'bottom right' : 'bottom left',
+              transform: 'rotate(-90deg)',
               zIndex: 1
             }}
           >
@@ -550,18 +549,13 @@ export function QuizCard({
                 color: categoryColors.pageBg,
                 fontSize: '12px',
                 whiteSpace: 'nowrap',
-                mixBlendMode: 'difference',
-                transformOrigin: 'bottom left',
-                transform: 'rotate(-90deg) translateX(-100%)',
-                position: 'absolute',
-                bottom: 0
+                mixBlendMode: 'difference'
               }}
             >
               {question.category}
             </div>
           </div>
         )}
-      
 
         <div ref={containerRef} className={`flex-1 flex w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
