@@ -593,7 +593,7 @@ export function QuizApp() {
           }}
           onClick={handleLogoClick}
         >
-          {"Journaling".split('').map((char, index) => {
+          {"JOURNALING".split('').map((char, index) => {
             const rotations = [6, -4, 8, -6, 4, -8, 6, -2, 4, -6];
             const isAnimating = animatingLetterIndex === index;
             const isEven = index % 2 === 0;
