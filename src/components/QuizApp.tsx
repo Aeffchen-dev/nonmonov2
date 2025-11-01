@@ -616,7 +616,6 @@ export function QuizApp() {
                       width: '16.5px',
                       height: '16.5px',
                       backgroundColor: '#DFF00',
-                      border: `2px solid ${safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff'}`,
                       borderRadius: '50%',
                       alignItems: 'center',
                       justifyContent: 'center',
