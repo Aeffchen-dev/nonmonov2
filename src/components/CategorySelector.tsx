@@ -119,6 +119,23 @@ export function CategorySelector({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
+      <style>
+        {`
+          @keyframes sparkle {
+            0% {
+              opacity: 0;
+              transform: translate(0, 0) scale(0);
+            }
+            50% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+              transform: translate(var(--tx, 0), var(--ty, 0)) scale(1);
+            }
+          }
+        `}
+      </style>
       <DialogContent className="mx-auto bg-background border-0 p-0 overflow-hidden [&>button]:hidden flex flex-col" style={{ height: '100svh', width: '100vw' }}>
         <DialogDescription className="sr-only">
           Wählen Sie die Kategorien aus, die Sie sehen möchten
@@ -204,26 +221,46 @@ export function CategorySelector({
                         }}
                       >
                         {isSelected && (
-                          <svg 
-                            width="20" 
-                            height="20" 
-                            viewBox="0 0 24 24" 
-                            fill="none"
-                            style={{ color: colors.cardColor }}
-                          >
-                            <path
-                              d="M20 6 9 17l-5-5"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              style={{
-                                strokeDasharray: '20',
-                                strokeDashoffset: '20',
-                                animation: 'drawCheckmark 0.2s ease-out forwards'
-                              }}
-                            />
-                          </svg>
+                          <>
+                            <svg 
+                              width="20" 
+                              height="20" 
+                              viewBox="0 0 24 24" 
+                              fill="none"
+                              style={{ color: 'white' }}
+                            >
+                              <path
+                                d="M20 6 9 17l-5-5"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{
+                                  strokeDasharray: '20',
+                                  strokeDashoffset: '20',
+                                  animation: 'drawCheckmark 0.2s ease-out forwards'
+                                }}
+                              />
+                            </svg>
+                            
+                            {/* Sparkles */}
+                            {[...Array(4)].map((_, i) => (
+                              <div
+                                key={i}
+                                className="absolute"
+                                style={{
+                                  width: '4px',
+                                  height: '4px',
+                                  backgroundColor: 'white',
+                                  borderRadius: '50%',
+                                  top: i === 0 ? '-4px' : i === 1 ? '36px' : '50%',
+                                  left: i === 2 ? '-4px' : i === 3 ? '36px' : '50%',
+                                  animation: `sparkle 0.6s ease-out ${i * 0.1}s`,
+                                  opacity: 0
+                                }}
+                              />
+                            ))}
+                          </>
                         )}
                       </div>
                     </div>
