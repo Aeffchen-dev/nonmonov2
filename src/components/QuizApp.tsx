@@ -434,7 +434,7 @@ export function QuizApp() {
         // Reset after animation completes
         setTimeout(() => {
           setShowHintAnimation(false);
-        }, 800);
+        }, 400);
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -958,7 +958,7 @@ export function QuizApp() {
                       transition: isDragging 
                         ? 'none' 
                         : showHintAnimation && (index === 0 || index === 1)
-                        ? 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)' // Bouncy ease for hint
+                        ? 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)' // Faster bouncy ease for hint
                         : 'transform 0.3s ease-in-out'
                     }}
                   >
