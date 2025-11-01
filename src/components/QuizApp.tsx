@@ -712,7 +712,9 @@ export function QuizApp() {
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', bgColor);
     }
-    // Also update document background to color the areas behind Safari's UI
+    // Also update document background to color the areas behind Safari's UI with smooth transition
+    document.body.style.transition = 'background-color 0.3s ease-out';
+    document.documentElement.style.transition = 'background-color 0.3s ease-out';
     document.body.style.backgroundColor = bgColor;
     document.documentElement.style.backgroundColor = bgColor;
   }, [currentIndex, slides]);
@@ -724,6 +726,13 @@ export function QuizApp() {
       let metaThemeColor = document.querySelector('meta[name="theme-color"]');
       if (metaThemeColor && bgColor) {
         metaThemeColor.setAttribute('content', bgColor);
+      }
+      // Keep body and html backgrounds in sync while dragging
+      if (bgColor) {
+        document.body.style.transition = 'none';
+        document.documentElement.style.transition = 'none';
+        document.body.style.backgroundColor = bgColor;
+        document.documentElement.style.backgroundColor = bgColor;
       }
     };
 
@@ -846,8 +855,8 @@ export function QuizApp() {
       </div>
 
       {/* Main Quiz Container with multi-slide carousel */}
-      <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
-        <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
+      <div className="flex-1 flex flex-col px-4 mt-4 gap-3 pb-8" style={{ minHeight: 0, overflow: 'visible' }}>
+        <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible', paddingBottom: '40px' }}>
           {loading ? (
             <div className="flex items-center justify-center h-full text-white" style={{ fontSize: '14px' }}>Lade Fragen...</div>
           ) : hasSlides ? (
