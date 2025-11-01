@@ -354,7 +354,7 @@ export function QuizCard({
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
         overflow: 'hidden',
-        boxShadow: '0 0 32px 16px rgba(0, 0, 0, 0.24)'
+        boxShadow: '0 0 32px 32px rgba(0, 0, 0, 0.24)'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
