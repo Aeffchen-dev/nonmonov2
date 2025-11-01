@@ -537,23 +537,21 @@ export function QuizCard({
                 : { left: 'calc(2rem + 20px)' }
               ),
               transform: 'rotate(-90deg)',
-              zIndex: 100
+              zIndex: 100,
+              isolation: 'isolate'
             }}
           >
             <div 
               ref={pillInnerRef}
               className="px-2 py-0.5 rounded-full font-medium border font-factora"
               style={{
-                backgroundColor: 'hsl(var(--card-background) / 0.6)',
-                backdropFilter: 'blur(6px) saturate(110%)',
-                WebkitBackdropFilter: 'blur(6px) saturate(110%)',
+                backgroundColor: 'transparent',
                 borderColor: categoryColors.pageBg,
-                color: categoryColors.pageBg,
                 fontSize: '12px',
                 whiteSpace: 'nowrap'
               }}
             >
-              <span style={{ color: categoryColors.pageBg }}>
+              <span style={{ mixBlendMode: 'difference', color: 'hsl(var(--foreground))' }}>
                 {question.category}
               </span>
             </div>

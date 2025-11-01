@@ -588,7 +588,7 @@ export function QuizApp() {
           style={{ 
             fontSize: '20px', 
             fontWeight: '700',
-            color: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff'
+            color: 'hsl(var(--brand-neon))'
           }}
           onClick={handleLogoClick}
         >
@@ -614,7 +614,7 @@ export function QuizApp() {
                       display: 'inline-block',
                       width: '15px',
                       height: '15px',
-                      backgroundColor: '#ffff00',
+                      backgroundColor: 'hsl(var(--brand-neon))',
                       borderRadius: '50%',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -652,7 +652,7 @@ export function QuizApp() {
           className="font-normal flex items-center"
           style={{ 
             fontSize: '14px',
-            color: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff'
+            color: 'hsl(var(--brand-neon))'
           }}
         >
           Kategorien wählen
