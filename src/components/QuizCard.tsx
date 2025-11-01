@@ -673,12 +673,12 @@ export function QuizCard({
             `}</style>
           )}
           {isEditing && (
-            <div className="relative mt-4 w-full">
+            <div className="flex-1 relative mt-4 w-full">
               <Textarea
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
                 placeholder="Your answer"
-                className={`font-factora w-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem]' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem]'}`}
+                className={`font-factora w-full h-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem]' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem]'}`}
                 style={{
                   fontWeight: 'bold',
                   fontStyle: 'normal',
