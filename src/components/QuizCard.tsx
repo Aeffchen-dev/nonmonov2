@@ -437,7 +437,8 @@ export function QuizCard({
             className={`font-factora leading-tight lg:leading-[1.09] w-full ${question.category.toLowerCase() === 'intro' ? 'text-base md:text-lg lg:text-xl max-w-md' : 'text-3xl md:text-4xl lg:text-5xl max-w-full'}`}
             style={{ 
               fontWeight: 'bold',
-              fontStyle: question.category.toLowerCase() === 'intro' ? 'normal' : 'italic',
+              fontStyle: 'normal',
+              fontFeatureSettings: '"ss01"',
               color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
             }}
           >
