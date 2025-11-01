@@ -616,7 +616,9 @@ export function QuizCard({
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            backgroundColor: `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
+            backgroundColor: question.category === 'Alltagsintimität' 
+              ? `color-mix(in hsl, ${categoryColors.cardColor} 25%, ${categoryColors.pageBg} 75%)`
+              : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
             backdropFilter: 'blur(4px)',
             opacity: 1,
             display: 'flex',
@@ -633,9 +635,15 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={20} color={`color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`} />
+            <X size={20} color={question.category === 'Alltagsintimität'
+              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
+              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
+            } />
           ) : (
-            <Pencil size={20} color={`color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`} />
+            <Pencil size={20} color={question.category === 'Alltagsintimität'
+              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
+              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
+            } />
           )}
         </button>
       )}
