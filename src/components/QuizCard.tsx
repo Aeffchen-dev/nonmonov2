@@ -579,14 +579,14 @@ export function QuizCard({
           style={{
             position: 'absolute',
             ...(monsterVariation.pillSide === 'right' 
-              ? { right: '2rem' } 
-              : { left: '2rem' }
+              ? { right: 'calc(2rem - 8px)' } 
+              : { left: 'calc(2rem - 8px)' }
             ),
             bottom: '2rem',
             width: '40px',
             height: '40px',
             borderRadius: '50%',
-            backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 80%, black)`,
+            backgroundColor: categoryColors.cardColor,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
