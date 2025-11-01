@@ -586,7 +586,8 @@ export function QuizCard({
               color: categoryColors.pageBg,
               fontSize: '12px',
               whiteSpace: 'nowrap',
-              mixBlendMode: 'difference'
+              mixBlendMode: 'difference',
+              opacity: 0.8
             }}
           >
             {question.category}
