@@ -187,13 +187,13 @@ export function CategorySelector({
                     }}
                   />
                   
-                  {/* Colored background that slides in/out */}
+                  {/* Colored background that expands/contracts */}
                   <div 
-                    className="absolute inset-0 rounded-full"
+                    className="absolute inset-y-0 left-0 rounded-full"
                     style={{ 
                       backgroundColor: colors.cardColor,
-                      transform: isSelected ? 'translateX(0%)' : 'translateX(calc(-100% + 48px))',
-                      transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                      width: isSelected ? '100%' : '48px',
+                      transition: 'width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                       zIndex: 1
                     }}
                   />
