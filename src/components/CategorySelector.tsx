@@ -212,7 +212,10 @@ export function CategorySelector({
             
             <button
               onClick={handleClose}
-              className="text-white bg-white/10 hover:bg-white/15 p-2 rounded-full transition-colors"
+              className="text-white p-2 rounded-full transition-colors"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }}
             >
               <X className="h-6 w-6" strokeWidth={1} />
             </button>
