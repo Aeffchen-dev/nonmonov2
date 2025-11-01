@@ -167,7 +167,7 @@ export function CategorySelector({
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
             <DialogHeader>
                <DialogTitle className="text-white font-factora font-normal" style={{ fontSize: '20px' }}>
-                 <span style={{ fontFeatureSettings: '"salt" 1' }}>K</span>ategorien wählen
+                 <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>K</span>ategorien wählen
                </DialogTitle>
             </DialogHeader>
             
@@ -231,7 +231,7 @@ export function CategorySelector({
                        ? 'color 0.3s ease-in-out'
                        : 'color 0.2s ease-in-out'
                    }}>
-                     <span style={{ fontFeatureSettings: '"salt" 1' }}>{category.charAt(0)}</span>{category.slice(1)}
+                     <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>{category.charAt(0)}</span>{category.slice(1)}
                    </span>
                   <div onClick={(e) => e.stopPropagation()}>
                     <div
