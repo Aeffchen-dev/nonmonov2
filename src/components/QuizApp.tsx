@@ -593,7 +593,7 @@ export function QuizApp() {
           onClick={handleLogoClick}
         >
           {"Journaling".split('').map((char, index) => {
-            const rotations = [3, -2, 4, -3, 2, -4, 3, -1, 2, -3];
+            const rotations = [6, -4, 8, -6, 4, -8, 6, -2, 4, -6];
             const isAnimating = animatingLetterIndex === index;
             const isEven = index % 2 === 0;
             const translateY = isAnimating ? (isEven ? '-3px' : '3px') : '0px';
@@ -614,7 +614,7 @@ export function QuizApp() {
                       display: 'inline-block',
                       width: '15px',
                       height: '15px',
-                      backgroundColor: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff',
+                      backgroundColor: '#ffff00',
                       borderRadius: '50%',
                       alignItems: 'center',
                       justifyContent: 'center',
