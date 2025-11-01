@@ -237,7 +237,7 @@ export function QuizCard({
         position: absolute;
         visibility: hidden;
         white-space: nowrap;
-        font-size: 4rem;
+        font-size: 4.8rem;
         font-family: FactorA, sans-serif;
         font-weight: bold;
         font-style: normal;
@@ -579,7 +579,7 @@ export function QuizCard({
         <div ref={containerRef} className={`flex-1 flex w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
             ref={textRef}
-            className={`font-factora leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.05rem] md:text-[1.2rem] lg:text-[1.3rem] max-w-md' : 'text-[1.97rem] md:text-[2.36rem] lg:text-[3.15rem] max-w-full'}`}
+            className={`font-factora leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem] max-w-full'}`}
             style={{ 
               fontWeight: 'bold',
               fontStyle: 'normal',
