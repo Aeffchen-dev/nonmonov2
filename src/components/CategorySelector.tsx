@@ -274,7 +274,7 @@ export function CategorySelector({
                            border: `2px solid white`,
                            backgroundColor: isSelected ? 'black' : 'transparent',
                            transition: isSelected 
-                             ? 'background-color 0.1s ease-in-out 0.2s'
+                             ? 'background-color 0.1s ease-in-out 0.5s'
                              : 'background-color 0.2s ease-in-out'
                          }}
                        >
@@ -286,7 +286,7 @@ export function CategorySelector({
                              fill="none"
                              style={{ 
                                color: 'white',
-                               animation: 'checkmarkAppear 0.15s ease-out 0.3s both'
+                               animation: 'checkmarkAppear 0.1s ease-out 0.5s both'
                              }}
                            >
                              <path
