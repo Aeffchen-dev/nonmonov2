@@ -94,7 +94,8 @@ export function QuizCard({
     eyeWidth: 30,
     eyeHeight: 30,
     pupilSize: 12,
-    pupilMovementFactor: 1
+    pupilMovementFactor: 1,
+    pillSide: 'left' as 'left' | 'right'
   });
   
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -122,6 +123,9 @@ export function QuizCard({
     // Calculate horizontal offset to overflow by at least 20%
     const offsetDirection = random(hash + 11) > 0.5 ? 1 : -1; // Left or right
     const circleOffsetX = offsetDirection * (20 + random(hash + 12) * 10); // 20-30% overflow
+    
+    // Pill goes to opposite side of monster
+    const pillSide = offsetDirection > 0 ? 'left' : 'right';
     
     // Ellipse squeezing (up to 20% factor)
     const ellipseFactor = random(hash + 1) * 0.2;
@@ -151,7 +155,8 @@ export function QuizCard({
       eyeWidth: 30 * eyeStretch,
       eyeHeight: 30 / eyeStretch,
       pupilSize: pupilSize,
-      pupilMovementFactor: pupilMovementFactor
+      pupilMovementFactor: pupilMovementFactor,
+      pillSide: pillSide
     });
   }, [question.question]);
 
@@ -501,16 +506,28 @@ export function QuizCard({
       {/* Main Content */}
       <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative z-10`}>
         
-        {/* Category Pill - Only for non-intro slides */}
+        {/* Category Pill - Positioned at bottom corner opposite to monster, rotated 90deg */}
         {question.category.toLowerCase() !== 'intro' && (
-          <div className="mb-4">
+          <div 
+            style={{
+              position: 'absolute',
+              bottom: '16px',
+              [monsterVariation.pillSide]: '16px',
+              transformOrigin: monsterVariation.pillSide === 'left' ? 'bottom left' : 'bottom right',
+              transform: monsterVariation.pillSide === 'left' ? 'rotate(-90deg)' : 'rotate(90deg)',
+              zIndex: 10
+            }}
+          >
             <div 
-              className="px-2 py-0.5 rounded-full font-medium inline-block border font-factora"
+              className="px-2 py-0.5 rounded-full font-medium border font-factora"
               style={{
                 backgroundColor: 'transparent',
                 borderColor: categoryColors.pageBg,
                 color: categoryColors.pageBg,
-                fontSize: '12px'
+                fontSize: '12px',
+                mixBlendMode: 'difference',
+                filter: 'invert(1)',
+                whiteSpace: 'nowrap'
               }}
             >
               {question.category}
