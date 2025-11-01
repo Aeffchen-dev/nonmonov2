@@ -609,7 +609,7 @@ export function QuizCard({
             borderRadius: '50%',
             backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 85%, black)`,
             backdropFilter: 'blur(4px)',
-            opacity: 0.8,
+            opacity: 1,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
