@@ -46,13 +46,14 @@ const Switch = React.forwardRef<
         top: '1.5px',
         width: '18px',
         height: '18px',
-        backgroundColor: '#ff69b4',
+        backgroundColor: '#dfff00',
         borderRadius: '50%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-        transition: 'all 0.5s ease-in-out'
+        transition: 'all 0.5s ease-in-out',
+        filter: 'brightness(1.2)'
       }}
     >
       <svg 
