@@ -616,7 +616,7 @@ export function QuizCard({
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            backgroundColor: question.category === 'Alltagsintimität' 
+            backgroundColor: question.category.toLowerCase() === 'balance'
               ? `color-mix(in hsl, ${categoryColors.cardColor} 25%, ${categoryColors.pageBg} 75%)`
               : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
             backdropFilter: 'blur(4px)',
@@ -635,12 +635,12 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={20} color={question.category === 'Alltagsintimität'
+            <X size={20} color={question.category.toLowerCase() === 'balance'
               ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
               : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
             } />
           ) : (
-            <Pencil size={20} color={question.category === 'Alltagsintimität'
+            <Pencil size={20} color={question.category.toLowerCase() === 'balance'
               ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
               : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
             } />
