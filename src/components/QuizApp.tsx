@@ -515,13 +515,82 @@ export function QuizApp() {
   const safeIndex = hasSlides ? Math.min(currentIndex, slides.length - 1) : 0;
   const safeSlide = hasSlides ? slides[safeIndex] : undefined;
 
+  // Get current slide's colors for page background and header
+  const getCurrentColors = () => {
+    if (!safeSlide || !safeSlide.question) {
+      return { cardColor: '#ffffff', pageBg: '#000000' }; // defaults
+    }
+
+    const question = safeSlide.question;
+    let colorIndex;
+    
+    switch(question.category) {
+      case 'Körperliche Intimität':
+        colorIndex = 1;
+        break;
+      case 'Emotionale Intimität':
+        colorIndex = 2;
+        break;
+      case 'Geistige Intimität':
+        colorIndex = 4;
+        break;
+      case 'Kreative Intimität':
+        colorIndex = 3;
+        break;
+      case 'Spielerische Intimität':
+        colorIndex = 6;
+        break;
+      case 'Spirituelle Intimität':
+        colorIndex = 7;
+        break;
+      case 'Alltagsintimität':
+        colorIndex = 5;
+        break;
+      case 'Gemeinsame Abenteuer':
+        colorIndex = 8;
+        break;
+      default:
+        colorIndex = (categoryColorMap[question.category] || 0) % 11 + 1;
+    }
+    
+    const colorMap = {
+      1: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(347, 95%, 16%)' },
+      2: { cardColor: 'hsl(182, 87%, 68%)', pageBg: 'hsl(250, 95%, 17%)' },
+      3: { cardColor: 'hsl(259, 45%, 72%)', pageBg: 'hsl(0, 65%, 13%)' },
+      4: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(14, 100%, 43%)' },
+      5: { cardColor: 'hsl(289, 100%, 79%)', pageBg: 'hsl(281, 100%, 13%)' },
+      6: { cardColor: 'hsl(76, 100%, 75%)', pageBg: 'hsl(159, 100%, 13%)' },
+      7: { cardColor: 'hsl(307, 100%, 80%)', pageBg: 'hsl(23, 98%, 24%)' },
+      8: { cardColor: 'hsl(157, 100%, 87%)', pageBg: 'hsl(178, 93%, 17%)' },
+      9: { cardColor: 'hsl(157, 100%, 50%)', pageBg: 'hsl(170, 100%, 14%)' },
+      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(205, 100%, 19%)' },
+      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(187, 94%, 13%)' },
+    };
+    
+    return colorMap[colorIndex as keyof typeof colorMap] || colorMap[1];
+  };
+
+  const currentColors = getCurrentColors();
+
   return (
-    <div className="min-h-[100svh] h-[100svh] bg-background overflow-hidden flex flex-col" style={{ height: '100svh' }}>
+    <div 
+      className="min-h-[100svh] h-[100svh] overflow-hidden flex flex-col" 
+      style={{ 
+        height: '100svh',
+        backgroundColor: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : '#000000',
+        transition: 'background-color 0.3s ease-out'
+      }}
+    >
       {/* App Header with controls - Always visible */}
-      <div className="bg-black mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
+      <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div 
-          className="text-white cursor-pointer" 
-          style={{ fontFamily: 'Arial Heavy, Arial, sans-serif', fontSize: '20px', fontWeight: '950' }}
+          className="cursor-pointer" 
+          style={{ 
+            fontFamily: 'Arial Heavy, Arial, sans-serif', 
+            fontSize: '20px', 
+            fontWeight: '950',
+            color: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff'
+          }}
           onClick={handleLogoClick}
         >
           {"Intimacy".split('').map((char, index) => {
@@ -600,8 +669,11 @@ export function QuizApp() {
         </div>
         <button 
           onClick={() => setCategorySelectorOpen(true)}
-          className="text-white font-normal flex items-center"
-          style={{ fontSize: '14px' }}
+          className="font-normal flex items-center"
+          style={{ 
+            fontSize: '14px',
+            color: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff'
+          }}
         >
           Kategorien wählen
         </button>

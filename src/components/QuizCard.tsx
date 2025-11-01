@@ -119,43 +119,47 @@ export function QuizCard({
     let colorIndex;
     switch(question.category) {
       case 'Körperliche Intimität':
-        colorIndex = 1; // Cyan
+        colorIndex = 1;
         break;
       case 'Emotionale Intimität':
-        colorIndex = 2; // Teal
+        colorIndex = 2;
         break;
       case 'Geistige Intimität':
-        colorIndex = 4; // Golden
+        colorIndex = 4;
         break;
       case 'Kreative Intimität':
-        colorIndex = 3; // Pink
+        colorIndex = 3;
         break;
       case 'Spielerische Intimität':
-        colorIndex = 6; // Yellow
+        colorIndex = 6;
         break;
       case 'Spirituelle Intimität':
-        colorIndex = 7; // Mint
+        colorIndex = 7;
         break;
       case 'Alltagsintimität':
-        colorIndex = 5; // Purple
+        colorIndex = 5;
         break;
       case 'Gemeinsame Abenteuer':
-        colorIndex = 8; // Blue
+        colorIndex = 8;
         break;
       default:
-        colorIndex = (categoryIndex % 8) + 1;
+        colorIndex = (categoryIndex % 11) + 1;
     }
     
-    // CSS custom properties for the colors with proper contrast ratios
+    // Card color (first hex) for card bg, logo, header text, pill text
+    // Page bg color (second hex) for page background
     const colorVars = {
-      1: { bg: 'hsl(var(--quiz-category1-bg))', text: 'hsl(var(--quiz-category1-text))', pillBg: 'hsl(180 85% 50%)' }, // Darker for Körperliche Intimität
-      2: { bg: 'hsl(var(--quiz-category2-bg))', text: 'hsl(var(--quiz-category2-text))', pillBg: 'hsl(275 45% 65%)' }, // Darker lavender for pill
-      3: { bg: 'hsl(var(--quiz-category3-bg))', text: 'hsl(var(--quiz-category3-text))', pillBg: 'hsl(320 60% 70%)' }, // 10% darker than 80%
-      4: { bg: 'hsl(var(--quiz-category4-bg))', text: 'hsl(var(--quiz-category4-text))', pillBg: 'hsl(45 85% 65%)' }, // 10% darker than 75%
-      5: { bg: 'hsl(var(--quiz-category5-bg))', text: 'hsl(var(--quiz-category5-text))', pillBg: 'hsl(270 65% 65%)' }, // 10% darker than 75%
-      6: { bg: 'hsl(var(--quiz-category6-bg))', text: 'hsl(var(--quiz-category6-text))', pillBg: 'hsl(55 85% 65%)' }, // 5% darker for Spielerische Intimität
-      7: { bg: 'hsl(var(--quiz-category7-bg))', text: 'hsl(var(--quiz-category7-text))', pillBg: 'hsl(160 55% 65%)' }, // 10% darker than 75%
-      8: { bg: 'hsl(var(--quiz-category8-bg))', text: 'hsl(var(--quiz-category8-text))', pillBg: 'hsl(200 65% 60%)' }, // 10% darker than 70%
+      1: { cardColor: 'hsl(var(--quiz-category1-card))', pageBg: 'hsl(var(--quiz-category1-bg))' },
+      2: { cardColor: 'hsl(var(--quiz-category2-card))', pageBg: 'hsl(var(--quiz-category2-bg))' },
+      3: { cardColor: 'hsl(var(--quiz-category3-card))', pageBg: 'hsl(var(--quiz-category3-bg))' },
+      4: { cardColor: 'hsl(var(--quiz-category4-card))', pageBg: 'hsl(var(--quiz-category4-bg))' },
+      5: { cardColor: 'hsl(var(--quiz-category5-card))', pageBg: 'hsl(var(--quiz-category5-bg))' },
+      6: { cardColor: 'hsl(var(--quiz-category6-card))', pageBg: 'hsl(var(--quiz-category6-bg))' },
+      7: { cardColor: 'hsl(var(--quiz-category7-card))', pageBg: 'hsl(var(--quiz-category7-bg))' },
+      8: { cardColor: 'hsl(var(--quiz-category8-card))', pageBg: 'hsl(var(--quiz-category8-bg))' },
+      9: { cardColor: 'hsl(var(--quiz-category9-card))', pageBg: 'hsl(var(--quiz-category9-bg))' },
+      10: { cardColor: 'hsl(var(--quiz-category10-card))', pageBg: 'hsl(var(--quiz-category10-bg))' },
+      11: { cardColor: 'hsl(var(--quiz-category11-card))', pageBg: 'hsl(var(--quiz-category11-bg))' },
     };
     
     return colorVars[colorIndex as keyof typeof colorVars] || colorVars[1];
@@ -255,8 +259,8 @@ export function QuizCard({
       style={{
         height: '100%',
         maxHeight: '100%',
-        backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.bg : 'hsl(var(--card-background))',
-        color: question.category.toLowerCase() !== 'intro' ? categoryColors.text : 'hsl(var(--foreground))'
+        backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
+        color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -285,10 +289,11 @@ export function QuizCard({
         {question.category.toLowerCase() !== 'intro' && (
           <div className="mb-4">
             <div 
-              className="px-4 py-2 rounded-full font-medium inline-block"
+              className="px-4 py-2 rounded-full font-medium inline-block border-2"
               style={{
-                backgroundColor: categoryColors.pillBg,
-                color: categoryColors.text,
+                backgroundColor: 'transparent',
+                borderColor: categoryColors.pageBg,
+                color: categoryColors.pageBg,
                 fontSize: '12px'
               }}
             >
@@ -305,7 +310,7 @@ export function QuizCard({
               fontFamily: 'Kokoro, serif',
               fontWeight: 'bold',
               fontStyle: 'italic',
-              color: question.category.toLowerCase() !== 'intro' ? categoryColors.text : 'hsl(var(--foreground))'
+              color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
             }}
           >
             {processedText.length > 0 ? processedText : question.question}
