@@ -553,7 +553,7 @@ export function QuizCard({
                 whiteSpace: 'nowrap',
                 mixBlendMode: 'difference',
                 opacity: 0.8,
-                backdropFilter: 'blur(8px)'
+                filter: 'blur(8px)'
               }}
             >
               {question.category}
