@@ -125,16 +125,10 @@ export function CategorySelector({
             0% {
               transform: scale(1);
             }
-            20% {
-              transform: scale(1.7);
-            }
-            40% {
-              transform: scale(0.9);
+            30% {
+              transform: scale(1.3);
             }
             60% {
-              transform: scale(1.25);
-            }
-            80% {
               transform: scale(0.95);
             }
             100% {
@@ -158,21 +152,11 @@ export function CategorySelector({
           @keyframes checkmarkAppear {
             0% {
               opacity: 0;
-              transform: scale(0.5);
+              transform: scale(0.8);
             }
             100% {
               opacity: 1;
               transform: scale(1);
-            }
-          }
-          @keyframes ripple {
-            0% {
-              transform: scale(1);
-              opacity: 1;
-            }
-            100% {
-              transform: scale(2);
-              opacity: 0;
             }
           }
         `}
@@ -217,7 +201,7 @@ export function CategorySelector({
                     paddingTop: '8px',
                     paddingBottom: '8px',
                     width: isSelected ? '100%' : '90%',
-                    animation: isSelected ? 'widthBounceTwice 0.5s ease-in-out forwards' : 'none',
+                    animation: isSelected ? 'widthBounceTwice 0.3s ease-in-out forwards' : 'none',
                     transition: !isSelected ? 'width 0.2s ease-in-out' : 'none'
                   }}
                   onClick={() => handleCategoryToggle(category)}
@@ -239,7 +223,7 @@ export function CategorySelector({
                       width: isSelected ? '100%' : '48px',
                       animation: isSelected ? 'none' : 'none',
                       transition: isSelected 
-                        ? 'width 0.5s ease-in-out'
+                        ? 'width 0.3s ease-in-out'
                         : 'width 0.2s ease-in-out',
                       zIndex: 1
                     }}
@@ -249,7 +233,7 @@ export function CategorySelector({
                     color: isSelected ? textColor : 'white', 
                     fontSize: '14px', 
                     transition: isSelected 
-                      ? 'color 0.5s ease-in-out'
+                      ? 'color 0.3s ease-in-out'
                       : 'color 0.2s ease-in-out'
                   }}>
                     {category}
@@ -282,9 +266,9 @@ export function CategorySelector({
                           height: '32px',
                           border: isSelected ? `1px solid black` : `2px solid white`,
                           backgroundColor: isSelected ? 'black' : 'transparent',
-                          animation: isSelected ? 'checkboxPopBounce 0.5s ease-in-out' : 'none',
+                          animation: isSelected ? 'checkboxPopBounce 0.3s ease-in-out' : 'none',
                           transition: isSelected 
-                            ? 'background-color 0.15s ease-in-out 0.1s'
+                            ? 'background-color 0.15s ease-in-out 0.05s'
                             : 'background-color 0.2s ease-in-out, border 0.2s ease-in-out'
                         }}
                       >
@@ -296,7 +280,7 @@ export function CategorySelector({
                             fill="none"
                             style={{ 
                               color: 'white',
-                              animation: 'checkmarkAppear 0.2s ease-in-out 0.1s both'
+                              animation: 'checkmarkAppear 0.15s ease-in-out 0.09s both'
                             }}
                           >
                             <path
