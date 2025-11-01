@@ -547,10 +547,11 @@ export function QuizCard({
                 backgroundColor: 'transparent',
                 borderColor: categoryColors.pageBg,
                 fontSize: '12px',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                mixBlendMode: 'difference'
               }}
             >
-              <span style={{ mixBlendMode: 'difference', color: categoryColors.pageBg }}>
+              <span style={{ color: categoryColors.pageBg }}>
                 {question.category}
               </span>
             </div>
