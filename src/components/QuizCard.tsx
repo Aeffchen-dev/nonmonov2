@@ -39,7 +39,7 @@ function Eye({
           backgroundColor: 'black',
           borderRadius: '50%',
           transform: `translate(${pupilOffset.x}px, ${pupilOffset.y}px)`,
-          transition: 'transform 0.8s ease-in-out'
+          transition: 'transform 0.3s ease-out' // Faster transition from 0.8s to 0.3s
         }}
       />
     </div>
@@ -167,10 +167,10 @@ export function QuizCard({
     });
   }, [question.question]);
 
-  // Synchronized pupil movement for both eyes
+  // Synchronized pupil movement for both eyes - more frequent and bigger movement
   useEffect(() => {
     const movePupil = () => {
-      const maxOffset = 4 * monsterVariation.pupilMovementFactor;
+      const maxOffset = 7 * monsterVariation.pupilMovementFactor; // Increased from 4 to 7
       const randomX = (Math.random() - 0.5) * 2 * maxOffset;
       const randomY = (Math.random() - 0.5) * 2 * maxOffset;
       setPupilOffset({ x: randomX, y: randomY });
@@ -179,7 +179,7 @@ export function QuizCard({
     movePupil();
 
     const scheduleNextMove = () => {
-      const delay = 10000 + Math.random() * 10000;
+      const delay = 1500 + Math.random() * 2500; // Changed from 10-20s to 1.5-4s
       return setTimeout(() => {
         movePupil();
         scheduleNextMove();
