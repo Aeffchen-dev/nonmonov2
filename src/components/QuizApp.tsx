@@ -660,12 +660,12 @@ export function QuizApp() {
       </div>
 
       {/* Main Quiz Container with multi-slide carousel */}
-      <div className="flex-1 flex flex-col px-4 overflow-hidden mt-4 gap-3" style={{ minHeight: 0 }}>
-        <div className="flex-1 flex items-stretch justify-center min-h-0 relative">
+      <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
+        <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
             <div className="flex items-center justify-center h-full text-white" style={{ fontSize: '14px' }}>Lade Fragen...</div>
           ) : hasSlides ? (
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
               {/* Render current slide and adjacent slides for transitions */}
               {slides.map((slide, index) => {
                 const isActive = index === safeIndex;
