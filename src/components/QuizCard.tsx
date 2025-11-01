@@ -524,7 +524,7 @@ export function QuizCard({
       />
 
       {/* Main Content */}
-      <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative z-10`}>
+      <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative`}>
         
         {/* Category Pill - Positioned at bottom corner opposite to monster, rotated -90deg */}
         {question.category.toLowerCase() !== 'intro' && (
@@ -551,7 +551,7 @@ export function QuizCard({
                 color: categoryColors.pageBg,
                 fontSize: '12px',
                 whiteSpace: 'nowrap',
-                mixBlendMode: 'exclusion'
+                mixBlendMode: 'difference'
               }}
             >
               {question.category}
