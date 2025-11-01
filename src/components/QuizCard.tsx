@@ -657,6 +657,19 @@ export function QuizCard({
           
           {isEditing && (
             <style>{`
+              @keyframes fadeIn {
+                from {
+                  opacity: 0;
+                  transform: translateY(10px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+              .edit-textarea-container {
+                animation: fadeIn 250ms ease-in-out;
+              }
               .edit-textarea {
                 transition: all 250ms ease-in-out;
               }
@@ -673,7 +686,7 @@ export function QuizCard({
             `}</style>
           )}
           {isEditing && (
-            <div className="flex-1 relative mt-4 w-full">
+            <div className="flex-1 relative mt-4 w-full edit-textarea-container">
               <Textarea
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
