@@ -46,7 +46,6 @@ All colors MUST be HSL.
     --quiz-category-text: 0 0% 15%;
     --quiz-background: 0 0% 7%;
     --quiz-surface: 0 0% 12%;
-    --brand-neon: 55 100% 50%;
     
     /* Category color pairs: card color (first) + page background (second) */
     /* Pair 1: #FF9DC6 + darker red */
@@ -175,7 +174,6 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --brand-neon: 55 100% 50%;
   }
 }
 

@@ -98,8 +98,8 @@ export function QuizCard({
     pillSide: 'left' as 'left' | 'right'
   });
   
+  // Right pill dynamic positioning based on text length
   const [rightPillExtraBottom, setRightPillExtraBottom] = useState(0);
-  const [pillHeight, setPillHeight] = useState(0);
   const pillInnerRef = useRef<HTMLDivElement>(null);
   
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -283,7 +283,7 @@ export function QuizCard({
     };
   }, [question.question]);
 
-  // Adjust pill positioning based on its dimensions
+  // Adjust right pill vertical position dynamically based on its text length
   useEffect(() => {
     if (question.category.toLowerCase() === 'intro') return;
     const el = pillInnerRef.current;
@@ -292,7 +292,6 @@ export function QuizCard({
       const rect = el.getBoundingClientRect();
       const extra = Math.max(0, rect.width - rect.height);
       setRightPillExtraBottom(extra);
-      setPillHeight(rect.height);
     };
     measure();
     window.addEventListener('resize', measure);
@@ -532,12 +531,11 @@ export function QuizCard({
             style={{
               position: 'absolute',
               bottom: '2rem',
-              ...(monsterVariation.pillSide === 'right' 
-                ? { right: `calc(2rem - 20px - ${pillHeight}px)` }
-                : { left: 'calc(2rem + 20px)' }
-              ),
+              left: monsterVariation.circleOffsetX < 0 ? 'auto' : 'calc(2rem + 20px)',
+              right: monsterVariation.circleOffsetX < 0 ? 'calc(2rem + 20px)' : 'auto',
+              transformOrigin: 'bottom left',
               transform: 'rotate(-90deg)',
-              zIndex: 100
+              zIndex: 30
             }}
           >
             <div 
@@ -546,14 +544,13 @@ export function QuizCard({
               style={{
                 backgroundColor: 'transparent',
                 borderColor: categoryColors.pageBg,
+                color: categoryColors.pageBg,
                 fontSize: '12px',
-                whiteSpace: 'nowrap',
-                mixBlendMode: 'difference'
+                mixBlendMode: 'difference',
+                whiteSpace: 'nowrap'
               }}
             >
-              <span style={{ color: categoryColors.pageBg }}>
-                {question.category}
-              </span>
+              {question.category}
             </div>
           </div>
         )}
