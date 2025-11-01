@@ -526,7 +526,6 @@ export function QuizCard({
                 color: categoryColors.pageBg,
                 fontSize: '12px',
                 mixBlendMode: 'difference',
-                filter: 'invert(1)',
                 whiteSpace: 'nowrap'
               }}
             >
