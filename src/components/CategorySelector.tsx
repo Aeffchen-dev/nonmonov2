@@ -152,22 +152,41 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between cursor-pointer rounded-full"
+                  className="flex items-center justify-between cursor-pointer rounded-full relative overflow-hidden transition-all duration-300"
                   style={{ 
-                    backgroundColor: colors.cardColor,
                     paddingLeft: '32px',
                     paddingRight: '8px',
                     paddingTop: '8px',
-                    paddingBottom: '8px'
+                    paddingBottom: '8px',
+                    width: isSelected ? '100%' : '90%'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  <span className="font-factora font-normal tracking-wide opacity-100" style={{ color: textColor, fontSize: '14px' }}>
+                  {/* Dark grey background */}
+                  <div 
+                    className="absolute inset-0 rounded-full"
+                    style={{ 
+                      backgroundColor: '#333333',
+                      zIndex: 0
+                    }}
+                  />
+                  
+                  {/* Colored background that slides in/out */}
+                  <div 
+                    className="absolute inset-0 rounded-full transition-transform duration-300"
+                    style={{ 
+                      backgroundColor: colors.cardColor,
+                      transform: isSelected ? 'translateX(0%)' : 'translateX(-100%)',
+                      zIndex: 1
+                    }}
+                  />
+                  
+                  <span className="font-factora font-normal tracking-wide opacity-100 relative z-10" style={{ color: textColor, fontSize: '14px' }}>
                     {category}
                   </span>
                   <div onClick={(e) => e.stopPropagation()}>
                     <div
-                      className="relative cursor-pointer opacity-100"
+                      className="relative cursor-pointer opacity-100 z-10"
                       onClick={() => {
                         const newCategories = isSelected 
                           ? tempSelection.filter(c => c !== category)
@@ -180,7 +199,7 @@ export function CategorySelector({
                         style={{ 
                           width: '32px', 
                           height: '32px',
-                          border: `1px solid black`,
+                          border: isSelected ? `1px solid black` : `2px solid black`,
                           backgroundColor: isSelected ? 'black' : 'transparent'
                         }}
                       >
