@@ -595,7 +595,7 @@ export function QuizCard({
               fontSize: '12px',
               whiteSpace: 'nowrap',
               mixBlendMode: 'difference',
-              opacity: 0.8
+              opacity: 1
             }}
           >
             {question.category}
