@@ -671,8 +671,10 @@ export function QuizApp() {
                 const isActive = index === safeIndex;
                 const isPrev = index === safeIndex - 1;
                 const isNext = index === safeIndex + 1;
+                const isPrev2 = index === safeIndex - 2;
+                const isNext2 = index === safeIndex + 2;
                 
-                if (!isActive && !isPrev && !isNext) return null;
+                if (!isActive && !isPrev && !isNext && !isPrev2 && !isNext2) return null;
                 
                 let transform = '';
                 let zIndex = 1;
@@ -717,6 +719,12 @@ export function QuizApp() {
                   } else {
                     transform = 'translateX(calc(100% + 16px)) scale(0.8) rotate(0deg)';
                   }
+                } else if (isPrev2) {
+                  // Two slides back positioning - hidden but in DOM
+                  transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
+                } else if (isNext2) {
+                  // Two slides forward positioning - hidden but in DOM
+                  transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
                 }
                 
                 return (
