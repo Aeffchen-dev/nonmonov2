@@ -531,8 +531,7 @@ export function QuizCard({
             style={{
               position: 'absolute',
               bottom: '2rem',
-              left: monsterVariation.circleOffsetX < 0 ? 'auto' : 'calc(2rem + 20px)',
-              right: monsterVariation.circleOffsetX < 0 ? 'calc(2rem + 20px)' : 'auto',
+              left: 'calc(2rem + 20px)',
               transformOrigin: 'bottom left',
               transform: 'rotate(-90deg)',
               zIndex: 30
