@@ -590,7 +590,7 @@ export function QuizCard({
               backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, transparent)`,
               backdropFilter: 'blur(4px)',
               borderColor: categoryColors.pageBg,
-              borderWidth: '1px',
+              borderWidth: '2px',
               color: categoryColors.pageBg,
               fontSize: '12px',
               whiteSpace: 'nowrap',
