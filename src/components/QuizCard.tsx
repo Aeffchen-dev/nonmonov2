@@ -1,62 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Eye component with blinking and random pupil movement
-function Eye({ categoryColors, eyeId }: { categoryColors: { cardColor: string; pageBg: string }, eyeId: string }) {
-  const [pupilOffset, setPupilOffset] = useState({ x: 0, y: 0 });
-  const [isBlinking, setIsBlinking] = useState(false);
-
-  // Random pupil movement every 10-20s
-  useEffect(() => {
-    const movePupil = () => {
-      const maxOffset = 4; // Maximum pixels the pupil can move
-      const randomX = (Math.random() - 0.5) * 2 * maxOffset;
-      const randomY = (Math.random() - 0.5) * 2 * maxOffset;
-      setPupilOffset({ x: randomX, y: randomY });
-    };
-
-    // Initial movement
-    movePupil();
-
-    // Set random interval between 10-20s
-    const scheduleNextMove = () => {
-      const delay = 10000 + Math.random() * 10000; // 10-20 seconds
-      return setTimeout(() => {
-        movePupil();
-        scheduleNextMove();
-      }, delay);
-    };
-
-    const timeoutId = scheduleNextMove();
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  // Random blinking
-  useEffect(() => {
-    const blink = () => {
-      setIsBlinking(true);
-      setTimeout(() => setIsBlinking(false), 150); // Blink duration
-    };
-
-    // Initial blink after random delay
-    const initialDelay = 2000 + Math.random() * 3000;
-    const initialTimeout = setTimeout(blink, initialDelay);
-
-    // Set random interval for blinking (3-8s)
-    const scheduleNextBlink = () => {
-      const delay = 3000 + Math.random() * 5000;
-      return setTimeout(() => {
-        blink();
-        scheduleNextBlink();
-      }, delay);
-    };
-
-    const timeoutId = scheduleNextBlink();
-    return () => {
-      clearTimeout(initialTimeout);
-      clearTimeout(timeoutId);
-    };
-  }, []);
+// Eye component with synchronized blinking and pupil movement
+function Eye({ 
+  categoryColors, 
+  pupilOffset, 
+  isBlinking 
+}: { 
+  categoryColors: { cardColor: string; pageBg: string }, 
+  pupilOffset: { x: number, y: number },
+  isBlinking: boolean
+}) {
 
   return (
     <div
@@ -126,11 +80,61 @@ export function QuizCard({
   const [mouseEnd, setMouseEnd] = useState<number | null>(null);
   const [isLocalDragging, setIsLocalDragging] = useState(false);
   const [processedText, setProcessedText] = useState<JSX.Element[]>([]);
+  const [pupilOffset, setPupilOffset] = useState({ x: 0, y: 0 });
+  const [isBlinking, setIsBlinking] = useState(false);
   
   const textRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const minSwipeDistance = 50;
+
+  // Synchronized pupil movement for both eyes
+  useEffect(() => {
+    const movePupil = () => {
+      const maxOffset = 4;
+      const randomX = (Math.random() - 0.5) * 2 * maxOffset;
+      const randomY = (Math.random() - 0.5) * 2 * maxOffset;
+      setPupilOffset({ x: randomX, y: randomY });
+    };
+
+    movePupil();
+
+    const scheduleNextMove = () => {
+      const delay = 10000 + Math.random() * 10000;
+      return setTimeout(() => {
+        movePupil();
+        scheduleNextMove();
+      }, delay);
+    };
+
+    const timeoutId = scheduleNextMove();
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  // Synchronized blinking for both eyes - less frequent
+  useEffect(() => {
+    const blink = () => {
+      setIsBlinking(true);
+      setTimeout(() => setIsBlinking(false), 150);
+    };
+
+    const initialDelay = 5000 + Math.random() * 5000;
+    const initialTimeout = setTimeout(blink, initialDelay);
+
+    const scheduleNextBlink = () => {
+      const delay = 8000 + Math.random() * 12000; // 8-20 seconds for less frequent blinking
+      return setTimeout(() => {
+        blink();
+        scheduleNextBlink();
+      }, delay);
+    };
+
+    const timeoutId = scheduleNextBlink();
+    return () => {
+      clearTimeout(initialTimeout);
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   // Process text to handle long words individually and preserve line breaks
   useEffect(() => {
@@ -388,9 +392,9 @@ export function QuizCard({
             }}
           >
             {/* Left Eye */}
-            <Eye categoryColors={categoryColors} eyeId="left" />
+            <Eye categoryColors={categoryColors} pupilOffset={pupilOffset} isBlinking={isBlinking} />
             {/* Right Eye */}
-            <Eye categoryColors={categoryColors} eyeId="right" />
+            <Eye categoryColors={categoryColors} pupilOffset={pupilOffset} isBlinking={isBlinking} />
           </div>
         </div>
       )}
