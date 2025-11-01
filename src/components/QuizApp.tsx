@@ -648,6 +648,37 @@ export function QuizApp() {
     return interpolateHSL(currentBg, targetBg, dragProgress);
   };
 
+  // Calculate interpolated card color for header based on drag
+  const getInterpolatedCardColor = () => {
+    if (!isDragging || !hasSlides) {
+      const colors = getCurrentColors();
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.cardColor : '#ffffff';
+    }
+
+    // Calculate drag progress (0 to 1)
+    const screenWidth = window.innerWidth;
+    const dragProgress = Math.min(Math.abs(dragOffset) / screenWidth, 1);
+
+    const currentColors = getColorsForSlide(currentIndex);
+    let targetColors;
+    
+    if (dragOffset < 0 && currentIndex < slides.length - 1) {
+      // Swiping left (next slide)
+      targetColors = getColorsForSlide(currentIndex + 1);
+    } else if (dragOffset > 0 && currentIndex > 0) {
+      // Swiping right (prev slide)
+      targetColors = getColorsForSlide(currentIndex - 1);
+    } else {
+      // No valid target, stay at current
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff';
+    }
+
+    const currentCard = safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff';
+    const targetCard = targetColors.cardColor;
+
+    return interpolateHSL(currentCard, targetCard, dragProgress);
+  };
+
   const currentColors = getCurrentColors();
 
   return (
@@ -666,7 +697,7 @@ export function QuizApp() {
           style={{ 
             fontSize: '22px', 
             fontWeight: '700',
-            color: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff',
+            color: getInterpolatedCardColor(),
             letterSpacing: '0.02em'
           }}
           onClick={handleLogoClick}
@@ -733,7 +764,7 @@ export function QuizApp() {
           className="font-factora font-medium flex items-center"
           style={{ 
             fontSize: '14px',
-            color: safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.cardColor : '#ffffff'
+            color: getInterpolatedCardColor()
           }}
         >
           Kategorien
