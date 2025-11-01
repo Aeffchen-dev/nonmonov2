@@ -509,7 +509,8 @@ export function QuizCard({
             borderRadius: '50%',
             backgroundColor: categoryColors.pageBg,
             pointerEvents: 'none',
-            zIndex: 10
+            zIndex: 10,
+            transition: 'all 0.3s ease'
           }}
         >
           {/* Eyes container - centered vertically in visible monster portion */}
