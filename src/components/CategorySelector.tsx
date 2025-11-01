@@ -235,11 +235,6 @@ export function CategorySelector({
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                style={{
-                                  strokeDasharray: '20',
-                                  strokeDashoffset: '20',
-                                  animation: 'drawCheckmark 0.2s ease-out forwards'
-                                }}
                               />
                             </svg>
                             
@@ -249,14 +244,15 @@ export function CategorySelector({
                                 key={i}
                                 className="absolute"
                                 style={{
-                                  width: '4px',
-                                  height: '4px',
+                                  width: '8px',
+                                  height: '8px',
                                   backgroundColor: 'white',
                                   borderRadius: '50%',
-                                  top: i === 0 ? '-4px' : i === 1 ? '36px' : '50%',
-                                  left: i === 2 ? '-4px' : i === 3 ? '36px' : '50%',
-                                  animation: `sparkle 0.6s ease-out ${i * 0.1}s`,
-                                  opacity: 0
+                                  top: i === 0 ? '-8px' : i === 1 ? '32px' : '50%',
+                                  left: i === 2 ? '-8px' : i === 3 ? '32px' : '50%',
+                                  animation: `sparkle 0.5s ease-out ${i * 0.05}s`,
+                                  opacity: 0,
+                                  boxShadow: '0 0 4px white'
                                 }}
                               />
                             ))}
