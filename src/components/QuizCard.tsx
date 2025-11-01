@@ -89,11 +89,10 @@ export function QuizCard({
     circleSize: 120,
     circleWidth: 120,
     circleHeight: 120,
+    circleOffsetX: 0,
     eyeShift: { x: 0, y: 0 },
-    leftEyeWidth: 30,
-    leftEyeHeight: 30,
-    rightEyeWidth: 30,
-    rightEyeHeight: 30,
+    eyeWidth: 30,
+    eyeHeight: 30,
     pupilSize: 12,
     pupilMovementFactor: 1
   });
@@ -120,6 +119,14 @@ export function QuizCard({
     const sizeVariation = random(hash) * 0.2;
     const baseSize = 120 * (1 - sizeVariation);
     
+    // Calculate horizontal offset when circle is smaller
+    // If smaller, move it left or right to overflow by 10%
+    let circleOffsetX = 0;
+    if (sizeVariation > 0.05) { // Only offset if noticeably smaller
+      const offsetDirection = random(hash + 11) > 0.5 ? 1 : -1; // Left or right
+      circleOffsetX = offsetDirection * (baseSize * 0.1); // 10% overflow
+    }
+    
     // Ellipse squeezing (up to 20% factor)
     const ellipseFactor = random(hash + 1) * 0.2;
     const isWidthSquished = random(hash + 2) > 0.5;
@@ -128,11 +135,9 @@ export function QuizCard({
     const eyeShiftX = (random(hash + 3) - 0.5) * 2 * 0.05 * 100; // +-5% in pixels
     const eyeShiftY = (random(hash + 4) - 0.5) * 2 * 0.05 * 30;
     
-    // Eye shape variations (sometimes ellipse)
-    const leftEyeIsEllipse = random(hash + 5) > 0.6;
-    const rightEyeIsEllipse = random(hash + 6) > 0.6;
-    const leftEyeStretch = leftEyeIsEllipse ? (random(hash + 7) > 0.5 ? 1.5 : 0.7) : 1;
-    const rightEyeStretch = rightEyeIsEllipse ? (random(hash + 8) > 0.5 ? 1.5 : 0.7) : 1;
+    // Eye shape variations (both eyes same shape)
+    const eyeIsEllipse = random(hash + 5) > 0.6;
+    const eyeStretch = eyeIsEllipse ? (random(hash + 7) > 0.5 ? 1.5 : 0.7) : 1;
     
     // Pupil size variation (+-20%)
     const pupilSizeVariation = (random(hash + 9) - 0.5) * 2 * 0.2;
@@ -145,11 +150,10 @@ export function QuizCard({
       circleSize: baseSize,
       circleWidth: baseSize * (isWidthSquished ? (1 - ellipseFactor) : (1 + ellipseFactor)),
       circleHeight: baseSize * (isWidthSquished ? (1 + ellipseFactor) : (1 - ellipseFactor)),
+      circleOffsetX: circleOffsetX,
       eyeShift: { x: eyeShiftX, y: eyeShiftY },
-      leftEyeWidth: 30 * leftEyeStretch,
-      leftEyeHeight: 30 / leftEyeStretch,
-      rightEyeWidth: 30 * rightEyeStretch,
-      rightEyeHeight: 30 / rightEyeStretch,
+      eyeWidth: 30 * eyeStretch,
+      eyeHeight: 30 / eyeStretch,
       pupilSize: pupilSize,
       pupilMovementFactor: pupilMovementFactor
     });
@@ -439,7 +443,7 @@ export function QuizCard({
           style={{
             position: 'absolute',
             bottom: '-40%',
-            left: '50%',
+            left: `calc(50% + ${monsterVariation.circleOffsetX}%)`,
             transform: 'translateX(-50%)',
             width: `${monsterVariation.circleWidth}%`,
             height: `${monsterVariation.circleHeight}%`,
@@ -467,8 +471,8 @@ export function QuizCard({
               pupilOffset={pupilOffset} 
               isBlinking={isBlinking}
               eyeVariation={{
-                width: `${monsterVariation.leftEyeWidth}px`,
-                height: `${monsterVariation.leftEyeHeight}px`,
+                width: `${monsterVariation.eyeWidth}px`,
+                height: `${monsterVariation.eyeHeight}px`,
                 pupilSize: `${monsterVariation.pupilSize}px`
               }}
             />
@@ -478,8 +482,8 @@ export function QuizCard({
               pupilOffset={pupilOffset} 
               isBlinking={isBlinking}
               eyeVariation={{
-                width: `${monsterVariation.rightEyeWidth}px`,
-                height: `${monsterVariation.rightEyeHeight}px`,
+                width: `${monsterVariation.eyeWidth}px`,
+                height: `${monsterVariation.eyeHeight}px`,
                 pupilSize: `${monsterVariation.pupilSize}px`
               }}
             />
