@@ -328,6 +328,25 @@ export function CategorySelector({
               })}
             </div>
           </ScrollArea>
+
+          {/* Delete entries button */}
+          <div className="flex items-center justify-center px-4 pb-4 pt-2 shrink-0">
+            <button
+              onClick={() => {
+                // Clear all cookies
+                document.cookie.split(";").forEach((c) => {
+                  document.cookie = c
+                    .replace(/^ +/, "")
+                    .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                });
+                window.location.reload();
+              }}
+              className="text-white font-factora font-normal hover:opacity-70 transition-opacity"
+              style={{ fontSize: '18px' }}
+            >
+              <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>M</span>eine Einträge löschen
+            </button>
+          </div>
         </div>
       </DialogContent>
       </DialogPortal>
