@@ -235,7 +235,7 @@ export function CategorySelector({
                    <div 
                      className="absolute inset-y-0 left-0 rounded-full"
                      style={{ 
-                       background: `linear-gradient(to right, ${darkenColor(colors.pageBg, 0.9)}, ${colors.cardColor})`,
+                       background: `linear-gradient(to right, ${lightenColor(colors.pageBg, 1.2)}, ${colors.cardColor})`,
                        backdropFilter: 'blur(8px)',
                        WebkitBackdropFilter: 'blur(8px)',
                        width: isSelected ? '100%' : '48px',
