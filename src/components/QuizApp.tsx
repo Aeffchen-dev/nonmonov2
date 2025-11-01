@@ -557,7 +557,7 @@ export function QuizApp() {
       1: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(347, 95%, 16%)' },
       2: { cardColor: 'hsl(182, 87%, 68%)', pageBg: 'hsl(250, 95%, 17%)' },
       3: { cardColor: 'hsl(259, 45%, 72%)', pageBg: 'hsl(0, 65%, 13%)' },
-      4: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(14, 100%, 43%)' },
+      4: { cardColor: 'hsl(335, 100%, 90%)', pageBg: 'hsl(14, 100%, 43%)' },
       5: { cardColor: 'hsl(289, 100%, 79%)', pageBg: 'hsl(281, 100%, 13%)' },
       6: { cardColor: 'hsl(76, 100%, 75%)', pageBg: 'hsl(159, 100%, 13%)' },
       7: { cardColor: 'hsl(307, 100%, 80%)', pageBg: 'hsl(23, 98%, 24%)' },
@@ -592,8 +592,8 @@ export function QuizApp() {
           }}
           onClick={handleLogoClick}
         >
-          {"Intimacy".split('').map((char, index) => {
-            const rotations = [3, -2, 4, -3, 2, -4, 3, -1];
+          {"Journaling".split('').map((char, index) => {
+            const rotations = [3, -2, 4, -3, 2, -4, 3, -1, 2, -3];
             const isAnimating = animatingLetterIndex === index;
             const isEven = index % 2 === 0;
             const translateY = isAnimating ? (isEven ? '-3px' : '3px') : '0px';
@@ -603,31 +603,11 @@ export function QuizApp() {
                 style={{ 
                   display: 'inline-block',
                   transform: `rotate(${rotations[index]}deg) translateY(${translateY})`,
-                  transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }}
-              >
-                {char}
-              </span>
-            );
-          })}
-          <span style={{ marginLeft: '7px' }}></span>
-          {"Playbook".split('').map((char, index) => {
-            const rotations = [-2, 3, -1, 4, -3, 2, -4, 1];
-            const letterIndex = index + 8; // Continue counting from Intimacy letters
-            const isAnimating = animatingLetterIndex === letterIndex;
-            const isEven = letterIndex % 2 === 0;
-            const translateY = isAnimating ? (isEven ? '-3px' : '3px') : '0px';
-            return (
-              <span 
-                key={index + 100} 
-                style={{ 
-                  display: 'inline-block',
-                  transform: `rotate(${rotations[index]}deg) translateY(${translateY})`,
                   position: 'relative',
                   transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                 }}
               >
-                {char === 'o' && index === 6 ? (
+                {char === 'o' && index === 1 ? (
                   <div 
                     style={{
                       display: 'inline-block',

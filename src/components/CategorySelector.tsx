@@ -62,7 +62,7 @@ export function CategorySelector({
       1: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(347, 95%, 16%)' },
       2: { cardColor: 'hsl(182, 87%, 68%)', pageBg: 'hsl(250, 95%, 17%)' },
       3: { cardColor: 'hsl(259, 45%, 72%)', pageBg: 'hsl(0, 65%, 13%)' },
-      4: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(14, 100%, 43%)' },
+      4: { cardColor: 'hsl(335, 100%, 90%)', pageBg: 'hsl(14, 100%, 43%)' },
       5: { cardColor: 'hsl(289, 100%, 79%)', pageBg: 'hsl(281, 100%, 13%)' },
       6: { cardColor: 'hsl(76, 100%, 75%)', pageBg: 'hsl(159, 100%, 13%)' },
       7: { cardColor: 'hsl(307, 100%, 80%)', pageBg: 'hsl(23, 98%, 24%)' },

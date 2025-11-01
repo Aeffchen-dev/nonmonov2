@@ -57,8 +57,8 @@ All colors MUST be HSL.
     /* Pair 3: #AD99D8 + #380C0C */
     --quiz-category3-card: 259 45% 72%;
     --quiz-category3-bg: 0 65% 13%;
-    /* Pair 4: #FF9DC6 + #D93300 */
-    --quiz-category4-card: 335 100% 81%;
+    /* Pair 4: Light Pink + #D93300 (Geistige Intimität) */
+    --quiz-category4-card: 335 100% 90%;
     --quiz-category4-bg: 14 100% 43%;
     /* Pair 5: #EC94FF + #2C0041 */
     --quiz-category5-card: 289 100% 79%;
