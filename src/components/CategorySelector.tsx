@@ -231,7 +231,7 @@ export function CategorySelector({
                        ? 'color 0.3s ease-in-out'
                        : 'color 0.2s ease-in-out'
                    }}>
-                     <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>{category.charAt(0)}</span>{category.slice(1)}
+                     {category}
                    </span>
                   <div onClick={(e) => e.stopPropagation()}>
                     <div
