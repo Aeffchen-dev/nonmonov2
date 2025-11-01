@@ -616,30 +616,11 @@ export function QuizApp() {
                       height: '15px',
                       backgroundColor: 'hsl(var(--brand-neon))',
                       borderRadius: '50%',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
                       position: 'relative',
                       transform: `translateY(2px) rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (logoSmileyRotating ? '360deg' : '0deg')})`,
                       transition: 'transform 0.8s ease-in-out'
                     }}
-                  >
-                    <div style={{ display: 'flex', gap: '2px', position: 'absolute', top: '4.5px', left: '50%', transform: 'translateX(-50%)' }}>
-                      <div style={{ width: '2px', height: '2px', backgroundColor: 'black', borderRadius: '50%' }}></div>
-                      <div style={{ width: '2px', height: '2px', backgroundColor: 'black', borderRadius: '50%' }}></div>
-                    </div>
-                    <div style={{ 
-                      width: '6px', 
-                      height: '2.5px', 
-                      border: '1px solid black', 
-                      borderTop: 'none',
-                      borderRadius: '0 0 6px 6px',
-                      position: 'absolute',
-                      top: '8.5px',
-                      left: '50%',
-                      transform: 'translateX(-50%)'
-                    }}></div>
-                  </div>
+                  />
                 ) : (
                   char
                 )}

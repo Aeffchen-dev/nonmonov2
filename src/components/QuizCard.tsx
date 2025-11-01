@@ -537,8 +537,7 @@ export function QuizCard({
                 : { left: 'calc(2rem + 20px)' }
               ),
               transform: 'rotate(-90deg)',
-              zIndex: 100,
-              isolation: 'isolate'
+              zIndex: 100
             }}
           >
             <div 
