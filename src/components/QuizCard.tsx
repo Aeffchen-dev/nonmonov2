@@ -569,7 +569,7 @@ export function QuizCard({
               color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
             }}
           >
-            <span style={{ fontFeatureSettings: '"ss01"' }}>
+            <span style={{ fontFeatureSettings: '"ss01" 1' }}>
               {question.question.charAt(0)}
             </span>
             <span>
