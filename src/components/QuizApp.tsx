@@ -748,7 +748,7 @@ export function QuizApp() {
                       display: 'inline-block',
                       width: '16.5px',
                       height: '16.5px',
-                      backgroundColor: 'white',
+                      backgroundColor: getInterpolatedCardColor(),
                       borderRadius: '50%',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -772,20 +772,20 @@ export function QuizApp() {
                       <div style={{ 
                         width: '2.2px', 
                         height: '2.2px', 
-                        backgroundColor: 'black', 
+                        backgroundColor: getInterpolatedBgColor(), 
                         borderRadius: '50%'
                       }}></div>
                       <div style={{ 
                         width: '2.2px', 
                         height: '2.2px', 
-                        backgroundColor: 'black', 
+                        backgroundColor: getInterpolatedBgColor(), 
                         borderRadius: '50%'
                       }}></div>
                     </div>
                     <div style={{ 
                       width: '6.6px', 
                       height: '2.75px', 
-                      border: '1px solid black', 
+                      border: `1px solid ${getInterpolatedBgColor()}`, 
                       borderTop: 'none',
                       borderRadius: '0 0 6.6px 6.6px',
                       position: 'absolute',
