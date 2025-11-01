@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Pencil } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pencil, X } from 'lucide-react';
 import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 
@@ -501,7 +501,7 @@ export function QuizCard({
         <div
           style={{
             position: 'absolute',
-            top: '85%',
+            top: isEditing ? '120%' : '85%',
             left: `calc(50% + ${monsterVariation.circleOffsetX}%)`,
             transform: 'translateX(-50%)',
             width: `${monsterVariation.circleWidth}%`,
@@ -625,7 +625,11 @@ export function QuizCard({
             }
           }}
         >
-          <Pencil size={20} color={categoryColors.pageBg} />
+          {isEditing ? (
+            <X size={20} color={categoryColors.pageBg} />
+          ) : (
+            <Pencil size={20} color={categoryColors.pageBg} />
+          )}
         </button>
       )}
 
