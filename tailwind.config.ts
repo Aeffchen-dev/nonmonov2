@@ -21,7 +21,7 @@ export default {
 			fontFamily: {
 				'kokoro': ['Kokoro', 'serif'],
 				'schoolbell': ['Schoolbell', 'cursive'],
-				'geist': ['Geist', 'sans-serif'],
+				'geist': ['Geist Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
