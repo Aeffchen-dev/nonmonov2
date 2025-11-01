@@ -31,33 +31,48 @@ export function CategorySelector({
     let colorIndex;
     switch(category) {
       case 'Körperliche Intimität':
-        colorIndex = 1; // Red
+        colorIndex = 1;
         break;
       case 'Emotionale Intimität':
-        colorIndex = 2; // Blue
+        colorIndex = 2;
         break;
       case 'Geistige Intimität':
-        colorIndex = 4; // Rust
+        colorIndex = 4;
         break;
       case 'Kreative Intimität':
-        colorIndex = 3; // Pink
+        colorIndex = 3;
         break;
       case 'Spielerische Intimität':
-        colorIndex = 6; // Yellow
+        colorIndex = 6;
         break;
       case 'Spirituelle Intimität':
-        colorIndex = 7; // Mint
+        colorIndex = 7;
         break;
       case 'Alltagsintimität':
-        colorIndex = 5; // Purple
+        colorIndex = 5;
         break;
       case 'Gemeinsame Abenteuer':
-        colorIndex = 8; // Green
+        colorIndex = 8;
         break;
       default:
-        colorIndex = (index % 8) + 1;
+        colorIndex = (index % 11) + 1;
     }
-    return `hsl(var(--quiz-category${colorIndex}-bg))`;
+    
+    const colorMap = {
+      1: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(347, 95%, 16%)' },
+      2: { cardColor: 'hsl(182, 87%, 68%)', pageBg: 'hsl(250, 95%, 17%)' },
+      3: { cardColor: 'hsl(259, 45%, 72%)', pageBg: 'hsl(0, 65%, 13%)' },
+      4: { cardColor: 'hsl(335, 100%, 81%)', pageBg: 'hsl(14, 100%, 43%)' },
+      5: { cardColor: 'hsl(289, 100%, 79%)', pageBg: 'hsl(281, 100%, 13%)' },
+      6: { cardColor: 'hsl(76, 100%, 75%)', pageBg: 'hsl(159, 100%, 13%)' },
+      7: { cardColor: 'hsl(307, 100%, 80%)', pageBg: 'hsl(23, 98%, 24%)' },
+      8: { cardColor: 'hsl(157, 100%, 87%)', pageBg: 'hsl(178, 93%, 17%)' },
+      9: { cardColor: 'hsl(157, 100%, 50%)', pageBg: 'hsl(170, 100%, 14%)' },
+      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(205, 100%, 19%)' },
+      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(187, 94%, 13%)' },
+    };
+    
+    return colorMap[colorIndex as keyof typeof colorMap] || colorMap[1];
   };
 
   const handleCategoryToggle = (category: string) => {
@@ -88,7 +103,7 @@ export function CategorySelector({
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 bg-background shrink-0">
             <DialogHeader>
-              <DialogTitle className="text-white font-normal" style={{ fontSize: '20px', fontFamily: 'Arial, sans-serif' }}>
+              <DialogTitle className="text-white font-geist font-normal" style={{ fontSize: '20px' }}>
                 Kategorien wählen
               </DialogTitle>
             </DialogHeader>
@@ -106,14 +121,14 @@ export function CategorySelector({
             <div className="px-4 pt-2 pb-4 space-y-2">
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
-              const borderColor = getCategoryColors(category, index);
+              const colors = getCategoryColors(category, index);
               
               return (
                 <div 
                   key={category}
                   className="flex items-center justify-between cursor-pointer rounded-full"
                   style={{ 
-                    backgroundColor: borderColor,
+                    backgroundColor: colors.cardColor,
                     paddingLeft: '32px',
                     paddingRight: '8px',
                     paddingTop: '8px',
@@ -121,7 +136,7 @@ export function CategorySelector({
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  <span className="text-black font-normal tracking-wide" style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}>
+                  <span className="font-geist font-normal tracking-wide" style={{ color: colors.pageBg, fontSize: '14px' }}>
                     {category}
                   </span>
                   <div onClick={(e) => e.stopPropagation()}>
@@ -135,10 +150,12 @@ export function CategorySelector({
                       }}
                     >
                       <div
-                        className={`w-8 h-8 border border-black flex items-center justify-center rounded-full ${isSelected ? 'bg-black' : 'bg-transparent'}`}
+                        className={`w-8 h-8 flex items-center justify-center rounded-full`}
                         style={{ 
                           width: '32px', 
-                          height: '32px'
+                          height: '32px',
+                          border: `1px solid ${colors.pageBg}`,
+                          backgroundColor: isSelected ? colors.pageBg : 'transparent'
                         }}
                       >
                         {isSelected && (
@@ -147,7 +164,7 @@ export function CategorySelector({
                             height="20" 
                             viewBox="0 0 24 24" 
                             fill="none"
-                            className="text-white"
+                            style={{ color: colors.cardColor }}
                           >
                             <path
                               d="M20 6 9 17l-5-5"

@@ -255,10 +255,10 @@ export function QuizCard({
 
   return (
     <div 
-      className={`relative w-full max-w-[500px] mx-auto rounded-[2rem] shadow-card overflow-hidden select-none max-h-full`}
+      className={`relative w-full max-w-[500px] mx-auto rounded-[2rem] shadow-card overflow-hidden select-none`}
       style={{
-        height: '100%',
-        maxHeight: '100%',
+        height: 'calc(100% - 16px)',
+        maxHeight: 'calc(100% - 16px)',
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
       }}
@@ -289,7 +289,7 @@ export function QuizCard({
         {question.category.toLowerCase() !== 'intro' && (
           <div className="mb-4">
             <div 
-              className="px-2 py-1 rounded-full font-medium inline-block border"
+              className="px-2 py-0.5 rounded-full font-medium inline-block border font-geist"
               style={{
                 backgroundColor: 'transparent',
                 borderColor: categoryColors.pageBg,
@@ -305,11 +305,9 @@ export function QuizCard({
         <div ref={containerRef} className={`flex-1 flex w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
             ref={textRef}
-            className={`font-normal leading-tight lg:leading-[1.09] w-full ${question.category.toLowerCase() === 'intro' ? 'text-base md:text-lg lg:text-xl max-w-md' : 'text-3xl md:text-4xl lg:text-5xl max-w-full'}`}
+            className={`font-geist leading-tight lg:leading-[1.09] w-full ${question.category.toLowerCase() === 'intro' ? 'text-base md:text-lg lg:text-xl max-w-md' : 'text-3xl md:text-4xl lg:text-5xl max-w-full'}`}
             style={{ 
-              fontFamily: 'Kokoro, serif',
-              fontWeight: 'bold',
-              fontStyle: 'italic',
+              fontWeight: question.category.toLowerCase() === 'intro' ? '400' : '700',
               color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
             }}
           >
