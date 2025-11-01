@@ -233,7 +233,7 @@ export function CategorySelector({
                     color: isSelected ? textColor : 'white', 
                     fontSize: '14px', 
                     transition: isSelected 
-                      ? 'color 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.1s'
+                      ? 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s'
                       : 'color 0.2s ease-in-out'
                   }}>
                     {category}
