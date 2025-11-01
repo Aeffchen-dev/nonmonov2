@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pencil } from 'lucide-react';
 import React from 'react';
 
 // Eye component with synchronized blinking and pupil movement
@@ -541,14 +541,14 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
-      {/* Category Pill - Positioned at bottom corner opposite to monster, rotated -90deg */}
+      {/* Category Pill - Positioned at bottom corner opposite to monster, moved up for button, rotated -90deg */}
       {question.category.toLowerCase() !== 'intro' && (
         <div 
           style={{
             position: 'absolute',
             ...(monsterVariation.pillSide === 'right' 
-              ? { right: `calc(2rem + ${pillWidth}px)`, bottom: '2rem', transformOrigin: 'bottom right' } 
-              : { left: `calc(2rem + ${pillWidth}px)`, bottom: '2rem', transformOrigin: 'bottom left' }
+              ? { right: `calc(2rem + ${pillWidth}px)`, bottom: 'calc(2rem + 56px)', transformOrigin: 'bottom right' } 
+              : { left: `calc(2rem + ${pillWidth}px)`, bottom: 'calc(2rem + 56px)', transformOrigin: 'bottom left' }
             ),
             transform: monsterVariation.pillSide === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)',
             zIndex: 1
@@ -571,6 +571,37 @@ export function QuizCard({
             {question.category}
           </div>
         </div>
+      )}
+
+      {/* Edit Button - Positioned at bottom corner on same side as pill */}
+      {question.category.toLowerCase() !== 'intro' && (
+        <button
+          style={{
+            position: 'absolute',
+            ...(monsterVariation.pillSide === 'right' 
+              ? { right: '2rem' } 
+              : { left: '2rem' }
+            ),
+            bottom: '2rem',
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 80%, black)`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: 'none',
+            cursor: 'pointer',
+            zIndex: 10
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            // Add edit functionality here
+            console.log('Edit question:', question.question);
+          }}
+        >
+          <Pencil size={20} color={categoryColors.pageBg} />
+        </button>
       )}
 
       {/* Main Content */}
