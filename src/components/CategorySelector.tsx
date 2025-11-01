@@ -146,6 +146,17 @@ export function CategorySelector({
               width: 100%;
             }
           }
+          @keyframes widthBounceRight {
+            0% {
+              width: 90%;
+            }
+            60% {
+              width: 103%;
+            }
+            100% {
+              width: 100%;
+            }
+          }
           @keyframes checkmarkAppear {
             0% {
               opacity: 0;
@@ -189,19 +200,20 @@ export function CategorySelector({
               const checkboxColor = lightenColor(colors.pageBg, 1.1); // 10% lighter for checkbox
               
               return (
-                <div 
-                  key={category}
-                  className="flex items-center justify-between cursor-pointer rounded-full relative overflow-hidden"
-                  style={{ 
-                    paddingLeft: '64px',
-                    paddingRight: '8px',
-                    paddingTop: '8px',
-                    paddingBottom: '8px',
-                    width: isSelected ? '100%' : '90%',
-                    transition: 'width 0.2s ease-in-out'
-                  }}
-                  onClick={() => handleCategoryToggle(category)}
-                >
+                 <div 
+                   key={category}
+                   className="flex items-center justify-between cursor-pointer rounded-full relative overflow-hidden"
+                   style={{ 
+                     paddingLeft: '64px',
+                     paddingRight: '8px',
+                     paddingTop: '8px',
+                     paddingBottom: '8px',
+                     width: isSelected ? '100%' : '90%',
+                     animation: isSelected ? 'widthBounceRight 0.3s ease-in-out' : 'none',
+                     transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
+                   }}
+                   onClick={() => handleCategoryToggle(category)}
+                 >
                   {/* Dark grey background */}
                   <div 
                     className="absolute inset-0 rounded-full"
@@ -273,7 +285,8 @@ export function CategorySelector({
                              viewBox="0 0 24 24" 
                              fill="none"
                              style={{ 
-                               color: 'white'
+                               color: 'white',
+                               animation: 'checkmarkAppear 0.15s ease-out 0.3s both'
                              }}
                            >
                              <path
