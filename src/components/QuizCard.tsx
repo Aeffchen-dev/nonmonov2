@@ -458,24 +458,28 @@ export function QuizCard({
 
   return (
     <div 
-      ref={cardRef}
-      className={`relative w-full max-w-[500px] mx-auto rounded-[2rem] select-none`}
+      className="relative w-full max-w-[500px] mx-auto p-[1px] overflow-hidden rounded-[2rem]"
       style={{
         height: 'calc(100% - 16px)',
         maxHeight: 'calc(100% - 16px)',
-        backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
-        color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
-        overflow: 'hidden',
-        boxShadow: '0 0 32px 32px rgba(0, 0, 0, 0.24)'
       }}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      onMouseLeave={onMouseLeave}
     >
+      <div 
+        ref={cardRef}
+        className={`relative w-full h-full rounded-[2rem] select-none`}
+        style={{
+          backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
+          color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
+          boxShadow: '0 0 32px 32px rgba(0, 0, 0, 0.24)'
+        }}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
+      >
       {/* Decorative circle at bottom - Monster */}
       {question.category.toLowerCase() !== 'intro' && (
         <div
@@ -607,6 +611,7 @@ export function QuizCard({
 
       </div>
 
+      </div>
     </div>
   );
 }
