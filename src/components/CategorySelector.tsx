@@ -126,16 +126,16 @@ export function CategorySelector({
               transform: scale(1);
             }
             20% {
-              transform: scale(1.4);
+              transform: scale(1.7);
             }
             40% {
-              transform: scale(0.95);
+              transform: scale(0.9);
             }
             60% {
-              transform: scale(1.15);
+              transform: scale(1.25);
             }
             80% {
-              transform: scale(0.98);
+              transform: scale(0.95);
             }
             100% {
               transform: scale(1);
