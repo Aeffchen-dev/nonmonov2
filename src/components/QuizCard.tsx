@@ -453,7 +453,7 @@ export function QuizCard({
           <div
             style={{
               position: 'absolute',
-              top: `calc(8% + ${monsterVariation.eyeShift.y}px)`,
+              top: `calc(12% + ${monsterVariation.eyeShift.y}px)`,
               left: `calc(50% + ${monsterVariation.eyeShift.x}px)`,
               transform: 'translateX(-50%)',
               display: 'flex',
