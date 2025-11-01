@@ -528,10 +528,10 @@ export function QuizCard({
         <div 
           style={{
             position: 'absolute',
-            bottom: '2rem',
+            bottom: 0,
             ...(monsterVariation.pillSide === 'right' 
-              ? { right: '2rem' } 
-              : { left: '2rem' }
+              ? { right: 0 } 
+              : { left: 0 }
             ),
             transformOrigin: monsterVariation.pillSide === 'right' ? 'bottom right' : 'bottom left',
             transform: 'rotate(-90deg)',
@@ -567,6 +567,7 @@ export function QuizCard({
             style={{ 
               fontWeight: 'bold',
               fontStyle: 'normal',
+              letterSpacing: '0px',
               color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
             }}
           >
