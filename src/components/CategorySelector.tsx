@@ -136,12 +136,12 @@ export function CategorySelector({
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  <span className="font-geist font-normal tracking-wide" style={{ color: colors.pageBg, fontSize: '14px' }}>
+                  <span className="font-geist font-normal tracking-wide opacity-100" style={{ color: colors.pageBg, fontSize: '14px' }}>
                     {category}
                   </span>
                   <div onClick={(e) => e.stopPropagation()}>
                     <div
-                      className="relative cursor-pointer"
+                      className="relative cursor-pointer opacity-100"
                       onClick={() => {
                         const newCategories = isSelected 
                           ? tempSelection.filter(c => c !== category)
