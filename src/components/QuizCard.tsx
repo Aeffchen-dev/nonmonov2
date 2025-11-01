@@ -548,7 +548,7 @@ export function QuizCard({
                 backgroundColor: 'transparent',
                 borderColor: 'currentColor',
                 borderWidth: '1px',
-                color: 'hsl(0 0% 100%)',
+                color: categoryColors.cardColor,
                 fontSize: '12px',
                 whiteSpace: 'nowrap',
                 mixBlendMode: 'difference'
