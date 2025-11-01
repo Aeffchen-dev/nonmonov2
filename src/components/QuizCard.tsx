@@ -449,11 +449,11 @@ export function QuizCard({
             zIndex: 0
           }}
         >
-          {/* Eyes container - positioned in upper third of visible portion */}
+          {/* Eyes container - centered vertically in visible monster portion */}
           <div
             style={{
               position: 'absolute',
-              top: `calc(12% + ${monsterVariation.eyeShift.y}px)`,
+              top: `calc(17.5% + ${monsterVariation.eyeShift.y}px)`,
               left: `calc(50% + ${monsterVariation.eyeShift.x}px)`,
               transform: 'translateX(-50%)',
               display: 'flex',
