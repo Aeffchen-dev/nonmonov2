@@ -35,10 +35,10 @@ export function CategorySelector({
       setJustToggled(new Set());
       setShowContent(false);
       setIsClosing(false);
-      // Start content fade after black fade completes
+      // Start content fade after black fully fades in
       const timer = setTimeout(() => {
         setShowContent(true);
-      }, 300);
+      }, 200);
       return () => clearTimeout(timer);
     }
   }, [open]);
@@ -133,12 +133,12 @@ export function CategorySelector({
   const handleClose = () => {
     setIsClosing(true);
     setShowContent(false);
-    // Wait for black fade out to complete before actually closing
+    // Wait for content fade + black fade to complete
     setTimeout(() => {
       onCategoriesChange(tempSelection);
       onOpenChange(false);
       setIsClosing(false);
-    }, 300);
+    }, 400);
   };
 
   return (
@@ -164,14 +164,20 @@ export function CategorySelector({
             backgroundColor: 'black',
             zIndex: 50,
             opacity: (!showContent && !isClosing) ? 1 : 0,
-            transition: 'opacity 300ms ease-in-out',
+            transition: (!showContent && !isClosing) 
+              ? 'opacity 200ms cubic-bezier(0.4, 0, 1, 1)' // Ease-out for fade in
+              : 'opacity 300ms cubic-bezier(0, 0, 0.2, 1)', // Ease-in for fade out
             pointerEvents: 'none'
           }}
         />
         
         <div className="flex flex-col w-full h-full bg-background overflow-hidden" style={{ 
           opacity: showContent ? 1 : 0,
-          transition: 'opacity 300ms ease-in-out'
+          transform: showContent ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.98)',
+          filter: showContent ? 'blur(0px)' : 'blur(4px)',
+          transition: showContent
+            ? 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1), filter 400ms cubic-bezier(0.4, 0, 0.2, 1)' // Ease-out for reveal
+            : 'opacity 300ms cubic-bezier(0.4, 0, 1, 1), transform 300ms cubic-bezier(0.4, 0, 1, 1), filter 300ms cubic-bezier(0.4, 0, 1, 1)' // Ease-in for hide
         }}>
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
