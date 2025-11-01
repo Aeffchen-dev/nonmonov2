@@ -659,15 +659,6 @@ export function QuizCard({
                 0%, 49% { opacity: 1; }
                 50%, 100% { opacity: 0; }
               }
-              .edit-textarea::placeholder {
-                color: color-mix(in srgb, ${categoryColors.cardColor} 85%, black);
-                opacity: 0.3;
-              }
-              .edit-textarea::placeholder::before {
-                content: '|';
-                animation: blink 1s infinite;
-                margin-right: 4px;
-              }
               .edit-textarea {
                 transition: all 250ms ease-in-out;
               }
@@ -677,27 +668,59 @@ export function QuizCard({
                 ring: none !important;
                 box-shadow: none !important;
               }
+              .cursor-blink {
+                animation: blink 1s infinite;
+              }
             `}</style>
           )}
           {isEditing && (
-            <Textarea
-              value={editedText}
-              onChange={(e) => setEditedText(e.target.value)}
-              placeholder="| Your answer"
-              className={`mt-4 font-factora w-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem]' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem]'}`}
-              style={{
-                fontWeight: 'bold',
-                fontStyle: 'normal',
-                backgroundColor: categoryColors.cardColor,
-                border: 'none',
-                color: categoryColors.pageBg,
-                padding: 0,
-                outline: 'none',
-                boxShadow: 'none',
-                lineHeight: '120%'
-              }}
-              onClick={(e) => e.stopPropagation()}
-            />
+            <div className="relative mt-4 w-full">
+              {(!editedText || editedText === 'Your answer') && (
+                <span 
+                  className="cursor-blink absolute left-0 top-0 pointer-events-none"
+                  style={{
+                    color: `color-mix(in srgb, ${categoryColors.cardColor} 85%, black)`,
+                    fontSize: question.category.toLowerCase() === 'intro' ? '1.26rem' : '2.364rem',
+                    fontWeight: 'bold',
+                    lineHeight: '120%',
+                    fontFamily: 'FactorA, sans-serif'
+                  }}
+                >
+                  |
+                </span>
+              )}
+              <Textarea
+                value={editedText || 'Your answer'}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  if (editedText === 'Your answer' || !editedText) {
+                    setEditedText(newValue === 'Your answer' ? '' : newValue);
+                  } else {
+                    setEditedText(newValue);
+                  }
+                }}
+                onFocus={(e) => {
+                  if (editedText === 'Your answer' || !editedText) {
+                    setEditedText('');
+                  }
+                }}
+                className={`font-factora w-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem]' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem]'}`}
+                style={{
+                  fontWeight: 'bold',
+                  fontStyle: 'normal',
+                  backgroundColor: categoryColors.cardColor,
+                  border: 'none',
+                  color: categoryColors.pageBg,
+                  padding: 0,
+                  paddingLeft: (!editedText || editedText === 'Your answer') ? '1rem' : '0',
+                  outline: 'none',
+                  boxShadow: 'none',
+                  lineHeight: '120%',
+                  opacity: (!editedText || editedText === 'Your answer') ? 0.3 : 1
+                }}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
           )}
         </div>
 
