@@ -603,11 +603,11 @@ export function QuizApp() {
                 key={index} 
                 style={{ 
                   display: 'inline-block',
-                  transform: `rotate(${rotations[index]}deg) translateY(${translateY})`,
+                  transform: `rotate(${rotations[index]}deg) translateY(${index === 0 ? '4px' : translateY})`,
                   position: 'relative',
                   transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   fontFeatureSettings: index === 0 ? '"ss01" 1' : 'normal',
-                  fontSize: index === 0 ? '20px' : '16px',
+                  fontSize: index === 0 ? '24px' : '16px',
                   verticalAlign: 'baseline'
                 }}
               >
@@ -615,8 +615,8 @@ export function QuizApp() {
                   <div 
                     style={{
                       display: 'inline-block',
-                      width: '13px',
-                      height: '13px',
+                      width: '16px',
+                      height: '16px',
                       backgroundColor: '#FFFF00',
                       borderRadius: '50%',
                       alignItems: 'center',
@@ -627,18 +627,18 @@ export function QuizApp() {
                       transition: 'transform 0.8s ease-in-out'
                     }}
                   >
-                    <div style={{ display: 'flex', gap: '1.5px', position: 'absolute', top: '3.5px', left: '50%', transform: 'translateX(-50%)' }}>
-                      <div style={{ width: '1.5px', height: '1.5px', backgroundColor: 'black', borderRadius: '50%' }}></div>
-                      <div style={{ width: '1.5px', height: '1.5px', backgroundColor: 'black', borderRadius: '50%' }}></div>
+                    <div style={{ display: 'flex', gap: '2px', position: 'absolute', top: '4.5px', left: '50%', transform: 'translateX(-50%)' }}>
+                      <div style={{ width: '2px', height: '2px', backgroundColor: 'black', borderRadius: '50%' }}></div>
+                      <div style={{ width: '2px', height: '2px', backgroundColor: 'black', borderRadius: '50%' }}></div>
                     </div>
                     <div style={{ 
-                      width: '5px', 
-                      height: '2px', 
+                      width: '6px', 
+                      height: '2.5px', 
                       border: '1px solid black', 
                       borderTop: 'none',
-                      borderRadius: '0 0 5px 5px',
+                      borderRadius: '0 0 6px 6px',
                       position: 'absolute',
-                      top: '7px',
+                      top: '9px',
                       left: '50%',
                       transform: 'translateX(-50%)'
                     }}></div>
