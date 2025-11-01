@@ -262,7 +262,7 @@ export function CategorySelector({
                            border: isSelected ? `1px solid black` : `2px solid white`,
                            backgroundColor: isSelected ? 'black' : 'transparent',
                            transition: isSelected 
-                             ? 'background-color 0.15s ease-in-out 0.15s, border 0.15s ease-in-out 0.15s'
+                             ? 'background-color 0.1s ease-in-out 0.2s, border 0.1s ease-in-out 0.2s'
                              : 'background-color 0.2s ease-in-out, border 0.2s ease-in-out'
                          }}
                        >
