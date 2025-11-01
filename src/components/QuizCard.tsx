@@ -6,19 +6,21 @@ import React from 'react';
 function Eye({ 
   categoryColors, 
   pupilOffset, 
-  isBlinking 
+  isBlinking,
+  eyeVariation
 }: { 
   categoryColors: { cardColor: string; pageBg: string }, 
   pupilOffset: { x: number, y: number },
-  isBlinking: boolean
+  isBlinking: boolean,
+  eyeVariation: { width: string; height: string; pupilSize: string }
 }) {
 
   return (
     <div
       style={{
         position: 'relative',
-        width: '30px',
-        height: '30px',
+        width: eyeVariation.width,
+        height: eyeVariation.height,
         backgroundColor: 'white',
         borderRadius: '50%',
         display: 'flex',
@@ -32,8 +34,8 @@ function Eye({
       {/* Pupil */}
       <div
         style={{
-          width: '12px',
-          height: '12px',
+          width: eyeVariation.pupilSize,
+          height: eyeVariation.pupilSize,
           backgroundColor: 'black',
           borderRadius: '50%',
           transform: `translate(${pupilOffset.x}px, ${pupilOffset.y}px)`,
@@ -83,16 +85,80 @@ export function QuizCard({
   const [processedText, setProcessedText] = useState<JSX.Element[]>([]);
   const [pupilOffset, setPupilOffset] = useState({ x: 0, y: 0 });
   const [isBlinking, setIsBlinking] = useState(false);
+  const [monsterVariation, setMonsterVariation] = useState({
+    circleSize: 120,
+    circleWidth: 120,
+    circleHeight: 120,
+    eyeShift: { x: 0, y: 0 },
+    leftEyeWidth: 30,
+    leftEyeHeight: 30,
+    rightEyeWidth: 30,
+    rightEyeHeight: 30,
+    pupilSize: 12,
+    pupilMovementFactor: 1
+  });
   
   const textRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const minSwipeDistance = 50;
 
+  // Generate unique monster variation based on question text
+  useEffect(() => {
+    // Create a simple hash from question text for consistency
+    const hash = question.question.split('').reduce((acc, char) => {
+      return char.charCodeAt(0) + ((acc << 5) - acc);
+    }, 0);
+    
+    // Use hash to generate random but consistent variations
+    const random = (seed: number) => {
+      const x = Math.sin(seed) * 10000;
+      return x - Math.floor(x);
+    };
+    
+    // Circle size variation (0-20% reduction)
+    const sizeVariation = random(hash) * 0.2;
+    const baseSize = 120 * (1 - sizeVariation);
+    
+    // Ellipse squeezing (up to 20% factor)
+    const ellipseFactor = random(hash + 1) * 0.2;
+    const isWidthSquished = random(hash + 2) > 0.5;
+    
+    // Eye position shift (+-5%)
+    const eyeShiftX = (random(hash + 3) - 0.5) * 2 * 0.05 * 100; // +-5% in pixels
+    const eyeShiftY = (random(hash + 4) - 0.5) * 2 * 0.05 * 30;
+    
+    // Eye shape variations (sometimes ellipse)
+    const leftEyeIsEllipse = random(hash + 5) > 0.6;
+    const rightEyeIsEllipse = random(hash + 6) > 0.6;
+    const leftEyeStretch = leftEyeIsEllipse ? (random(hash + 7) > 0.5 ? 1.5 : 0.7) : 1;
+    const rightEyeStretch = rightEyeIsEllipse ? (random(hash + 8) > 0.5 ? 1.5 : 0.7) : 1;
+    
+    // Pupil size variation (+-20%)
+    const pupilSizeVariation = (random(hash + 9) - 0.5) * 2 * 0.2;
+    const pupilSize = 12 * (1 + pupilSizeVariation);
+    
+    // Pupil movement factor (affects range of movement)
+    const pupilMovementFactor = 0.8 + random(hash + 10) * 0.4; // 0.8 to 1.2
+    
+    setMonsterVariation({
+      circleSize: baseSize,
+      circleWidth: baseSize * (isWidthSquished ? (1 - ellipseFactor) : (1 + ellipseFactor)),
+      circleHeight: baseSize * (isWidthSquished ? (1 + ellipseFactor) : (1 - ellipseFactor)),
+      eyeShift: { x: eyeShiftX, y: eyeShiftY },
+      leftEyeWidth: 30 * leftEyeStretch,
+      leftEyeHeight: 30 / leftEyeStretch,
+      rightEyeWidth: 30 * rightEyeStretch,
+      rightEyeHeight: 30 / rightEyeStretch,
+      pupilSize: pupilSize,
+      pupilMovementFactor: pupilMovementFactor
+    });
+  }, [question.question]);
+
   // Synchronized pupil movement for both eyes
   useEffect(() => {
     const movePupil = () => {
-      const maxOffset = 4;
+      const maxOffset = 4 * monsterVariation.pupilMovementFactor;
       const randomX = (Math.random() - 0.5) * 2 * maxOffset;
       const randomY = (Math.random() - 0.5) * 2 * maxOffset;
       setPupilOffset({ x: randomX, y: randomY });
@@ -110,7 +176,7 @@ export function QuizCard({
 
     const timeoutId = scheduleNextMove();
     return () => clearTimeout(timeoutId);
-  }, []);
+  }, [monsterVariation.pupilMovementFactor]);
 
   // Synchronized blinking for both eyes - less frequent
   useEffect(() => {
@@ -375,8 +441,8 @@ export function QuizCard({
             bottom: '-40%',
             left: '50%',
             transform: 'translateX(-50%)',
-            width: '120%',
-            aspectRatio: '1',
+            width: `${monsterVariation.circleWidth}%`,
+            height: `${monsterVariation.circleHeight}%`,
             borderRadius: '50%',
             backgroundColor: categoryColors.pageBg,
             pointerEvents: 'none',
@@ -387,8 +453,8 @@ export function QuizCard({
           <div
             style={{
               position: 'absolute',
-              top: 'calc(33.33% - 15px)',
-              left: '50%',
+              top: `calc(33.33% - 15px + ${monsterVariation.eyeShift.y}px)`,
+              left: `calc(50% + ${monsterVariation.eyeShift.x}px)`,
               transform: 'translateX(-50%)',
               display: 'flex',
               gap: '20px',
@@ -396,9 +462,27 @@ export function QuizCard({
             }}
           >
             {/* Left Eye */}
-            <Eye categoryColors={categoryColors} pupilOffset={pupilOffset} isBlinking={isBlinking} />
+            <Eye 
+              categoryColors={categoryColors} 
+              pupilOffset={pupilOffset} 
+              isBlinking={isBlinking}
+              eyeVariation={{
+                width: `${monsterVariation.leftEyeWidth}px`,
+                height: `${monsterVariation.leftEyeHeight}px`,
+                pupilSize: `${monsterVariation.pupilSize}px`
+              }}
+            />
             {/* Right Eye */}
-            <Eye categoryColors={categoryColors} pupilOffset={pupilOffset} isBlinking={isBlinking} />
+            <Eye 
+              categoryColors={categoryColors} 
+              pupilOffset={pupilOffset} 
+              isBlinking={isBlinking}
+              eyeVariation={{
+                width: `${monsterVariation.rightEyeWidth}px`,
+                height: `${monsterVariation.rightEyeHeight}px`,
+                pupilSize: `${monsterVariation.pupilSize}px`
+              }}
+            />
           </div>
         </div>
       )}
