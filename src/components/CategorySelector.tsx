@@ -268,7 +268,7 @@ export function CategorySelector({
                           backgroundColor: isSelected ? 'black' : 'transparent',
                           animation: isSelected ? 'checkboxPopBounce 0.3s ease-in-out 0.25s' : 'none',
                           transition: isSelected 
-                            ? 'background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1)'
+                            ? 'background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1) 0.28s'
                             : 'background-color 0.2s ease-in-out, border 0.2s ease-in-out'
                         }}
                       >
