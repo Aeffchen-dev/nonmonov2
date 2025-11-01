@@ -224,9 +224,9 @@ export function CategorySelector({
                   <div 
                     className="absolute inset-0 rounded-full"
                     style={{ 
-                      backgroundColor: '#333333',
-                      opacity: 0.8,
+                      backgroundColor: 'rgba(51, 51, 51, 0.8)',
                       backdropFilter: 'blur(8px)',
+                      WebkitBackdropFilter: 'blur(8px)',
                       zIndex: 0
                     }}
                   />
@@ -236,10 +236,10 @@ export function CategorySelector({
                      className="absolute inset-y-0 left-0 rounded-full"
                      style={{ 
                        background: isSelected 
-                         ? `linear-gradient(to right, ${darkenColor(colors.cardColor, 0.9)}, ${colors.cardColor})`
-                         : colors.cardColor,
-                       opacity: 0.8,
+                         ? `linear-gradient(to right, ${darkenColor(colors.cardColor, 0.9).replace(')', ' / 0.8)').replace('hsl(', 'hsla(')}, ${colors.cardColor.replace(')', ' / 0.8)').replace('hsl(', 'hsla(')})`
+                         : colors.cardColor.replace(')', ' / 0.8)').replace('hsl(', 'hsla('),
                        backdropFilter: 'blur(8px)',
+                       WebkitBackdropFilter: 'blur(8px)',
                        width: isSelected ? '100%' : '48px',
                        transition: shouldAnimate 
                          ? 'background 0.2s ease-in-out'
