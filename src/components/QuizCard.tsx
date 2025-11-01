@@ -546,9 +546,9 @@ export function QuizCard({
               className="px-2 py-0.5 rounded-full font-medium border font-factora"
               style={{
                 backgroundColor: 'transparent',
-                borderColor: categoryColors.pageBg,
+                borderColor: '#ffffff',
                 borderWidth: '1px',
-                color: categoryColors.pageBg,
+                color: '#ffffff',
                 fontSize: '12px',
                 whiteSpace: 'nowrap',
                 mixBlendMode: 'difference'
