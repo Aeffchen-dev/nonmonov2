@@ -196,6 +196,16 @@ All colors MUST be HSL.
   font-display: swap;
 }
 
+/* Factor A Bold Italic Font Definition */
+@font-face {
+  font-family: 'FactorA';
+  src: url('/FactorA-BoldItalic.woff2') format('woff2'),
+       url('/FactorA-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   * {
     @apply border-border;

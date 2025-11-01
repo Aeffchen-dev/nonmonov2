@@ -127,7 +127,7 @@ export function CategorySelector({
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 bg-background shrink-0">
             <DialogHeader>
-              <DialogTitle className="text-white font-geist font-normal" style={{ fontSize: '20px' }}>
+              <DialogTitle className="text-white font-factora font-normal" style={{ fontSize: '20px' }}>
                 Kategorien wählen
               </DialogTitle>
             </DialogHeader>
@@ -162,7 +162,7 @@ export function CategorySelector({
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  <span className="font-geist font-normal tracking-wide opacity-100" style={{ color: textColor, fontSize: '14px' }}>
+                  <span className="font-factora font-normal tracking-wide opacity-100" style={{ color: textColor, fontSize: '14px' }}>
                     {category}
                   </span>
                   <div onClick={(e) => e.stopPropagation()}>
