@@ -225,7 +225,6 @@ export function CategorySelector({
               const isSelected = tempSelection.includes(category);
               const shouldAnimate = justToggled.has(category) && isSelected;
               const colors = getCategoryColors(category, index);
-              const textColor = darkenColor(colors.pageBg, 0.7); // 30% darker for text
               const checkboxColor = lightenColor(colors.pageBg, 1.1); // 10% lighter for checkbox
               
               return (
@@ -233,13 +232,13 @@ export function CategorySelector({
                   key={category}
                   className="flex items-center justify-between cursor-pointer rounded-full relative overflow-hidden"
                   style={{ 
-                    paddingLeft: '64px',
+                    paddingLeft: isSelected ? '16px' : '64px',
                     paddingRight: '8px',
                     paddingTop: '8px',
                     paddingBottom: '8px',
                     width: isSelected ? '100%' : '90%',
                     animation: shouldAnimate ? 'widthBounceRight 0.3s ease-in-out 0.05s both' : 'none',
-                    transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
+                    transition: isSelected ? 'padding-left 0.2s ease-in-out' : 'width 0.2s ease-in-out, padding-left 0.2s ease-in-out'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
@@ -268,7 +267,7 @@ export function CategorySelector({
                    />
                   
                    <span className="font-factora font-normal tracking-wide opacity-100 relative z-10" style={{ 
-                     color: isSelected ? textColor : 'white', 
+                     color: isSelected ? colors.pageBg : 'white', 
                      fontSize: '14px', 
                      transition: isSelected 
                        ? 'color 0.3s ease-in-out'
