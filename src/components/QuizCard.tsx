@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
 
 // Eye component with synchronized blinking and pupil movement
 function Eye({ 
@@ -438,11 +439,31 @@ export function QuizCard({
             style={{ 
               fontWeight: 'bold',
               fontStyle: 'normal',
-              fontFeatureSettings: '"ss01"',
               color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
             }}
           >
-            {processedText.length > 0 ? processedText : question.question}
+            <span style={{ fontFeatureSettings: '"ss01"' }}>
+              {question.question.charAt(0)}
+            </span>
+            <span>
+              {processedText.length > 0 ? (
+                processedText.map((element, index) => {
+                  if (index === 0 && React.isValidElement(element)) {
+                    const props = element.props as { children?: React.ReactNode };
+                    const children = props.children;
+                    if (Array.isArray(children)) {
+                      const firstChild = children[0];
+                      if (typeof firstChild === 'string') {
+                        return React.cloneElement(element, { key: index }, firstChild.substring(1), ...children.slice(1));
+                      }
+                    }
+                  }
+                  return element;
+                })
+              ) : (
+                question.question.substring(1)
+              )}
+            </span>
           </h1>
         </div>
 
