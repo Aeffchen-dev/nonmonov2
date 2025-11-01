@@ -119,13 +119,9 @@ export function QuizCard({
     const sizeVariation = random(hash) * 0.2;
     const baseSize = 120 * (1 - sizeVariation);
     
-    // Calculate horizontal offset when circle is smaller
-    // If smaller, move it left or right to overflow by 10%
-    let circleOffsetX = 0;
-    if (sizeVariation > 0.05) { // Only offset if noticeably smaller
-      const offsetDirection = random(hash + 11) > 0.5 ? 1 : -1; // Left or right
-      circleOffsetX = offsetDirection * (baseSize * 0.1); // 10% overflow
-    }
+    // Calculate horizontal offset to overflow by at least 20%
+    const offsetDirection = random(hash + 11) > 0.5 ? 1 : -1; // Left or right
+    const circleOffsetX = offsetDirection * (20 + random(hash + 12) * 10); // 20-30% overflow
     
     // Ellipse squeezing (up to 20% factor)
     const ellipseFactor = random(hash + 1) * 0.2;
