@@ -21,16 +21,23 @@ export function CategorySelector({
 }: CategorySelectorProps) {
   const [tempSelection, setTempSelection] = useState<string[]>(selectedCategories);
   const [justToggled, setJustToggled] = useState<Set<string>>(new Set());
+  const [showContent, setShowContent] = useState(false);
 
   // Update temp selection when selectedCategories prop changes
   useEffect(() => {
     setTempSelection(selectedCategories);
   }, [selectedCategories]);
 
-  // Clear justToggled when modal opens
+  // Handle modal open animation sequence
   useEffect(() => {
     if (open) {
       setJustToggled(new Set());
+      setShowContent(false);
+      // Show content after black fade completes
+      const timer = setTimeout(() => {
+        setShowContent(true);
+      }, 200);
+      return () => clearTimeout(timer);
     }
   }, [open]);
 
@@ -176,13 +183,37 @@ export function CategorySelector({
               transform: scale(1);
             }
           }
+          @keyframes blackFadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
         `}
       </style>
       <DialogContent className="mx-auto bg-background border-0 p-0 overflow-hidden [&>button]:hidden flex flex-col" style={{ height: '100svh', width: '100vw' }}>
         <DialogDescription className="sr-only">
           Wählen Sie die Kategorien aus, die Sie sehen möchten
         </DialogDescription>
-        <div className="flex flex-col w-full h-full bg-background overflow-hidden">
+        
+        {/* Black fade overlay */}
+        <div 
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'black',
+            zIndex: 50,
+            animation: 'blackFadeIn 200ms ease-out forwards',
+            pointerEvents: 'none'
+          }}
+        />
+        
+        <div className="flex flex-col w-full h-full bg-background overflow-hidden" style={{ 
+          opacity: showContent ? 1 : 0,
+          transition: 'none'
+        }}>
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
             <DialogHeader>
