@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Pencil } from 'lucide-react';
 import React from 'react';
+import { Textarea } from '@/components/ui/textarea';
 
 // Eye component with synchronized blinking and pupil movement
 function Eye({ 
@@ -85,6 +86,8 @@ export function QuizCard({
   const [processedText, setProcessedText] = useState<JSX.Element[]>([]);
   const [pupilOffset, setPupilOffset] = useState({ x: 0, y: 0 });
   const [isBlinking, setIsBlinking] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedText, setEditedText] = useState('');
   const [monsterVariation, setMonsterVariation] = useState({
     circleSize: 120,
     circleWidth: 120,
@@ -109,6 +112,23 @@ export function QuizCard({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const minSwipeDistance = 50;
+
+  // Load edited text from localStorage on mount
+  useEffect(() => {
+    const storageKey = `edited_question_${question.question}`;
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      setEditedText(saved);
+    }
+  }, [question.question]);
+
+  // Save edited text to localStorage whenever it changes
+  useEffect(() => {
+    if (editedText) {
+      const storageKey = `edited_question_${question.question}`;
+      localStorage.setItem(storageKey, editedText);
+    }
+  }, [editedText, question.question]);
 
   // Generate unique monster variation based on question text
   useEffect(() => {
@@ -579,8 +599,8 @@ export function QuizCard({
           style={{
             position: 'absolute',
             ...(monsterVariation.pillSide === 'right' 
-              ? { right: 'calc(2rem - 8px)' } 
-              : { left: 'calc(2rem - 8px)' }
+              ? { right: 'calc(2rem - 16px)' } 
+              : { left: 'calc(2rem - 16px)' }
             ),
             bottom: '2rem',
             width: '48px',
@@ -598,8 +618,10 @@ export function QuizCard({
           }}
           onClick={(e) => {
             e.stopPropagation();
-            // Add edit functionality here
-            console.log('Edit question:', question.question);
+            setIsEditing(!isEditing);
+            if (!isEditing && !editedText) {
+              setEditedText(question.question);
+            }
           }}
         >
           <Pencil size={20} color={categoryColors.pageBg} />
@@ -609,7 +631,7 @@ export function QuizCard({
       {/* Main Content */}
       <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative`}>
 
-        <div ref={containerRef} className={`flex-1 flex w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
+        <div ref={containerRef} className={`flex-1 flex flex-col w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
             ref={textRef}
             className={`font-factora leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem] max-w-full'}`}
@@ -617,7 +639,10 @@ export function QuizCard({
               fontWeight: 'bold',
               fontStyle: 'normal',
               letterSpacing: '0px',
-              color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))'
+              color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
+              fontSize: isEditing ? '12px' : undefined,
+              transition: 'all 0.3s ease',
+              ...(isEditing && { color: 'black' })
             }}
           >
             <span style={{ fontFeatureSettings: '"ss01" 1' }}>
@@ -627,6 +652,31 @@ export function QuizCard({
               {processedText.length > 0 ? processedText : question.question.substring(1)}
             </span>
           </h1>
+          
+          {isEditing && (
+            <style>{`
+              .edit-textarea::placeholder {
+                color: color-mix(in srgb, ${categoryColors.cardColor} 85%, black);
+                opacity: 1;
+              }
+            `}</style>
+          )}
+          {isEditing && (
+            <Textarea
+              value={editedText}
+              onChange={(e) => setEditedText(e.target.value)}
+              placeholder={question.question}
+              className={`mt-4 font-factora leading-[120%] w-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem]' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem]'}`}
+              style={{
+                fontWeight: 'bold',
+                fontStyle: 'normal',
+                backgroundColor: categoryColors.cardColor,
+                border: 'none',
+                color: categoryColors.pageBg,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          )}
         </div>
 
         {/* Navigation hint at bottom - only for intro slides */}
