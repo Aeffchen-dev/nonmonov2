@@ -426,7 +426,7 @@ export function QuizApp() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Show hint animation after 1 second on first slide
+  // Show hint animation after 3 seconds on first slide
   useEffect(() => {
     if (currentIndex === 0 && !isTransitioning && !isDragging) {
       const timer = setTimeout(() => {
@@ -435,7 +435,7 @@ export function QuizApp() {
         setTimeout(() => {
           setShowHintAnimation(false);
         }, 800);
-      }, 1000);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [currentIndex, isTransitioning, isDragging]);
