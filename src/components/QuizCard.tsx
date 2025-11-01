@@ -523,42 +523,42 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
-      {/* Main Content */}
-      <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative`}>
-        
-        {/* Category Pill - Positioned at bottom corner opposite to monster, rotated -90deg */}
-        {question.category.toLowerCase() !== 'intro' && (
+      {/* Category Pill - Positioned at bottom corner opposite to monster, rotated -90deg */}
+      {question.category.toLowerCase() !== 'intro' && (
+        <div 
+          style={{
+            position: 'absolute',
+            bottom: '2rem',
+            ...(monsterVariation.pillSide === 'right' 
+              ? { right: '2rem' } 
+              : { left: '2rem' }
+            ),
+            transformOrigin: monsterVariation.pillSide === 'right' ? 'bottom right' : 'bottom left',
+            transform: 'rotate(-90deg)',
+            zIndex: 1
+          }}
+        >
           <div 
+            ref={pillInnerRef}
+            className="px-2 py-0.5 rounded-full font-medium border font-factora"
             style={{
-              position: 'absolute',
-              bottom: '2rem',
-              ...(monsterVariation.pillSide === 'right' 
-                ? { right: '2rem' } 
-                : { left: '2rem' }
-              ),
-              transformOrigin: monsterVariation.pillSide === 'right' ? 'bottom right' : 'bottom left',
-              transform: 'rotate(-90deg)',
-              zIndex: 1
+              backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, transparent)`,
+              backdropFilter: 'blur(4px)',
+              borderColor: categoryColors.pageBg,
+              borderWidth: '1px',
+              color: categoryColors.pageBg,
+              fontSize: '12px',
+              whiteSpace: 'nowrap',
+              mixBlendMode: 'difference'
             }}
           >
-            <div 
-              ref={pillInnerRef}
-              className="px-2 py-0.5 rounded-full font-medium border font-factora"
-              style={{
-                backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, transparent)`,
-                backdropFilter: 'blur(4px)',
-                borderColor: categoryColors.pageBg,
-                borderWidth: '1px',
-                color: categoryColors.pageBg,
-                fontSize: '12px',
-                whiteSpace: 'nowrap',
-                mixBlendMode: 'difference'
-              }}
-            >
-              {question.category}
-            </div>
+            {question.category}
           </div>
-        )}
+        </div>
+      )}
+
+      {/* Main Content */}
+      <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative`}>
 
         <div ref={containerRef} className={`flex-1 flex w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
