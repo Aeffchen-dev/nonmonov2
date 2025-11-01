@@ -595,22 +595,22 @@ export function QuizCard({
         </div>
       )}
 
-      {/* Edit Button - Positioned at bottom corner on same side as pill */}
+      {/* Edit Button - Positioned centered under the pill */}
       {question.category.toLowerCase() !== 'intro' && (
         <button
           style={{
             position: 'absolute',
             ...(monsterVariation.pillSide === 'right' 
-              ? { right: 'calc(2rem - 12px)' } 
-              : { left: 'calc(2rem - 16px)' }
+              ? { right: `calc(2rem + ${pillWidth / 2}px - 24px)` } 
+              : { left: `calc(2rem + ${pillWidth / 2}px - 24px)` }
             ),
             bottom: 'calc(2rem - 8px)',
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            backgroundColor: `color-mix(in hsl, ${categoryColors.cardColor} 55%, ${categoryColors.pageBg} 45%)`,
+            backgroundColor: `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`,
             backdropFilter: 'blur(4px)',
-            opacity: 1,
+            opacity: 0.7,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
