@@ -545,15 +545,18 @@ export function QuizCard({
               ref={pillInnerRef}
               className="px-2 py-0.5 rounded-full font-medium border font-factora"
               style={{
-                backgroundColor: categoryColors.cardColor,
-                borderColor: categoryColors.cardColor,
-                color: categoryColors.pageBg,
+                backgroundColor: 'transparent',
+                borderColor: categoryColors.pageBg,
                 fontSize: '12px',
-                mixBlendMode: 'difference',
                 whiteSpace: 'nowrap'
               }}
             >
-              {question.category}
+              <span style={{
+                color: categoryColors.pageBg,
+                mixBlendMode: 'difference'
+              }}>
+                {question.category}
+              </span>
             </div>
           </div>
         )}
