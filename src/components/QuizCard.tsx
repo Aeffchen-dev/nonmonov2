@@ -485,7 +485,6 @@ export function QuizCard({
         maxHeight: 'calc(100% - 16px)',
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
-        overflow: 'hidden',
         boxShadow: '0 0 32px 32px rgba(0, 0, 0, 0.24)'
       }}
       onTouchStart={onTouchStart}
@@ -496,6 +495,15 @@ export function QuizCard({
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseLeave}
     >
+      {/* Inner container with slightly smaller border-radius for better clipping */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          borderRadius: '30px',
+          overflow: 'hidden'
+        }}
+      >
       {/* Decorative circle at bottom - Monster */}
       {question.category.toLowerCase() !== 'intro' && (
         <div
@@ -722,6 +730,7 @@ export function QuizCard({
 
       </div>
 
+      </div> {/* Close inner container with border-radius mask */}
     </div>
   );
 }
