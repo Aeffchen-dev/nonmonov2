@@ -624,9 +624,8 @@ export function QuizApp() {
       return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
     }
 
-    // Calculate drag progress (0 to 1) - faster transition with 0.7 multiplier
-    const screenWidth = window.innerWidth;
-    const dragProgress = Math.min(Math.abs(dragOffset) / (screenWidth * 0.7), 1);
+    // Match card animation progress - finishes at 300px drag
+    const dragProgress = Math.min(Math.abs(dragOffset) / 300, 1);
 
     const currentColors = getColorsForSlide(currentIndex);
     let targetColors;
@@ -655,9 +654,8 @@ export function QuizApp() {
       return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.cardColor : '#ffffff';
     }
 
-    // Calculate drag progress (0 to 1) - faster transition with 0.7 multiplier
-    const screenWidth = window.innerWidth;
-    const dragProgress = Math.min(Math.abs(dragOffset) / (screenWidth * 0.7), 1);
+    // Match card animation progress - finishes at 300px drag
+    const dragProgress = Math.min(Math.abs(dragOffset) / 300, 1);
 
     const currentColors = getColorsForSlide(currentIndex);
     let targetColors;
