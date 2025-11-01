@@ -125,7 +125,7 @@ export function CategorySelector({
         </DialogDescription>
         <div className="flex flex-col w-full h-full bg-background overflow-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 pt-4 pb-0 bg-background shrink-0">
+          <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
             <DialogHeader>
               <DialogTitle className="text-white font-factora font-normal" style={{ fontSize: '20px' }}>
                 Kategorien wählen
