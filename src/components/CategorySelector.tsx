@@ -145,7 +145,40 @@ export function CategorySelector({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <style>
         {`
-...
+          @keyframes widthBounceRight {
+            0% {
+              transform: translateX(0);
+            }
+            50% {
+              transform: translateX(8px);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+          @keyframes ripple {
+            0% {
+              transform: scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: scale(1.5);
+              opacity: 0;
+            }
+          }
+          @keyframes checkmarkAppear {
+            0% {
+              transform: scale(0);
+              opacity: 0;
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
         `}
       </style>
       <DialogPortal>
