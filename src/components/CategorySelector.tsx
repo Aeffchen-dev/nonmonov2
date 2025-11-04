@@ -194,7 +194,7 @@ export function CategorySelector({
           }}
         />
         
-        <div className="flex flex-col w-full h-full bg-background overflow-hidden" style={{ 
+        <div className="flex flex-col w-full h-full overflow-hidden" style={{ 
           opacity: showContent ? 1 : 0,
           transform: showContent ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.98)',
           filter: showContent ? 'blur(0px)' : 'blur(4px)',
