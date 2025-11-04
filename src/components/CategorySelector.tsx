@@ -350,7 +350,7 @@ export function CategorySelector({
                 window.location.reload();
               }}
               className="text-white font-factora font-normal hover:opacity-70 transition-opacity"
-              style={{ fontSize: '18px' }}
+              style={{ fontSize: '14px' }}
             >
               <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>M</span>eine Einträge löschen
             </button>
