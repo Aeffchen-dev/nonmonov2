@@ -233,3 +233,13 @@ All colors MUST be HSL.
     stroke-dashoffset: 0;
   }
 }
+
+/* Shimmer animation for loading text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

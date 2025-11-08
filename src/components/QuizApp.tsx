@@ -83,8 +83,6 @@ export function QuizApp() {
   const [baseSmileyRotation, setBaseSmileyRotation] = useState(0);
   const [isLogoBlinking, setIsLogoBlinking] = useState(false);
   const [showHintAnimation, setShowHintAnimation] = useState(false);
-  const [typingIndex, setTypingIndex] = useState(0);
-  const [letterPhase, setLetterPhase] = useState<'vertical' | 'horizontal'>('vertical');
 
   useEffect(() => {
     fetchQuestions();
@@ -441,48 +439,6 @@ export function QuizApp() {
       return () => clearTimeout(timer);
     }
   }, [currentIndex, isTransitioning, isDragging]);
-
-  // Typing animation for loading text - hand-written style with stroke phases
-  useEffect(() => {
-    if (loading) {
-      const text = "Lade Fragen ...";
-      let currentIndex = 0;
-      let phase: 'vertical' | 'horizontal' = 'vertical';
-      const verticalDelay = 80;  // Time for vertical stroke
-      const horizontalDelay = 70; // Time for horizontal stroke
-      const betweenLetterDelay = 120; // Pause between letters
-      
-      const typeNextPhase = () => {
-        if (currentIndex < text.length) {
-          if (phase === 'vertical') {
-            setTypingIndex(currentIndex);
-            setLetterPhase('vertical');
-            phase = 'horizontal';
-            setTimeout(typeNextPhase, verticalDelay);
-          } else {
-            setLetterPhase('horizontal');
-            phase = 'vertical';
-            currentIndex++;
-            
-            if (currentIndex < text.length) {
-              // Add extra pause between letters for natural feel
-              const nextDelay = text[currentIndex] === ' ' ? 40 : betweenLetterDelay;
-              setTimeout(typeNextPhase, horizontalDelay + (Math.random() * 40 - 20)); // Add slight randomness
-            } else {
-              // Completed, reset after pause
-              setTimeout(() => {
-                currentIndex = 0;
-                phase = 'vertical';
-                typeNextPhase();
-              }, 1000);
-            }
-          }
-        }
-      };
-      
-      typeNextPhase();
-    }
-  }, [loading]);
 
   // Filter and order slides based on categories and mode
   useEffect(() => {
@@ -922,31 +878,20 @@ export function QuizApp() {
       <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
-            <div className="flex items-center justify-center h-full text-white" style={{ fontSize: '14px' }}>
-              {"Lade Fragen ...".split('').map((char, index) => {
-                const isVisible = index < typingIndex;
-                const isCurrentLetter = index === typingIndex && letterPhase === 'vertical';
-                const isCompleted = index < typingIndex || (index === typingIndex && letterPhase === 'horizontal');
-                
-                return (
-                  <span 
-                    key={index}
-                    style={{
-                      display: 'inline-block',
-                      opacity: isVisible || isCurrentLetter ? 1 : 0,
-                      transform: isCurrentLetter 
-                        ? 'scaleX(0.3) scaleY(1)' 
-                        : isCompleted 
-                        ? 'scaleX(1) scaleY(1)' 
-                        : 'scaleX(0.3) scaleY(0.3)',
-                      transformOrigin: 'left center',
-                      transition: 'transform 0.08s ease-out, opacity 0.05s ease-out'
-                    }}
-                  >
-                    {char}
-                  </span>
-                );
-              })}
+            <div className="flex items-center justify-center h-full" style={{ fontSize: '14px' }}>
+              <span 
+                style={{
+                  background: 'linear-gradient(90deg, #bbb 0%, #fff 50%, #bbb 100%)',
+                  backgroundSize: '200% 100%',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                  animation: 'shimmer 2s infinite linear',
+                  fontWeight: 'normal'
+                }}
+              >
+                Lade Fragen ...
+              </span>
             </div>
           ) : hasSlides ? (
             <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
