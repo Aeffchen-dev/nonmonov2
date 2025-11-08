@@ -83,6 +83,7 @@ export function QuizApp() {
   const [baseSmileyRotation, setBaseSmileyRotation] = useState(0);
   const [isLogoBlinking, setIsLogoBlinking] = useState(false);
   const [showHintAnimation, setShowHintAnimation] = useState(false);
+  const [typingIndex, setTypingIndex] = useState(0);
 
   useEffect(() => {
     fetchQuestions();
@@ -439,6 +440,35 @@ export function QuizApp() {
       return () => clearTimeout(timer);
     }
   }, [currentIndex, isTransitioning, isDragging]);
+
+  // Typing animation for loading text
+  useEffect(() => {
+    if (loading) {
+      const text = "Lade Fragen...";
+      let currentIndex = 0;
+      
+      const typeNextLetter = () => {
+        if (currentIndex <= text.length) {
+          setTypingIndex(currentIndex);
+          currentIndex++;
+        } else {
+          // Reset and start over after a brief pause
+          setTimeout(() => {
+            currentIndex = 0;
+          }, 500);
+        }
+      };
+      
+      // Initial type
+      typeNextLetter();
+      
+      // Type letters with 80ms delay, complete cycle takes ~1.2s + 0.5s pause = 1.7s
+      // Then repeat every 2s total
+      const typingInterval = setInterval(typeNextLetter, 80);
+      
+      return () => clearInterval(typingInterval);
+    }
+  }, [loading]);
 
   // Filter and order slides based on categories and mode
   useEffect(() => {
@@ -878,7 +908,19 @@ export function QuizApp() {
       <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
-            <div className="flex items-center justify-center h-full text-white" style={{ fontSize: '14px' }}>Lade Fragen...</div>
+            <div className="flex items-center justify-center h-full text-white" style={{ fontSize: '14px' }}>
+              {"Lade Fragen...".split('').map((char, index) => (
+                <span 
+                  key={index}
+                  style={{
+                    opacity: index < typingIndex ? 1 : 0,
+                    transition: 'opacity 0.05s ease-in'
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+            </div>
           ) : hasSlides ? (
             <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
               {/* Render current slide and adjacent slides for transitions */}
