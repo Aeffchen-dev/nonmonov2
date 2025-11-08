@@ -918,17 +918,23 @@ export function QuizApp() {
       <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
-            <div className="flex items-center justify-center h-full">
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Monster positioned like on a card */}
               <div
                 style={{
-                  position: 'relative',
-                  width: '120px',
-                  height: '120px',
+                  position: 'absolute',
+                  top: '55%',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '120%',
+                  height: '120%',
                   borderRadius: '50%',
-                  backgroundColor: '#FFFF33'
+                  backgroundColor: '#FFFF33',
+                  pointerEvents: 'none',
+                  zIndex: 10
                 }}
               >
-                {/* Eyes container */}
+                {/* Eyes container - centered vertically in visible monster portion */}
                 <div
                   style={{
                     position: 'absolute',
@@ -936,7 +942,8 @@ export function QuizApp() {
                     left: '50%',
                     transform: 'translateX(-50%)',
                     display: 'flex',
-                    gap: '20px'
+                    gap: '20px',
+                    pointerEvents: 'none'
                   }}
                 >
                   {/* Left Eye */}
