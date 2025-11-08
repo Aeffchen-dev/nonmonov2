@@ -83,18 +83,60 @@ export function QuizApp() {
   const [baseSmileyRotation, setBaseSmileyRotation] = useState(0);
   const [isLogoBlinking, setIsLogoBlinking] = useState(false);
   const [showHintAnimation, setShowHintAnimation] = useState(false);
+  const [loadingPupilOffset, setLoadingPupilOffset] = useState({ x: 0, y: 0 });
+  const [loadingIsBlinking, setLoadingIsBlinking] = useState(false);
 
   useEffect(() => {
     fetchQuestions();
   }, []);
 
-  // Rotate smiley during loading
+  // Loading monster animations - pupil movement
   useEffect(() => {
     if (loading) {
-      setLoadingSmileyRotating(true);
-      setTimeout(() => {
-        setLoadingSmileyRotating(false);
-      }, 1200);
+      const movePupil = () => {
+        const maxOffset = 7;
+        const randomX = (Math.random() - 0.5) * 2 * maxOffset;
+        const randomY = (Math.random() - 0.5) * 2 * maxOffset;
+        setLoadingPupilOffset({ x: randomX, y: randomY });
+      };
+
+      const scheduleNextMove = () => {
+        const delay = 1500 + Math.random() * 2500;
+        return setTimeout(() => {
+          movePupil();
+          scheduleNextMove();
+        }, delay);
+      };
+
+      const timeoutId = scheduleNextMove();
+      return () => clearTimeout(timeoutId);
+    }
+  }, [loading]);
+
+  // Loading monster animations - blinking
+  useEffect(() => {
+    if (loading) {
+      const blink = () => {
+        setLoadingIsBlinking(true);
+        setTimeout(() => setLoadingIsBlinking(false), 150);
+      };
+
+      const initialDelay = 2000 + Math.random() * 3000;
+      const initialTimeout = setTimeout(blink, initialDelay);
+
+      const scheduleNextBlink = () => {
+        const delay = 8000 + Math.random() * 12000;
+        return setTimeout(() => {
+          blink();
+          scheduleNextBlink();
+        }, delay);
+      };
+
+      const timeoutId = scheduleNextBlink();
+      return () => {
+        clearTimeout(initialTimeout);
+        clearTimeout(timeoutId);
+      };
     }
   }, [loading]);
 
@@ -879,53 +921,81 @@ export function QuizApp() {
             <div className="flex items-center justify-center h-full">
               <div
                 style={{
-                  display: 'inline-block',
-                  width: '16.5px',
-                  height: '16.5px',
-                  backgroundColor: '#FFFF33',
-                  borderRadius: '50%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexDirection: 'column',
                   position: 'relative',
-                  transform: `rotate(${loadingSmileyRotating ? '360deg' : '0deg'})`,
-                  transition: 'transform 0.8s ease-in-out',
-                  paddingLeft: '2px',
-                  paddingRight: '2px'
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
+                  backgroundColor: '#FFFF33'
                 }}
               >
-                <div style={{ 
-                  display: 'flex', 
-                  gap: '2.2px', 
-                  position: 'absolute', 
-                  top: '5px', 
-                  left: '50%', 
-                  transform: 'translateX(-50%)',
-                }}>
-                  <div style={{ 
-                    width: '2.2px', 
-                    height: '2.2px', 
-                    backgroundColor: 'black', 
-                    borderRadius: '50%'
-                  }}></div>
-                  <div style={{ 
-                    width: '2.2px', 
-                    height: '2.2px', 
-                    backgroundColor: 'black', 
-                    borderRadius: '50%'
-                  }}></div>
+                {/* Eyes container */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '17.5%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    display: 'flex',
+                    gap: '20px'
+                  }}
+                >
+                  {/* Left Eye */}
+                  <div
+                    style={{
+                      position: 'relative',
+                      width: '30px',
+                      height: '30px',
+                      backgroundColor: 'white',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      overflow: 'hidden',
+                      transform: loadingIsBlinking ? 'scaleY(0.1)' : 'scaleY(1)',
+                      transition: 'transform 0.15s ease-out'
+                    }}
+                  >
+                    {/* Pupil */}
+                    <div
+                      style={{
+                        width: '14px',
+                        height: '14px',
+                        backgroundColor: 'black',
+                        borderRadius: '50%',
+                        transform: `translate(${loadingPupilOffset.x}px, ${loadingPupilOffset.y}px)`,
+                        transition: 'transform 0.3s ease-out'
+                      }}
+                    />
+                  </div>
+                  {/* Right Eye */}
+                  <div
+                    style={{
+                      position: 'relative',
+                      width: '30px',
+                      height: '30px',
+                      backgroundColor: 'white',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      overflow: 'hidden',
+                      transform: loadingIsBlinking ? 'scaleY(0.1)' : 'scaleY(1)',
+                      transition: 'transform 0.15s ease-out'
+                    }}
+                  >
+                    {/* Pupil */}
+                    <div
+                      style={{
+                        width: '14px',
+                        height: '14px',
+                        backgroundColor: 'black',
+                        borderRadius: '50%',
+                        transform: `translate(${loadingPupilOffset.x}px, ${loadingPupilOffset.y}px)`,
+                        transition: 'transform 0.3s ease-out'
+                      }}
+                    />
+                  </div>
                 </div>
-                <div style={{ 
-                  width: '6.6px', 
-                  height: '2.75px', 
-                  border: '1px solid black', 
-                  borderTop: 'none',
-                  borderRadius: '0 0 6.6px 6.6px',
-                  position: 'absolute',
-                  top: '9.35px',
-                  left: '50%',
-                  transform: 'translateX(-50%)'
-                }}></div>
               </div>
             </div>
           ) : hasSlides ? (
