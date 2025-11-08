@@ -158,8 +158,8 @@ export function CategorySelector({
         `}
       </style>
       <DialogPortal>
-        {/* Fully transparent overlay - no animations */}
-        <DialogOverlay className="bg-transparent pointer-events-none" />
+        {/* Fully opaque overlay - no animations */}
+        <DialogOverlay className="bg-black pointer-events-none" />
         <DialogContent className="mx-auto border-0 p-0 overflow-hidden [&>button]:hidden flex flex-col data-[state=open]:animate-none data-[state=closed]:animate-none bg-transparent" style={{ height: '100svh', width: '100vw' }}>
         <DialogDescription className="sr-only">
           Wählen Sie die Kategorien aus, die Sie sehen möchten
