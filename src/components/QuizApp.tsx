@@ -83,60 +83,18 @@ export function QuizApp() {
   const [baseSmileyRotation, setBaseSmileyRotation] = useState(0);
   const [isLogoBlinking, setIsLogoBlinking] = useState(false);
   const [showHintAnimation, setShowHintAnimation] = useState(false);
-  const [loadingPupilOffset, setLoadingPupilOffset] = useState({ x: 0, y: 0 });
-  const [loadingIsBlinking, setLoadingIsBlinking] = useState(false);
 
   useEffect(() => {
     fetchQuestions();
   }, []);
 
-  // Loading monster animations - pupil movement
+  // Rotate smiley during loading
   useEffect(() => {
     if (loading) {
-      const movePupil = () => {
-        const maxOffset = 7;
-        const randomX = (Math.random() - 0.5) * 2 * maxOffset;
-        const randomY = (Math.random() - 0.5) * 2 * maxOffset;
-        setLoadingPupilOffset({ x: randomX, y: randomY });
-      };
-
-      const scheduleNextMove = () => {
-        const delay = 1500 + Math.random() * 2500;
-        return setTimeout(() => {
-          movePupil();
-          scheduleNextMove();
-        }, delay);
-      };
-
-      const timeoutId = scheduleNextMove();
-      return () => clearTimeout(timeoutId);
-    }
-  }, [loading]);
-
-  // Loading monster animations - blinking
-  useEffect(() => {
-    if (loading) {
-      const blink = () => {
-        setLoadingIsBlinking(true);
-        setTimeout(() => setLoadingIsBlinking(false), 150);
-      };
-
-      const initialDelay = 2000 + Math.random() * 3000;
-      const initialTimeout = setTimeout(blink, initialDelay);
-
-      const scheduleNextBlink = () => {
-        const delay = 8000 + Math.random() * 12000;
-        return setTimeout(() => {
-          blink();
-          scheduleNextBlink();
-        }, delay);
-      };
-
-      const timeoutId = scheduleNextBlink();
-      return () => {
-        clearTimeout(initialTimeout);
-        clearTimeout(timeoutId);
-      };
+      setLoadingSmileyRotating(true);
+      setTimeout(() => {
+        setLoadingSmileyRotating(false);
+      }, 1200);
     }
   }, [loading]);
 
@@ -918,92 +876,20 @@ export function QuizApp() {
       <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
-            <div className="relative w-full h-full flex items-center justify-center">
-              {/* Monster positioned like on a card */}
-              <div
+            <div className="flex items-center justify-center h-full" style={{ fontSize: '14px' }}>
+              <span 
                 style={{
-                  position: 'absolute',
-                  top: '55%',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '120%',
-                  height: '120%',
-                  borderRadius: '50%',
-                  backgroundColor: '#FFFF33',
-                  pointerEvents: 'none',
-                  zIndex: 10
+                  background: 'linear-gradient(90deg, #888 0%, #fff 50%, #888 100%)',
+                  backgroundSize: '200% 100%',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                  animation: 'shimmer 2s infinite linear',
+                  fontWeight: 'normal'
                 }}
               >
-                {/* Eyes container - centered vertically in visible monster portion */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '17.5%',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    display: 'flex',
-                    gap: '20px',
-                    pointerEvents: 'none'
-                  }}
-                >
-                  {/* Left Eye */}
-                  <div
-                    style={{
-                      position: 'relative',
-                      width: '30px',
-                      height: '30px',
-                      backgroundColor: 'white',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      overflow: 'hidden',
-                      transform: loadingIsBlinking ? 'scaleY(0.1)' : 'scaleY(1)',
-                      transition: 'transform 0.15s ease-out'
-                    }}
-                  >
-                    {/* Pupil */}
-                    <div
-                      style={{
-                        width: '14px',
-                        height: '14px',
-                        backgroundColor: 'black',
-                        borderRadius: '50%',
-                        transform: `translate(${loadingPupilOffset.x}px, ${loadingPupilOffset.y}px)`,
-                        transition: 'transform 0.3s ease-out'
-                      }}
-                    />
-                  </div>
-                  {/* Right Eye */}
-                  <div
-                    style={{
-                      position: 'relative',
-                      width: '30px',
-                      height: '30px',
-                      backgroundColor: 'white',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      overflow: 'hidden',
-                      transform: loadingIsBlinking ? 'scaleY(0.1)' : 'scaleY(1)',
-                      transition: 'transform 0.15s ease-out'
-                    }}
-                  >
-                    {/* Pupil */}
-                    <div
-                      style={{
-                        width: '14px',
-                        height: '14px',
-                        backgroundColor: 'black',
-                        borderRadius: '50%',
-                        transform: `translate(${loadingPupilOffset.x}px, ${loadingPupilOffset.y}px)`,
-                        transition: 'transform 0.3s ease-out'
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
+                Lade Fragen ...
+              </span>
             </div>
           ) : hasSlides ? (
             <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
