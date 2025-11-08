@@ -989,6 +989,7 @@ export function QuizApp() {
         categories={availableCategories}
         selectedCategories={selectedCategories}
         onCategoriesChange={handleCategoriesChange}
+        backgroundColor={getInterpolatedBgColor()}
       />
     </div>
   );
