@@ -600,17 +600,17 @@ export function QuizApp() {
     }
     
     const colorMap = {
-      1: { cardColor: 'hsl(15, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
-      2: { cardColor: 'hsl(248, 100%, 82%)', pageBg: 'hsl(0, 0%, 0%)' },
-      3: { cardColor: 'hsl(60, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
-      4: { cardColor: 'hsl(292, 100%, 78%)', pageBg: 'hsl(0, 0%, 0%)' },
-      5: { cardColor: 'hsl(0, 100%, 58%)', pageBg: 'hsl(0, 0%, 0%)' },
-      6: { cardColor: 'hsl(304, 100%, 60%)', pageBg: 'hsl(0, 0%, 0%)' },
-      7: { cardColor: 'hsl(184, 86%, 64%)', pageBg: 'hsl(0, 0%, 0%)' },
-      8: { cardColor: 'hsl(163, 100%, 55%)', pageBg: 'hsl(0, 0%, 0%)' },
-      9: { cardColor: 'hsl(120, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
-      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(0, 0%, 0%)' },
-      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(0, 0%, 0%)' },
+      1: { cardColor: 'hsl(15, 100%, 50%)', pageBg: 'hsl(var(--background))' },
+      2: { cardColor: 'hsl(248, 100%, 82%)', pageBg: 'hsl(var(--background))' },
+      3: { cardColor: 'hsl(60, 100%, 50%)', pageBg: 'hsl(var(--background))' },
+      4: { cardColor: 'hsl(292, 100%, 78%)', pageBg: 'hsl(var(--background))' },
+      5: { cardColor: 'hsl(0, 100%, 58%)', pageBg: 'hsl(var(--background))' },
+      6: { cardColor: 'hsl(304, 100%, 60%)', pageBg: 'hsl(var(--background))' },
+      7: { cardColor: 'hsl(184, 86%, 64%)', pageBg: 'hsl(var(--background))' },
+      8: { cardColor: 'hsl(163, 100%, 55%)', pageBg: 'hsl(var(--background))' },
+      9: { cardColor: 'hsl(120, 100%, 50%)', pageBg: 'hsl(var(--background))' },
+      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(var(--background))' },
+      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(var(--background))' },
     };
     
     return colorMap[colorIndex as keyof typeof colorMap] || colorMap[1];
@@ -638,7 +638,7 @@ export function QuizApp() {
   const getInterpolatedBgColor = () => {
     if (!isDragging && !isTransitioning) {
       const colors = getCurrentColors();
-      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : 'hsl(var(--background))';
     }
 
     // During transition, show target color immediately
@@ -651,7 +651,7 @@ export function QuizApp() {
     // During dragging, interpolate based on progress
     if (!hasSlides) {
       const colors = getCurrentColors();
-      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : 'hsl(var(--background))';
     }
 
     // Match card animation progress - finishes at 300px drag
@@ -668,10 +668,10 @@ export function QuizApp() {
       targetColors = getColorsForSlide(currentIndex - 1);
     } else {
       // No valid target, stay at current
-      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : '#000000';
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : 'hsl(var(--background))';
     }
 
-    const currentBg = safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : '#000000';
+    const currentBg = safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : 'hsl(var(--background))';
     const targetBg = targetColors.pageBg;
 
     return interpolateColors(currentBg, targetBg, dragProgress);
@@ -723,7 +723,7 @@ export function QuizApp() {
   // Update theme-color meta tag for iOS Safari status bar
   useEffect(() => {
     const colors = getCurrentColors();
-    const bgColor = slides[currentIndex]?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
+    const bgColor = slides[currentIndex]?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : 'hsl(var(--background))';
     
     // Update theme-color meta tag
     let metaThemeColor = document.querySelector('meta[name="theme-color"]');
