@@ -813,7 +813,7 @@ export function QuizApp() {
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
                       verticalAlign: 'middle',
-                      clipPath: 'polygon(0 6px, 3px 6px, 3px 3px, 6px 3px, 6px 0, 12px 0, 12px 3px, 15px 3px, 15px 6px, 18px 6px, 18px 12px, 15px 12px, 15px 15px, 12px 15px, 12px 18px, 6px 18px, 6px 15px, 3px 15px, 3px 12px, 0 12px)'
+                      imageRendering: 'pixelated'
                     }}
                   >
                     {[
@@ -867,18 +867,39 @@ export function QuizApp() {
                       </div>
                     ))}
                   </div>
-                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                   // Other 'o's - with pixelated clip-path
-                   <span style={{
-                     clipPath: 'polygon(0 30%, 10% 30%, 10% 10%, 30% 10%, 30% 0, 70% 0, 70% 10%, 90% 10%, 90% 30%, 100% 30%, 100% 70%, 90% 70%, 90% 90%, 70% 90%, 70% 100%, 30% 100%, 30% 90%, 10% 90%, 10% 70%, 0 70%)',
-                     display: 'inline-block'
-                   }}>
-                     {char}
-                   </span>
-                 ) : (
-                   char
-                 )}
-               </span>
+                ) : char === 'o' && (index === 5 || index === 7) ? (
+                  // Other 'o's - Pixelated heart outlines (white) - 5x5 grid with 3.2px pixels
+                  <div 
+                    style={{
+                      display: 'inline-grid',
+                      gridTemplateColumns: 'repeat(5, 3.2px)',
+                      gridTemplateRows: 'repeat(5, 3.2px)',
+                      gap: '0px',
+                      width: '16px',
+                      height: '16px',
+                      verticalAlign: 'middle',
+                      marginBottom: '0px',
+                      imageRendering: 'pixelated'
+                    }}
+                  >
+                    {[
+                      [0,1,0,1,0],
+                      [1,0,1,0,1],
+                      [1,0,0,0,1],
+                      [0,1,0,1,0],
+                      [0,0,1,0,0]
+                    ].flat().map((v, i) => (
+                      <div key={i} style={{
+                        backgroundColor: v ? 'white' : 'transparent',
+                        width: '3.2px',
+                        height: '3.2px'
+                      }} />
+                    ))}
+                  </div>
+                ) : (
+                  char
+                )}
+              </span>
             );
           })}
         </div>
