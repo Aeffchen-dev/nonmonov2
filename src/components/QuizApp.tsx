@@ -890,6 +890,36 @@ export function QuizApp() {
                       height: '3px',
                       backgroundColor: 'white'
                     }} />
+                    {/* Bottom left pixel */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '7px',
+                      left: '50%',
+                      transform: 'translateX(-6px)',
+                      width: '3px',
+                      height: '3px',
+                      backgroundColor: 'white'
+                    }} />
+                    {/* Bottom right pixel */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '7px',
+                      left: '50%',
+                      transform: 'translateX(3px)',
+                      width: '3px',
+                      height: '3px',
+                      backgroundColor: 'white'
+                    }} />
+                    {/* Below bottom pixel */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '4px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '3px',
+                      height: '3px',
+                      backgroundColor: 'white'
+                    }} />
                   </span>
                 ) : (
                   char
