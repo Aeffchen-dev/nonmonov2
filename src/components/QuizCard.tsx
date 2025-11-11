@@ -678,8 +678,8 @@ export function QuizCard({
         <button
           style={{
             position: 'absolute',
-            right: '24px',
-            bottom: '24px',
+            right: '0',
+            bottom: '0',
             width: '69px',
             height: '69px',
             border: 'none',
