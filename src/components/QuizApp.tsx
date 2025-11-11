@@ -3,7 +3,7 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
-import { Menu } from 'lucide-react';
+import { AlignJustify } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -873,7 +873,7 @@ export function QuizApp() {
             color: 'white'
           }}
         >
-          <Menu size={24} strokeLinecap="square" />
+          <AlignJustify size={24} strokeLinecap="square" />
         </button>
       </div>
 
