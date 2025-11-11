@@ -600,17 +600,17 @@ export function QuizApp() {
     }
     
     const colorMap = {
-      1: { cardColor: 'hsl(15, 100%, 50%)', pageBg: 'hsl(var(--background))' },
-      2: { cardColor: 'hsl(248, 100%, 82%)', pageBg: 'hsl(var(--background))' },
-      3: { cardColor: 'hsl(60, 100%, 50%)', pageBg: 'hsl(var(--background))' },
-      4: { cardColor: 'hsl(292, 100%, 78%)', pageBg: 'hsl(var(--background))' },
-      5: { cardColor: 'hsl(0, 100%, 58%)', pageBg: 'hsl(var(--background))' },
-      6: { cardColor: 'hsl(304, 100%, 60%)', pageBg: 'hsl(var(--background))' },
-      7: { cardColor: 'hsl(184, 86%, 64%)', pageBg: 'hsl(var(--background))' },
-      8: { cardColor: 'hsl(163, 100%, 55%)', pageBg: 'hsl(var(--background))' },
-      9: { cardColor: 'hsl(120, 100%, 50%)', pageBg: 'hsl(var(--background))' },
-      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(var(--background))' },
-      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(var(--background))' },
+      1: { cardColor: 'hsl(15, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
+      2: { cardColor: 'hsl(248, 100%, 82%)', pageBg: 'hsl(0, 0%, 0%)' },
+      3: { cardColor: 'hsl(60, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
+      4: { cardColor: 'hsl(292, 100%, 78%)', pageBg: 'hsl(0, 0%, 0%)' },
+      5: { cardColor: 'hsl(0, 100%, 58%)', pageBg: 'hsl(0, 0%, 0%)' },
+      6: { cardColor: 'hsl(304, 100%, 60%)', pageBg: 'hsl(0, 0%, 0%)' },
+      7: { cardColor: 'hsl(184, 86%, 64%)', pageBg: 'hsl(0, 0%, 0%)' },
+      8: { cardColor: 'hsl(163, 100%, 55%)', pageBg: 'hsl(0, 0%, 0%)' },
+      9: { cardColor: 'hsl(120, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
+      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(0, 0%, 0%)' },
+      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(0, 0%, 0%)' },
     };
     
     return colorMap[colorIndex as keyof typeof colorMap] || colorMap[1];
@@ -638,7 +638,7 @@ export function QuizApp() {
   const getInterpolatedBgColor = () => {
     if (!isDragging && !isTransitioning) {
       const colors = getCurrentColors();
-      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : 'hsl(var(--background))';
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
     }
 
     // During transition, show target color immediately
@@ -651,7 +651,7 @@ export function QuizApp() {
     // During dragging, interpolate based on progress
     if (!hasSlides) {
       const colors = getCurrentColors();
-      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : 'hsl(var(--background))';
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
     }
 
     // Match card animation progress - finishes at 300px drag
@@ -668,10 +668,10 @@ export function QuizApp() {
       targetColors = getColorsForSlide(currentIndex - 1);
     } else {
       // No valid target, stay at current
-      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : 'hsl(var(--background))';
+      return safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : '#000000';
     }
 
-    const currentBg = safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : 'hsl(var(--background))';
+    const currentBg = safeSlide?.question?.category.toLowerCase() !== 'intro' ? currentColors.pageBg : '#000000';
     const targetBg = targetColors.pageBg;
 
     return interpolateColors(currentBg, targetBg, dragProgress);
@@ -723,7 +723,7 @@ export function QuizApp() {
   // Update theme-color meta tag for iOS Safari status bar
   useEffect(() => {
     const colors = getCurrentColors();
-    const bgColor = slides[currentIndex]?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : 'hsl(var(--background))';
+    const bgColor = slides[currentIndex]?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
     
     // Update theme-color meta tag
     let metaThemeColor = document.querySelector('meta[name="theme-color"]');
@@ -775,161 +775,135 @@ export function QuizApp() {
         left: 0
       }}
     >
-      {/* Background text "non mono" with smiley and hearts - 480vw, vertically centered */}
-      <div 
-        className="font-rauschen"
-        style={{
-          position: 'fixed',
-          top: '65%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '41.8vw',
-          fontWeight: 600,
-          color: '#FFFFFF',
-          zIndex: 0,
-          pointerEvents: 'none',
-          whiteSpace: 'nowrap',
-          lineHeight: 0.784,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '0vw'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '120px' }}>
-        {"non ".split('').map((char, index) => {
-          const isSpace = char === ' ';
-          return (
-            <span 
-              key={index} 
-              style={{ 
-                display: 'inline-block',
-                marginLeft: isSpace ? '0.3em' : '0',
-                verticalAlign: 'middle'
-              }}
-            >
-              {char === 'o' && index === 1 ? (
-                // First 'o' in "non" - Pixelated Smiley (scaled up)
-                <div 
-                  style={{
-                    display: 'inline-grid',
-                    gridTemplateColumns: 'repeat(6, 3.703vw)',
-                    gridTemplateRows: 'repeat(6, 3.703vw)',
-                    gap: '0px',
-                    width: '22.218vw',
-                    height: '22.218vw',
-                    position: 'relative',
-                    verticalAlign: 'middle',
-                    imageRendering: 'pixelated',
-                    marginBottom: '1.48vw'
-                  }}
-                >
-                  {[
-                    [0,0,1,1,0,0],
-                    [0,1,1,1,1,0],
-                    [1,1,1,1,1,1],
-                    [1,1,1,1,1,1],
-                    [0,1,1,1,1,0],
-                    [0,0,1,1,0,0]
-                  ].flat().map((v, i) => (
-                    <div key={i} style={{
-                      backgroundColor: v ? '#FFFF33' : 'transparent',
-                      width: '3.703vw',
-                      height: '3.703vw',
-                      position: 'relative',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}>
-                      {/* Left eye */}
-                      {i === 14 && (
-                        <div style={{
-                          width: '2.407vw',
-                          height: '2.407vw',
-                          backgroundColor: '#000000'
-                        }} />
-                      )}
-                      {/* Right eye */}
-                      {i === 15 && (
-                        <div style={{
-                          width: '2.407vw',
-                          height: '2.407vw',
-                          backgroundColor: '#000000'
-                        }} />
-                      )}
-                      {/* Mouth */}
-                      {(i === 26 || i === 27) && (
-                        <div style={{
-                          position: 'absolute',
-                          bottom: '0',
-                          left: '0',
-                          width: '3.703vw',
-                          height: '1.222vw',
-                          backgroundColor: '#000000'
-                        }} />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                isSpace ? '\u00A0' : char
-              )}
-            </span>
-          );
-        })}
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-        {"mono".split('').map((char, index) => {
-          return (
-            <span 
-              key={index} 
-              style={{ 
-                display: 'inline-block',
-                verticalAlign: 'middle'
-              }}
-            >
-              {char === 'o' ? (
-                // 'o's in "mono" - Pixelated heart outlines (scaled up)
-                <div 
-                  style={{
-                    display: 'inline-grid',
-                    gridTemplateColumns: 'repeat(5, 3.962vw)',
-                    gridTemplateRows: 'repeat(5, 3.962vw)',
-                    gap: '0px',
-                    width: '19.81vw',
-                    height: '19.81vw',
-                    verticalAlign: 'middle',
-                    marginBottom: '1.48vw',
-                    imageRendering: 'pixelated'
-                  }}
-                >
-                  {[
-                    [0,1,0,1,0],
-                    [1,0,1,0,1],
-                    [1,0,0,0,1],
-                    [0,1,0,1,0],
-                    [0,0,1,0,0]
-                   ].flat().map((v, i) => (
-                    <div key={i} style={{
-                      backgroundColor: v ? '#FFFFFF' : 'transparent',
-                      width: '3.962vw',
-                      height: '3.962vw'
-                    }} />
-                  ))}
-                </div>
-              ) : (
-                char
-              )}
-            </span>
-          );
-        })}
-        </div>
-      </div>
-
       {/* App Header with controls - Always visible */}
-      <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)', position: 'relative', zIndex: 10 }}>
-        <div style={{ width: '1px' }} />
-        <button
+      <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
+        <div 
+          className="cursor-pointer font-rauschen flex items-center" 
+          style={{ 
+            fontSize: '22px', 
+            fontWeight: 600,
+            color: 'white',
+            letterSpacing: '0.01em'
+          }}
+          onClick={handleLogoClick}
+        >
+          {"non mono".split('').map((char, index) => {
+            const addSpace = index === 3;
+            return (
+              <span 
+                key={index} 
+                style={{ 
+                  display: 'inline-block',
+                  marginLeft: addSpace ? '0.3em' : '0',
+                  verticalAlign: 'middle'
+                }}
+              >
+                {char === 'o' && index === 1 ? (
+                  // First 'o' - Pixelated Smiley
+                  <div 
+                    data-smiley-logo
+                    style={{
+                      display: 'inline-grid',
+                      gridTemplateColumns: 'repeat(6, 3px)',
+                      gridTemplateRows: 'repeat(6, 3px)',
+                      gap: '0px',
+                      width: '18px',
+                      height: '18px',
+                      position: 'relative',
+                      transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
+                      transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
+                      verticalAlign: 'middle',
+                      imageRendering: 'pixelated'
+                    }}
+                  >
+                    {[
+                      [0,0,1,1,0,0],
+                      [0,1,1,1,1,0],
+                      [1,1,1,1,1,1],
+                      [1,1,1,1,1,1],
+                      [0,1,1,1,1,0],
+                      [0,0,1,1,0,0]
+                    ].flat().map((v, i) => (
+                      <div key={i} style={{
+                        backgroundColor: v ? '#FFFF33' : 'transparent',
+                        width: '3px',
+                        height: '3px',
+                        position: 'relative',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        {/* Left eye - 2px square at position 14 (row 2, col 2) */}
+                        {i === 14 && (
+                          <div style={{
+                            width: '2px',
+                            height: '2px',
+                            backgroundColor: 'black',
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
+                            transition: 'transform 0.15s ease-out'
+                          }} />
+                        )}
+                        {/* Right eye - 2px square at position 15 (row 2, col 3) */}
+                        {i === 15 && (
+                          <div style={{
+                            width: '2px',
+                            height: '2px',
+                            backgroundColor: 'black',
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
+                            transition: 'transform 0.15s ease-out'
+                          }} />
+                        )}
+                        {/* Mouth - bottom pixels at positions 26, 27 (row 4, col 2 and 3) */}
+                        {(i === 26 || i === 27) && (
+                          <div style={{
+                            position: 'absolute',
+                            bottom: '0',
+                            left: '0',
+                            width: '3px',
+                            height: '1px',
+                            backgroundColor: 'black'
+                          }} />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : char === 'o' && (index === 5 || index === 7) ? (
+                  // Other 'o's - Pixelated heart outlines (white) - 5x5 grid with 3.2px pixels
+                  <div 
+                    style={{
+                      display: 'inline-grid',
+                      gridTemplateColumns: 'repeat(5, 3.2px)',
+                      gridTemplateRows: 'repeat(5, 3.2px)',
+                      gap: '0px',
+                      width: '16px',
+                      height: '16px',
+                      verticalAlign: 'middle',
+                      marginBottom: '0px',
+                      imageRendering: 'pixelated'
+                    }}
+                  >
+                    {[
+                      [0,1,0,1,0],
+                      [1,0,1,0,1],
+                      [1,0,0,0,1],
+                      [0,1,0,1,0],
+                      [0,0,1,0,0]
+                    ].flat().map((v, i) => (
+                      <div key={i} style={{
+                        backgroundColor: v ? 'white' : 'transparent',
+                        width: '3.2px',
+                        height: '3.2px'
+                      }} />
+                    ))}
+                  </div>
+                ) : (
+                  char
+                )}
+              </span>
+            );
+          })}
+        </div>
+        <button 
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
           style={{ 

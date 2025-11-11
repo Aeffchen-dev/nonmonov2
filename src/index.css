@@ -8,9 +8,9 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 15%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 98%;
-    --card-background: 0 0% 15%;
+    --card-background: 0 0% 8.6%;
 
     --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
