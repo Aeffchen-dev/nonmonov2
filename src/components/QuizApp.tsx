@@ -870,7 +870,7 @@ export function QuizApp() {
                   >
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
-                        d="M11 19C11 19 5 16 4 11C4 8 6 5 8 5C9.5 5 11 6.5 11 6.5C11 6.5 12.5 5 14 5C16 5 18 8 18 11C17 16 11 19 11 19Z"
+                        d="M11 19C11 19 5 15.5 4 11C4 7.5 6 5 8 5C9.5 5 11 7 11 7C11 7 12.5 5 14 5C16 5 18 7.5 18 11C17 15.5 11 19 11 19Z"
                         fill="#FF6633"
                       />
                     </svg>
@@ -887,7 +887,7 @@ export function QuizApp() {
                   >
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
-                        d="M11 19C11 19 5 16 4 11C4 8 6 5 8 5C9.5 5 11 6.5 11 6.5C11 6.5 12.5 5 14 5C16 5 18 8 18 11C17 16 11 19 11 19Z"
+                        d="M11 19C11 19 5 15.5 4 11C4 7.5 6 5 8 5C9.5 5 11 7 11 7C11 7 12.5 5 14 5C16 5 18 7.5 18 11C17 15.5 11 19 11 19Z"
                         fill="#AFA3FF"
                       />
                     </svg>
