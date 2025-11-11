@@ -263,7 +263,17 @@ All colors MUST be HSL.
   }
 }
 
-/* Apply irregular stroke effect to all lucide icons */
+/* Add 2px rectangles at path intersections for all lucide icons */
 svg[class*="lucide"] {
-  filter: url(#roughen);
+  stroke-linejoin: miter;
+  stroke-miterlimit: 1;
+}
+
+svg[class*="lucide"] path,
+svg[class*="lucide"] line,
+svg[class*="lucide"] polyline,
+svg[class*="lucide"] circle {
+  marker-mid: url(#intersection-dot);
+  marker-start: url(#intersection-dot);
+  marker-end: url(#intersection-dot);
 }

@@ -67,13 +67,12 @@
   </head>
 
   <body style="background-color: #000000; margin: 0; padding: 0;">
-    <!-- SVG filter for irregular icon strokes -->
+    <!-- SVG markers for path intersections -->
     <svg width="0" height="0" style="position: absolute;">
       <defs>
-        <filter id="roughen">
-          <feTurbulence baseFrequency="0.05" numOctaves="2" result="turbulence" seed="2"/>
-          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
+        <marker id="intersection-dot" viewBox="0 0 2 2" markerWidth="2" markerHeight="2" refX="1" refY="1">
+          <rect width="2" height="2" fill="currentColor"/>
+        </marker>
       </defs>
     </svg>
     
