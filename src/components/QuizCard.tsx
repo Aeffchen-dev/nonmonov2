@@ -475,7 +475,7 @@ export function QuizCard({
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
-        backgroundColor: question.category.toLowerCase() !== 'intro' ? 'rgba(255, 255, 255, 0.2)' : 'hsl(var(--card-background))',
+        backgroundColor: question.category.toLowerCase() !== 'intro' ? 'rgba(0, 0, 0, 0.2)' : 'hsl(var(--card-background))',
         backdropFilter: question.category.toLowerCase() !== 'intro' ? 'blur(32px)' : 'none',
         WebkitBackdropFilter: question.category.toLowerCase() !== 'intro' ? 'blur(32px)' : 'none',
         color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
