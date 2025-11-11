@@ -789,7 +789,7 @@ export function QuizApp() {
           zIndex: 0,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
-          lineHeight: 0.4,
+          lineHeight: 0.56,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
