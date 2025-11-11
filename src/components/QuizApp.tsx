@@ -775,10 +775,10 @@ export function QuizApp() {
       {/* App Header with controls - Always visible */}
       <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div 
-          className="cursor-pointer font-factora" 
+          className="cursor-pointer font-rauschen" 
           style={{ 
             fontSize: '22px', 
-            fontWeight: '700',
+            fontWeight: 600,
             color: getInterpolatedCardColor(),
             letterSpacing: '0.01em'
           }}
@@ -862,7 +862,7 @@ export function QuizApp() {
         </div>
         <button 
           onClick={() => setCategorySelectorOpen(true)}
-          className="font-factora font-medium flex items-center"
+          className="font-stringer font-medium flex items-center"
           style={{ 
             fontSize: '14px',
             color: getInterpolatedCardColor()
