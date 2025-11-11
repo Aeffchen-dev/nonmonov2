@@ -179,7 +179,7 @@ export function CategorySelector({
               className="text-white transition-colors"
               style={{ marginRight: '8px' }}
             >
-              <X className="h-7 w-7" strokeWidth={2} strokeLinecap="square" strokeLinejoin="miter" />
+              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
             </button>
           </div>
 
