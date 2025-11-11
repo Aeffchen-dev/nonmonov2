@@ -523,6 +523,7 @@ export function QuizCard({
               height: '36px',
               display: 'inline-flex',
               alignItems: 'center',
+              letterSpacing: '-0.02em',
               paddingLeft: '16px',
               paddingRight: '16px',
               zIndex: 20,
