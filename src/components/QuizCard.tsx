@@ -544,14 +544,16 @@ export function QuizCard({
             {/* Row 5 - with eyes */}
             {[1,2,2,3,3,2,2,1,2,2,2,2,2,2,1].map((v, i) => (
               <div key={`5-${i}`} style={{ 
-                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent',
+                borderRadius: v === 3 ? '50%' : '0'
               }} />
             ))}
             
             {/* Row 6 */}
             {[1,2,2,2,2,2,2,2,2,2,3,2,2,2,1].map((v, i) => (
               <div key={`6-${i}`} style={{ 
-                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent',
+                borderRadius: v === 3 ? '50%' : '0'
               }} />
             ))}
             
@@ -633,16 +635,12 @@ export function QuizCard({
         >
           <div
             ref={pillInnerRef}
-            className="px-2 py-0.5 rounded-full font-medium border font-stringer"
+            className="px-1.5 py-0.5 font-medium font-stringer"
             style={{
-              backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, transparent)`,
-              backdropFilter: 'blur(4px)',
-              borderColor: categoryColors.pageBg,
-              borderWidth: '2px',
-              color: categoryColors.pageBg,
+              backgroundColor: 'black',
+              color: 'white',
               fontSize: '12px',
               whiteSpace: 'nowrap',
-              mixBlendMode: 'difference',
               opacity: 1
             }}
           >
