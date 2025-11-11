@@ -284,6 +284,7 @@ export function CategorySelector({
                                  style={{ 
                                    width: '43px',
                                    height: '43px',
+                                   mixBlendMode: 'multiply',
                                    animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
                                  }}
                                />
