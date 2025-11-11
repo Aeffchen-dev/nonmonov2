@@ -881,16 +881,18 @@ export function QuizApp() {
       <div className="flex-1 flex flex-col px-4 mt-4 gap-3" style={{ minHeight: 0, overflow: 'visible' }}>
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
-            <div className="flex items-center justify-center h-full" style={{ fontSize: '14px' }}>
+            <div className="flex items-center justify-center h-full">
               <span 
+                className="font-rauschen uppercase"
                 style={{
+                  fontSize: '16px',
+                  fontWeight: 600,
                   background: 'linear-gradient(90deg, #888 0%, #fff 50%, #888 100%)',
                   backgroundSize: '200% 100%',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   color: 'transparent',
-                  animation: 'shimmer 2s infinite linear',
-                  fontWeight: 'normal'
+                  animation: 'shimmer 2s infinite linear'
                 }}
               >
                 Lade Fragen ...
