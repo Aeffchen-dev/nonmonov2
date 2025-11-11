@@ -558,7 +558,7 @@ export function QuizCard({
               msHyphens: 'auto',
               wordBreak: 'normal',
               overflowWrap: 'break-word',
-              ...(isEditing && { color: 'black' })
+              ...(isEditing && { color: 'black', marginLeft: '-4px' })
             }}
           >
             <style>{`
