@@ -800,6 +800,9 @@ export function QuizApp() {
               >
                 {index === 0 && char === 'n' ? (
                   <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
+                ) : char === 'o' && index === 1 ? (
+                  // Smiley face for 'o' in "non"
+                  <span style={{ fontSize: '1em' }}>🙂</span>
                 ) : (
                   char
                 )}
