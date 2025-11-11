@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, SquarePen, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Edit2, X } from 'lucide-react';
 import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import Hypher from 'hypher';
@@ -733,9 +733,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={28} color="white" strokeWidth={1} />
+            <X size={28} color="white" strokeWidth={1} strokeLinecap="square" />
           ) : (
-            <SquarePen size={24} color="white" strokeWidth={1} strokeLinecap="square" />
+            <Edit2 size={24} color="white" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
           )}
         </button>
       )}
