@@ -735,9 +735,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <img src={closeIcon} alt="Close" className="w-7 h-7" />
+            <img src={closeIcon} alt="Close" className="w-7 h-7 object-contain" />
           ) : (
-            <img src={editIcon} alt="Edit" className="w-6 h-6" />
+            <img src={editIcon} alt="Edit" className="w-6 h-6 object-contain" />
           )}
         </button>
       )}
