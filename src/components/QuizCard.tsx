@@ -508,23 +508,6 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
-      {/* Category Text - Top right corner */}
-      {question.category.toLowerCase() !== 'intro' && (
-        <div
-          className="font-medium font-stringer"
-          style={{
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-            color: 'white',
-            fontSize: '20px',
-            zIndex: 20
-          }}
-        >
-          {question.category}
-        </div>
-      )}
-
       {/* Category Pill - At bottom of card */}
       {question.category.toLowerCase() !== 'intro' && (
           <div
@@ -533,18 +516,18 @@ export function QuizCard({
             style={{
               position: 'absolute',
               left: '16px',
-              right: '16px',
               bottom: '16px',
               backgroundColor: 'white',
               color: '#1A1A1A',
               fontSize: '20px',
               height: '48px',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
               paddingLeft: '16px',
-              borderTop: '1px solid #1A1A1A',
+              paddingRight: '16px',
               borderRadius: '40px',
-              zIndex: 20
+              zIndex: 20,
+              width: 'auto'
             }}
           >
           {question.category}
@@ -556,8 +539,8 @@ export function QuizCard({
         <button
           style={{
             position: 'absolute',
-            right: '0',
-            bottom: '0',
+            right: '16px',
+            bottom: '16px',
             width: '58px',
             height: '58px',
             borderRadius: '0',
