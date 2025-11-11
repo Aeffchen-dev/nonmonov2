@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { X, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
+import closeIcon from '@/assets/close-icon.jpeg';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -178,9 +179,9 @@ export function CategorySelector({
             
             <button
               onClick={handleClose}
-              className="text-white transition-colors"
+              className="transition-opacity hover:opacity-80"
             >
-              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
+              <img src={closeIcon} alt="Close" className="h-7 w-7" />
             </button>
           </div>
 
