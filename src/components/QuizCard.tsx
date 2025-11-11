@@ -541,9 +541,9 @@ export function QuizCard({
           <h1 
             ref={textRef}
             lang="de"
-            className={`font-rauschen uppercase leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[1.6rem] md:text-[2rem] lg:text-[2.6rem] max-w-full'}`}
+            className={`font-stringer uppercase leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[1.6rem] md:text-[2rem] lg:text-[2.6rem] max-w-full'}`}
             style={{ 
-              fontWeight: 600,
+              fontWeight: 400,
               fontStyle: 'normal',
               letterSpacing: '0px',
               color: question.category.toLowerCase() !== 'intro' ? '#1A1A1A' : 'hsl(var(--foreground))',
@@ -564,12 +564,44 @@ export function QuizCard({
                 font-variant-emoji: text;
               }
             `}</style>
-            <span style={{ fontFeatureSettings: '"ss01" 1' }}>
-              {question.question.charAt(0)}
-            </span>
-            <span>
-              {processedText.length > 0 ? <>{processedText}</> : question.question.substring(1)}
-            </span>
+            {(() => {
+              const text = question.question;
+              const words = text.split(/(\s+)/);
+              
+              return words.map((word, index) => {
+                // Check if word is a substantive (capitalized in German, but not the first word)
+                const isSubstantive = index > 0 && word.length > 0 && word[0] === word[0].toUpperCase() && /[A-ZÄÖÜ]/.test(word[0]);
+                
+                if (isSubstantive) {
+                  return (
+                    <span 
+                      key={index}
+                      className="font-rauschen inline-block"
+                      style={{ 
+                        transform: 'rotate(4deg)',
+                        fontWeight: 600,
+                        display: 'inline-block',
+                        transformOrigin: 'center bottom'
+                      }}
+                    >
+                      {word}
+                    </span>
+                  );
+                }
+                
+                // First character gets special styling
+                if (index === 0 && word.length > 0) {
+                  return (
+                    <span key={index}>
+                      <span style={{ fontFeatureSettings: '"ss01" 1' }}>{word.charAt(0)}</span>
+                      {word.substring(1)}
+                    </span>
+                  );
+                }
+                
+                return <span key={index}>{word}</span>;
+              });
+            })()}
           </h1>
           
           {isEditing && (
