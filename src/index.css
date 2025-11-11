@@ -263,19 +263,9 @@ All colors MUST be HSL.
   }
 }
 
-/* Filled and pixelated icons */
+/* Pixelated icons */
 svg[class*="lucide"] {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-}
-
-svg[class*="lucide"] path,
-svg[class*="lucide"] circle,
-svg[class*="lucide"] rect,
-svg[class*="lucide"] line,
-svg[class*="lucide"] polyline,
-svg[class*="lucide"] polygon {
-  fill: currentColor;
-  stroke: none;
 }
