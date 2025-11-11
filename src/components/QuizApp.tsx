@@ -3,7 +3,7 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
-import { SlidersHorizontal } from 'lucide-react';
+import { Layers } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -873,7 +873,7 @@ export function QuizApp() {
             color: 'white'
           }}
         >
-          <SlidersHorizontal size={24} strokeLinecap="square" />
+          <Layers size={24} strokeLinecap="square" />
         </button>
       </div>
 
