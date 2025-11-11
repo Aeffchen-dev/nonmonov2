@@ -515,8 +515,8 @@ export function QuizCard({
             className="font-medium font-stringer"
             style={{
               position: 'absolute',
-              left: '16px',
-              bottom: '16px',
+              left: '24px',
+              bottom: '24px',
               backgroundColor: 'white',
               color: '#1A1A1A',
               fontSize: '16px',
@@ -539,8 +539,8 @@ export function QuizCard({
         <button
           style={{
             position: 'absolute',
-            right: '16px',
-            bottom: '16px',
+            right: '24px',
+            bottom: '24px',
             width: '58px',
             height: '58px',
             borderRadius: '0',
@@ -658,7 +658,7 @@ export function QuizCard({
       )}
 
       {/* Main Content */}
-      <div className={`h-full flex flex-col justify-start p-4 relative`}>
+      <div className={`h-full flex flex-col justify-start p-6 relative`}>
 
         <div ref={containerRef} className={`flex-1 flex flex-col w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
