@@ -230,16 +230,6 @@ export function IntroSlide({
                 Dieses Kartenspiel unterstützt euch dabei, ins Gespräch zu kommen: über eure Wünsche, Motivation, Ängste, Bedürfnisse und Grenzen. Zwischendurch erhaltet ihr Impulse, die Nähe schaffen und eure Verbindung stärken. So entdeckt ihr Schritt für Schritt, ob sich eine offene Beziehung für euch richtig anfühlt und wie ihr sie gestalten wollt. Die Fragen sind zufällig angeordnet, wenn ihr Thema für Thema vorgehen möchtet könnt ihr die Filterfunktion nutzen. Seid ehrlich zu euch selbst, bleibt euch treu, hört eurem Partner zu und respektiert dessen Meinung, auch wenn sie gegensätzlich ist. Ihr solltet gemeinsam agieren und das tun, was für euch als Team am besten ist.
               </p>
             </div>
-            
-            {/* Bottom text */}
-            <div className="pb-8 flex flex-col items-center gap-2">
-              <p 
-                className="text-center font-stringer"
-                style={{ fontSize: '16px', color: 'black' }}
-              >
-                Swipe um weiter zu navigieren
-              </p>
-            </div>
           </>
         )}
       </div>
