@@ -252,13 +252,13 @@ export function CategorySelector({
                      >
                           <div
                             className={`flex items-center justify-center`}
-                            style={{ 
+                             style={{ 
                               width: '44px', 
                               height: '44px',
-                              border: isSelected ? 'none' : '1px solid white',
+                              border: 'none',
                               borderRadius: '50%',
-                              backgroundColor: isSelected ? colors.cardColor : 'transparent',
-                              boxShadow: isSelected ? '0 0 8px rgba(0, 0, 0, 0.24)' : 'none',
+                              backgroundColor: isSelected ? colors.cardColor : '#1a1a1a',
+                              boxShadow: '0 0 8px rgba(0, 0, 0, 0.24)',
                               transition: shouldAnimate && isSelected
                                 ? 'all 0.1s ease-in-out 0.1s'
                                 : isSelected
