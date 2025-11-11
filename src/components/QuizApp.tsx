@@ -789,7 +789,7 @@ export function QuizApp() {
           zIndex: 0,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
-          lineHeight: 0.2,
+          lineHeight: 0.4,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -821,7 +821,7 @@ export function QuizApp() {
                     position: 'relative',
                     verticalAlign: 'middle',
                     imageRendering: 'pixelated',
-                    marginBottom: '1.8515vw'
+                    marginBottom: '1.48vw'
                   }}
                 >
                   {[
@@ -899,7 +899,7 @@ export function QuizApp() {
                     width: '19.81vw',
                     height: '19.81vw',
                     verticalAlign: 'middle',
-                    marginBottom: '1.8515vw',
+                    marginBottom: '1.48vw',
                     imageRendering: 'pixelated'
                   }}
                 >
