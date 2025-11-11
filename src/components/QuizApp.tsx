@@ -775,17 +775,16 @@ export function QuizApp() {
       {/* App Header with controls - Always visible */}
       <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div 
-          className="cursor-pointer font-stringer" 
+          className="cursor-pointer font-rauschen" 
           style={{ 
             fontSize: '22px', 
-            fontWeight: 100,
+            fontWeight: 600,
             color: getInterpolatedCardColor(),
             letterSpacing: '0.01em'
           }}
           onClick={handleLogoClick}
         >
           {"Journaling".split('').map((char, index) => {
-            const rotations = [6, -4, 8, -6, 4, -8, 6, -2, 4, -6];
             const isAnimating = animatingLetterIndex === index;
             const isEven = index % 2 === 0;
             const translateY = isAnimating ? (isEven ? '-3px' : '3px') : '0px';
@@ -794,7 +793,7 @@ export function QuizApp() {
                 key={index} 
                 style={{ 
                   display: 'inline-block',
-                  transform: `rotate(${rotations[index]}deg) translateY(${index === 0 ? 'calc(' + translateY + ' + 2px)' : translateY})`,
+                  transform: `translateY(${index === 0 ? 'calc(' + translateY + ' + 2px)' : translateY})`,
                   position: 'relative',
                   transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   fontFeatureSettings: index === 0 ? '"ss01" 1' : 'normal'
