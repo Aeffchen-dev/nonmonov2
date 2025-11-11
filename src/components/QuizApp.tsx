@@ -775,26 +775,47 @@ export function QuizApp() {
         left: 0
       }}
     >
+      {/* Background text "non mono" - 120vw, vertically centered */}
+      <div 
+        className="font-rauschen"
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '120vw',
+          fontWeight: 600,
+          color: 'rgba(255, 255, 255, 0.03)',
+          zIndex: 0,
+          pointerEvents: 'none',
+          whiteSpace: 'nowrap',
+          lineHeight: 1
+        }}
+      >
+        non mono
+      </div>
+
       {/* App Header with controls - Always visible */}
-      <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
+      <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)', position: 'relative', zIndex: 10 }}>
         <div 
-          className="cursor-pointer font-rauschen flex items-center" 
+          className="cursor-pointer font-rauschen flex flex-col items-start" 
           style={{ 
             fontSize: '22px', 
             fontWeight: 600,
             color: 'white',
-            letterSpacing: '0.01em'
+            letterSpacing: '0.01em',
+            lineHeight: 1.2
           }}
           onClick={handleLogoClick}
         >
-          {"non mono".split('').map((char, index) => {
-            const addSpace = index === 3;
+          <div>non</div>
+          <div>
+          {"mono".split('').map((char, index) => {
             return (
               <span 
                 key={index} 
                 style={{ 
                   display: 'inline-block',
-                  marginLeft: addSpace ? '0.3em' : '0',
                   verticalAlign: 'middle'
                 }}
               >
@@ -867,8 +888,8 @@ export function QuizApp() {
                       </div>
                     ))}
                   </div>
-                ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's - Pixelated heart outlines (white) - 5x5 grid with 3.2px pixels
+                ) : char === 'o' && index === 3 ? (
+                  // Last 'o' - Pixelated heart outline (white) - 5x5 grid with 3.2px pixels
                   <div 
                     style={{
                       display: 'inline-grid',
@@ -902,6 +923,7 @@ export function QuizApp() {
               </span>
             );
           })}
+          </div>
         </div>
         <button 
           onClick={() => setCategorySelectorOpen(true)}
