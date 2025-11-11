@@ -734,7 +734,7 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <img src={closeIcon} alt="Close" style={{ width: '24px', height: '24px' }} />
+            <img src={closeIcon} alt="Close" style={{ width: '24px', height: '24px', filter: 'invert(1)' }} />
           ) : (
             <Pencil size={24} color="white" fill="white" strokeWidth={0} />
           )}

@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import closeIcon from '@/assets/close-icon.png';
+import checkIcon from '@/assets/check-icon.png';
 
 interface CategorySelectorProps {
   open: boolean;
@@ -186,7 +187,7 @@ export function CategorySelector({
                 justifyContent: 'center'
               }}
             >
-              <img src={closeIcon} alt="Close" style={{ width: '28px', height: '28px' }} />
+              <img src={closeIcon} alt="Close" style={{ width: '28px', height: '28px', filter: 'invert(1)' }} />
             </button>
           </div>
 
@@ -275,27 +276,16 @@ export function CategorySelector({
                             }}
                           >
                           {isSelected && (
-                            <svg 
-                              width="26" 
-                              height="26" 
-                              viewBox="0 0 24 24" 
-                              fill="none"
-                              shapeRendering="crispEdges"
-                              filter="url(#pixelate)"
+                            <img 
+                              src={checkIcon} 
+                              alt="Check" 
                               style={{ 
-                                color: 'black',
+                                width: '26px', 
+                                height: '26px',
                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
                               }}
-                            >
-                             <path
-                               d="M20 6 9 17l-5-5"
-                               stroke="currentColor"
-                               strokeWidth="5"
-                               strokeLinecap="square"
-                               strokeLinejoin="miter"
-                             />
-                           </svg>
-                         )}
+                            />
+                          )}
                        </div>
                     </div>
                   </div>
