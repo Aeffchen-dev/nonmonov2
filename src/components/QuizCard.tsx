@@ -496,118 +496,6 @@ export function QuizCard({
           overflow: 'hidden'
         }}
       >
-      {/* Decorative pixelated heart at bottom - Monster */}
-      {question.category.toLowerCase() !== 'intro' && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '12%',
-            left: `calc(50% + ${monsterVariation.circleOffsetX * 0.3}%)`,
-            transform: `translateX(-50%) scale(${isEditing ? '0.5' : '1'})`,
-            pointerEvents: 'none',
-            zIndex: 10,
-            transition: 'transform 0.3s ease',
-          }}
-        >
-          {/* Pixelated heart using grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(15, 6px)',
-              gridTemplateRows: 'repeat(13, 6px)',
-              gap: 0,
-              imageRendering: 'pixelated',
-            }}
-          >
-            {/* Row 1 */}
-            {'               '.split('').map((_, i) => <div key={`1-${i}`} style={{ background: 'transparent' }} />)}
-            
-            {/* Row 2 */}
-            {[0,0,0,1,1,1,0,0,0,1,1,1,0,0,0].map((v, i) => (
-              <div key={`2-${i}`} style={{ background: v ? categoryColors.pageBg : 'transparent' }} />
-            ))}
-            
-            {/* Row 3 */}
-            {[0,0,1,2,2,2,1,0,1,2,2,2,1,0,0].map((v, i) => (
-              <div key={`3-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 4 */}
-            {[0,1,2,2,2,2,2,1,2,2,2,2,2,1,0].map((v, i) => (
-              <div key={`4-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 5 - with eyes */}
-            {[1,2,2,3,3,2,2,1,2,2,2,2,2,2,1].map((v, i) => (
-              <div key={`5-${i}`} style={{ 
-                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent',
-                borderRadius: v === 3 ? '50%' : '0'
-              }} />
-            ))}
-            
-            {/* Row 6 */}
-            {[1,2,2,2,2,2,2,2,2,2,3,2,2,2,1].map((v, i) => (
-              <div key={`6-${i}`} style={{ 
-                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent',
-                borderRadius: v === 3 ? '50%' : '0'
-              }} />
-            ))}
-            
-            {/* Row 7 */}
-            {[1,2,2,2,2,2,2,2,2,2,2,2,2,2,1].map((v, i) => (
-              <div key={`7-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 8 */}
-            {[0,1,2,2,2,2,2,2,2,2,2,2,2,1,0].map((v, i) => (
-              <div key={`8-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 9 */}
-            {[0,0,1,2,2,2,2,2,2,2,2,2,1,0,0].map((v, i) => (
-              <div key={`9-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 10 */}
-            {[0,0,0,1,2,2,2,2,2,2,2,1,0,0,0].map((v, i) => (
-              <div key={`10-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 11 */}
-            {[0,0,0,0,1,2,2,2,2,2,1,0,0,0,0].map((v, i) => (
-              <div key={`11-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 12 */}
-            {[0,0,0,0,0,1,2,2,2,1,0,0,0,0,0].map((v, i) => (
-              <div key={`12-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-            
-            {/* Row 13 */}
-            {[0,0,0,0,0,0,1,2,1,0,0,0,0,0,0].map((v, i) => (
-              <div key={`13-${i}`} style={{ 
-                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
-              }} />
-            ))}
-          </div>
-        </div>
-      )}
       {/* Left Click Area - Previous */}
       <div 
         className="absolute left-0 top-0 w-20 h-full z-20 cursor-pointer"
@@ -620,107 +508,100 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
-      {/* Bottom bar with pill and button */}
+      {/* Category Pill - At bottom of card */}
       {question.category.toLowerCase() !== 'intro' && (
-        <div 
+        <div
+          ref={pillInnerRef}
+          className="font-medium font-stringer"
           style={{
             position: 'absolute',
             left: '0',
-            bottom: '0',
             right: '0',
-            zIndex: 20,
+            bottom: '0',
+            backgroundColor: 'transparent',
+            color: 'black',
+            fontSize: '12px',
+            height: '48px',
             display: 'flex',
-            gap: '0'
+            alignItems: 'center',
+            paddingLeft: '16px',
+            borderTop: '1px solid black',
+            zIndex: 20
           }}
         >
-          {/* Category Pill - fills remaining width */}
-          <div
-            ref={pillInnerRef}
-            className="font-medium font-stringer"
-            style={{
-              backgroundColor: 'black',
-              color: 'white',
-              fontSize: '12px',
-              whiteSpace: 'nowrap',
-              opacity: 1,
-              height: '48px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flex: 1
-            }}
-          >
-            {question.category}
-          </div>
-
-          {/* Edit Button - 20% bigger with pixelated top-left corner */}
-          <button
-            style={{
-              width: '58px',
-              height: '58px',
-              borderRadius: '0',
-              backgroundColor: question.category.toLowerCase() === 'balance'
-                ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
-                : question.category === 'Geistige Intimität'
-                ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
-                : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
-              backdropFilter: 'blur(4px)',
-              opacity: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
-              position: 'relative',
-              clipPath: 'polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px)'
-            }}
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsEditing(!isEditing);
-            }}
-          >
-            {/* Pixelated corner overlay */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '16px',
-              height: '16px',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 4px)',
-              gridTemplateRows: 'repeat(4, 4px)',
-              pointerEvents: 'none'
-            }}>
-              {[
-                [0,0,0,0],
-                [0,0,0,0],
-                [0,0,1,1],
-                [0,0,1,1]
-              ].flat().map((v, i) => (
-                <div key={i} style={{
-                  background: v ? (question.category.toLowerCase() === 'balance'
-                    ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
-                    : question.category === 'Geistige Intimität'
-                    ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
-                    : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`) : 'transparent'
-                }} />
-              ))}
-            </div>
-            
-            {isEditing ? (
-              <X size={20} color={question.category.toLowerCase() === 'balance'
-                ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
-                : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
-              } />
-            ) : (
-              <Pencil size={20} color={question.category.toLowerCase() === 'balance'
-                ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
-                : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
-              } />
-            )}
-          </button>
+          {question.category}
         </div>
+      )}
+
+      {/* Edit Button - Fixed position */}
+      {question.category.toLowerCase() !== 'intro' && (
+        <button
+          style={{
+            position: 'absolute',
+            right: '16px',
+            bottom: '16px',
+            width: '58px',
+            height: '58px',
+            borderRadius: '0',
+            backgroundColor: question.category.toLowerCase() === 'balance'
+              ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
+              : question.category === 'Geistige Intimität'
+              ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
+              : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
+            backdropFilter: 'blur(4px)',
+            opacity: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: 'none',
+            cursor: 'pointer',
+            boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
+            clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
+            zIndex: 30
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsEditing(!isEditing);
+          }}
+        >
+          {/* Pixelated corner overlay - smaller */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [0,0],
+              [0,1]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? (question.category.toLowerCase() === 'balance'
+                  ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
+                  : question.category === 'Geistige Intimität'
+                  ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
+                  : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`) : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {isEditing ? (
+            <X size={20} color={question.category.toLowerCase() === 'balance'
+              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
+              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
+            } />
+          ) : (
+            <Pencil size={20} color={question.category.toLowerCase() === 'balance'
+              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
+              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
+            } />
+          )}
+        </button>
       )}
 
       {/* Main Content */}
