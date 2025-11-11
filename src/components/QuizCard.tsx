@@ -567,12 +567,14 @@ export function QuizCard({
             {(() => {
               const text = question.question;
               const words = text.split(/(\s+)/);
+              let firstSubstantiveFound = false;
               
               return words.map((word, index) => {
                 // Check if word is a substantive (capitalized in German, but not the first word)
                 const isSubstantive = index > 0 && word.length > 0 && word[0] === word[0].toUpperCase() && /[A-ZÄÖÜ]/.test(word[0]);
                 
-                if (isSubstantive) {
+                if (isSubstantive && !firstSubstantiveFound) {
+                  firstSubstantiveFound = true;
                   return (
                     <span 
                       key={index}
