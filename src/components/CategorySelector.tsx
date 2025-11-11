@@ -197,13 +197,11 @@ export function CategorySelector({
                   key={category}
                   className="flex items-center justify-between cursor-pointer relative overflow-hidden"
                   style={{ 
-                    paddingLeft: isSelected ? '32px' : '64px',
-                    paddingRight: '2px',
-                    paddingTop: '2px',
-                    paddingBottom: '2px',
-                    width: isSelected ? '100%' : '90%',
+                    paddingLeft: '16px',
+                    paddingRight: '16px',
+                    width: isSelected ? '80vw' : '90%',
                     animation: shouldAnimate ? 'widthBounceRight 0.3s ease-in-out 0.05s both' : 'none',
-                    transition: isSelected ? 'padding-left 0.2s ease-in-out' : 'width 0.2s ease-in-out, padding-left 0.2s ease-in-out'
+                    transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
@@ -251,7 +249,7 @@ export function CategorySelector({
                        }}
                      >
                         <div
-                          className={`flex items-center justify-center rounded-full`}
+                          className={`flex items-center justify-center`}
                           style={{ 
                             width: '44px', 
                             height: '44px',
