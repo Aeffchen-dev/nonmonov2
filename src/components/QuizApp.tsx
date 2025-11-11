@@ -907,20 +907,9 @@ export function QuizApp() {
                 alt="Loading"
                 style={{
                   width: '80px',
-                  height: '80px',
-                  animation: 'spin 1.5s linear infinite'
+                  height: '80px'
                 }}
               />
-              <style>{`
-                @keyframes spin {
-                  from {
-                    transform: rotate(0deg);
-                  }
-                  to {
-                    transform: rotate(360deg);
-                  }
-                }
-              `}</style>
             </div>
           ) : hasSlides ? (
             <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
