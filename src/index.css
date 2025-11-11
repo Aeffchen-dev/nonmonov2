@@ -263,23 +263,19 @@ All colors MUST be HSL.
   }
 }
 
-/* Remove any icon effects */
+/* Icon styling - filled and pixelated */
 svg[class*="lucide"] {
   position: relative;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
-/* Add intersection dots via CSS - this will add small squares where strokes visually overlap */
 svg[class*="lucide"] path,
 svg[class*="lucide"] line,
-svg[class*="lucide"] polyline {
-  stroke-linecap: square;
-  paint-order: stroke fill markers;
-}
-
-/* Visual intersection points using mix-blend-mode to detect overlaps */
-svg[class*="lucide"]::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+svg[class*="lucide"] polyline,
+svg[class*="lucide"] circle,
+svg[class*="lucide"] rect {
+  fill: currentColor;
+  stroke: none;
 }
