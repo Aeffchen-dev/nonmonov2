@@ -517,8 +517,8 @@ export function QuizCard({
               position: 'absolute',
               left: '24px',
               bottom: '24px',
-              backgroundColor: 'white',
-              color: '#1A1A1A',
+              backgroundColor: 'black',
+              color: 'white',
               fontSize: '16px',
               height: '36px',
               display: 'inline-flex',
@@ -528,9 +528,7 @@ export function QuizCard({
               zIndex: 20,
               width: 'auto',
               borderRadius: '999px 0 999px 999px',
-              clipPath: 'polygon(0 0, calc(100% - 14px) 0, calc(100% - 14px) 4px, calc(100% - 10px) 4px, calc(100% - 10px) 8px, calc(100% - 6px) 8px, calc(100% - 6px) 12px, calc(100% - 2px) 12px, calc(100% - 2px) 16px, 100% 16px, 100% 100%, 0 100%)',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(0, 0, 0, 0.05)',
-              filter: 'drop-shadow(2px 0 0 rgba(0, 0, 0, 0.08))'
+              clipPath: 'polygon(0 0, calc(100% - 14px) 0, calc(100% - 14px) 4px, calc(100% - 10px) 4px, calc(100% - 10px) 8px, calc(100% - 6px) 8px, calc(100% - 6px) 12px, calc(100% - 2px) 12px, calc(100% - 2px) 16px, 100% 16px, 100% 100%, 0 100%)'
             }}
           >
           {question.category}
@@ -690,7 +688,6 @@ export function QuizCard({
             height: '45px',
             border: 'none',
             cursor: 'pointer',
-            boxShadow: '-2px -2px 4px 0px rgba(0, 0, 0, 1)',
             zIndex: 40,
             padding: 0,
             backgroundColor: 'transparent'
@@ -716,7 +713,7 @@ export function QuizCard({
                 style={{
                   width: '3px',
                   height: '3px',
-                  backgroundColor: isCorner ? 'transparent' : categoryColors.cardColor,
+                  backgroundColor: isCorner ? 'transparent' : 'black',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
@@ -736,9 +733,9 @@ export function QuizCard({
                     pointerEvents: 'none'
                   }}>
                     {isEditing ? (
-                      <X size={20} color="hsl(var(--foreground))" />
+                      <X size={20} color="white" />
                     ) : (
-                      <Pencil size={20} color="hsl(var(--foreground))" />
+                      <Pencil size={20} color="white" />
                     )}
                   </div>
                 )}
