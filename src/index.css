@@ -266,4 +266,5 @@ All colors MUST be HSL.
 /* Apply irregular stroke effect to all lucide icons */
 svg[class*="lucide"] {
   filter: url(#roughen);
+  stroke-width: 2px;
 }
