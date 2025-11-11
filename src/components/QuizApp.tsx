@@ -805,7 +805,7 @@ export function QuizApp() {
                 }}
               >
                 {index === 0 && char === 'N' ? (
-                  <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
+                  <span style={{ fontFamily: 'Arial, sans-serif' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
                   // First o - smiley (keep as is)
                   <div 
@@ -859,24 +859,7 @@ export function QuizApp() {
                     </svg>
                   </div>
                 ) : char === 'o' && index === 5 ? (
-                  // Second o in "mono" - orange soft shape
-                  <div 
-                    style={{
-                      display: 'inline-block',
-                      width: '22px',
-                      height: '22px',
-                      verticalAlign: 'middle'
-                    }}
-                  >
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M11 19C11 19 5 15.5 4 11C4 7.5 6 5 8 5C9.5 5 11 7 11 7C11 7 12.5 5 14 5C16 5 18 7.5 18 11C17 15.5 11 19 11 19Z"
-                        fill="#FF6633"
-                      />
-                    </svg>
-                  </div>
-                ) : char === 'o' && index === 7 ? (
-                  // Third o in "mono" - purple soft shape
+                  // Second o in "mono" - purple soft shape (reversed)
                   <div 
                     style={{
                       display: 'inline-block',
@@ -892,9 +875,28 @@ export function QuizApp() {
                       />
                     </svg>
                   </div>
-                ) : (
+                ) : char === 'o' && index === 7 ? (
+                  // Third o in "mono" - orange soft shape (reversed)
+                  <div 
+                    style={{
+                      display: 'inline-block',
+                      width: '22px',
+                      height: '22px',
+                      verticalAlign: 'middle'
+                    }}
+                  >
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11 19C11 19 5 15.5 4 11C4 7.5 6 5 8 5C9.5 5 11 7 11 7C11 7 12.5 5 14 5C16 5 18 7.5 18 11C17 15.5 11 19 11 19Z"
+                        fill="#FF6633"
+                      />
+                    </svg>
+                  </div>
+                 ) : (char === 'm' || char === 'n') ? (
+                  <span style={{ fontFamily: 'Arial, sans-serif' }}>{char}</span>
+                 ) : (
                   char
-                )}
+                 )}
               </span>
             );
           })}
