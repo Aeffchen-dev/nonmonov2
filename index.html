@@ -73,7 +73,7 @@
         <!-- Pixelate filter: adjust 'pixelSize' via feFlood width/height -->
         <filter id="pixelate" x="0" y="0" width="100%" height="100%" primitiveUnits="objectBoundingBox">
           <!-- Create a single pixel tile -->
-          <feFlood x="0" y="0" width="0.02" height="0.02" result="flood"/>
+          <feFlood x="0" y="0" width="0.04" height="0.04" result="flood"/>
           <!-- Mask tile by source graphic -->
           <feComposite in="flood" in2="SourceGraphic" operator="in" result="masked"/>
           <!-- Repeat the tile to cover the whole graphic -->
