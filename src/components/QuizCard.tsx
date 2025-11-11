@@ -552,7 +552,7 @@ export function QuizCard({
             border: 'none',
             cursor: 'pointer',
             boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
+            clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
             zIndex: 30
           }}
           onClick={(e) => {
@@ -575,6 +575,72 @@ export function QuizCard({
             {[
               [0,1],
               [1,1]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {/* Pixelated corner overlay - top right */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [1,0],
+              [1,1]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {/* Pixelated corner overlay - bottom right */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [1,1],
+              [1,0]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {/* Pixelated corner overlay - bottom left */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [1,1],
+              [0,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
                 background: v ? categoryColors.cardColor : 'transparent'
