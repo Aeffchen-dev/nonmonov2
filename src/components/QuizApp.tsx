@@ -785,7 +785,7 @@ export function QuizApp() {
           transform: 'translate(-50%, -50%)',
           fontSize: '480vw',
           fontWeight: 600,
-          color: 'rgba(255, 255, 255, 0.03)',
+          color: 'rgba(255, 255, 255, 0.08)',
           zIndex: 0,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
@@ -830,7 +830,7 @@ export function QuizApp() {
                     [0,0,1,1,0,0]
                   ].flat().map((v, i) => (
                     <div key={i} style={{
-                      backgroundColor: v ? 'rgba(255, 255, 51, 0.03)' : 'transparent',
+                      backgroundColor: v ? 'rgba(255, 255, 51, 0.08)' : 'transparent',
                       width: '1vw',
                       height: '1vw',
                       position: 'relative',
@@ -843,7 +843,7 @@ export function QuizApp() {
                         <div style={{
                           width: '0.65vw',
                           height: '0.65vw',
-                          backgroundColor: 'rgba(0, 0, 0, 0.03)'
+                          backgroundColor: 'rgba(0, 0, 0, 0.08)'
                         }} />
                       )}
                       {/* Right eye */}
@@ -851,7 +851,7 @@ export function QuizApp() {
                         <div style={{
                           width: '0.65vw',
                           height: '0.65vw',
-                          backgroundColor: 'rgba(0, 0, 0, 0.03)'
+                          backgroundColor: 'rgba(0, 0, 0, 0.08)'
                         }} />
                       )}
                       {/* Mouth */}
@@ -862,7 +862,7 @@ export function QuizApp() {
                           left: '0',
                           width: '1vw',
                           height: '0.33vw',
-                          backgroundColor: 'rgba(0, 0, 0, 0.03)'
+                          backgroundColor: 'rgba(0, 0, 0, 0.08)'
                         }} />
                       )}
                     </div>
@@ -889,9 +889,9 @@ export function QuizApp() {
                     [1,0,0,0,1],
                     [0,1,0,1,0],
                     [0,0,1,0,0]
-                  ].flat().map((v, i) => (
+                   ].flat().map((v, i) => (
                     <div key={i} style={{
-                      backgroundColor: v ? 'rgba(255, 255, 255, 0.03)' : 'transparent',
+                      backgroundColor: v ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
                       width: '1.07vw',
                       height: '1.07vw'
                     }} />
