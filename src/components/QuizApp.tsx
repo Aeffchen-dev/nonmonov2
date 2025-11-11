@@ -880,10 +880,10 @@ export function QuizApp() {
                       height: '3px',
                       backgroundColor: 'white'
                     }} />
-                    {/* Bottom center white pixel - 7px up */}
+                    {/* Bottom center white pixel - 9px up */}
                     <div style={{
                       position: 'absolute',
-                      bottom: '7px',
+                      bottom: '9px',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       width: '3px',
@@ -893,7 +893,7 @@ export function QuizApp() {
                     {/* Bottom left pixel */}
                     <div style={{
                       position: 'absolute',
-                      bottom: '7px',
+                      bottom: '9px',
                       left: '50%',
                       transform: 'translateX(calc(-50% - 3px))',
                       width: '3px',
@@ -903,7 +903,7 @@ export function QuizApp() {
                     {/* Bottom right pixel */}
                     <div style={{
                       position: 'absolute',
-                      bottom: '7px',
+                      bottom: '9px',
                       left: '50%',
                       transform: 'translateX(calc(-50% + 3px))',
                       width: '3px',
@@ -913,7 +913,7 @@ export function QuizApp() {
                     {/* Below bottom pixel */}
                     <div style={{
                       position: 'absolute',
-                      bottom: '4px',
+                      bottom: '6px',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       width: '3px',
