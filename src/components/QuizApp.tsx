@@ -795,7 +795,7 @@ export function QuizApp() {
                 style={{ 
                   display: 'inline-block',
                   marginLeft: addSpace ? '0.3em' : '0',
-                  verticalAlign: 'baseline'
+                  verticalAlign: 'middle'
                 }}
               >
                 {char === 'o' && index === 1 ? (
@@ -812,7 +812,7 @@ export function QuizApp() {
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
-                      verticalAlign: 'baseline'
+                      verticalAlign: 'middle'
                     }}
                   >
                     {[
@@ -876,7 +876,7 @@ export function QuizApp() {
                       gap: '0px',
                       width: '18px',
                       height: '18px',
-                      verticalAlign: 'baseline',
+                      verticalAlign: 'middle',
                       marginBottom: '0px'
                     }}
                   >
