@@ -471,7 +471,7 @@ export function QuizCard({
   return (
     <div 
       ref={cardRef}
-      className={`relative w-full max-w-[500px] mx-auto rounded-[4px] select-none`}
+      className={`relative w-full max-w-[500px] mx-auto rounded-[40px] select-none`}
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
@@ -492,7 +492,7 @@ export function QuizCard({
         style={{
           position: 'absolute',
           inset: 0,
-          borderRadius: '4px',
+          borderRadius: '40px',
           overflow: 'hidden'
         }}
       >
