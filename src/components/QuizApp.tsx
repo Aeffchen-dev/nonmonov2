@@ -794,7 +794,7 @@ export function QuizApp() {
           alignItems: 'center'
         }}
       >
-        {"non mono".split('').map((char, index) => {
+        {"non ".split('').map((char, index) => {
           const isSpace = char === ' ';
           return (
             <span 
@@ -810,15 +810,15 @@ export function QuizApp() {
                 <div 
                   style={{
                     display: 'inline-grid',
-                    gridTemplateColumns: 'repeat(6, 1.87vw)',
-                    gridTemplateRows: 'repeat(6, 1.87vw)',
+                    gridTemplateColumns: 'repeat(6, 4.6755vw)',
+                    gridTemplateRows: 'repeat(6, 4.6755vw)',
                     gap: '0px',
-                    width: '11.22vw',
-                    height: '11.22vw',
+                    width: '28.053vw',
+                    height: '28.053vw',
                     position: 'relative',
                     verticalAlign: 'middle',
                     imageRendering: 'pixelated',
-                    marginBottom: '0.935vw'
+                    marginBottom: '2.3375vw'
                   }}
                 >
                   {[
@@ -831,8 +831,8 @@ export function QuizApp() {
                   ].flat().map((v, i) => (
                     <div key={i} style={{
                       backgroundColor: v ? '#FFFF33' : 'transparent',
-                      width: '1.87vw',
-                      height: '1.87vw',
+                      width: '4.6755vw',
+                      height: '4.6755vw',
                       position: 'relative',
                       display: 'flex',
                       alignItems: 'center',
@@ -841,16 +841,16 @@ export function QuizApp() {
                       {/* Left eye */}
                       {i === 14 && (
                         <div style={{
-                          width: '1.2155vw',
-                          height: '1.2155vw',
+                          width: '3.03875vw',
+                          height: '3.03875vw',
                           backgroundColor: '#000000'
                         }} />
                       )}
                       {/* Right eye */}
                       {i === 15 && (
                         <div style={{
-                          width: '1.2155vw',
-                          height: '1.2155vw',
+                          width: '3.03875vw',
+                          height: '3.03875vw',
                           backgroundColor: '#000000'
                         }} />
                       )}
@@ -860,26 +860,42 @@ export function QuizApp() {
                           position: 'absolute',
                           bottom: '0',
                           left: '0',
-                          width: '1.87vw',
-                          height: '0.6171vw',
+                          width: '4.6755vw',
+                          height: '1.542775vw',
                           backgroundColor: '#000000'
                         }} />
                       )}
                     </div>
                   ))}
                 </div>
-              ) : char === 'o' && (index === 5 || index === 7) ? (
+              ) : (
+                isSpace ? '\u00A0' : char
+              )}
+            </span>
+          );
+        })}
+        <br />
+        {"mono".split('').map((char, index) => {
+          return (
+            <span 
+              key={index} 
+              style={{ 
+                display: 'inline-block',
+                verticalAlign: 'middle'
+              }}
+            >
+              {char === 'o' ? (
                 // 'o's in "mono" - Pixelated heart outlines (scaled up)
                 <div 
                   style={{
                     display: 'inline-grid',
-                    gridTemplateColumns: 'repeat(5, 2.0009vw)',
-                    gridTemplateRows: 'repeat(5, 2.0009vw)',
+                    gridTemplateColumns: 'repeat(5, 5.002225vw)',
+                    gridTemplateRows: 'repeat(5, 5.002225vw)',
                     gap: '0px',
-                    width: '10.0045vw',
-                    height: '10.0045vw',
+                    width: '25.011125vw',
+                    height: '25.011125vw',
                     verticalAlign: 'middle',
-                    marginBottom: '0.935vw',
+                    marginBottom: '2.3375vw',
                     imageRendering: 'pixelated'
                   }}
                 >
@@ -892,13 +908,13 @@ export function QuizApp() {
                    ].flat().map((v, i) => (
                     <div key={i} style={{
                       backgroundColor: v ? '#FFFFFF' : 'transparent',
-                      width: '2.0009vw',
-                      height: '2.0009vw'
+                      width: '5.002225vw',
+                      height: '5.002225vw'
                     }} />
                   ))}
                 </div>
               ) : (
-                isSpace ? '\u00A0' : char
+                char
               )}
             </span>
           );
