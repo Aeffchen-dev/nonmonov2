@@ -199,7 +199,7 @@ export function CategorySelector({
                   style={{ 
                     paddingLeft: '16px',
                     paddingRight: '16px',
-                    width: isSelected ? '80vw' : '90%',
+                    width: isSelected ? '80vw' : '70vw',
                     animation: shouldAnimate ? 'widthBounceRight 0.3s ease-in-out 0.05s both' : 'none',
                     transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
                   }}
@@ -219,7 +219,7 @@ export function CategorySelector({
                      className="absolute inset-y-0 left-0"
                      style={{ 
                        background: `linear-gradient(to right, ${darkenColor(colors.cardColor, 0.95)} 0%, ${colors.cardColor} 50%)`,
-                       width: isSelected ? '100%' : '48px',
+                       width: isSelected ? '100%' : '8px',
                        transition: shouldAnimate 
                          ? 'width 0.2s ease-in-out'
                          : isSelected 
@@ -253,13 +253,13 @@ export function CategorySelector({
                           style={{ 
                             width: '44px', 
                             height: '44px',
-                            border: isSelected ? 'none' : `2px solid ${colors.cardColor}`,
-                            backgroundColor: isSelected ? colors.pageBg : 'transparent',
+                            border: `2px solid ${isSelected ? 'black' : colors.cardColor}`,
+                            backgroundColor: 'transparent',
                             transition: shouldAnimate && isSelected
-                              ? 'background-color 0.1s ease-in-out 0.1s, border 0.1s ease-in-out 0.1s'
+                              ? 'border 0.1s ease-in-out 0.1s'
                               : isSelected
                               ? 'none'
-                              : 'background-color 0.2s ease-in-out, border 0.2s ease-in-out'
+                              : 'border 0.2s ease-in-out'
                           }}
                         >
                           {isSelected && (
@@ -269,7 +269,7 @@ export function CategorySelector({
                               viewBox="0 0 24 24" 
                               fill="none"
                               style={{ 
-                                color: colors.cardColor,
+                                color: 'black',
                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
                               }}
                             >
