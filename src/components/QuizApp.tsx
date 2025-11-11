@@ -795,7 +795,7 @@ export function QuizApp() {
                 style={{ 
                   display: 'inline-block',
                   marginLeft: addSpace ? '0.3em' : '0',
-                  verticalAlign: 'baseline'
+                  verticalAlign: 'middle'
                 }}
               >
                 {char === 'o' && index === 1 ? (
@@ -812,7 +812,7 @@ export function QuizApp() {
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
-                      verticalAlign: 'baseline'
+                      verticalAlign: 'middle'
                     }}
                   >
                     {[
@@ -838,7 +838,7 @@ export function QuizApp() {
                             width: '2px',
                             height: '2px',
                             backgroundColor: 'black',
-                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1}) translateY(4px)`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
@@ -848,7 +848,7 @@ export function QuizApp() {
                             width: '2px',
                             height: '2px',
                             backgroundColor: 'black',
-                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1}) translateY(4px)`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
@@ -856,7 +856,7 @@ export function QuizApp() {
                         {(i === 26 || i === 27) && (
                           <div style={{
                             position: 'absolute',
-                            bottom: '0',
+                            bottom: '4px',
                             left: '0',
                             width: '3px',
                             height: '1px',
@@ -867,35 +867,30 @@ export function QuizApp() {
                     ))}
                   </div>
                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's - Pixelated heart outlines (white) - slightly bigger than smiley
-                  <div 
-                    style={{
-                      display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(7, 3px)',
-                      gridTemplateRows: 'repeat(7, 3px)',
-                      gap: '0px',
-                      width: '21px',
-                      height: '21px',
-                      verticalAlign: 'baseline',
-                      marginBottom: '0px'
-                    }}
-                  >
-                    {[
-                      [0,0,1,0,1,0,0],
-                      [0,1,0,1,0,1,0],
-                      [1,0,0,0,0,0,1],
-                      [1,0,0,0,0,0,1],
-                      [0,1,0,0,0,1,0],
-                      [0,0,1,0,1,0,0],
-                      [0,0,0,1,0,0,0]
-                    ].flat().map((v, i) => (
-                      <div key={i} style={{
-                        backgroundColor: v ? 'white' : 'transparent',
-                        width: '3px',
-                        height: '3px'
-                      }} />
-                    ))}
-                  </div>
+                  // Other 'o's with decorative white pixels
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    {char}
+                    {/* Top center white pixel - 5px down */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '5px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '2px',
+                      height: '2px',
+                      backgroundColor: 'white'
+                    }} />
+                    {/* Bottom center white pixel */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '0',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '2px',
+                      height: '2px',
+                      backgroundColor: 'white'
+                    }} />
+                  </span>
                 ) : (
                   char
                 )}
