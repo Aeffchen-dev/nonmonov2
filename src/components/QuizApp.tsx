@@ -801,8 +801,74 @@ export function QuizApp() {
                 {index === 0 && char === 'n' ? (
                   <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
-                  // Smiley face for 'o' in "non"
-                  <span style={{ fontSize: '1em' }}>🙂</span>
+                  // Pixelated Smiley
+                  <div 
+                    data-smiley-logo
+                    style={{
+                      display: 'inline-grid',
+                      gridTemplateColumns: 'repeat(6, 3px)',
+                      gridTemplateRows: 'repeat(6, 3px)',
+                      gap: '0px',
+                      width: '18px',
+                      height: '18px',
+                      position: 'relative',
+                      transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
+                      transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
+                      verticalAlign: 'middle',
+                      imageRendering: 'pixelated'
+                    }}
+                  >
+                    {[
+                      [0,0,1,1,0,0],
+                      [0,1,1,1,1,0],
+                      [1,1,1,1,1,1],
+                      [1,1,1,1,1,1],
+                      [0,1,1,1,1,0],
+                      [0,0,1,1,0,0]
+                    ].flat().map((v, i) => (
+                      <div key={i} style={{
+                        backgroundColor: v ? '#FFFF33' : 'transparent',
+                        width: '3px',
+                        height: '3px',
+                        position: 'relative',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        {/* Left eye - 2px square at position 14 (row 2, col 2) */}
+                        {i === 14 && (
+                          <div style={{
+                            width: '2px',
+                            height: '2px',
+                            backgroundColor: 'black',
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
+                            transition: 'transform 0.15s ease-out'
+                          }} />
+                        )}
+                        {/* Right eye - 2px square at position 15 (row 2, col 3) */}
+                        {i === 15 && (
+                          <div style={{
+                            width: '2px',
+                            height: '2px',
+                            backgroundColor: 'black',
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
+                            transition: 'transform 0.15s ease-out'
+                          }} />
+                        )}
+                        {/* Mouth - bottom pixels at positions 26, 27 (row 4, col 2 and 3) */}
+                        {(i === 26 || i === 27) && (
+                          <div style={{
+                            position: 'absolute',
+                            bottom: '0',
+                            left: '0',
+                            width: '3px',
+                            height: '1px',
+                            backgroundColor: 'black'
+                          }} />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 ) : (
                   char
                 )}
