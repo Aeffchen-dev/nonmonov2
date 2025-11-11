@@ -169,8 +169,8 @@ export function CategorySelector({
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
             <DialogHeader>
-               <DialogTitle className="text-white font-stringer font-normal" style={{ fontSize: '14px', fontWeight: 400 }}>
-                 <span style={{ fontFeatureSettings: '"ss01" 1' }}>K</span>ategorien wählen
+               <DialogTitle className="text-white font-rauschen uppercase" style={{ fontSize: '14px', fontWeight: 600 }}>
+                 Kategorien wählen
                </DialogTitle>
             </DialogHeader>
             
@@ -316,10 +316,10 @@ export function CategorySelector({
                 // Reload to reset all state (filters, text entries, show default view)
                 window.location.reload();
               }}
-              className="text-white font-stringer font-normal hover:opacity-70 transition-opacity"
-              style={{ fontSize: '14px' }}
+              className="text-white font-rauschen uppercase hover:opacity-70 transition-opacity"
+              style={{ fontSize: '14px', fontWeight: 600 }}
             >
-              <span style={{ fontFeatureSettings: '"ss01" 1' }}>M</span>eine Einträge löschen
+              Meine Einträge löschen
             </button>
           </div>
         </div>
