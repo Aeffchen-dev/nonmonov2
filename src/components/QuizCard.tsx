@@ -541,7 +541,7 @@ export function QuizCard({
           <h1 
             ref={textRef}
             lang="de"
-            className={`font-stringer leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[1.6rem] md:text-[2rem] lg:text-[2.6rem] max-w-full'}`}
+            className={`font-stringer leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] max-w-md' : 'text-[2rem] md:text-[2.6rem] lg:text-[3.4rem] max-w-full'}`}
             style={{ 
               fontWeight: 400,
               fontStyle: 'normal',
