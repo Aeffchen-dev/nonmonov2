@@ -783,7 +783,7 @@ export function QuizApp() {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '20vw',
+          fontSize: '50vw',
           fontWeight: 600,
           color: '#FFFFFF',
           zIndex: 0,
