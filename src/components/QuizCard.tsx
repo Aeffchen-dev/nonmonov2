@@ -527,8 +527,7 @@ export function QuizCard({
               paddingRight: '16px',
               zIndex: 20,
               width: 'auto',
-              borderRadius: '999px 0 999px 999px',
-              clipPath: 'polygon(0 0, calc(100% - 14px) 0, calc(100% - 14px) 4px, calc(100% - 10px) 4px, calc(100% - 10px) 8px, calc(100% - 6px) 8px, calc(100% - 6px) 12px, calc(100% - 2px) 12px, calc(100% - 2px) 16px, 100% 16px, 100% 100%, 0 100%)'
+              borderRadius: '18px'
             }}
           >
           {question.category}
@@ -680,68 +679,28 @@ export function QuizCard({
             position: 'absolute',
             right: '24px',
             bottom: '24px',
-            display: 'inline-grid',
-            gridTemplateColumns: 'repeat(15, 3px)',
-            gridTemplateRows: 'repeat(15, 3px)',
-            gap: '0px',
             width: '45px',
             height: '45px',
             border: 'none',
             cursor: 'pointer',
             zIndex: 40,
             padding: 0,
-            backgroundColor: 'transparent'
+            backgroundColor: 'black',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
           onClick={(e) => {
             e.stopPropagation();
             setIsEditing(!isEditing);
           }}
         >
-          {Array.from({ length: 15 * 15 }).map((_, i) => {
-            const row = Math.floor(i / 15);
-            const col = i % 15;
-            // Create a pixelated rounded square shape
-            const isCorner = 
-              (row === 0 && (col === 0 || col === 1 || col === 13 || col === 14)) ||
-              (row === 1 && (col === 0 || col === 14)) ||
-              (row === 13 && (col === 0 || col === 14)) ||
-              (row === 14 && (col === 0 || col === 1 || col === 13 || col === 14));
-            
-            return (
-              <div 
-                key={i} 
-                style={{
-                  width: '3px',
-                  height: '3px',
-                  backgroundColor: isCorner ? 'transparent' : 'black',
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                {/* Center the icon in the middle of the grid */}
-                {i === Math.floor((15 * 15) / 2) && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    pointerEvents: 'none'
-                  }}>
-                    {isEditing ? (
-                      <X size={16} color="white" />
-                    ) : (
-                      <Pencil size={16} color="white" />
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {isEditing ? (
+            <X size={20} color="white" />
+          ) : (
+            <Pencil size={20} color="white" />
+          )}
         </button>
       )}
     </div>
