@@ -650,8 +650,7 @@ export function QuizCard({
                   backgroundColor: categoryColors.cardColor,
                   border: 'none',
                   color: 'black',
-                  padding: '0',
-                  paddingLeft: '4px',
+                  padding: '4px',
                   outline: 'none',
                   boxShadow: 'none',
                   lineHeight: '120%'
