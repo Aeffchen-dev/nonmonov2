@@ -549,7 +549,7 @@ export function QuizCard({
               fontStyle: 'normal',
               letterSpacing: '0px',
               color: question.category.toLowerCase() !== 'intro' ? '#1A1A1A' : 'hsl(var(--foreground))',
-              fontSize: isEditing ? '14px' : undefined,
+              fontSize: isEditing ? '30px' : undefined,
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
               hyphens: 'auto',
@@ -671,7 +671,7 @@ export function QuizCard({
             `}</style>
           )}
           {isEditing && (
-            <div className="flex-1 relative mt-2 w-full edit-textarea-container" style={{ marginLeft: '-4px' }}>
+            <div className="flex-1 relative mt-1 w-full edit-textarea-container" style={{ marginLeft: '-4px' }}>
               <Textarea
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
