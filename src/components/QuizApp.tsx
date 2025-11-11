@@ -866,6 +866,31 @@ export function QuizApp() {
                       </div>
                     ))}
                   </div>
+                ) : char === 'o' && (index === 5 || index === 7) ? (
+                  // Other 'o's with decorative white pixels
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    {char}
+                    {/* Top center white pixel - 5px down */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '5px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '5px',
+                      height: '5px',
+                      backgroundColor: 'white'
+                    }} />
+                    {/* Bottom center white pixel */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '0',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '5px',
+                      height: '5px',
+                      backgroundColor: 'white'
+                    }} />
+                  </span>
                 ) : (
                   char
                 )}
