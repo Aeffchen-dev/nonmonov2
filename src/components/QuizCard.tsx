@@ -620,17 +620,15 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
-      {/* Category Pill - Positioned at bottom corner opposite to monster, moved up for button, rotated -90deg */}
+      {/* Category Pill - Positioned at bottom left */}
       {question.category.toLowerCase() !== 'intro' && (
         <div 
           style={{
             position: 'absolute',
-            ...(monsterVariation.pillSide === 'right' 
-              ? { right: `calc(2rem + ${pillWidth}px)`, bottom: 'calc(2rem + 56px)', transformOrigin: 'bottom right' } 
-              : { left: `calc(2rem + ${pillWidth}px)`, bottom: 'calc(2rem + 56px)', transformOrigin: 'bottom left' }
-            ),
-            transform: monsterVariation.pillSide === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)',
-            zIndex: 20
+            left: '16px',
+            bottom: '64px',
+            zIndex: 20,
+            width: '48px'
           }}
         >
           <div
@@ -641,7 +639,9 @@ export function QuizCard({
               color: 'white',
               fontSize: '12px',
               whiteSpace: 'nowrap',
-              opacity: 1
+              opacity: 1,
+              width: '48px',
+              textAlign: 'center'
             }}
           >
             {question.category}
@@ -649,19 +649,16 @@ export function QuizCard({
         </div>
       )}
 
-      {/* Edit Button - Positioned centered under the pill */}
+      {/* Edit Button - Positioned at bottom left below pill */}
       {question.category.toLowerCase() !== 'intro' && (
         <button
           style={{
             position: 'absolute',
-            ...(monsterVariation.pillSide === 'right' 
-              ? { right: `calc(2rem + ${pillWidth / 2}px - 24px)` } 
-              : { left: `calc(2rem + ${pillWidth / 2}px - 24px)` }
-            ),
-            bottom: 'calc(2rem - 8px)',
+            left: '16px',
+            bottom: '16px',
             width: '48px',
             height: '48px',
-            borderRadius: '50%',
+            borderRadius: '0',
             backgroundColor: question.category.toLowerCase() === 'balance'
               ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
               : question.category === 'Geistige Intimität'
