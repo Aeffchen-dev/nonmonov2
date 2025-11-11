@@ -615,8 +615,10 @@ export function QuizCard({
                       key={index}
                       className="font-rauschen inline-block"
                       style={{ 
+                        transform: 'rotate(-2deg)',
                         fontWeight: 600,
                         display: 'inline-block',
+                        transformOrigin: 'center bottom',
                         fontSize: '120%'
                       }}
                     >
