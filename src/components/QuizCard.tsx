@@ -552,7 +552,7 @@ export function QuizCard({
             justifyContent: 'center',
             border: 'none',
             cursor: 'pointer',
-            filter: 'drop-shadow(-2px -2px 8px rgba(0, 0, 0, 0.24))',
+            filter: 'drop-shadow(-2px -2px 8px rgba(0, 0, 0, 0.4))',
             clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
             zIndex: 30
           }}
