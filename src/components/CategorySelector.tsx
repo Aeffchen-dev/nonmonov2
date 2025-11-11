@@ -238,7 +238,13 @@ export function CategorySelector({
                        ? 'color 0.3s ease-in-out'
                        : 'color 0.2s ease-in-out'
                    }}>
-                     {category}
+                     <span className="font-rauschen inline-block" style={{ 
+                       transform: 'rotate(-2deg)',
+                       fontWeight: 600
+                     }}>
+                       {category.charAt(0)}
+                     </span>
+                     {category.slice(1)}
                    </span>
                    <div onClick={(e) => e.stopPropagation()}>
                      <div
