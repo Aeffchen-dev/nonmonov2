@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Pencil, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pencil } from 'lucide-react';
 import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import Hypher from 'hypher';
 import german from 'hyphenation.de';
+import closeIcon from '@/assets/close-icon.png';
 
 // Eye component with synchronized blinking and pupil movement
 function Eye({ 
@@ -733,7 +734,7 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={24} color="white" strokeWidth={5} strokeLinecap="square" strokeLinejoin="miter" />
+            <img src={closeIcon} alt="Close" style={{ width: '24px', height: '24px' }} />
           ) : (
             <Pencil size={24} color="white" fill="white" strokeWidth={0} />
           )}
