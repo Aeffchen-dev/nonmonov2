@@ -234,7 +234,7 @@ export function CategorySelector({
                   
                    <span className="font-stringer font-normal tracking-wide opacity-100 relative z-10" style={{ 
                      color: isSelected ? colors.pageBg : 'white', 
-                     fontSize: '12px', 
+                     fontSize: '14px', 
                      transition: isSelected 
                        ? 'color 0.3s ease-in-out'
                        : 'color 0.2s ease-in-out'
