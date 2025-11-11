@@ -784,7 +784,7 @@ export function QuizApp() {
           }}
           onClick={handleLogoClick}
         >
-          {"Journaling".split('').map((char, index) => {
+          {"non mono".split('').map((char, index) => {
             const isAnimating = animatingLetterIndex === index;
             const isEven = index % 2 === 0;
             const translateY = isAnimating ? (isEven ? '-3px' : '3px') : '0px';
