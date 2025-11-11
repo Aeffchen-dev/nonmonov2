@@ -825,25 +825,26 @@ export function QuizApp() {
                         backgroundColor: v ? '#FFFF33' : 'transparent',
                         width: '4px',
                         height: '4px',
-                        position: 'relative'
+                        position: 'relative',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                       }}>
-                        {/* Left eye - square at position 5 (row 2, col 1) */}
+                        {/* Left eye - 2px square at position 5 (row 2, col 1) */}
                         {i === 5 && (
                           <div style={{
-                            position: 'absolute',
-                            width: '4px',
-                            height: '4px',
+                            width: '2px',
+                            height: '2px',
                             backgroundColor: 'black',
                             transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
-                        {/* Right eye - square at position 6 (row 2, col 2) */}
+                        {/* Right eye - 2px square at position 6 (row 2, col 2) */}
                         {i === 6 && (
                           <div style={{
-                            position: 'absolute',
-                            width: '4px',
-                            height: '4px',
+                            width: '2px',
+                            height: '2px',
                             backgroundColor: 'black',
                             transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
                             transition: 'transform 0.15s ease-out'
@@ -864,24 +865,25 @@ export function QuizApp() {
                     ))}
                   </div>
                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's - Pixelated heart outlines (white) - smaller to match smiley size
+                  // Other 'o's - Pixelated heart outlines (white) - slightly bigger than smiley
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(4, 4px)',
-                      gridTemplateRows: 'repeat(4, 4px)',
+                      gridTemplateColumns: 'repeat(5, 4px)',
+                      gridTemplateRows: 'repeat(5, 4px)',
                       gap: '0px',
-                      width: '16px',
-                      height: '16px',
+                      width: '20px',
+                      height: '20px',
                       verticalAlign: 'baseline',
                       marginBottom: '0px'
                     }}
                   >
                     {[
-                      [0,1,0,1],
-                      [1,0,1,0],
-                      [0,1,0,0],
-                      [0,0,0,0]
+                      [0,1,0,1,0],
+                      [1,0,1,0,1],
+                      [1,0,0,0,1],
+                      [0,1,0,1,0],
+                      [0,0,1,0,0]
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
