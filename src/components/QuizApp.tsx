@@ -4,7 +4,7 @@ import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
 import starLoading from '@/assets/star-loading.jpeg';
-import editIcon from '@/assets/edit-icon.jpeg';
+import filterIcon from '@/assets/filter-icon.jpeg';
 
 interface Question {
   question: string;
@@ -890,7 +890,7 @@ export function QuizApp() {
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
         >
-          <img src={editIcon} alt="Edit" className="w-6 h-6" />
+          <img src={filterIcon} alt="Filter" className="w-7 h-7" />
         </button>
       </div>
 
