@@ -876,8 +876,8 @@ export function QuizApp() {
                       top: '16px',
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      width: '2px',
-                      height: '2px',
+                      width: '3px',
+                      height: '3px',
                       backgroundColor: 'white'
                     }} />
                     {/* Bottom center white pixel - 7px up */}
@@ -886,8 +886,8 @@ export function QuizApp() {
                       bottom: '7px',
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      width: '2px',
-                      height: '2px',
+                      width: '3px',
+                      height: '3px',
                       backgroundColor: 'white'
                     }} />
                   </span>
