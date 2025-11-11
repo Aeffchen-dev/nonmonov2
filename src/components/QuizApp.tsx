@@ -813,7 +813,7 @@ export function QuizApp() {
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
                       verticalAlign: 'middle',
-                      imageRendering: 'pixelated'
+                      clipPath: 'polygon(0 6px, 3px 6px, 3px 3px, 6px 3px, 6px 0, 12px 0, 12px 3px, 15px 3px, 15px 6px, 18px 6px, 18px 12px, 15px 12px, 15px 15px, 12px 15px, 12px 18px, 6px 18px, 6px 15px, 3px 15px, 3px 12px, 0 12px)'
                     }}
                   >
                     {[
@@ -879,7 +879,7 @@ export function QuizApp() {
                       height: '16px',
                       verticalAlign: 'middle',
                       marginBottom: '0px',
-                      imageRendering: 'pixelated'
+                      clipPath: 'polygon(0 3.2px, 3.2px 3.2px, 3.2px 0, 6.4px 0, 6.4px 3.2px, 9.6px 3.2px, 9.6px 0, 12.8px 0, 12.8px 3.2px, 16px 3.2px, 16px 6.4px, 12.8px 6.4px, 12.8px 9.6px, 9.6px 9.6px, 9.6px 12.8px, 6.4px 12.8px, 6.4px 9.6px, 3.2px 9.6px, 3.2px 6.4px, 0 6.4px)'
                     }}
                   >
                     {[
