@@ -862,7 +862,7 @@ export function QuizApp() {
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
           style={{ 
-            fontSize: '20px',
+            fontSize: '16px',
             color: 'white'
           }}
         >
