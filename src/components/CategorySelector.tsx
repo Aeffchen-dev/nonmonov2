@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
+import { X, Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
-import checkIcon from '@/assets/check-icon.png';
-import closeIcon from '@/assets/close-icon.png';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -181,7 +180,7 @@ export function CategorySelector({
               onClick={handleClose}
               className="text-white transition-colors"
             >
-              <img src={closeIcon} alt="Close" className="h-7 w-7" style={{ filter: 'invert(1)' }} />
+              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
             </button>
           </div>
 
@@ -270,14 +269,24 @@ export function CategorySelector({
                             }}
                           >
                             {isSelected && (
-                             <img 
-                               src={checkIcon} 
-                               alt="Check" 
-                               className="w-4 h-4"
+                             <svg 
+                               width="16" 
+                               height="16" 
+                               viewBox="0 0 24 24" 
+                               fill="none"
                                style={{ 
+                                 color: 'black',
                                  animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
                                }}
-                             />
+                             >
+                              <path
+                                d="M20 6 9 17l-5-5"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                strokeLinejoin="miter"
+                              />
+                            </svg>
                            )}
                        </div>
                     </div>

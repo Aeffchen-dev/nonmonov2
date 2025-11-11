@@ -3,8 +3,8 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
+import { Sliders } from 'lucide-react';
 import starLoading from '@/assets/star-loading.jpeg';
-import editIcon from '@/assets/edit-icon.png';
 
 interface Question {
   question: string;
@@ -893,7 +893,7 @@ export function QuizApp() {
             color: 'white'
           }}
         >
-          <img src={editIcon} alt="Edit" className="w-6 h-6" style={{ filter: 'invert(1)' }} />
+          <Sliders size={24} strokeLinecap="square" />
         </button>
       </div>
 
