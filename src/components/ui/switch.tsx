@@ -57,20 +57,31 @@ const Switch = React.forwardRef<
       }}
     >
       <svg 
-        width="10.8" 
-        height="10.8" 
-        viewBox="0 0 12 12" 
+        width="14" 
+        height="10" 
+        viewBox="0 0 16 12" 
         fill="none" 
         style={{ 
           transform: `rotate(${totalRotation}deg)`,
           transition: 'transform 0.5s ease-in-out'
         }}
       >
-        {/* Eyes */}
-        <circle cx="3.5" cy="4" r="1.2" fill="black" />
-        <circle cx="8.5" cy="4" r="1.2" fill="black" />
-        {/* Mouth */}
-        <path d="M3 8 Q6 10.5 9 8" stroke="black" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Left face circle */}
+        <circle cx="5.5" cy="6" r="5" stroke="black" strokeWidth="1.2" fill="none" />
+        {/* Right face circle */}
+        <circle cx="10.5" cy="6" r="5" stroke="black" strokeWidth="1.2" fill="none" />
+        
+        {/* Left face - Eyes */}
+        <circle cx="4" cy="5" r="0.6" fill="black" />
+        <circle cx="7" cy="5" r="0.6" fill="black" />
+        {/* Left face - Mouth */}
+        <path d="M3.5 7 Q5.5 8.5 7.5 7" stroke="black" strokeWidth="0.8" fill="none" strokeLinecap="round" />
+        
+        {/* Right face - Eyes */}
+        <circle cx="9" cy="5" r="0.6" fill="black" />
+        <circle cx="12" cy="5" r="0.6" fill="black" />
+        {/* Right face - Mouth */}
+        <path d="M8.5 7 Q10.5 8.5 12.5 7" stroke="black" strokeWidth="0.8" fill="none" strokeLinecap="round" />
       </svg>
     </div>
   </SwitchPrimitives.Root>
