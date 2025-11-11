@@ -633,12 +633,12 @@ export function QuizCard({
               }
               .edit-textarea::placeholder {
                 color: black;
-                opacity: 0.5;
+                opacity: 0.4;
               }
             `}</style>
           )}
           {isEditing && (
-            <div className="flex-1 relative mt-2 w-full edit-textarea-container">
+            <div className="flex-1 relative mt-2 w-full edit-textarea-container" style={{ marginLeft: '-4px' }}>
               <Textarea
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
@@ -650,7 +650,8 @@ export function QuizCard({
                   backgroundColor: categoryColors.cardColor,
                   border: 'none',
                   color: 'black',
-                  padding: 0,
+                  padding: '0',
+                  paddingLeft: '4px',
                   outline: 'none',
                   boxShadow: 'none',
                   lineHeight: '120%'
