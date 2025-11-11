@@ -169,7 +169,7 @@ export function CategorySelector({
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
             <DialogHeader className="p-0">
-               <DialogTitle className="text-white font-rauschen uppercase" style={{ fontSize: '14px', fontWeight: 600 }}>
+               <DialogTitle className="text-white font-rauschen uppercase" style={{ fontSize: '16px', fontWeight: 600 }}>
                  Kategorien wählen
                </DialogTitle>
             </DialogHeader>
