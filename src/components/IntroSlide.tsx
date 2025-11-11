@@ -153,11 +153,14 @@ export function IntroSlide({
 
   return (
     <div 
-      className={`relative w-full max-w-[500px] mx-auto bg-[hsl(var(--card-background))] shadow-card overflow-hidden select-none max-h-full ${animationClass}`}
+      className={`relative w-full max-w-[500px] mx-auto overflow-hidden select-none ${animationClass}`}
       style={{
-        height: '100%',
-        maxHeight: '100%',
-        borderRadius: '24px'
+        height: 'calc(100% - 32px)',
+        maxHeight: 'calc(100% - 32px)',
+        borderRadius: '24px',
+        backgroundColor: 'hsl(140, 65%, 62%)',
+        color: 'white',
+        boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -186,8 +189,8 @@ export function IntroSlide({
             {/* Main title - vertically and horizontally centered */}
             <div className="flex-1 flex items-center justify-center">
               <h1 
-                className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase text-foreground text-center leading-tight"
-                style={{ fontWeight: 600, fontStyle: 'normal' }}
+                className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase text-center leading-tight"
+                style={{ fontWeight: 600, fontStyle: 'normal', color: 'white' }}
               >
                 Offene Beziehung: Wie gehen wir das richtig an?
               </h1>
@@ -196,8 +199,8 @@ export function IntroSlide({
             {/* Bottom text */}
             <div className="pb-8 flex flex-col items-center gap-2">
               <p 
-                className="text-foreground text-center font-stringer"
-                style={{ fontSize: '16px' }}
+                className="text-center font-stringer"
+                style={{ fontSize: '16px', color: 'white' }}
               >
                 Swipe um weiter zu navigieren
               </p>
@@ -267,8 +270,8 @@ export function IntroSlide({
             {/* Description slide - centered content */}
             <div className="flex-1 flex items-center justify-center px-2">
               <p 
-                className="text-foreground text-center leading-relaxed font-stringer"
-                style={{ fontSize: '16px' }}
+                className="text-center leading-relaxed font-stringer"
+                style={{ fontSize: '16px', color: 'white' }}
               >
                 In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt - ihr gestaltet eure Regeln selbst, so wie es zu euch passt.
                 {'\n\n'}
@@ -279,8 +282,8 @@ export function IntroSlide({
             {/* Bottom text */}
             <div className="pb-8 flex flex-col items-center gap-2">
               <p 
-                className="text-foreground text-center font-stringer"
-                style={{ fontSize: '16px' }}
+                className="text-center font-stringer"
+                style={{ fontSize: '16px', color: 'white' }}
               >
                 Swipe um weiter zu navigieren
               </p>
