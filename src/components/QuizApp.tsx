@@ -783,7 +783,7 @@ export function QuizApp() {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '50vw',
+          fontSize: '47.5vw',
           fontWeight: 600,
           color: '#FFFFFF',
           zIndex: 0,
@@ -793,7 +793,7 @@ export function QuizApp() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '2vw'
+          gap: '0.5vw'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
