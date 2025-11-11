@@ -890,9 +890,9 @@ export function QuizApp() {
           className="font-stringer font-medium flex items-center"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 18L18 4M18 4H8M18 4V14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="6" cy="20" r="2" fill="white" />
-            <circle cx="12" cy="20" r="2" fill="white" />
+            <path d="M6.5 17.5L17.5 6.5L17.5 10.5L10.5 17.5L6.5 17.5L6.5 13.5L6.5 17.5Z" stroke="white" strokeWidth="2" strokeLinejoin="miter" fill="none"/>
+            <circle cx="20" cy="20" r="1.5" fill="white" />
+            <circle cx="16" cy="20" r="1.5" fill="white" />
           </svg>
         </button>
       </div>

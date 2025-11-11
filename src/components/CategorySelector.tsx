@@ -180,8 +180,8 @@ export function CategorySelector({
               onClick={handleClose}
               className="transition-colors"
             >
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 6L22 22M22 6L6 22" stroke="white" strokeWidth="3.5" strokeLinecap="round" />
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 5L19 19M19 5L5 19" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
