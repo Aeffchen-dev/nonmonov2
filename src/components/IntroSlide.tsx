@@ -192,16 +192,16 @@ export function IntroSlide({
                 className="text-center leading-tight"
                 style={{ fontWeight: 600, fontStyle: 'normal', color: 'black' }}
               >
-                <div className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase">
+                <div className="text-4xl md:text-5xl lg:text-5xl font-rauschen uppercase">
                   Offene Beziehung
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-3xl font-stringer mt-2">
+                <div className="text-3xl md:text-4xl lg:text-4xl font-stringer mt-2">
                   Wie gehen wir das
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase mt-1" style={{ transform: 'rotate(-2deg)', display: 'inline-block' }}>
+                <div className="text-4xl md:text-5xl lg:text-5xl font-rauschen uppercase mt-1" style={{ transform: 'rotate(-2deg)', display: 'inline-block' }}>
                   richtig
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-3xl font-stringer">
+                <div className="text-3xl md:text-4xl lg:text-4xl font-stringer">
                   an?
                 </div>
               </h1>
@@ -220,10 +220,10 @@ export function IntroSlide({
         ) : (
           <>
             {/* Description slide - left aligned content */}
-            <div className="flex-1 flex items-center justify-start px-6">
+            <div className="flex-1 flex items-center justify-start px-6 py-6">
               <p 
                 className="text-left leading-relaxed font-stringer"
-                style={{ fontSize: '13px', color: 'black' }}
+                style={{ fontSize: '12px', color: 'black' }}
               >
                 In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt - ihr gestaltet eure Regeln selbst, so wie es zu euch passt.
                 {'\n\n'}
