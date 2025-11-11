@@ -4,7 +4,7 @@ import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
 import starLoading from '@/assets/star-loading.jpeg';
-import filterIcon from '@/assets/filter-icon.jpeg';
+import filterIcon from '@/assets/filter-icon.png';
 
 interface Question {
   question: string;

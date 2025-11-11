@@ -4,8 +4,8 @@ import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import Hypher from 'hypher';
 import german from 'hyphenation.de';
-import editIcon from '@/assets/edit-icon.jpeg';
-import closeIcon from '@/assets/close-icon.jpeg';
+import editIcon from '@/assets/edit-icon.png';
+import closeIcon from '@/assets/close-icon.png';
 
 // Eye component with synchronized blinking and pupil movement
 function Eye({ 

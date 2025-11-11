@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
-import closeIcon from '@/assets/close-icon.jpeg';
-import checkIcon from '@/assets/check-icon.jpeg';
+import closeIcon from '@/assets/close-icon.png';
+import checkIcon from '@/assets/check-icon.png';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
