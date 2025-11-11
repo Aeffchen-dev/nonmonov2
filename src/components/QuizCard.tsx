@@ -735,7 +735,7 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <img src={closeIcon} alt="Close" style={{ width: '24px', height: '24px', filter: 'invert(1)' }} />
+            <img src={closeIcon} alt="Close" style={{ width: '18px', height: '18px', filter: 'invert(1)' }} />
           ) : (
             <img 
               src={editIcon} 

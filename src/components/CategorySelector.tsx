@@ -187,7 +187,7 @@ export function CategorySelector({
                 justifyContent: 'center'
               }}
             >
-              <img src={closeIcon} alt="Close" style={{ width: '28px', height: '28px', filter: 'invert(1)' }} />
+              <img src={closeIcon} alt="Close" style={{ width: '20px', height: '20px', filter: 'invert(1)' }} />
             </button>
           </div>
 
