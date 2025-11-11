@@ -805,7 +805,7 @@ export function QuizApp() {
                 }}
               >
                 {index === 0 && char === 'N' ? (
-                  <span style={{ fontFamily: 'Arial, sans-serif' }}>{char}</span>
+                  <span style={{ fontFamily: 'Stringer, sans-serif' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
                   // First o - smiley (keep as is)
                   <div 
@@ -893,7 +893,7 @@ export function QuizApp() {
                     </svg>
                   </div>
                  ) : (char === 'm' || char === 'n') ? (
-                  <span style={{ fontFamily: 'Arial, sans-serif' }}>{char}</span>
+                  <span style={{ fontFamily: 'Stringer, sans-serif' }}>{char}</span>
                  ) : (
                   char
                  )}
