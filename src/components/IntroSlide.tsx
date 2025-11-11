@@ -156,7 +156,8 @@ export function IntroSlide({
       className={`relative w-full max-w-[500px] mx-auto bg-[hsl(var(--card-background))] rounded-2xl shadow-card overflow-hidden select-none max-h-full ${animationClass}`}
       style={{
         height: '100%',
-        maxHeight: '100%'
+        maxHeight: '100%',
+        imageRendering: 'pixelated'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -236,7 +237,8 @@ export function IntroSlide({
                       height: '6px',
                       borderRadius: '50%',
                       backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite'
+                      animation: 'pulse 1.5s ease-in-out infinite',
+                      imageRendering: 'pixelated'
                     }}
                   />
                   <div 
@@ -245,7 +247,8 @@ export function IntroSlide({
                       height: '6px',
                       borderRadius: '50%',
                       backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite 0.2s'
+                      animation: 'pulse 1.5s ease-in-out infinite 0.2s',
+                      imageRendering: 'pixelated'
                     }}
                   />
                   <div 
@@ -254,7 +257,8 @@ export function IntroSlide({
                       height: '6px',
                       borderRadius: '50%',
                       backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite 0.4s'
+                      animation: 'pulse 1.5s ease-in-out infinite 0.4s',
+                      imageRendering: 'pixelated'
                     }}
                   />
                 </div>

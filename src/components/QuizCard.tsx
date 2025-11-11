@@ -31,7 +31,8 @@ function Eye({
         justifyContent: 'center',
         overflow: 'hidden',
         transform: isBlinking ? 'scaleY(0.1)' : 'scaleY(1)',
-        transition: 'transform 0.15s ease-out'
+        transition: 'transform 0.15s ease-out',
+        imageRendering: 'pixelated'
       }}
     >
       {/* Pupil */}
@@ -42,7 +43,8 @@ function Eye({
           backgroundColor: 'black',
           borderRadius: '50%',
           transform: `translate(${pupilOffset.x}px, ${pupilOffset.y}px)`,
-          transition: 'transform 0.3s ease-out' // Faster transition from 0.8s to 0.3s
+          transition: 'transform 0.3s ease-out',
+          imageRendering: 'pixelated'
         }}
       />
     </div>
@@ -477,7 +479,8 @@ export function QuizCard({
         maxHeight: 'calc(100% - 32px)',
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
-        boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)'
+        boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)',
+        imageRendering: 'pixelated'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -493,7 +496,8 @@ export function QuizCard({
           position: 'absolute',
           inset: 0,
           borderRadius: '24px',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          imageRendering: 'pixelated'
         }}
       >
       {/* Left Click Area - Previous */}
@@ -527,7 +531,8 @@ export function QuizCard({
               paddingRight: '16px',
               borderRadius: '40px',
               zIndex: 20,
-              width: 'auto'
+              width: 'auto',
+              imageRendering: 'pixelated'
             }}
           >
           {question.category}
