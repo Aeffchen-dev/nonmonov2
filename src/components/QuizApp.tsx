@@ -408,7 +408,7 @@ export function QuizApp() {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentIndex]);
 
-  // Logo smiley single-eye blinking effect - every 4-7 seconds
+  // Logo smiley single-eye blinking effect - every 7 seconds
   useEffect(() => {
     const blink = () => {
       // Randomly choose which eye to blink
@@ -418,7 +418,7 @@ export function QuizApp() {
     };
 
     const scheduleNextBlink = () => {
-      const delay = 4000 + Math.random() * 3000; // Blink every 4-7 seconds
+      const delay = 7000; // Blink every 7 seconds
       return setTimeout(() => {
         blink();
         scheduleNextBlink();
@@ -821,7 +821,7 @@ export function QuizApp() {
                       <circle 
                         cx="6" 
                         cy="7" 
-                        r="1.5" 
+                        r="1" 
                         fill="black"
                         style={{
                           transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
@@ -833,7 +833,7 @@ export function QuizApp() {
                       <circle 
                         cx="12" 
                         cy="7" 
-                        r="1.5" 
+                        r="1" 
                         fill="black"
                         style={{
                           transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
@@ -845,7 +845,7 @@ export function QuizApp() {
                       <path 
                         d="M 6 11 Q 9 13 12 11" 
                         stroke="black" 
-                        strokeWidth="1.5" 
+                        strokeWidth="1" 
                         fill="none" 
                         strokeLinecap="round"
                       />
