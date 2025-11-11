@@ -263,7 +263,7 @@ All colors MUST be HSL.
   }
 }
 
-/* Apply irregular stroke effect to all lucide icons */
+/* Apply irregular stroke effect to all lucide icons using morphology */
 svg[class*="lucide"] {
-  filter: url(#roughen);
+  filter: url(#irregular-stroke);
 }
