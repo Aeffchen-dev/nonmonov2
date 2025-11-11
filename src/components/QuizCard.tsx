@@ -680,8 +680,8 @@ export function QuizCard({
             position: 'absolute',
             right: '24px',
             bottom: '24px',
-            width: '45px',
-            height: '45px',
+            width: '69px',
+            height: '69px',
             border: 'none',
             cursor: 'pointer',
             zIndex: 40,
@@ -698,9 +698,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={20} color="white" strokeWidth={1} />
+            <X size={24} color="white" strokeWidth={1} />
           ) : (
-            <Pencil size={20} color="white" strokeWidth={1} />
+            <Pencil size={24} color="white" strokeWidth={1} />
           )}
         </button>
       )}
