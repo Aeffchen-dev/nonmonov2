@@ -262,3 +262,8 @@ All colors MUST be HSL.
     background-position: 200% center;
   }
 }
+
+/* Apply irregular stroke effect to all lucide icons */
+svg[class*="lucide"] {
+  filter: url(#roughen);
+}
