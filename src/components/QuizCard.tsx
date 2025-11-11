@@ -517,8 +517,8 @@ export function QuizCard({
               position: 'absolute',
               left: '24px',
               bottom: '24px',
-              backgroundColor: 'black',
-              color: 'white',
+              backgroundColor: 'transparent',
+              color: 'black',
               fontSize: '16px',
               height: '36px',
               display: 'inline-flex',
@@ -527,7 +527,8 @@ export function QuizCard({
               paddingRight: '16px',
               zIndex: 20,
               width: 'auto',
-              borderRadius: '18px'
+              borderRadius: '18px',
+              border: '1px solid black'
             }}
           >
           {question.category}
