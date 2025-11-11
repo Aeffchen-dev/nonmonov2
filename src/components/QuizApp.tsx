@@ -4,7 +4,6 @@ import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
 import starLoading from '@/assets/star-loading.jpeg';
-import editIcon from '@/assets/edit-icon.png';
 
 interface Question {
   question: string;
@@ -890,14 +889,11 @@ export function QuizApp() {
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
         >
-          <img 
-            src={editIcon} 
-            alt="Edit" 
-            className="w-6 h-6"
-            style={{ 
-              filter: 'brightness(0) invert(1)'
-            }}
-          />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 18L18 4M18 4H8M18 4V14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="6" cy="20" r="2" fill="white" />
+            <circle cx="12" cy="20" r="2" fill="white" />
+          </svg>
         </button>
       </div>
 
