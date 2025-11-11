@@ -496,32 +496,81 @@ export function QuizCard({
           overflow: 'hidden'
         }}
       >
-      {/* Decorative circle at bottom - Monster */}
+      {/* Decorative pixelated heart at bottom - Monster */}
       {question.category.toLowerCase() !== 'intro' && (
         <div
           style={{
             position: 'absolute',
-            top: isEditing ? '55%' : '55%',
-            left: `calc(50% + ${monsterVariation.circleOffsetX}% + ${isEditing ? (monsterVariation.circleOffsetX > 0 ? '15%' : '-15%') : '0%'})`,
+            bottom: '15%',
+            left: `calc(50% + ${monsterVariation.circleOffsetX * 0.3}%)`,
             transform: `translateX(-50%) scale(${isEditing ? '0.5' : '1'})`,
-            width: `${monsterVariation.circleWidth}%`,
-            height: `${monsterVariation.circleHeight}%`,
-            borderRadius: '50%',
-            backgroundColor: categoryColors.pageBg,
+            width: '40px',
+            height: '40px',
             pointerEvents: 'none',
             zIndex: 10,
-            transition: 'transform 0.3s ease'
+            transition: 'transform 0.3s ease',
+            imageRendering: 'pixelated'
           }}
         >
-          {/* Eyes container - centered vertically in visible monster portion */}
+          {/* Heart shape using CSS */}
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              transform: 'rotate(-45deg)',
+            }}
+          >
+            {/* Main square */}
+            <div
+              style={{
+                position: 'absolute',
+                width: '20px',
+                height: '20px',
+                backgroundColor: categoryColors.pageBg,
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                imageRendering: 'pixelated',
+              }}
+            />
+            {/* Left circle */}
+            <div
+              style={{
+                position: 'absolute',
+                width: '20px',
+                height: '20px',
+                backgroundColor: categoryColors.pageBg,
+                borderRadius: '50%',
+                left: '5px',
+                top: '10px',
+                imageRendering: 'pixelated',
+              }}
+            />
+            {/* Top circle */}
+            <div
+              style={{
+                position: 'absolute',
+                width: '20px',
+                height: '20px',
+                backgroundColor: categoryColors.pageBg,
+                borderRadius: '50%',
+                left: '10px',
+                top: '5px',
+                imageRendering: 'pixelated',
+              }}
+            />
+          </div>
+          
+          {/* Eyes container - positioned on the heart */}
           <div
             style={{
               position: 'absolute',
-              top: `calc(17.5% + ${monsterVariation.eyeShift.y}px)`,
-              left: `calc(50% + ${monsterVariation.eyeShift.x}px)`,
+              top: '12px',
+              left: '50%',
               transform: 'translateX(-50%)',
               display: 'flex',
-              gap: '20px',
+              gap: '8px',
               pointerEvents: 'none'
             }}
           >
@@ -531,9 +580,9 @@ export function QuizCard({
               pupilOffset={pupilOffset} 
               isBlinking={isBlinking}
               eyeVariation={{
-                width: `${monsterVariation.eyeWidth}px`,
-                height: `${monsterVariation.eyeHeight}px`,
-                pupilSize: `${monsterVariation.pupilSize}px`
+                width: '10px',
+                height: '10px',
+                pupilSize: '4px'
               }}
             />
             {/* Right Eye */}
@@ -542,9 +591,9 @@ export function QuizCard({
               pupilOffset={pupilOffset} 
               isBlinking={isBlinking}
               eyeVariation={{
-                width: `${monsterVariation.eyeWidth}px`,
-                height: `${monsterVariation.eyeHeight}px`,
-                pupilSize: `${monsterVariation.pupilSize}px`
+                width: '10px',
+                height: '10px',
+                pupilSize: '4px'
               }}
             />
           </div>
