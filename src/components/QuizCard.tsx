@@ -527,7 +527,7 @@ export function QuizCard({
               paddingRight: '16px',
               zIndex: 20,
               width: 'auto',
-              clipPath: 'polygon(0 12px, 3px 12px, 3px 8px, 7px 8px, 7px 3px, 12px 3px, 12px 0, 22px 0, 22px 3px, 28px 3px, 28px 0, calc(100% - 25px) 0, calc(100% - 25px) 5px, calc(100% - 18px) 5px, calc(100% - 18px) 3px, calc(100% - 10px) 3px, calc(100% - 10px) 7px, calc(100% - 5px) 7px, calc(100% - 5px) 14px, 100% 14px, 100% calc(100% - 8px), calc(100% - 3px) calc(100% - 8px), calc(100% - 3px) calc(100% - 13px), calc(100% - 7px) calc(100% - 13px), calc(100% - 7px) calc(100% - 5px), calc(100% - 15px) calc(100% - 5px), calc(100% - 15px) 100%, calc(100% - 30px) 100%, calc(100% - 30px) calc(100% - 3px), calc(100% - 38px) calc(100% - 3px), calc(100% - 38px) 100%, 20px 100%, 20px calc(100% - 4px), 12px calc(100% - 4px), 12px calc(100% - 3px), 7px calc(100% - 3px), 7px calc(100% - 7px), 3px calc(100% - 7px), 3px calc(100% - 10px), 0 calc(100% - 10px))'
+              clipPath: 'polygon(0 15px, 8px 15px, 8px 8px, 15px 8px, 15px 0, calc(100% - 20px) 0, calc(100% - 20px) 10px, calc(100% - 10px) 10px, calc(100% - 10px) 20px, 100% 20px, 100% calc(100% - 12px), calc(100% - 10px) calc(100% - 12px), calc(100% - 10px) calc(100% - 8px), calc(100% - 18px) calc(100% - 8px), calc(100% - 18px) 100%, 15px 100%, 15px calc(100% - 10px), 8px calc(100% - 10px), 8px calc(100% - 15px), 0 calc(100% - 15px))'
             }}
           >
           {question.category}
