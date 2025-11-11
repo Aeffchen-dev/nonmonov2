@@ -209,9 +209,6 @@ export function CategorySelector({
                   style={{ 
                     paddingLeft: '16px',
                     paddingRight: '0px',
-                    paddingTop: '12px',
-                    paddingBottom: '12px',
-                    height: '68px',
                     width: isSelected ? '80vw' : '70vw',
                     transition: 'width 0.2s ease-in-out'
                   }}
