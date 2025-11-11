@@ -709,7 +709,7 @@ export function QuizCard({
 
       </div> {/* Close inner container with border-radius mask */}
 
-      {question.category.toLowerCase() !== 'intro' && (
+      {question.category.toLowerCase() !== 'intro' && question.category.toLowerCase() !== 'info' && (
         <button
           style={{
             position: 'absolute',
