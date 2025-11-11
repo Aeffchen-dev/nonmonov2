@@ -506,17 +506,17 @@ export function QuizCard({
             backgroundImage: `url(${cubeIcon})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100vw auto',
-            backgroundPosition: 'center 66%',
+            backgroundPosition: 'center 130%',
             opacity: 1,
             zIndex: 0,
             maskImage: `url(${cubeIcon})`,
             maskRepeat: 'no-repeat',
             maskSize: '100vw auto',
-            maskPosition: 'center 66%',
+            maskPosition: 'center 130%',
             WebkitMaskImage: `url(${cubeIcon})`,
             WebkitMaskRepeat: 'no-repeat',
             WebkitMaskSize: '100vw auto',
-            WebkitMaskPosition: 'center 66%',
+            WebkitMaskPosition: 'center 130%',
             backgroundColor: categoryColors.pageBg
           }}
         />
