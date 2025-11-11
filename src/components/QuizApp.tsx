@@ -796,7 +796,7 @@ export function QuizApp() {
           gap: '0vw'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '120px' }}>
         {"non ".split('').map((char, index) => {
           const isSpace = char === ' ';
           return (
