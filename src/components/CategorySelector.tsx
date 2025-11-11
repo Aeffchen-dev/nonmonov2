@@ -1,23 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Check } from 'lucide-react';
+import { X, Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
-
-// Custom X icon with varied stroke widths
-const CustomXIcon = ({ className }: { className?: string }) => (
-  <svg 
-    width="28" 
-    height="28" 
-    viewBox="0 0 28 28" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-  >
-    <line x1="6" y1="6" x2="22" y2="22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-    <line x1="22" y1="6" x2="6" y2="22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
-  </svg>
-);
 
 interface CategorySelectorProps {
   open: boolean;
@@ -193,7 +178,7 @@ export function CategorySelector({
               onClick={handleClose}
               className="text-white transition-colors"
             >
-              <CustomXIcon className="h-7 w-7" />
+              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
             </button>
           </div>
 
