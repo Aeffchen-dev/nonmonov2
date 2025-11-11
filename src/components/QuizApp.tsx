@@ -791,7 +791,8 @@ export function QuizApp() {
                 key={index} 
                 style={{ 
                   display: 'inline-block',
-                  marginLeft: addSpace ? '0.3em' : '0'
+                  marginLeft: addSpace ? '0.3em' : '0',
+                  verticalAlign: 'baseline'
                 }}
               >
                 {char === 'o' && index === 1 ? (
@@ -812,7 +813,7 @@ export function QuizApp() {
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
                       paddingLeft: '2px',
                       paddingRight: '2px',
-                      marginBottom: '2px'
+                      verticalAlign: 'baseline'
                     }}
                   >
                     <div style={{ 
@@ -850,7 +851,7 @@ export function QuizApp() {
                     }}></div>
                   </div>
                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's - Pixelated hearts
+                  // Other 'o's - Pixelated heart outlines (white)
                   <div 
                     style={{
                       display: 'inline-grid',
@@ -859,18 +860,18 @@ export function QuizApp() {
                       gap: '0px',
                       width: '12.5px',
                       height: '12.5px',
-                      marginBottom: '2px'
+                      verticalAlign: 'baseline'
                     }}
                   >
                     {[
-                      [0,1,1,1,0],
-                      [1,1,1,1,1],
-                      [1,1,1,1,1],
-                      [0,1,1,1,0],
+                      [0,1,0,1,0],
+                      [1,0,0,0,1],
+                      [1,0,0,0,1],
+                      [0,1,0,1,0],
                       [0,0,1,0,0]
                     ].flat().map((v, i) => (
                       <div key={i} style={{
-                        backgroundColor: v ? '#FF3366' : 'transparent',
+                        backgroundColor: v ? 'white' : 'transparent',
                         width: '2.5px',
                         height: '2.5px'
                       }} />

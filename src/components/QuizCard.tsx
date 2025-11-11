@@ -647,17 +647,15 @@ export function QuizCard({
             bottom: '24px',
             width: '58px',
             height: '58px',
-            borderRadius: '0',
+            borderRadius: '4px',
             backgroundColor: 'hsl(var(--card-background))',
-            backdropFilter: 'blur(4px)',
             opacity: 1,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             border: 'none',
             cursor: 'pointer',
-            filter: 'drop-shadow(-2px -2px 4px rgba(0, 0, 0, 1))',
-            clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
+            boxShadow: '-2px -2px 4px 0px rgba(0, 0, 0, 1)',
             zIndex: 40
           }}
           onClick={(e) => {
@@ -665,94 +663,6 @@ export function QuizCard({
             setIsEditing(!isEditing);
           }}
         >
-          {/* Pixelated corner overlay - top left */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [0,1],
-              [1,1]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? 'hsl(var(--card-background))' : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {/* Pixelated corner overlay - top right */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [1,0],
-              [1,1]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? 'hsl(var(--card-background))' : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {/* Pixelated corner overlay - bottom right */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [1,1],
-              [1,0]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? 'hsl(var(--card-background))' : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {/* Pixelated corner overlay - bottom left */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [1,1],
-              [0,1]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? 'hsl(var(--card-background))' : 'transparent'
-              }} />
-            ))}
-          </div>
-          
           {isEditing ? (
             <X size={20} color="hsl(var(--foreground))" />
           ) : (
