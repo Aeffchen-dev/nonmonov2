@@ -785,7 +785,7 @@ export function QuizApp() {
           transform: 'translate(-50%, -50%)',
           fontSize: '41.8vw',
           fontWeight: 600,
-          color: '#000000',
+          color: '#FFFFFF',
           zIndex: 0,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
@@ -911,7 +911,7 @@ export function QuizApp() {
                     [0,0,1,0,0]
                    ].flat().map((v, i) => (
                     <div key={i} style={{
-                      backgroundColor: v ? '#000000' : 'transparent',
+                      backgroundColor: v ? '#FFFFFF' : 'transparent',
                       width: '3.962vw',
                       height: '3.962vw'
                     }} />
