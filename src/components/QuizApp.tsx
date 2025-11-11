@@ -3,7 +3,7 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
-import { Grid3x3 } from 'lucide-react';
+import { Package } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -873,7 +873,7 @@ export function QuizApp() {
             color: 'white'
           }}
         >
-          <Grid3x3 size={24} strokeLinecap="square" />
+          <Package size={24} strokeLinecap="square" />
         </button>
       </div>
 
