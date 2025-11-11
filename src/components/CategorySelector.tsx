@@ -266,26 +266,26 @@ export function CategorySelector({
                                 : 'all 0.2s ease-in-out'
                             }}
                           >
-                           {isSelected && (
-                            <svg 
-                              width="20" 
-                              height="20" 
-                              viewBox="0 0 24 24" 
-                              fill="none"
-                              style={{ 
-                                color: 'black',
-                                animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
-                              }}
-                            >
-                             <path
-                               d="M20 6 9 17l-5-5"
-                               stroke="currentColor"
-                               strokeWidth="2"
-                               strokeLinecap="square"
-                               strokeLinejoin="miter"
-                             />
-                           </svg>
-                          )}
+                            {isSelected && (
+                             <svg 
+                               width="20" 
+                               height="20" 
+                               viewBox="0 0 24 24" 
+                               fill="none"
+                               style={{ 
+                                 color: 'black',
+                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
+                               }}
+                             >
+                              <path
+                                d="M20 6 9 17l-5-5"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                strokeLinejoin="miter"
+                              />
+                            </svg>
+                           )}
                        </div>
                     </div>
                   </div>
