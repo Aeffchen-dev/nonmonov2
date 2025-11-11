@@ -783,7 +783,7 @@ export function QuizApp() {
             fontSize: '26px', 
             fontWeight: 600,
             color: 'white',
-            letterSpacing: '0.01em'
+            letterSpacing: '-0.04em'
           }}
           onClick={handleLogoClick}
         >
