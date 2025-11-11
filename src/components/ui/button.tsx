@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -20,10 +20,10 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-6 py-2 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        sm: "h-9 px-4 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        lg: "h-11 px-8 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        icon: "h-10 w-10 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+        default: "h-10 px-4 py-2",
+        sm: "h-9 px-3",
+        lg: "h-11 px-8",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {
