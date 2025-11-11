@@ -733,9 +733,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={24} color="white" strokeWidth={1} />
+            <X size={28} color="white" strokeWidth={1} />
           ) : (
-            <Pencil size={24} color="white" strokeWidth={1} />
+            <Pencil size={28} color="white" strokeWidth={1} />
           )}
         </button>
       )}
