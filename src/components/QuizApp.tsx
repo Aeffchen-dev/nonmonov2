@@ -859,29 +859,39 @@ export function QuizApp() {
                     </svg>
                   </div>
                 ) : char === 'o' && index === 5 ? (
-                  // Second o in "mono" - orange circle
+                  // Second o in "mono" - orange heart-circle
                   <div 
                     style={{
                       display: 'inline-block',
                       width: '16px',
                       height: '16px',
-                      borderRadius: '50%',
-                      backgroundColor: '#FF6633',
                       verticalAlign: 'middle'
                     }}
-                  />
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8 14C8 14 2 10 2 6C2 4 3.5 2.5 5 2.5C6.5 2.5 8 4 8 4C8 4 9.5 2.5 11 2.5C12.5 2.5 14 4 14 6C14 10 8 14 8 14Z"
+                        fill="#FF6633"
+                      />
+                    </svg>
+                  </div>
                 ) : char === 'o' && index === 7 ? (
-                  // Third o in "mono" - purple circle
+                  // Third o in "mono" - purple heart-circle
                   <div 
                     style={{
                       display: 'inline-block',
                       width: '16px',
                       height: '16px',
-                      borderRadius: '50%',
-                      backgroundColor: '#AFA3FF',
                       verticalAlign: 'middle'
                     }}
-                  />
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8 14C8 14 2 10 2 6C2 4 3.5 2.5 5 2.5C6.5 2.5 8 4 8 4C8 4 9.5 2.5 11 2.5C12.5 2.5 14 4 14 6C14 10 8 14 8 14Z"
+                        fill="#AFA3FF"
+                      />
+                    </svg>
+                  </div>
                 ) : (
                   char
                 )}
