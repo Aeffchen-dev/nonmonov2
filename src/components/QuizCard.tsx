@@ -570,13 +570,44 @@ export function QuizCard({
               const text = question.question;
               const words = text.split(/(\s+)/);
               let firstSubstantiveFound = false;
+              let highlightedIndex = -1;
+              
+              // First pass: find if there's a substantive
+              for (let i = 1; i < words.length; i++) {
+                const word = words[i];
+                const isSubstantive = word.length > 0 && word[0] === word[0].toUpperCase() && /[A-ZÄÖÜ]/.test(word[0]);
+                if (isSubstantive) {
+                  highlightedIndex = i;
+                  firstSubstantiveFound = true;
+                  break;
+                }
+              }
+              
+              // If no substantive found, pick a random word from the middle
+              if (!firstSubstantiveFound) {
+                const actualWords = words.filter((w, i) => i % 2 === 0 && w.trim().length > 0);
+                if (actualWords.length > 2) {
+                  // Pick from middle third of the sentence, avoiding first and last few words
+                  const startIdx = Math.floor(actualWords.length / 3);
+                  const endIdx = Math.floor(actualWords.length * 2 / 3);
+                  const middleWords = actualWords.slice(startIdx, endIdx);
+                  
+                  if (middleWords.length > 0) {
+                    const randomWord = middleWords[Math.floor(Math.random() * middleWords.length)];
+                    // Find the index of this word in the original words array
+                    for (let i = 0; i < words.length; i++) {
+                      if (words[i] === randomWord) {
+                        highlightedIndex = i;
+                        break;
+                      }
+                    }
+                  }
+                }
+              }
               
               return words.map((word, index) => {
-                // Check if word is a substantive (capitalized in German, but not the first word)
-                const isSubstantive = index > 0 && word.length > 0 && word[0] === word[0].toUpperCase() && /[A-ZÄÖÜ]/.test(word[0]);
-                
-                if (isSubstantive && !firstSubstantiveFound) {
-                  firstSubstantiveFound = true;
+                // Highlight the selected word (either substantive or random middle word)
+                if (index === highlightedIndex) {
                   return (
                     <span 
                       key={index}
