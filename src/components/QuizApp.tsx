@@ -785,29 +785,73 @@ export function QuizApp() {
           onClick={handleLogoClick}
         >
           {"non mono".split('').map((char, index) => {
-            // Check if this is an 'o' in "mono" (indices 5 and 7 after space at index 3)
-            const isHeartO = (char === 'o' && (index === 5 || index === 7));
-            
+            const isAnimating = animatingLetterIndex === index;
+            const isEven = index % 2 === 0;
+            const translateY = isAnimating ? (isEven ? '-3px' : '3px') : '0px';
             return (
               <span 
                 key={index} 
                 style={{ 
                   display: 'inline-block',
+                  transform: `translateY(${index === 0 ? 'calc(' + translateY + ' + 2px)' : translateY})`,
                   position: 'relative',
-                  fontFeatureSettings: index === 0 ? '"ss01" 1' : 'normal',
-                  marginRight: index === 2 ? '0.3em' : '0' // Add space between "non" and "mono"
+                  transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  fontFeatureSettings: index === 0 ? '"ss01" 1' : 'normal'
                 }}
               >
-                {isHeartO ? (
-                  <span style={{
-                    display: 'inline-block',
-                    position: 'relative',
-                    transform: 'scale(1.1, 0.9) translateY(-1px)',
-                    fontVariationSettings: '"wght" 900',
-                    letterSpacing: '-0.05em'
-                  }}>
-                    ♥
-                  </span>
+                {char === 'o' && index === 1 ? (
+                  <div 
+                    data-smiley-logo
+                    style={{
+                      display: 'inline-block',
+                      width: '16.5px',
+                      height: '16.5px',
+                      backgroundColor: '#FFFF33',
+                      borderRadius: '50%',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      position: 'relative',
+                      transform: `translateY(0.5px) rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
+                      transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
+                      paddingLeft: '2px',
+                      paddingRight: '2px'
+                    }}
+                  >
+                    <div style={{ 
+                      display: 'flex', 
+                      gap: '2.2px', 
+                      position: 'absolute', 
+                      top: '5px', 
+                      left: '50%', 
+                      transform: `translateX(-50%) scaleY(${isLogoBlinking ? 0.1 : 1})`,
+                      transition: 'transform 0.15s ease-out'
+                    }}>
+                      <div style={{ 
+                        width: '2.2px', 
+                        height: '2.2px', 
+                        backgroundColor: 'black', 
+                        borderRadius: '50%'
+                      }}></div>
+                      <div style={{ 
+                        width: '2.2px', 
+                        height: '2.2px', 
+                        backgroundColor: 'black', 
+                        borderRadius: '50%'
+                      }}></div>
+                    </div>
+                    <div style={{ 
+                      width: '6.6px', 
+                      height: '2.75px', 
+                      border: '1px solid black', 
+                      borderTop: 'none',
+                      borderRadius: '0 0 6.6px 6.6px',
+                      position: 'absolute',
+                      top: '9.35px',
+                      left: '50%',
+                      transform: 'translateX(-50%)'
+                    }}></div>
+                  </div>
                 ) : (
                   char
                 )}
