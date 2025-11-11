@@ -20,10 +20,10 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        sm: "h-9 px-3 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        lg: "h-11 px-8 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        icon: "h-10 w-10 rounded-full",
+        default: "h-10 px-4 py-2 rounded-md shadow-md",
+        sm: "h-9 px-3 rounded-md shadow-md",
+        lg: "h-11 px-8 rounded-md shadow-lg",
+        icon: "h-10 w-10 rounded-full shadow-md",
       },
     },
     defaultVariants: {
