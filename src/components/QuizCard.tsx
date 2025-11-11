@@ -648,7 +648,7 @@ export function QuizCard({
             width: '58px',
             height: '58px',
             borderRadius: '0',
-            backgroundColor: categoryColors.cardColor,
+            backgroundColor: 'hsl(var(--card-background))',
             backdropFilter: 'blur(4px)',
             opacity: 1,
             display: 'flex',
@@ -656,7 +656,7 @@ export function QuizCard({
             justifyContent: 'center',
             border: 'none',
             cursor: 'pointer',
-            filter: 'drop-shadow(-2px -2px 8px rgba(0, 0, 0, 0.4))',
+            filter: 'drop-shadow(-2px -2px 4px rgba(0, 0, 0, 1))',
             clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
             zIndex: 40
           }}
@@ -682,7 +682,7 @@ export function QuizCard({
               [1,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
+                background: v ? 'hsl(var(--card-background))' : 'transparent'
               }} />
             ))}
           </div>
@@ -704,7 +704,7 @@ export function QuizCard({
               [1,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
+                background: v ? 'hsl(var(--card-background))' : 'transparent'
               }} />
             ))}
           </div>
@@ -726,7 +726,7 @@ export function QuizCard({
               [1,0]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
+                background: v ? 'hsl(var(--card-background))' : 'transparent'
               }} />
             ))}
           </div>
@@ -748,15 +748,15 @@ export function QuizCard({
               [0,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
+                background: v ? 'hsl(var(--card-background))' : 'transparent'
               }} />
             ))}
           </div>
           
           {isEditing ? (
-            <X size={20} color="#1A1A1A" />
+            <X size={20} color="hsl(var(--foreground))" />
           ) : (
-            <Pencil size={20} color="#1A1A1A" />
+            <Pencil size={20} color="hsl(var(--foreground))" />
           )}
         </button>
       )}
