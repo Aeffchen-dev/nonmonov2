@@ -1,7 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Pencil, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileEdit } from 'lucide-react';
 import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
+
+// Custom X icon with varied stroke widths
+const CustomXIcon = ({ size, color, strokeWidth }: { size?: number; color?: string; strokeWidth?: number }) => (
+  <svg 
+    width={size || 24} 
+    height={size || 24} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <line x1="5" y1="5" x2="19" y2="19" stroke={color || "currentColor"} strokeWidth="2.5" strokeLinecap="square" />
+    <line x1="19" y1="5" x2="5" y2="19" stroke={color || "currentColor"} strokeWidth="1.5" strokeLinecap="square" />
+  </svg>
+);
 import Hypher from 'hypher';
 import german from 'hyphenation.de';
 
@@ -733,9 +747,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <X size={24} color="white" strokeWidth={1} />
+            <CustomXIcon size={24} color="white" />
           ) : (
-            <Pencil size={24} color="white" strokeWidth={1} />
+            <FileEdit size={24} color="white" strokeWidth={2} />
           )}
         </button>
       )}
