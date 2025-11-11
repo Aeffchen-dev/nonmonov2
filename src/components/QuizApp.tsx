@@ -460,17 +460,24 @@ export function QuizApp() {
     
     const slides: SlideItem[] = [];
     
-    // Always add welcome intro slide as the first slide
-    slides.push({ type: 'intro' });
+    // Check if all categories are selected (no filter applied)
+    const allCategoriesSelected = availableCategories.length > 0 && 
+                                   selectedCategories.length === availableCategories.length;
     
-    // Add description slide as the second slide
-    const descriptionQuestion: Question = {
-      question: 'Description',
-      category: 'intro',
-      depth: 'light',
-      type: 'Frage'
-    };
-    slides.push({ type: 'question', question: descriptionQuestion });
+    // Only add intro slides when all categories are selected (no filter)
+    if (allCategoriesSelected) {
+      // Add welcome intro slide as the first slide
+      slides.push({ type: 'intro' });
+      
+      // Add description slide as the second slide
+      const descriptionQuestion: Question = {
+        question: 'Description',
+        category: 'intro',
+        depth: 'light',
+        type: 'Frage'
+      };
+      slides.push({ type: 'question', question: descriptionQuestion });
+    }
     
     let orderedQuestions: Question[];
     
