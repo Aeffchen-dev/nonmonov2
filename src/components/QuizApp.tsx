@@ -804,11 +804,11 @@ export function QuizApp() {
                     data-smiley-logo
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(4, 3px)',
-                      gridTemplateRows: 'repeat(4, 3px)',
+                      gridTemplateColumns: 'repeat(6, 3px)',
+                      gridTemplateRows: 'repeat(6, 3px)',
                       gap: '0px',
-                      width: '12px',
-                      height: '12px',
+                      width: '18px',
+                      height: '18px',
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
@@ -816,10 +816,12 @@ export function QuizApp() {
                     }}
                   >
                     {[
-                      [0,1,1,0],
-                      [1,1,1,1],
-                      [1,1,1,1],
-                      [0,1,1,0]
+                      [0,0,1,1,0,0],
+                      [0,1,1,1,1,0],
+                      [1,1,1,1,1,1],
+                      [1,1,1,1,1,1],
+                      [0,1,1,1,1,0],
+                      [0,0,1,1,0,0]
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? '#FFFF33' : 'transparent',
@@ -830,8 +832,8 @@ export function QuizApp() {
                         alignItems: 'center',
                         justifyContent: 'center'
                       }}>
-                        {/* Left eye - 2px square at position 5 (row 2, col 1) */}
-                        {i === 5 && (
+                        {/* Left eye - 2px square at position 14 (row 2, col 2) */}
+                        {i === 14 && (
                           <div style={{
                             width: '2px',
                             height: '2px',
@@ -840,8 +842,8 @@ export function QuizApp() {
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
-                        {/* Right eye - 2px square at position 6 (row 2, col 2) */}
-                        {i === 6 && (
+                        {/* Right eye - 2px square at position 15 (row 2, col 3) */}
+                        {i === 15 && (
                           <div style={{
                             width: '2px',
                             height: '2px',
@@ -850,8 +852,8 @@ export function QuizApp() {
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
-                        {/* Mouth - bottom pixels at positions 9 and 10 (row 3, col 1 and 2) */}
-                        {(i === 9 || i === 10) && (
+                        {/* Mouth - bottom pixels at positions 26, 27 (row 4, col 2 and 3) */}
+                        {(i === 26 || i === 27) && (
                           <div style={{
                             position: 'absolute',
                             bottom: '0',
@@ -869,21 +871,23 @@ export function QuizApp() {
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(5, 3px)',
-                      gridTemplateRows: 'repeat(5, 3px)',
+                      gridTemplateColumns: 'repeat(7, 3px)',
+                      gridTemplateRows: 'repeat(7, 3px)',
                       gap: '0px',
-                      width: '15px',
-                      height: '15px',
+                      width: '21px',
+                      height: '21px',
                       verticalAlign: 'baseline',
                       marginBottom: '0px'
                     }}
                   >
                     {[
-                      [0,1,0,1,0],
-                      [1,0,1,0,1],
-                      [1,0,0,0,1],
-                      [0,1,0,1,0],
-                      [0,0,1,0,0]
+                      [0,0,1,0,1,0,0],
+                      [0,1,0,1,0,1,0],
+                      [1,0,0,0,0,0,1],
+                      [1,0,0,0,0,0,1],
+                      [0,1,0,0,0,1,0],
+                      [0,0,1,0,1,0,0],
+                      [0,0,0,1,0,0,0]
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
