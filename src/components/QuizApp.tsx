@@ -857,11 +857,11 @@ export function QuizApp() {
                       display: 'inline-grid',
                       gridTemplateColumns: 'repeat(5, 1.5px)',
                       gridTemplateRows: 'repeat(5, 1.5px)',
-                      gap: '1.2px',
-                      width: '13.5px',
-                      height: '13.5px',
+                      gap: '0.6px',
+                      width: '10.5px',
+                      height: '10.5px',
                       verticalAlign: 'baseline',
-                      marginBottom: '2px'
+                      marginBottom: '0px'
                     }}
                   >
                     {[
