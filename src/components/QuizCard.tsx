@@ -519,7 +519,7 @@ export function QuizCard({
               right: '0',
               bottom: '0',
               backgroundColor: 'white',
-              color: 'white',
+              color: '#1A1A1A',
               fontSize: '20px',
               height: '48px',
               display: 'flex',
