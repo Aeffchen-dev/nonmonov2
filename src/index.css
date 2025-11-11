@@ -237,7 +237,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-stringer;
+    @apply bg-background text-foreground font-stringer tracking-tight;
     overflow: hidden;
     height: 100vh;
     height: 100svh;
