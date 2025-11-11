@@ -183,12 +183,12 @@ export function CategorySelector({
               style={{
                 width: '28px',
                 height: '28px',
-                backgroundColor: 'white',
+                backgroundColor: 'black',
                 borderRadius: '4px',
                 padding: '2px'
               }}
             >
-              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" />
+              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" style={{ filter: 'invert(1)' }} />
             </button>
           </div>
 
