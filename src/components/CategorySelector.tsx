@@ -198,7 +198,7 @@ export function CategorySelector({
                   className="flex items-center justify-between cursor-pointer relative overflow-hidden"
                   style={{ 
                     paddingLeft: '16px',
-                    paddingRight: '16px',
+                    paddingRight: '0px',
                     width: isSelected ? '80vw' : '70vw',
                     animation: shouldAnimate ? 'widthBounceRight 0.3s ease-in-out 0.05s both' : 'none',
                     transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
@@ -253,7 +253,7 @@ export function CategorySelector({
                           style={{ 
                             width: '44px', 
                             height: '44px',
-                            border: `2px solid ${isSelected ? 'black' : colors.cardColor}`,
+                            borderLeft: `2px solid black`,
                             backgroundColor: 'transparent',
                             transition: shouldAnimate && isSelected
                               ? 'border 0.1s ease-in-out 0.1s'
