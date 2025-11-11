@@ -475,8 +475,8 @@ export function QuizCard({
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
-        backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
-        color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
+        backgroundColor: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--card-background))',
+        color: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)'
       }}
       onTouchStart={onTouchStart}
@@ -519,13 +519,13 @@ export function QuizCard({
               right: '0',
               bottom: '0',
               backgroundColor: 'transparent',
-              color: 'black',
+              color: categoryColors.cardColor,
               fontSize: '20px',
               height: '48px',
               display: 'flex',
               alignItems: 'center',
               paddingLeft: '16px',
-              borderTop: '1px solid black',
+              borderTop: `1px solid ${categoryColors.cardColor}`,
               zIndex: 20
             }}
           >
@@ -543,7 +543,7 @@ export function QuizCard({
             width: '58px',
             height: '58px',
             borderRadius: '0',
-            backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, black 30%)`,
+            backgroundColor: categoryColors.cardColor,
             backdropFilter: 'blur(4px)',
             opacity: 1,
             display: 'flex',
@@ -553,8 +553,7 @@ export function QuizCard({
             cursor: 'pointer',
             boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
-            zIndex: 30,
-            filter: 'saturate(1.5)'
+            zIndex: 30
           }}
           onClick={(e) => {
             e.stopPropagation();
@@ -578,7 +577,7 @@ export function QuizCard({
               [1,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? `color-mix(in srgb, ${categoryColors.cardColor} 70%, black 30%)` : 'transparent'
+                background: v ? categoryColors.cardColor : 'transparent'
               }} />
             ))}
           </div>
@@ -603,7 +602,7 @@ export function QuizCard({
               fontWeight: 600,
               fontStyle: 'normal',
               letterSpacing: '0px',
-              color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
+              color: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--foreground))',
               fontSize: isEditing ? '14px' : undefined,
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
@@ -613,7 +612,7 @@ export function QuizCard({
               msHyphens: 'manual',
               wordBreak: 'normal',
               overflowWrap: 'normal',
-              ...(isEditing && { color: 'black' })
+              ...(isEditing && { color: categoryColors.cardColor })
             }}
           >
             <span style={{ fontFeatureSettings: '"ss01" 1' }}>
@@ -649,8 +648,8 @@ export function QuizCard({
                 box-shadow: none !important;
               }
               .edit-textarea::placeholder {
-                color: color-mix(in srgb, ${categoryColors.cardColor} 85%, black);
-                opacity: 0.7;
+                color: ${categoryColors.cardColor};
+                opacity: 0.5;
               }
             `}</style>
           )}
@@ -664,9 +663,9 @@ export function QuizCard({
                 style={{
                   fontWeight: 'bold',
                   fontStyle: 'normal',
-                  backgroundColor: categoryColors.cardColor,
+                  backgroundColor: 'white',
                   border: 'none',
-                  color: categoryColors.pageBg,
+                  color: categoryColors.cardColor,
                   padding: 0,
                   outline: 'none',
                   boxShadow: 'none',
