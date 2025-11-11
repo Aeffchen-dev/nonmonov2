@@ -211,7 +211,7 @@ export function CategorySelector({
                     paddingRight: '0px',
                     paddingTop: '12px',
                     paddingBottom: '12px',
-                    height: '79px',
+                    height: '68px',
                     width: isSelected ? '80vw' : '70vw',
                     transition: 'width 0.2s ease-in-out'
                   }}
@@ -267,8 +267,8 @@ export function CategorySelector({
                            <div
                              className={`flex items-center justify-center`}
                               style={{ 
-                               width: '79px', 
-                               height: '79px',
+                               width: '44px', 
+                               height: '44px',
                                border: 'none',
                                borderRadius: '50%',
                                backgroundColor: isSelected ? colors.cardColor : '#242424',
