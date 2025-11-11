@@ -261,34 +261,34 @@ export function CategorySelector({
                          setTempSelection(newCategories);
                        }}
                      >
-                          <div
-                            className={`flex items-center justify-center`}
-                             style={{ 
-                              width: '44px', 
-                              height: '44px',
-                              border: 'none',
-                              borderRadius: '50%',
-                              backgroundColor: isSelected ? colors.cardColor : '#242424',
-                              boxShadow: '0 0 8px rgba(0, 0, 0, 0.24)',
-                              transition: shouldAnimate && isSelected
-                                ? 'all 0.1s ease-in-out 0.1s'
-                                : isSelected
-                                ? 'none'
-                                : 'all 0.2s ease-in-out'
-                            }}
-                          >
-                            {isSelected && (
-                              <img 
-                                src={checkIcon} 
-                                alt="Check" 
-                                style={{ 
-                                  width: '24px',
-                                  height: '24px',
-                                  animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
-                                }}
-                              />
-                           )}
-                        </div>
+                           <div
+                             className={`flex items-center justify-center`}
+                              style={{ 
+                               width: '79px', 
+                               height: '79px',
+                               border: 'none',
+                               borderRadius: '50%',
+                               backgroundColor: isSelected ? colors.cardColor : '#242424',
+                               boxShadow: '0 0 8px rgba(0, 0, 0, 0.24)',
+                               transition: shouldAnimate && isSelected
+                                 ? 'all 0.1s ease-in-out 0.1s'
+                                 : isSelected
+                                 ? 'none'
+                                 : 'all 0.2s ease-in-out'
+                             }}
+                           >
+                             {isSelected && (
+                               <img 
+                                 src={checkIcon} 
+                                 alt="Check" 
+                                 style={{ 
+                                   width: '43px',
+                                   height: '43px',
+                                   animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
+                                 }}
+                               />
+                            )}
+                         </div>
                     </div>
                   </div>
                 </div>
