@@ -475,8 +475,8 @@ export function QuizCard({
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
-        backgroundColor: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--card-background))',
-        color: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--foreground))',
+        backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
+        color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)'
       }}
       onTouchStart={onTouchStart}
@@ -518,7 +518,7 @@ export function QuizCard({
               left: '0',
               right: '0',
               bottom: '0',
-              backgroundColor: 'transparent',
+              backgroundColor: 'white',
               color: '#1A1A1A',
               fontSize: '20px',
               height: '48px',
@@ -612,7 +612,7 @@ export function QuizCard({
               msHyphens: 'manual',
               wordBreak: 'normal',
               overflowWrap: 'normal',
-              ...(isEditing && { color: categoryColors.cardColor })
+              ...(isEditing && { color: 'white' })
             }}
           >
             <span style={{ fontFeatureSettings: '"ss01" 1' }}>
@@ -648,7 +648,7 @@ export function QuizCard({
                 box-shadow: none !important;
               }
               .edit-textarea::placeholder {
-                color: ${categoryColors.cardColor};
+                color: white;
                 opacity: 0.5;
               }
             `}</style>
@@ -663,9 +663,9 @@ export function QuizCard({
                 style={{
                   fontWeight: 'bold',
                   fontStyle: 'normal',
-                  backgroundColor: 'white',
+                  backgroundColor: categoryColors.cardColor,
                   border: 'none',
-                  color: categoryColors.cardColor,
+                  color: 'white',
                   padding: 0,
                   outline: 'none',
                   boxShadow: 'none',
