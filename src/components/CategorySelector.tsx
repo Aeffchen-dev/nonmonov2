@@ -201,7 +201,7 @@ export function CategorySelector({
                     paddingRight: '0px',
                     width: isSelected ? '80vw' : '70vw',
                     animation: shouldAnimate ? 'widthBounceRight 0.3s ease-in-out 0.05s both' : 'none',
-                    transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
+                    transition: 'width 0.2s ease-in-out'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
