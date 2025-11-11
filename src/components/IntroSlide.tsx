@@ -192,13 +192,13 @@ export function IntroSlide({
                 className="text-center leading-tight"
                 style={{ fontWeight: 600, fontStyle: 'normal', color: 'black' }}
               >
-                <div className="text-4xl md:text-5xl lg:text-5xl font-rauschen uppercase">
+                <div className="text-5xl md:text-6xl lg:text-6xl font-rauschen uppercase">
                   Offene Beziehung
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-4xl font-stringer mt-2">
                   Wie gehen wir das
                 </div>
-                <div className="text-4xl md:text-5xl lg:text-5xl font-rauschen uppercase mt-1" style={{ transform: 'rotate(-2deg)', display: 'inline-block' }}>
+                <div className="text-5xl md:text-6xl lg:text-6xl font-rauschen uppercase mt-1" style={{ transform: 'rotate(-2deg)', display: 'inline-block' }}>
                   richtig
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-4xl font-stringer">
