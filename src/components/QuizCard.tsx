@@ -612,7 +612,12 @@ export function QuizCard({
               msHyphens: 'manual',
               wordBreak: 'normal',
               overflowWrap: 'normal',
-              ...(isEditing && { color: 'white' })
+              ...(isEditing && { color: 'white' }),
+              ...(question.category.toLowerCase() !== 'intro' && { 
+                backgroundColor: '#1A1A1A',
+                padding: '12px',
+                borderRadius: '8px'
+              })
             }}
           >
             <span style={{ fontFeatureSettings: '"ss01" 1' }}>
