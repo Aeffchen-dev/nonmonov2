@@ -257,7 +257,7 @@ export function CategorySelector({
                               height: '44px',
                               border: 'none',
                               borderRadius: '50%',
-                              backgroundColor: isSelected ? colors.cardColor : '#1a1a1a',
+                              backgroundColor: isSelected ? colors.cardColor : '#242424',
                               boxShadow: '0 0 8px rgba(0, 0, 0, 0.24)',
                               transition: shouldAnimate && isSelected
                                 ? 'all 0.1s ease-in-out 0.1s'
