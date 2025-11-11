@@ -602,7 +602,7 @@ export function QuizCard({
               fontWeight: 600,
               fontStyle: 'normal',
               letterSpacing: '0px',
-              color: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--foreground))',
+              color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
               fontSize: isEditing ? '14px' : undefined,
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
