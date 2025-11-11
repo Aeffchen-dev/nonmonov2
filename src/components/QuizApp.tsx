@@ -859,7 +859,7 @@ export function QuizApp() {
           className="font-stringer font-medium flex items-center"
           style={{ 
             fontSize: '14px',
-            color: getInterpolatedCardColor()
+            color: 'white'
           }}
         >
           Kategorien
