@@ -35,11 +35,6 @@ export function CategorySelector({
       setJustToggled(new Set());
     }
   }, [open]);
-
-  // Apply selection immediately when it changes
-  useEffect(() => {
-    onCategoriesChange(tempSelection);
-  }, [tempSelection, onCategoriesChange]);
   const getCategoryColors = (category: string, index: number) => {
     // Use specific color mapping for each category
     let colorIndex;
@@ -114,12 +109,15 @@ export function CategorySelector({
   };
 
   const handleCategoryToggle = (category: string) => {
-    setTempSelection(prev => 
-      prev.includes(category) 
-        ? prev.filter(c => c !== category)
-        : [...prev, category]
-    );
+    const newSelection = tempSelection.includes(category) 
+      ? tempSelection.filter(c => c !== category)
+      : [...tempSelection, category];
+    
+    setTempSelection(newSelection);
     setJustToggled(prev => new Set(prev).add(category));
+    
+    // Apply changes immediately
+    onCategoriesChange(newSelection);
   };
 
   const handleApply = () => {
