@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
+import closeIcon from '@/assets/close-icon.png';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -180,9 +181,14 @@ export function CategorySelector({
               onClick={handleClose}
               className="transition-colors"
             >
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <path d="M4 4L20 20M20 4L4 20" stroke="white" strokeWidth="3" strokeLinecap="round" />
-              </svg>
+              <img 
+                src={closeIcon} 
+                alt="Close" 
+                className="w-7 h-7"
+                style={{ 
+                  filter: 'brightness(0) invert(1)'
+                }}
+              />
             </button>
           </div>
 
