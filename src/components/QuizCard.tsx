@@ -478,7 +478,7 @@ export function QuizCard({
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)',
-        clipPath: 'polygon(0 8px, 4px 8px, 4px 4px, 8px 4px, 8px 0, calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px, 100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px))'
+        borderRadius: '24px'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -527,7 +527,7 @@ export function QuizCard({
               paddingRight: '16px',
               zIndex: 20,
               width: 'auto',
-              clipPath: 'polygon(0 6px, 3px 6px, 3px 3px, 6px 3px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px))'
+              borderRadius: '8px'
             }}
           >
           {question.category}

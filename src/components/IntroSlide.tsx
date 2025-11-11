@@ -157,7 +157,7 @@ export function IntroSlide({
       style={{
         height: '100%',
         maxHeight: '100%',
-        clipPath: 'polygon(0 8px, 4px 8px, 4px 4px, 8px 4px, 8px 0, calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px, 100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px))'
+        borderRadius: '24px'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
