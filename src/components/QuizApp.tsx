@@ -3,6 +3,7 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
+import { Filter } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -869,11 +870,10 @@ export function QuizApp() {
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
           style={{ 
-            fontSize: '16px',
             color: 'white'
           }}
         >
-          Kategorien
+          <Filter size={24} />
         </button>
       </div>
 
