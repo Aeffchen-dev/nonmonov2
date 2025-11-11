@@ -791,9 +791,12 @@ export function QuizApp() {
           whiteSpace: 'nowrap',
           lineHeight: 1,
           display: 'flex',
-          alignItems: 'center'
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2vw'
         }}
       >
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         {"non ".split('').map((char, index) => {
           const isSpace = char === ' ';
           return (
@@ -874,7 +877,8 @@ export function QuizApp() {
             </span>
           );
         })}
-        <br />
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         {"mono".split('').map((char, index) => {
           return (
             <span 
@@ -919,6 +923,7 @@ export function QuizApp() {
             </span>
           );
         })}
+        </div>
       </div>
 
       {/* App Header with controls - Always visible */}
