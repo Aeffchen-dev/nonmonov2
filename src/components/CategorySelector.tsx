@@ -280,7 +280,7 @@ export function CategorySelector({
                               <path
                                 d="M20 6 9 17l-5-5"
                                 stroke="currentColor"
-                                strokeWidth="3"
+                                strokeWidth="4"
                                 strokeLinecap="square"
                                 strokeLinejoin="miter"
                               />
