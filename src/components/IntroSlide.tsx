@@ -196,8 +196,8 @@ export function IntroSlide({
             {/* Bottom text */}
             <div className="pb-8 flex flex-col items-center gap-2">
               <p 
-                className="text-xs text-foreground text-center"
-                style={{ fontFamily: 'Arial, sans-serif', fontSize: '12px' }}
+                className="text-foreground text-center font-stringer"
+                style={{ fontSize: '16px' }}
               >
                 Swipe um weiter zu navigieren
               </p>
@@ -265,20 +265,22 @@ export function IntroSlide({
         ) : (
           <>
             {/* Description slide - centered content */}
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center px-2">
               <p 
-                className="text-foreground text-center leading-relaxed"
-                style={{ fontFamily: 'Arial, sans-serif', fontSize: '12px' }}
+                className="text-foreground text-center leading-relaxed font-stringer"
+                style={{ fontSize: '16px' }}
               >
-                In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt – ihr gestaltet eure Regeln selbst, so wie es zu euch passt. Dieses Kartenspiel unterstützt euch dabei, ins Gespräch zu kommen: über eure Wünsche, Motivation, Ängste, Bedürfnisse und Grenzen. Zwischendurch erhaltet ihr Impulse, die Nähe schaffen und eure Verbindung stärken. So entdeckt ihr Schritt für Schritt, ob sich eine offene Beziehung für euch richtig anfühlt und wie ihr sie gestalten wollt. Die Fragen sind zufällig angeordnet, wenn ihr Thema für Thema vorgehen möchtet könnt ihr die Filterfunktion nutzen. Seid ehrlich zu euch selbst, bleibt euch treu, hört eurem Partner zu und respektiert dessen Meinung, auch wenn sie gegensätzlich ist. Ihr solltet gemeinsam agieren und das tun, was für euch als Team am besten ist.
+                In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt - ihr gestaltet eure Regeln selbst, so wie es zu euch passt.
+                {'\n\n'}
+                Dieses Kartenspiel unterstützt euch dabei, ins Gespräch zu kommen: über eure Wünsche, Motivation, Ängste, Bedürfnisse und Grenzen. Zwischendurch erhaltet ihr Impulse, die Nähe schaffen und eure Verbindung stärken. So entdeckt ihr Schritt für Schritt, ob sich eine offene Beziehung für euch richtig anfühlt und wie ihr sie gestalten wollt. Die Fragen sind zufällig angeordnet, wenn ihr Thema für Thema vorgehen möchtet könnt ihr die Filterfunktion nutzen. Seid ehrlich zu euch selbst, bleibt euch treu, hört eurem Partner zu und respektiert dessen Meinung, auch wenn sie gegensätzlich ist. Ihr solltet gemeinsam agieren und das tun, was für euch als Team am besten ist.
               </p>
             </div>
             
             {/* Bottom text */}
             <div className="pb-8 flex flex-col items-center gap-2">
               <p 
-                className="text-xs text-foreground text-center"
-                style={{ fontFamily: 'Arial, sans-serif', fontSize: '12px' }}
+                className="text-foreground text-center font-stringer"
+                style={{ fontSize: '16px' }}
               >
                 Swipe um weiter zu navigieren
               </p>

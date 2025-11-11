@@ -463,6 +463,15 @@ export function QuizApp() {
     // Always add welcome intro slide as the first slide
     slides.push({ type: 'intro' });
     
+    // Add description slide as the second slide
+    const descriptionQuestion: Question = {
+      question: 'Description',
+      category: 'intro',
+      depth: 'light',
+      type: 'Frage'
+    };
+    slides.push({ type: 'question', question: descriptionQuestion });
+    
     let orderedQuestions: Question[];
     
     if (isMixedMode && hasToggleBeenChanged) {
@@ -987,6 +996,17 @@ export function QuizApp() {
                     {slide.type === 'intro' ? (
                       <IntroSlide
                         type="welcome"
+                        onSwipeLeft={nextQuestion}
+                        onSwipeRight={prevQuestion}
+                        onDragStart={handleDragStart}
+                        onDragMove={handleDragMove}
+                        onDragEnd={handleDragEnd}
+                        dragOffset={isDragging ? dragOffset : 0}
+                        isDragging={isDragging}
+                      />
+                    ) : slide.question?.category === 'intro' ? (
+                      <IntroSlide
+                        type="description"
                         onSwipeLeft={nextQuestion}
                         onSwipeRight={prevQuestion}
                         onDragStart={handleDragStart}
