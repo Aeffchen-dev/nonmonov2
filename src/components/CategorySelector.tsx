@@ -185,7 +185,7 @@ export function CategorySelector({
 
           {/* Categories List */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="px-4 pt-2 pb-4 space-y-2" style={{ marginTop: '8px' }}>
+            <div className="pt-2 pb-4 space-y-2" style={{ marginTop: '8px' }}>
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
               const shouldAnimate = justToggled.has(category) && isSelected;
@@ -195,7 +195,7 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between cursor-pointer rounded-full relative overflow-hidden"
+                  className="flex items-center justify-between cursor-pointer relative overflow-hidden"
                   style={{ 
                     paddingLeft: isSelected ? '32px' : '64px',
                     paddingRight: '2px',
@@ -209,7 +209,7 @@ export function CategorySelector({
                 >
                   {/* Dark grey background */}
                   <div 
-                    className="absolute inset-0 rounded-full"
+                    className="absolute inset-0"
                     style={{ 
                       backgroundColor: '#1a1a1a',
                       zIndex: 0
@@ -218,7 +218,7 @@ export function CategorySelector({
                   
                    {/* Colored background that expands/contracts */}
                    <div 
-                     className="absolute inset-y-0 left-0 rounded-full"
+                     className="absolute inset-y-0 left-0"
                      style={{ 
                        background: `linear-gradient(to right, ${darkenColor(colors.cardColor, 0.95)} 0%, ${colors.cardColor} 50%)`,
                        width: isSelected ? '100%' : '48px',
