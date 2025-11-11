@@ -501,101 +501,108 @@ export function QuizCard({
         <div
           style={{
             position: 'absolute',
-            bottom: '15%',
+            bottom: '12%',
             left: `calc(50% + ${monsterVariation.circleOffsetX * 0.3}%)`,
             transform: `translateX(-50%) scale(${isEditing ? '0.5' : '1'})`,
-            width: '80px',
-            height: '80px',
             pointerEvents: 'none',
             zIndex: 10,
             transition: 'transform 0.3s ease',
-            imageRendering: 'pixelated'
           }}
         >
-          {/* Heart shape using CSS */}
+          {/* Pixelated heart using grid */}
           <div
             style={{
-              position: 'relative',
-              width: '100%',
-              height: '100%',
-              transform: 'rotate(-45deg)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(15, 6px)',
+              gridTemplateRows: 'repeat(13, 6px)',
+              gap: 0,
+              imageRendering: 'pixelated',
             }}
           >
-            {/* Main square */}
-            <div
-              style={{
-                position: 'absolute',
-                width: '40px',
-                height: '40px',
-                backgroundColor: categoryColors.pageBg,
-                left: '50%',
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-                imageRendering: 'pixelated',
-              }}
-            />
-            {/* Left circle */}
-            <div
-              style={{
-                position: 'absolute',
-                width: '40px',
-                height: '40px',
-                backgroundColor: categoryColors.pageBg,
-                borderRadius: '50%',
-                left: '10px',
-                top: '20px',
-                imageRendering: 'pixelated',
-              }}
-            />
-            {/* Top circle */}
-            <div
-              style={{
-                position: 'absolute',
-                width: '40px',
-                height: '40px',
-                backgroundColor: categoryColors.pageBg,
-                borderRadius: '50%',
-                left: '20px',
-                top: '10px',
-                imageRendering: 'pixelated',
-              }}
-            />
-          </div>
-          
-          {/* Eyes container - positioned on the heart */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '24px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              gap: '12px',
-              pointerEvents: 'none'
-            }}
-          >
-            {/* Left Eye */}
-            <Eye 
-              categoryColors={categoryColors} 
-              pupilOffset={pupilOffset} 
-              isBlinking={isBlinking}
-              eyeVariation={{
-                width: '16px',
-                height: '16px',
-                pupilSize: '6px'
-              }}
-            />
-            {/* Right Eye */}
-            <Eye 
-              categoryColors={categoryColors} 
-              pupilOffset={pupilOffset} 
-              isBlinking={isBlinking}
-              eyeVariation={{
-                width: '16px',
-                height: '16px',
-                pupilSize: '6px'
-              }}
-            />
+            {/* Row 1 */}
+            {'               '.split('').map((_, i) => <div key={`1-${i}`} style={{ background: 'transparent' }} />)}
+            
+            {/* Row 2 */}
+            {[0,0,0,1,1,1,0,0,0,1,1,1,0,0,0].map((v, i) => (
+              <div key={`2-${i}`} style={{ background: v ? categoryColors.pageBg : 'transparent' }} />
+            ))}
+            
+            {/* Row 3 */}
+            {[0,0,1,2,2,2,1,0,1,2,2,2,1,0,0].map((v, i) => (
+              <div key={`3-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 4 */}
+            {[0,1,2,2,2,2,2,1,2,2,2,2,2,1,0].map((v, i) => (
+              <div key={`4-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 5 - with eyes */}
+            {[1,2,2,3,3,2,2,1,2,2,2,2,2,2,1].map((v, i) => (
+              <div key={`5-${i}`} style={{ 
+                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 6 */}
+            {[1,2,2,2,2,2,2,2,2,2,3,2,2,2,1].map((v, i) => (
+              <div key={`6-${i}`} style={{ 
+                background: v === 3 ? 'white' : v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 7 */}
+            {[1,2,2,2,2,2,2,2,2,2,2,2,2,2,1].map((v, i) => (
+              <div key={`7-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 8 */}
+            {[0,1,2,2,2,2,2,2,2,2,2,2,2,1,0].map((v, i) => (
+              <div key={`8-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 9 */}
+            {[0,0,1,2,2,2,2,2,2,2,2,2,1,0,0].map((v, i) => (
+              <div key={`9-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 10 */}
+            {[0,0,0,1,2,2,2,2,2,2,2,1,0,0,0].map((v, i) => (
+              <div key={`10-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 11 */}
+            {[0,0,0,0,1,2,2,2,2,2,1,0,0,0,0].map((v, i) => (
+              <div key={`11-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 12 */}
+            {[0,0,0,0,0,1,2,2,2,1,0,0,0,0,0].map((v, i) => (
+              <div key={`12-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
+            
+            {/* Row 13 */}
+            {[0,0,0,0,0,0,1,2,1,0,0,0,0,0,0].map((v, i) => (
+              <div key={`13-${i}`} style={{ 
+                background: v === 2 ? categoryColors.pageBg : v === 1 ? `color-mix(in srgb, ${categoryColors.pageBg} 60%, black)` : 'transparent' 
+              }} />
+            ))}
           </div>
         </div>
       )}
