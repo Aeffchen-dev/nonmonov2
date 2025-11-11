@@ -627,21 +627,22 @@ export function QuizCard({
             position: 'absolute',
             left: '16px',
             bottom: '64px',
-            zIndex: 20,
-            width: '48px'
+            zIndex: 20
           }}
         >
           <div
             ref={pillInnerRef}
-            className="px-1.5 py-0.5 font-medium font-stringer"
+            className="px-3 font-medium font-stringer"
             style={{
               backgroundColor: 'black',
               color: 'white',
               fontSize: '12px',
               whiteSpace: 'nowrap',
               opacity: 1,
-              width: '48px',
-              textAlign: 'center'
+              height: '48px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}
           >
             {question.category}
