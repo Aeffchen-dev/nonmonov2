@@ -460,6 +460,9 @@ export function QuizApp() {
     
     const slides: SlideItem[] = [];
     
+    // Always add welcome intro slide as the first slide
+    slides.push({ type: 'intro' });
+    
     let orderedQuestions: Question[];
     
     if (isMixedMode && hasToggleBeenChanged) {
@@ -981,17 +984,30 @@ export function QuizApp() {
                         : 'transform 0.3s ease-in-out'
                     }}
                   >
-                    <QuizCard
-                      question={slide.question!}
-                      onSwipeLeft={nextQuestion}
-                      onSwipeRight={prevQuestion}
-                      categoryIndex={categoryColorMap[slide.question!.category] || 0}
-                      onDragStart={handleDragStart}
-                      onDragMove={handleDragMove}
-                      onDragEnd={handleDragEnd}
-                      dragOffset={isDragging ? dragOffset : 0}
-                      isDragging={isDragging}
-                    />
+                    {slide.type === 'intro' ? (
+                      <IntroSlide
+                        type="welcome"
+                        onSwipeLeft={nextQuestion}
+                        onSwipeRight={prevQuestion}
+                        onDragStart={handleDragStart}
+                        onDragMove={handleDragMove}
+                        onDragEnd={handleDragEnd}
+                        dragOffset={isDragging ? dragOffset : 0}
+                        isDragging={isDragging}
+                      />
+                    ) : (
+                      <QuizCard
+                        question={slide.question!}
+                        onSwipeLeft={nextQuestion}
+                        onSwipeRight={prevQuestion}
+                        categoryIndex={categoryColorMap[slide.question!.category] || 0}
+                        onDragStart={handleDragStart}
+                        onDragMove={handleDragMove}
+                        onDragEnd={handleDragEnd}
+                        dragOffset={isDragging ? dragOffset : 0}
+                        isDragging={isDragging}
+                      />
+                    )}
                   </div>
                 );
               })}
