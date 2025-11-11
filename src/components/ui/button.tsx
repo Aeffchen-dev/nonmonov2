@@ -9,21 +9,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
-        ghost: "hover:bg-accent hover:text-accent-foreground [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 px-3",
-        lg: "h-11 px-8",
-        icon: "h-10 w-10",
+        default: "h-10 px-4 py-2 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+        sm: "h-9 px-3 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+        lg: "h-11 px-8 [clip-path:polygon(0_3px,1.5px_3px,1.5px_1.5px,3px_1.5px,3px_0,calc(100%-3px)_0,calc(100%-3px)_1.5px,calc(100%-1.5px)_1.5px,calc(100%-1.5px)_3px,100%_3px,100%_calc(100%-3px),calc(100%-1.5px)_calc(100%-3px),calc(100%-1.5px)_calc(100%-1.5px),calc(100%-3px)_calc(100%-1.5px),calc(100%-3px)_100%,3px_100%,3px_calc(100%-1.5px),1.5px_calc(100%-1.5px),1.5px_calc(100%-3px),0_calc(100%-3px))]",
+        icon: "h-10 w-10 rounded-full",
       },
     },
     defaultVariants: {
