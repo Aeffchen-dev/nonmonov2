@@ -859,7 +859,7 @@ export function QuizApp() {
                     </svg>
                   </div>
                 ) : char === 'o' && index === 5 ? (
-                  // Second o in "mono" - orange circular shape
+                  // Second o in "mono" - orange soft shape
                   <div 
                     style={{
                       display: 'inline-block',
@@ -869,11 +869,14 @@ export function QuizApp() {
                     }}
                   >
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="11" cy="11" r="8" fill="#FF6633"/>
+                      <path
+                        d="M11 19C11 19 5 16 4 11C4 8 6 5 8 5C9.5 5 11 6.5 11 6.5C11 6.5 12.5 5 14 5C16 5 18 8 18 11C17 16 11 19 11 19Z"
+                        fill="#FF6633"
+                      />
                     </svg>
                   </div>
                 ) : char === 'o' && index === 7 ? (
-                  // Third o in "mono" - purple circular shape
+                  // Third o in "mono" - purple soft shape
                   <div 
                     style={{
                       display: 'inline-block',
@@ -883,7 +886,10 @@ export function QuizApp() {
                     }}
                   >
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="11" cy="11" r="8" fill="#AFA3FF"/>
+                      <path
+                        d="M11 19C11 19 5 16 4 11C4 8 6 5 8 5C9.5 5 11 6.5 11 6.5C11 6.5 12.5 5 14 5C16 5 18 8 18 11C17 16 11 19 11 19Z"
+                        fill="#AFA3FF"
+                      />
                     </svg>
                   </div>
                 ) : (
