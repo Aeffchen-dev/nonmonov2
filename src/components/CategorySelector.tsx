@@ -181,8 +181,8 @@ export function CategorySelector({
               onClick={handleClose}
               className="transition-opacity hover:opacity-80 flex items-center justify-center"
               style={{
-                width: '27px',
-                height: '27px',
+                width: '35px',
+                height: '35px',
                 backgroundColor: 'black',
                 borderRadius: '4px',
                 padding: '2px',
