@@ -787,7 +787,7 @@ export function QuizApp() {
           }}
           onClick={handleLogoClick}
         >
-          {"non mono".split('').map((char, index) => {
+          {"Non mono".split('').map((char, index) => {
             const addSpace = index === 3;
             // Generate consistent random rotation between -4 and 4 degrees for each letter
             const rotations = [-3, 2, -4, 3, -2, 4, -1, 2]; // Pre-defined rotations for consistency
@@ -803,7 +803,7 @@ export function QuizApp() {
                   transform: char !== 'o' || index !== 1 ? `rotate(${rotation}deg)` : 'none'
                 }}
               >
-                {index === 0 && char === 'n' ? (
+                {index === 0 && char === 'N' ? (
                   <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
                   // Smooth circular smiley
