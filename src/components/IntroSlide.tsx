@@ -220,7 +220,7 @@ export function IntroSlide({
         ) : (
           <>
             {/* Description slide - left aligned content */}
-            <div className="flex-1 flex items-center justify-start py-6 w-full" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
+            <div className="flex-1 flex items-center justify-start w-full" style={{ padding: '24px' }}>
               <p 
                 className="text-left leading-relaxed font-stringer w-full"
                 style={{ fontSize: '14px', color: 'black' }}
