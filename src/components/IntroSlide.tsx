@@ -183,11 +183,11 @@ export function IntroSlide({
       />
 
       {/* Main Content */}
-      <div className="h-full flex flex-col justify-center px-8 relative">
+      <div className="h-full flex flex-col justify-center relative" style={{ padding: type === 'description' ? '24px' : '0' }}>
         {type === 'welcome' ? (
           <>
             {/* Main title - vertically and horizontally centered */}
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center px-8">
               <h1 
                 className="text-center leading-tight"
                 style={{ fontWeight: 600, fontStyle: 'normal', color: 'black' }}
@@ -220,10 +220,10 @@ export function IntroSlide({
         ) : (
           <>
             {/* Description slide - left aligned content */}
-            <div className="flex-1 flex items-center justify-start w-full" style={{ padding: '24px' }}>
+            <div className="flex-1 flex items-center justify-start w-full">
               <p 
-                className="text-left leading-relaxed font-stringer w-full"
-                style={{ fontSize: '14px', color: 'black' }}
+                className="text-left leading-relaxed font-stringer"
+                style={{ fontSize: '14px', color: 'black', width: '100%' }}
               >
                 In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt - ihr gestaltet eure Regeln selbst, so wie es zu euch passt.
                 {'\n\n'}
