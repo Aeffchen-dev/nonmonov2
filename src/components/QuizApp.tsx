@@ -3,8 +3,8 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
-import { Sliders } from 'lucide-react';
 import starLoading from '@/assets/star-loading.jpeg';
+import editIcon from '@/assets/edit-icon.jpeg';
 
 interface Question {
   question: string;
@@ -889,11 +889,8 @@ export function QuizApp() {
         <button 
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
-          style={{ 
-            color: 'white'
-          }}
         >
-          <Sliders size={24} strokeLinecap="square" />
+          <img src={editIcon} alt="Edit" className="w-6 h-6" />
         </button>
       </div>
 
