@@ -583,7 +583,7 @@ export function QuizCard({
                 }
               }
               
-              // If no substantive found, pick a random word from the middle
+              // If no substantive found, pick a consistent word from the middle (based on text length)
               if (!firstSubstantiveFound) {
                 const actualWords = words.filter((w, i) => i % 2 === 0 && w.trim().length > 0);
                 if (actualWords.length > 2) {
@@ -593,10 +593,12 @@ export function QuizCard({
                   const middleWords = actualWords.slice(startIdx, endIdx);
                   
                   if (middleWords.length > 0) {
-                    const randomWord = middleWords[Math.floor(Math.random() * middleWords.length)];
+                    // Use text length as seed for consistent selection
+                    const seedIndex = text.length % middleWords.length;
+                    const selectedWord = middleWords[seedIndex];
                     // Find the index of this word in the original words array
                     for (let i = 0; i < words.length; i++) {
-                      if (words[i] === randomWord) {
+                      if (words[i] === selectedWord) {
                         highlightedIndex = i;
                         break;
                       }
@@ -606,17 +608,15 @@ export function QuizCard({
               }
               
               return words.map((word, index) => {
-                // Highlight the selected word (either substantive or random middle word)
+                // Highlight the selected word (either substantive or consistent middle word)
                 if (index === highlightedIndex) {
                   return (
                     <span 
                       key={index}
                       className="font-rauschen inline-block"
                       style={{ 
-                        transform: 'rotate(-2deg)',
                         fontWeight: 600,
                         display: 'inline-block',
-                        transformOrigin: 'center bottom',
                         fontSize: '120%'
                       }}
                     >
