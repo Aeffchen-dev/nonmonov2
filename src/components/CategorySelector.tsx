@@ -272,6 +272,8 @@ export function CategorySelector({
                               height="26" 
                               viewBox="0 0 24 24" 
                               fill="none"
+                              shapeRendering="crispEdges"
+                              filter="url(#pixelate)"
                               style={{ 
                                 color: 'black',
                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'

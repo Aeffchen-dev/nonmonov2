@@ -265,9 +265,11 @@ All colors MUST be HSL.
 
 /* Pixelated icons */
 svg[class*="lucide"] {
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-  transform: scale(2);
-  transform-origin: center;
+  filter: url(#pixelate);
+}
+
+/* Ensure blocky edges and keep stroke width stable when scaled */
+svg[class*="lucide"] * {
+  shape-rendering: crispEdges;
+  vector-effect: non-scaling-stroke;
 }
