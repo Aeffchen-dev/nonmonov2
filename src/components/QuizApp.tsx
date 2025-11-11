@@ -812,7 +812,8 @@ export function QuizApp() {
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
-                      verticalAlign: 'middle'
+                      verticalAlign: 'middle',
+                      imageRendering: 'pixelated'
                     }}
                   >
                     {[
@@ -877,7 +878,8 @@ export function QuizApp() {
                       width: '16px',
                       height: '16px',
                       verticalAlign: 'middle',
-                      marginBottom: '0px'
+                      marginBottom: '0px',
+                      imageRendering: 'pixelated'
                     }}
                   >
                     {[
