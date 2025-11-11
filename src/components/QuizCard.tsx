@@ -682,6 +682,11 @@ export function QuizCard({
               ...(isEditing && { color: 'white' })
             }}
           >
+            <style>{`
+              h1[lang="de"] {
+                font-variant-emoji: text;
+              }
+            `}</style>
             <span style={{ fontFeatureSettings: '"ss01" 1' }}>
               {question.question.charAt(0)}
             </span>
