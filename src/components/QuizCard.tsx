@@ -620,19 +620,23 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
-      {/* Category Pill - Positioned at bottom left */}
+      {/* Bottom bar with pill and button */}
       {question.category.toLowerCase() !== 'intro' && (
         <div 
           style={{
             position: 'absolute',
-            left: '16px',
-            bottom: '64px',
-            zIndex: 20
+            left: '0',
+            bottom: '0',
+            right: '0',
+            zIndex: 20,
+            display: 'flex',
+            gap: '0'
           }}
         >
+          {/* Category Pill - fills remaining width */}
           <div
             ref={pillInnerRef}
-            className="px-3 font-medium font-stringer"
+            className="font-medium font-stringer"
             style={{
               backgroundColor: 'black',
               color: 'white',
@@ -642,56 +646,81 @@ export function QuizCard({
               height: '48px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flex: 1
             }}
           >
             {question.category}
           </div>
-        </div>
-      )}
 
-      {/* Edit Button - Positioned at bottom left below pill */}
-      {question.category.toLowerCase() !== 'intro' && (
-        <button
-          style={{
-            position: 'absolute',
-            left: '16px',
-            bottom: '16px',
-            width: '48px',
-            height: '48px',
-            borderRadius: '0',
-            backgroundColor: question.category.toLowerCase() === 'balance'
-              ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
-              : question.category === 'Geistige Intimität'
-              ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
-              : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
-            backdropFilter: 'blur(4px)',
-            opacity: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: 'none',
-            cursor: 'pointer',
-            zIndex: 30,
-            boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)'
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsEditing(!isEditing);
-          }}
-        >
-          {isEditing ? (
-            <X size={20} color={question.category.toLowerCase() === 'balance'
-              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
-              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
-            } />
-          ) : (
-            <Pencil size={20} color={question.category.toLowerCase() === 'balance'
-              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
-              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
-            } />
-          )}
-        </button>
+          {/* Edit Button - 20% bigger with pixelated top-left corner */}
+          <button
+            style={{
+              width: '58px',
+              height: '58px',
+              borderRadius: '0',
+              backgroundColor: question.category.toLowerCase() === 'balance'
+                ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
+                : question.category === 'Geistige Intimität'
+                ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
+                : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
+              backdropFilter: 'blur(4px)',
+              opacity: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
+              position: 'relative',
+              clipPath: 'polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px)'
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsEditing(!isEditing);
+            }}
+          >
+            {/* Pixelated corner overlay */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '16px',
+              height: '16px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 4px)',
+              gridTemplateRows: 'repeat(4, 4px)',
+              pointerEvents: 'none'
+            }}>
+              {[
+                [0,0,0,0],
+                [0,0,0,0],
+                [0,0,1,1],
+                [0,0,1,1]
+              ].flat().map((v, i) => (
+                <div key={i} style={{
+                  background: v ? (question.category.toLowerCase() === 'balance'
+                    ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
+                    : question.category === 'Geistige Intimität'
+                    ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
+                    : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`) : 'transparent'
+                }} />
+              ))}
+            </div>
+            
+            {isEditing ? (
+              <X size={20} color={question.category.toLowerCase() === 'balance'
+                ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
+                : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
+              } />
+            ) : (
+              <Pencil size={20} color={question.category.toLowerCase() === 'balance'
+                ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
+                : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
+              } />
+            )}
+          </button>
+        </div>
       )}
 
       {/* Main Content */}
