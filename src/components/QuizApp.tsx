@@ -779,7 +779,7 @@ export function QuizApp() {
           style={{ 
             fontSize: '22px', 
             fontWeight: 600,
-            color: getInterpolatedCardColor(),
+            color: 'white',
             letterSpacing: '0.01em'
           }}
           onClick={handleLogoClick}
