@@ -534,130 +534,7 @@ export function QuizCard({
         </div>
       )}
 
-      {/* Edit Button - Bottom right corner */}
-      {question.category.toLowerCase() !== 'intro' && (
-        <button
-          style={{
-            position: 'absolute',
-            right: '24px',
-            bottom: '24px',
-            width: '58px',
-            height: '58px',
-            borderRadius: '0',
-            backgroundColor: categoryColors.cardColor,
-            backdropFilter: 'blur(4px)',
-            opacity: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: 'none',
-            cursor: 'pointer',
-            filter: 'drop-shadow(-2px -2px 8px rgba(0, 0, 0, 0.4))',
-            clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
-            zIndex: 30
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsEditing(!isEditing);
-          }}
-        >
-          {/* Pixelated corner overlay - top left */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [0,1],
-              [1,1]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {/* Pixelated corner overlay - top right */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [1,0],
-              [1,1]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {/* Pixelated corner overlay - bottom right */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [1,1],
-              [1,0]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {/* Pixelated corner overlay - bottom left */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: '8px',
-            height: '8px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 4px)',
-            gridTemplateRows: 'repeat(2, 4px)',
-            pointerEvents: 'none'
-          }}>
-            {[
-              [1,1],
-              [0,1]
-            ].flat().map((v, i) => (
-              <div key={i} style={{
-                background: v ? categoryColors.cardColor : 'transparent'
-              }} />
-            ))}
-          </div>
-          
-          {isEditing ? (
-            <X size={20} color="#1A1A1A" />
-          ) : (
-            <Pencil size={20} color="#1A1A1A" />
-          )}
-        </button>
-      )}
-
-      {/* Main Content */}
+      {/* Edit Button moved outside inner container to avoid clipping of drop-shadow */}
       <div className={`h-full flex flex-col justify-start p-6 relative`}>
 
         <div ref={containerRef} className={`flex-1 flex flex-col w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
@@ -761,6 +638,128 @@ export function QuizCard({
       </div>
 
       </div> {/* Close inner container with border-radius mask */}
+
+      {question.category.toLowerCase() !== 'intro' && (
+        <button
+          style={{
+            position: 'absolute',
+            right: '24px',
+            bottom: '24px',
+            width: '58px',
+            height: '58px',
+            borderRadius: '0',
+            backgroundColor: categoryColors.cardColor,
+            backdropFilter: 'blur(4px)',
+            opacity: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: 'none',
+            cursor: 'pointer',
+            filter: 'drop-shadow(-2px -2px 8px rgba(0, 0, 0, 0.4))',
+            clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
+            zIndex: 40
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsEditing(!isEditing);
+          }}
+        >
+          {/* Pixelated corner overlay - top left */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [0,1],
+              [1,1]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {/* Pixelated corner overlay - top right */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [1,0],
+              [1,1]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {/* Pixelated corner overlay - bottom right */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [1,1],
+              [1,0]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {/* Pixelated corner overlay - bottom left */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '8px',
+            height: '8px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 4px)',
+            gridTemplateRows: 'repeat(2, 4px)',
+            pointerEvents: 'none'
+          }}>
+            {[
+              [1,1],
+              [0,1]
+            ].flat().map((v, i) => (
+              <div key={i} style={{
+                background: v ? categoryColors.cardColor : 'transparent'
+              }} />
+            ))}
+          </div>
+          
+          {isEditing ? (
+            <X size={20} color="#1A1A1A" />
+          ) : (
+            <Pencil size={20} color="#1A1A1A" />
+          )}
+        </button>
+      )}
     </div>
   );
 }
