@@ -256,14 +256,15 @@ export function CategorySelector({
                             style={{ 
                               width: '44px', 
                               height: '44px',
-                              border: `1px solid black`,
+                              border: isSelected ? 'none' : '1px solid white',
                               borderRadius: '50%',
-                              backgroundColor: 'transparent',
+                              backgroundColor: isSelected ? colors.cardColor : 'transparent',
+                              boxShadow: isSelected ? '0 0 8px rgba(0, 0, 0, 0.08)' : 'none',
                               transition: shouldAnimate && isSelected
-                                ? 'border 0.1s ease-in-out 0.1s'
+                                ? 'all 0.1s ease-in-out 0.1s'
                                 : isSelected
                                 ? 'none'
-                                : 'border 0.2s ease-in-out'
+                                : 'all 0.2s ease-in-out'
                             }}
                           >
                           {isSelected && (
