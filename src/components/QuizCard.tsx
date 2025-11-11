@@ -510,25 +510,25 @@ export function QuizCard({
 
       {/* Category Pill - At bottom of card */}
       {question.category.toLowerCase() !== 'intro' && (
-        <div
-          ref={pillInnerRef}
-          className="font-medium font-stringer"
-          style={{
-            position: 'absolute',
-            left: '0',
-            right: '0',
-            bottom: '0',
-            backgroundColor: 'transparent',
-            color: 'black',
-            fontSize: '12px',
-            height: '48px',
-            display: 'flex',
-            alignItems: 'center',
-            paddingLeft: '16px',
-            borderTop: '1px solid black',
-            zIndex: 20
-          }}
-        >
+          <div
+            ref={pillInnerRef}
+            className="font-medium font-stringer"
+            style={{
+              position: 'absolute',
+              left: '0',
+              right: '0',
+              bottom: '0',
+              backgroundColor: 'transparent',
+              color: 'black',
+              fontSize: '20px',
+              height: '48px',
+              display: 'flex',
+              alignItems: 'center',
+              paddingLeft: '16px',
+              borderTop: '1px solid black',
+              zIndex: 20
+            }}
+          >
           {question.category}
         </div>
       )}
