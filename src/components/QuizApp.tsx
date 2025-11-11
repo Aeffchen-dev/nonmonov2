@@ -813,15 +813,15 @@ export function QuizApp() {
                 <div 
                   style={{
                     display: 'inline-grid',
-                    gridTemplateColumns: 'repeat(6, 4.6755vw)',
-                    gridTemplateRows: 'repeat(6, 4.6755vw)',
+                    gridTemplateColumns: 'repeat(6, 4.20795vw)',
+                    gridTemplateRows: 'repeat(6, 4.20795vw)',
                     gap: '0px',
-                    width: '28.053vw',
-                    height: '28.053vw',
+                    width: '25.2477vw',
+                    height: '25.2477vw',
                     position: 'relative',
                     verticalAlign: 'middle',
                     imageRendering: 'pixelated',
-                    marginBottom: '2.3375vw'
+                    marginBottom: '2.10375vw'
                   }}
                 >
                   {[
@@ -834,8 +834,8 @@ export function QuizApp() {
                   ].flat().map((v, i) => (
                     <div key={i} style={{
                       backgroundColor: v ? '#FFFF33' : 'transparent',
-                      width: '4.6755vw',
-                      height: '4.6755vw',
+                      width: '4.20795vw',
+                      height: '4.20795vw',
                       position: 'relative',
                       display: 'flex',
                       alignItems: 'center',
@@ -844,16 +844,16 @@ export function QuizApp() {
                       {/* Left eye */}
                       {i === 14 && (
                         <div style={{
-                          width: '3.03875vw',
-                          height: '3.03875vw',
+                          width: '2.734875vw',
+                          height: '2.734875vw',
                           backgroundColor: '#000000'
                         }} />
                       )}
                       {/* Right eye */}
                       {i === 15 && (
                         <div style={{
-                          width: '3.03875vw',
-                          height: '3.03875vw',
+                          width: '2.734875vw',
+                          height: '2.734875vw',
                           backgroundColor: '#000000'
                         }} />
                       )}
@@ -863,8 +863,8 @@ export function QuizApp() {
                           position: 'absolute',
                           bottom: '0',
                           left: '0',
-                          width: '4.6755vw',
-                          height: '1.542775vw',
+                          width: '4.20795vw',
+                          height: '1.3884975vw',
                           backgroundColor: '#000000'
                         }} />
                       )}
@@ -893,13 +893,13 @@ export function QuizApp() {
                 <div 
                   style={{
                     display: 'inline-grid',
-                    gridTemplateColumns: 'repeat(5, 5.002225vw)',
-                    gridTemplateRows: 'repeat(5, 5.002225vw)',
+                    gridTemplateColumns: 'repeat(5, 4.5020025vw)',
+                    gridTemplateRows: 'repeat(5, 4.5020025vw)',
                     gap: '0px',
-                    width: '25.011125vw',
-                    height: '25.011125vw',
+                    width: '22.5100125vw',
+                    height: '22.5100125vw',
                     verticalAlign: 'middle',
-                    marginBottom: '2.3375vw',
+                    marginBottom: '2.10375vw',
                     imageRendering: 'pixelated'
                   }}
                 >
@@ -912,8 +912,8 @@ export function QuizApp() {
                    ].flat().map((v, i) => (
                     <div key={i} style={{
                       backgroundColor: v ? '#FFFFFF' : 'transparent',
-                      width: '5.002225vw',
-                      height: '5.002225vw'
+                      width: '4.5020025vw',
+                      height: '4.5020025vw'
                     }} />
                   ))}
                 </div>
