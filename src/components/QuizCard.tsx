@@ -667,6 +667,10 @@ export function QuizCard({
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
               hyphens: 'auto',
+              WebkitHyphens: 'auto',
+              MozHyphens: 'auto',
+              msHyphens: 'auto',
+              hyphenateLimitChars: '6 3 3',
               wordBreak: 'normal',
               overflowWrap: 'break-word',
               ...(isEditing && { color: 'black' })
