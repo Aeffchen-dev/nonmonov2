@@ -838,7 +838,7 @@ export function QuizApp() {
                             width: '2px',
                             height: '2px',
                             backgroundColor: 'black',
-                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1}) translateY(4px)`,
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
@@ -848,7 +848,7 @@ export function QuizApp() {
                             width: '2px',
                             height: '2px',
                             backgroundColor: 'black',
-                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1}) translateY(4px)`,
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
@@ -856,7 +856,7 @@ export function QuizApp() {
                         {(i === 26 || i === 27) && (
                           <div style={{
                             position: 'absolute',
-                            bottom: '4px',
+                            bottom: '0',
                             left: '0',
                             width: '3px',
                             height: '1px',
@@ -867,60 +867,35 @@ export function QuizApp() {
                     ))}
                   </div>
                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's with decorative white pixels
-                  <span style={{ position: 'relative', display: 'inline-block' }}>
-                    {char}
-                    {/* Top center white pixel - 16px down */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '16px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: '3px',
-                      height: '3px',
-                      backgroundColor: 'white'
-                    }} />
-                    {/* Bottom center white pixel - 9px up */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '9px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: '3px',
-                      height: '3px',
-                      backgroundColor: 'white'
-                    }} />
-                    {/* Bottom left pixel */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '9px',
-                      left: '50%',
-                      transform: 'translateX(calc(-50% - 3px))',
-                      width: '3px',
-                      height: '3px',
-                      backgroundColor: 'white'
-                    }} />
-                    {/* Bottom right pixel */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '9px',
-                      left: '50%',
-                      transform: 'translateX(calc(-50% + 3px))',
-                      width: '3px',
-                      height: '3px',
-                      backgroundColor: 'white'
-                    }} />
-                    {/* Below bottom pixel */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '6px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: '3px',
-                      height: '3px',
-                      backgroundColor: 'white'
-                    }} />
-                  </span>
+                  // Other 'o's - Pixelated heart outlines (white) - 7x7 grid with 2.5px pixels
+                  <div 
+                    style={{
+                      display: 'inline-grid',
+                      gridTemplateColumns: 'repeat(7, 2.5px)',
+                      gridTemplateRows: 'repeat(7, 2.5px)',
+                      gap: '0px',
+                      width: '17.5px',
+                      height: '17.5px',
+                      verticalAlign: 'middle',
+                      marginBottom: '0px'
+                    }}
+                  >
+                    {[
+                      [0,0,1,0,1,0,0],
+                      [0,1,1,1,1,1,0],
+                      [1,1,0,0,0,1,1],
+                      [1,0,0,0,0,0,1],
+                      [0,1,0,0,0,1,0],
+                      [0,0,1,0,1,0,0],
+                      [0,0,0,1,0,0,0]
+                    ].flat().map((v, i) => (
+                      <div key={i} style={{
+                        backgroundColor: v ? 'white' : 'transparent',
+                        width: '2.5px',
+                        height: '2.5px'
+                      }} />
+                    ))}
+                  </div>
                 ) : (
                   char
                 )}
