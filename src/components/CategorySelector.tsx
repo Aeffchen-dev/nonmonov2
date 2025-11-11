@@ -199,7 +199,7 @@ export function CategorySelector({
                   style={{ 
                     paddingLeft: '16px',
                     paddingRight: '0px',
-                    width: isSelected ? '100%' : '70vw',
+                    width: isSelected ? '80vw' : '70vw',
                     animation: shouldAnimate ? 'widthBounceRight 0.3s ease-in-out 0.05s both' : 'none',
                     transition: isSelected ? 'none' : 'width 0.2s ease-in-out'
                   }}
