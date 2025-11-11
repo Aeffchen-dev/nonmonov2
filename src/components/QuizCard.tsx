@@ -551,7 +551,7 @@ export function QuizCard({
             justifyContent: 'center',
             border: 'none',
             cursor: 'pointer',
-            boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
+            boxShadow: '-2px -2px 4px 0px rgba(0, 0, 0, 0.08)',
             clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
             zIndex: 30
           }}
