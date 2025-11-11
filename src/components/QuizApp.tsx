@@ -865,8 +865,8 @@ export function QuizApp() {
                   // Third o in "mono" - Rauschen font
                   <span style={{ fontFamily: 'Rauschen, sans-serif' }}>{char}</span>
                 ) : (char === 'm' || char === 'n') ? (
-                  <span style={{ fontFamily: 'Stringer, sans-serif' }}>{char}</span>
-                 ) : (
+                  <span style={{ fontFamily: 'Rauschen, sans-serif' }}>{char}</span>
+                ) : (
                   char
                  )}
               </span>
