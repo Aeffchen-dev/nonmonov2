@@ -447,7 +447,14 @@ export function QuizApp() {
 
   // Filter and order slides based on categories and mode
   useEffect(() => {
-    // Filter by categories
+    // If no categories are selected, show no slides (except maybe intro if that's the intent)
+    if (selectedCategories.length === 0) {
+      setSlides([]);
+      setQuestions([]);
+      return;
+    }
+    
+    // Filter by categories - strict filtering to only show selected categories
     let filteredQuestions = allQuestions.filter(q => 
       selectedCategories.includes(q.category)
     );
