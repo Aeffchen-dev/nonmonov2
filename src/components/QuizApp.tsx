@@ -870,7 +870,10 @@ export function QuizApp() {
           className="font-stringer font-medium flex items-center"
           style={{ 
             fontSize: '16px',
-            color: 'white'
+            color: 'black',
+            backgroundColor: 'hsl(142, 76%, 60%)',
+            padding: '6px 4px',
+            borderRadius: '4px'
           }}
         >
           Kategorien
