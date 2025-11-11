@@ -504,8 +504,8 @@ export function QuizCard({
             bottom: '15%',
             left: `calc(50% + ${monsterVariation.circleOffsetX * 0.3}%)`,
             transform: `translateX(-50%) scale(${isEditing ? '0.5' : '1'})`,
-            width: '40px',
-            height: '40px',
+            width: '80px',
+            height: '80px',
             pointerEvents: 'none',
             zIndex: 10,
             transition: 'transform 0.3s ease',
@@ -525,8 +525,8 @@ export function QuizCard({
             <div
               style={{
                 position: 'absolute',
-                width: '20px',
-                height: '20px',
+                width: '40px',
+                height: '40px',
                 backgroundColor: categoryColors.pageBg,
                 left: '50%',
                 top: '50%',
@@ -538,12 +538,12 @@ export function QuizCard({
             <div
               style={{
                 position: 'absolute',
-                width: '20px',
-                height: '20px',
+                width: '40px',
+                height: '40px',
                 backgroundColor: categoryColors.pageBg,
                 borderRadius: '50%',
-                left: '5px',
-                top: '10px',
+                left: '10px',
+                top: '20px',
                 imageRendering: 'pixelated',
               }}
             />
@@ -551,12 +551,12 @@ export function QuizCard({
             <div
               style={{
                 position: 'absolute',
-                width: '20px',
-                height: '20px',
+                width: '40px',
+                height: '40px',
                 backgroundColor: categoryColors.pageBg,
                 borderRadius: '50%',
-                left: '10px',
-                top: '5px',
+                left: '20px',
+                top: '10px',
                 imageRendering: 'pixelated',
               }}
             />
@@ -566,11 +566,11 @@ export function QuizCard({
           <div
             style={{
               position: 'absolute',
-              top: '12px',
+              top: '24px',
               left: '50%',
               transform: 'translateX(-50%)',
               display: 'flex',
-              gap: '8px',
+              gap: '12px',
               pointerEvents: 'none'
             }}
           >
@@ -580,9 +580,9 @@ export function QuizCard({
               pupilOffset={pupilOffset} 
               isBlinking={isBlinking}
               eyeVariation={{
-                width: '10px',
-                height: '10px',
-                pupilSize: '4px'
+                width: '16px',
+                height: '16px',
+                pupilSize: '6px'
               }}
             />
             {/* Right Eye */}
@@ -591,9 +591,9 @@ export function QuizCard({
               pupilOffset={pupilOffset} 
               isBlinking={isBlinking}
               eyeVariation={{
-                width: '10px',
-                height: '10px',
-                pupilSize: '4px'
+                width: '16px',
+                height: '16px',
+                pupilSize: '6px'
               }}
             />
           </div>
