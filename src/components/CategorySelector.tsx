@@ -209,6 +209,8 @@ export function CategorySelector({
                     className="absolute inset-0"
                     style={{ 
                       backgroundColor: '#1a1a1a',
+                      borderTopRightRadius: '4px',
+                      borderBottomRightRadius: '4px',
                       zIndex: 0
                     }}
                   />
@@ -219,6 +221,8 @@ export function CategorySelector({
                      style={{ 
                        background: `linear-gradient(to right, ${darkenColor(colors.cardColor, 0.95)} 0%, ${colors.cardColor} 50%)`,
                        width: isSelected ? '100%' : '8px',
+                       borderTopRightRadius: '4px',
+                       borderBottomRightRadius: '4px',
                        transition: shouldAnimate 
                          ? 'width 0.2s ease-in-out'
                          : isSelected 
