@@ -4,6 +4,7 @@ import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
 import { Sliders } from 'lucide-react';
+import starLoading from '@/assets/star-loading.jpeg';
 
 interface Question {
   question: string;
@@ -901,21 +902,25 @@ export function QuizApp() {
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
             <div className="flex items-center justify-center h-full">
-              <span 
-                className="font-rauschen uppercase"
+              <img 
+                src={starLoading}
+                alt="Loading"
                 style={{
-                  fontSize: '16px',
-                  fontWeight: 600,
-                  background: 'linear-gradient(90deg, #888 0%, #fff 50%, #888 100%)',
-                  backgroundSize: '200% 100%',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  color: 'transparent',
-                  animation: 'shimmer 2s infinite linear'
+                  width: '80px',
+                  height: '80px',
+                  animation: 'spin 1.5s linear infinite'
                 }}
-              >
-                Lade Fragen ...
-              </span>
+              />
+              <style>{`
+                @keyframes spin {
+                  from {
+                    transform: rotate(0deg);
+                  }
+                  to {
+                    transform: rotate(360deg);
+                  }
+                }
+              `}</style>
             </div>
           ) : hasSlides ? (
             <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
