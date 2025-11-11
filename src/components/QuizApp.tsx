@@ -895,7 +895,7 @@ export function QuizApp() {
                       position: 'absolute',
                       bottom: '7px',
                       left: '50%',
-                      transform: 'translateX(-6px)',
+                      transform: 'translateX(-5px)',
                       width: '3px',
                       height: '3px',
                       backgroundColor: 'white'
@@ -905,7 +905,7 @@ export function QuizApp() {
                       position: 'absolute',
                       bottom: '7px',
                       left: '50%',
-                      transform: 'translateX(3px)',
+                      transform: 'translateX(2px)',
                       width: '3px',
                       height: '3px',
                       backgroundColor: 'white'
