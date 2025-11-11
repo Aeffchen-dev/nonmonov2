@@ -47,40 +47,39 @@ All colors MUST be HSL.
     --quiz-background: 0 0% 7%;
     --quiz-surface: 0 0% 12%;
     
-    /* Category color pairs: card color (first) + page background (second) */
-    /* Pair 1: #FF9DC6 + darker red */
-    --quiz-category1-card: 335 100% 81%;
-    --quiz-category1-bg: 347 95% 12%;
-    /* Pair 2: #67EFF4 + darker purple */
-    --quiz-category2-card: 182 87% 68%;
-    --quiz-category2-bg: 250 95% 12%;
-    /* Pair 3: #AD99D8 + darker red */
-    --quiz-category3-card: 259 45% 72%;
-    --quiz-category3-bg: 0 65% 10%;
-    /* Pair 4: Light Pink + darker orange */
-    --quiz-category4-card: 335 100% 90%;
-    --quiz-category4-bg: 14 100% 25%;
-    /* Pair 5: #EC94FF + darker purple */
-    --quiz-category5-card: 289 100% 79%;
-    --quiz-category5-bg: 281 100% 10%;
-    /* Pair 6: #DCFF80 + darker green */
-    --quiz-category6-card: 76 100% 75%;
-    --quiz-category6-bg: 159 100% 10%;
-    /* Pair 7: #FF98F3 + darker brown */
-    --quiz-category7-card: 307 100% 80%;
-    --quiz-category7-bg: 23 98% 18%;
-    /* Pair 8: #BCFFE5 + darker teal */
-    --quiz-category8-card: 157 100% 87%;
-    --quiz-category8-bg: 178 93% 12%;
-    /* Pair 9: #00FF9B + darker teal */
-    --quiz-category9-card: 157 100% 50%;
-    --quiz-category9-bg: 170 100% 10%;
-    /* Pair 10: #89D8FF + darker blue */
+    /* Category color pairs: card color + text color (always black) */
+    /* Pair 1: #FF4100 (orange-red) */
+    --quiz-category1-card: 15 100% 50%;
+    --quiz-category1-bg: 0 0% 0%;
+    /* Pair 2: #AFA3FF (light purple) */
+    --quiz-category2-card: 248 100% 82%;
+    --quiz-category2-bg: 0 0% 0%;
+    /* Pair 3: #FDFF00 (yellow) */
+    --quiz-category3-card: 60 100% 50%;
+    --quiz-category3-bg: 0 0% 0%;
+    /* Pair 4: #F191FF (pink) */
+    --quiz-category4-card: 292 100% 78%;
+    --quiz-category4-bg: 0 0% 0%;
+    /* Pair 5: #FF2828 (red) */
+    --quiz-category5-card: 0 100% 58%;
+    --quiz-category5-bg: 0 0% 0%;
+    /* Pair 6: #FF33F1 (magenta) */
+    --quiz-category6-card: 304 100% 60%;
+    --quiz-category6-bg: 0 0% 0%;
+    /* Pair 7: #53E7F1 (cyan) */
+    --quiz-category7-card: 184 86% 64%;
+    --quiz-category7-bg: 0 0% 0%;
+    /* Pair 8: #17FFBD (turquoise) */
+    --quiz-category8-card: 163 100% 55%;
+    --quiz-category8-bg: 0 0% 0%;
+    /* Pair 9: #00FF00 (lime green) */
+    --quiz-category9-card: 120 100% 50%;
+    --quiz-category9-bg: 0 0% 0%;
+    /* Additional pairs for future use */
     --quiz-category10-card: 200 100% 77%;
-    --quiz-category10-bg: 205 100% 14%;
-    /* Pair 11: #D0FC00 + darker teal */
+    --quiz-category10-bg: 0 0% 0%;
     --quiz-category11-card: 70 100% 49%;
-    --quiz-category11-bg: 187 94% 10%;
+    --quiz-category11-bg: 0 0% 0%;
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
