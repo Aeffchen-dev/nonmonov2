@@ -168,7 +168,7 @@ export function CategorySelector({
         <div className="flex flex-col w-full h-full overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
-            <DialogHeader>
+            <DialogHeader className="p-0">
                <DialogTitle className="text-white font-rauschen uppercase" style={{ fontSize: '14px', fontWeight: 600 }}>
                  Kategorien wählen
                </DialogTitle>
@@ -177,7 +177,6 @@ export function CategorySelector({
             <button
               onClick={handleClose}
               className="text-white transition-colors"
-              style={{ marginRight: '8px' }}
             >
               <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
             </button>
