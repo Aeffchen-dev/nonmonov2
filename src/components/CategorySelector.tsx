@@ -181,15 +181,15 @@ export function CategorySelector({
               onClick={handleClose}
               className="transition-opacity hover:opacity-80 flex items-center justify-center"
               style={{
-                width: '41px',
-                height: '41px',
+                width: '27px',
+                height: '27px',
                 backgroundColor: 'black',
                 borderRadius: '4px',
                 padding: '2px',
                 outline: 'none'
               }}
             >
-              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" style={{ filter: 'invert(1)' }} />
+              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" />
             </button>
           </div>
 
