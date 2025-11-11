@@ -577,7 +577,7 @@ export function QuizCard({
         >
           <div
             ref={pillInnerRef}
-            className="px-2 py-0.5 rounded-full font-medium border font-factora"
+            className="px-2 py-0.5 rounded-full font-medium border font-stringer"
             style={{
               backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, transparent)`,
               backdropFilter: 'blur(4px)',

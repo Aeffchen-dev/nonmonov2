@@ -169,8 +169,8 @@ export function CategorySelector({
           {/* Header */}
           <div className="flex items-center justify-between px-4 pt-4 pb-0 shrink-0">
             <DialogHeader>
-               <DialogTitle className="text-white font-factora font-normal" style={{ fontSize: '18px' }}>
-                 <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>K</span>ategorien wählen
+               <DialogTitle className="text-white font-rauschen font-normal" style={{ fontSize: '18px', fontWeight: 600 }}>
+                 <span style={{ fontFeatureSettings: '"ss01" 1' }}>K</span>ategorien wählen
                </DialogTitle>
             </DialogHeader>
             
@@ -231,7 +231,7 @@ export function CategorySelector({
                      }}
                    />
                   
-                   <span className="font-factora font-normal tracking-wide opacity-100 relative z-10" style={{ 
+                   <span className="font-stringer font-normal tracking-wide opacity-100 relative z-10" style={{ 
                      color: isSelected ? colors.pageBg : 'white', 
                      fontSize: '14px', 
                      transition: isSelected 
@@ -313,10 +313,10 @@ export function CategorySelector({
                 // Reload to reset all state (filters, text entries, show default view)
                 window.location.reload();
               }}
-              className="text-white font-factora font-normal hover:opacity-70 transition-opacity"
+              className="text-white font-stringer font-normal hover:opacity-70 transition-opacity"
               style={{ fontSize: '14px' }}
             >
-              <span style={{ fontFeatureSettings: '"salt" 1, "ss01" 1, "ss02" 1' }}>M</span>eine Einträge löschen
+              <span style={{ fontFeatureSettings: '"ss01" 1' }}>M</span>eine Einträge löschen
             </button>
           </div>
         </div>
