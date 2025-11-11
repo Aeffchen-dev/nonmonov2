@@ -178,7 +178,7 @@ export function CategorySelector({
               onClick={handleClose}
               className="text-white transition-colors"
             >
-              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
+              <X className="h-7 w-7" strokeWidth={5} strokeLinecap="square" strokeLinejoin="miter" />
             </button>
           </div>
 
