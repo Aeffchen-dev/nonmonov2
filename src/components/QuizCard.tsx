@@ -549,7 +549,7 @@ export function QuizCard({
               fontStyle: 'normal',
               letterSpacing: '0px',
               color: question.category.toLowerCase() !== 'intro' ? '#1A1A1A' : 'hsl(var(--foreground))',
-              fontSize: isEditing ? '30px' : undefined,
+              fontSize: isEditing ? '16px' : undefined,
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
               hyphens: 'auto',
