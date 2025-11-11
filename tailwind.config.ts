@@ -23,6 +23,8 @@ export default {
 			'schoolbell': ['Schoolbell', 'cursive'],
 			'geist': ['Geist', 'sans-serif'],
 			'factora': ['FactorA', 'sans-serif'],
+			'stringer': ['Stringer', 'sans-serif'],
+			'rauschen': ['Rauschen', 'sans-serif'],
 		},
 			colors: {
 				border: 'hsl(var(--border))',

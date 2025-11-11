@@ -257,8 +257,8 @@ export function QuizCard({
       measureSpan.style.position = 'absolute';
       measureSpan.style.visibility = 'hidden';
       measureSpan.style.whiteSpace = 'nowrap';
-      measureSpan.style.fontFamily = computed?.fontFamily || 'FactorA, sans-serif';
-      measureSpan.style.fontWeight = computed?.fontWeight || '700';
+      measureSpan.style.fontFamily = computed?.fontFamily || 'Rauschen, sans-serif';
+      measureSpan.style.fontWeight = computed?.fontWeight || '600';
       measureSpan.style.fontSize = computed?.fontSize || '48px';
       measureSpan.style.letterSpacing = computed?.letterSpacing || '0px';
       containerRef.current.appendChild(measureSpan);
@@ -649,9 +649,9 @@ export function QuizCard({
           <h1 
             ref={textRef}
             lang="de"
-            className={`font-factora leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem] max-w-full'}`}
+            className={`font-rauschen leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem] max-w-full'}`}
             style={{ 
-              fontWeight: 'bold',
+              fontWeight: 600,
               fontStyle: 'normal',
               letterSpacing: '0px',
               color: question.category.toLowerCase() !== 'intro' ? categoryColors.pageBg : 'hsl(var(--foreground))',
