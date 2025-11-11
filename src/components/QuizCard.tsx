@@ -526,6 +526,7 @@ export function QuizCard({
               alignItems: 'center',
               paddingLeft: '16px',
               borderTop: '1px solid #1A1A1A',
+              borderRadius: '40px',
               zIndex: 20
             }}
           >
