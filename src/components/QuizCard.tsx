@@ -585,7 +585,8 @@ export function QuizCard({
                         transform: 'rotate(-2deg)',
                         fontWeight: 600,
                         display: 'inline-block',
-                        transformOrigin: 'center bottom'
+                        transformOrigin: 'center bottom',
+                        fontSize: '120%'
                       }}
                     >
                       {word}
