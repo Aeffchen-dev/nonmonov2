@@ -527,7 +527,7 @@ export function QuizCard({
               paddingRight: '16px',
               zIndex: 20,
               width: 'auto',
-              borderRadius: '999px',
+              borderRadius: '999px 0 999px 999px',
               clipPath: 'polygon(0 0, calc(100% - 14px) 0, calc(100% - 14px) 4px, calc(100% - 10px) 4px, calc(100% - 10px) 8px, calc(100% - 6px) 8px, calc(100% - 6px) 12px, calc(100% - 2px) 12px, calc(100% - 2px) 16px, 100% 16px, 100% 100%, 0 100%)',
               boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(0, 0, 0, 0.05)',
               filter: 'drop-shadow(2px 0 0 rgba(0, 0, 0, 0.08))'
