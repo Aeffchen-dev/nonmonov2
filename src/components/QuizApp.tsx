@@ -775,7 +775,7 @@ export function QuizApp() {
         left: 0
       }}
     >
-      {/* Background text "non mono" - 120vw, vertically centered */}
+      {/* Background text "mono non" - 120vw, vertically centered */}
       <div 
         className="font-rauschen"
         style={{
@@ -792,7 +792,7 @@ export function QuizApp() {
           lineHeight: 1
         }}
       >
-        non mono
+        mono non
       </div>
 
       {/* App Header with controls - Always visible */}
