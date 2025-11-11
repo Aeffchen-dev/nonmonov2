@@ -780,7 +780,7 @@ export function QuizApp() {
         <div 
           className="cursor-pointer font-rauschen flex items-center" 
           style={{ 
-            fontSize: '24px', 
+            fontSize: '26px', 
             fontWeight: 600,
             color: 'white',
             letterSpacing: '0.01em'
