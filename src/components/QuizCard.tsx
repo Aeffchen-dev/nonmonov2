@@ -676,7 +676,7 @@ export function QuizCard({
           )}
           {isEditing && (
             <div className="flex-1 relative mt-1 w-full edit-textarea-container" style={{ marginLeft: '-4px' }}>
-              <Textarea
+               <Textarea
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
                 placeholder="Deine Antwort"
@@ -686,7 +686,7 @@ export function QuizCard({
                   fontStyle: 'normal',
                   backgroundColor: categoryColors.cardColor,
                   border: 'none',
-                  color: 'black',
+                  color: 'rgba(0, 0, 0, 0.85)',
                   padding: '4px',
                   outline: 'none',
                   boxShadow: 'none',
