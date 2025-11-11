@@ -185,7 +185,7 @@ export function IntroSlide({
             {/* Main title - vertically and horizontally centered */}
             <div className="flex-1 flex items-center justify-center">
               <h1 
-                className="text-3xl md:text-4xl lg:text-4xl font-rauschen text-foreground text-center leading-tight"
+                className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase text-foreground text-center leading-tight"
                 style={{ fontWeight: 600, fontStyle: 'normal' }}
               >
                 Offene Beziehung: Wie gehen wir das richtig an?

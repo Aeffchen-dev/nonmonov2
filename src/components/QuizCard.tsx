@@ -471,7 +471,7 @@ export function QuizCard({
   return (
     <div 
       ref={cardRef}
-      className={`relative w-full max-w-[500px] mx-auto rounded-[2rem] select-none`}
+      className={`relative w-full max-w-[500px] mx-auto rounded-[4px] select-none`}
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
@@ -492,7 +492,7 @@ export function QuizCard({
         style={{
           position: 'absolute',
           inset: 0,
-          borderRadius: '30px',
+          borderRadius: '4px',
           overflow: 'hidden'
         }}
       >
@@ -643,13 +643,13 @@ export function QuizCard({
       )}
 
       {/* Main Content */}
-      <div className={`h-full flex flex-col justify-start ${question.category.toLowerCase() === 'intro' ? 'p-8' : 'p-8 lg:p-10'} relative`}>
+      <div className={`h-full flex flex-col justify-start p-4 relative`}>
 
         <div ref={containerRef} className={`flex-1 flex flex-col w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
             ref={textRef}
             lang="de"
-            className={`font-rauschen leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2.364rem] md:text-[2.832rem] lg:text-[3.78rem] max-w-full'}`}
+            className={`font-rauschen uppercase leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2rem] md:text-[2.4rem] lg:text-[3.2rem] max-w-full'}`}
             style={{ 
               fontWeight: 600,
               fontStyle: 'normal',
