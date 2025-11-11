@@ -602,7 +602,7 @@ export function QuizCard({
               fontWeight: 600,
               fontStyle: 'normal',
               letterSpacing: '0px',
-              color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
+              color: question.category.toLowerCase() !== 'intro' ? '#1A1A1A' : 'hsl(var(--foreground))',
               fontSize: isEditing ? '14px' : undefined,
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
@@ -612,12 +612,7 @@ export function QuizCard({
               msHyphens: 'manual',
               wordBreak: 'normal',
               overflowWrap: 'normal',
-              ...(isEditing && { color: 'white' }),
-              ...(question.category.toLowerCase() !== 'intro' && { 
-                backgroundColor: '#1A1A1A',
-                padding: '12px',
-                borderRadius: '8px'
-              })
+              ...(isEditing && { color: 'white' })
             }}
           >
             <span style={{ fontFeatureSettings: '"ss01" 1' }}>
