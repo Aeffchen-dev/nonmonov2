@@ -36,6 +36,10 @@ export function CategorySelector({
     }
   }, [open]);
 
+  // Apply selection immediately when it changes
+  useEffect(() => {
+    onCategoriesChange(tempSelection);
+  }, [tempSelection, onCategoriesChange]);
   const getCategoryColors = (category: string, index: number) => {
     // Use specific color mapping for each category
     let colorIndex;
