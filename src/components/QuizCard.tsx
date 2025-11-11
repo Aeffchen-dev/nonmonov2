@@ -476,8 +476,8 @@ export function QuizCard({
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
         backgroundColor: question.category.toLowerCase() !== 'intro' ? 'rgba(0, 0, 0, 0.2)' : 'hsl(var(--card-background))',
-        backdropFilter: 'none',
-        WebkitBackdropFilter: 'none',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)',
         borderRadius: '24px'
