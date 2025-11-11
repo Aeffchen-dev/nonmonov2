@@ -867,15 +867,15 @@ export function QuizApp() {
                     ))}
                   </div>
                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's - Pixelated heart outlines (white) - 5x5 grid with 3px pixels
+                  // Other 'o's - Pixelated heart outlines (white) - 5x5 grid with 3.6px pixels (120% of 3px)
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(5, 3px)',
-                      gridTemplateRows: 'repeat(5, 3px)',
+                      gridTemplateColumns: 'repeat(5, 3.6px)',
+                      gridTemplateRows: 'repeat(5, 3.6px)',
                       gap: '0px',
-                      width: '15px',
-                      height: '15px',
+                      width: '18px',
+                      height: '18px',
                       verticalAlign: 'baseline',
                       marginBottom: '0px'
                     }}
@@ -889,8 +889,8 @@ export function QuizApp() {
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
-                        width: '3px',
-                        height: '3px'
+                        width: '3.6px',
+                        height: '3.6px'
                       }} />
                     ))}
                   </div>
