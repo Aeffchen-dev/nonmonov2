@@ -266,15 +266,17 @@ export function CategorySelector({
                                 : 'all 0.2s ease-in-out'
                             }}
                           >
-                          {isSelected && (
-                             <svg 
-                              width="26" 
-                              height="26" 
+                           {isSelected && (
+                            <svg 
+                              width="20" 
+                              height="20" 
                               viewBox="0 0 24 24" 
                               fill="none"
+                              className="transition-transform duration-200"
                               style={{ 
                                 color: 'black',
-                                animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
+                                animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none',
+                                filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))'
                               }}
                             >
                              <path
@@ -285,7 +287,7 @@ export function CategorySelector({
                                strokeLinejoin="miter"
                              />
                            </svg>
-                         )}
+                          )}
                        </div>
                     </div>
                   </div>
