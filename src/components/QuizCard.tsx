@@ -733,9 +733,9 @@ export function QuizCard({
                     pointerEvents: 'none'
                   }}>
                     {isEditing ? (
-                      <X size={20} color="white" />
+                      <X size={16} color="white" />
                     ) : (
-                      <Pencil size={20} color="white" />
+                      <Pencil size={16} color="white" />
                     )}
                   </div>
                 )}
