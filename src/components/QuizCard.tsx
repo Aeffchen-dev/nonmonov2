@@ -676,7 +676,7 @@ export function QuizCard({
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
                 placeholder="Deine Antwort"
-                className={`font-rauschen w-full h-full resize-none edit-textarea text-[16px]`}
+                className={`font-rauschen w-full h-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.8rem] lg:text-[2rem]' : 'text-[2rem] md:text-[2.6rem] lg:text-[3.4rem]'}`}
                 style={{
                   fontWeight: 'bold',
                   fontStyle: 'normal',
