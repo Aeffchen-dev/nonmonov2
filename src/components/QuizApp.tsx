@@ -800,14 +800,14 @@ export function QuizApp() {
                   display: 'inline-block',
                   marginLeft: addSpace ? '0.3em' : '0',
                   verticalAlign: 'middle',
-                  transform: char !== 'o' || index === 1 ? `rotate(${rotation}deg)` : 'none',
-                  letterSpacing: index < 3 ? '-0.08em' : undefined
+                  transform: char !== 'o' || index !== 1 ? `rotate(${rotation}deg)` : 'none',
+                  letterSpacing: index < 3 ? '-0.02em' : undefined
                 }}
               >
                 {index === 0 && char === 'N' ? (
-                  <span style={{ fontFamily: 'Stringer, sans-serif' }}>{char}</span>
+                  <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
-                  // First o - smiley (keep as is)
+                  // Smooth circular smiley
                   <div 
                     data-smiley-logo
                     style={{
@@ -858,17 +858,9 @@ export function QuizApp() {
                       />
                     </svg>
                   </div>
-                ) : char === 'o' && index === 5 ? (
-                  // Second o in "mono" - Rauschen font
-                  <span style={{ fontFamily: 'Rauschen, sans-serif' }}>{char}</span>
-                ) : char === 'o' && index === 7 ? (
-                  // Third o in "mono" - Rauschen font
-                  <span style={{ fontFamily: 'Rauschen, sans-serif' }}>{char}</span>
-                ) : (char === 'm' || char === 'n') ? (
-                  <span style={{ fontFamily: 'Rauschen, sans-serif' }}>{char}</span>
                 ) : (
                   char
-                 )}
+                )}
               </span>
             );
           })}
