@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
 import closeIcon from '@/assets/close-icon.jpeg';
+import checkIcon from '@/assets/check-icon.jpeg';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -270,26 +270,17 @@ export function CategorySelector({
                             }}
                           >
                             {isSelected && (
-                             <svg 
-                               width="16" 
-                               height="16" 
-                               viewBox="0 0 24 24" 
-                               fill="none"
-                               style={{ 
-                                 color: 'black',
-                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
-                               }}
-                             >
-                              <path
-                                d="M20 6 9 17l-5-5"
-                                stroke="currentColor"
-                                strokeWidth="4"
-                                strokeLinecap="square"
-                                strokeLinejoin="miter"
+                              <img 
+                                src={checkIcon} 
+                                alt="Check" 
+                                style={{ 
+                                  width: '24px',
+                                  height: '24px',
+                                  animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
+                                }}
                               />
-                            </svg>
                            )}
-                       </div>
+                        </div>
                     </div>
                   </div>
                 </div>
