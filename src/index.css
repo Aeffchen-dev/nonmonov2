@@ -263,13 +263,7 @@ All colors MUST be HSL.
   }
 }
 
-/* Pixelated icons */
+/* Apply irregular stroke effect to all lucide icons */
 svg[class*="lucide"] {
-  filter: url(#pixelate);
-}
-
-/* Ensure blocky edges and keep stroke width stable when scaled */
-svg[class*="lucide"] * {
-  shape-rendering: crispEdges;
-  vector-effect: non-scaling-stroke;
+  filter: url(#roughen);
 }

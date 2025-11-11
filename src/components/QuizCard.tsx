@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Pencil } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pencil, X } from 'lucide-react';
 import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import Hypher from 'hypher';
 import german from 'hyphenation.de';
-import closeIcon from '@/assets/close-icon.png';
 
 // Eye component with synchronized blinking and pupil movement
 function Eye({ 
@@ -710,7 +709,7 @@ export function QuizCard({
 
       </div> {/* Close inner container with border-radius mask */}
 
-      {question.category.toLowerCase() !== 'intro' && question.category.toLowerCase() !== 'info' && (
+      {question.category.toLowerCase() !== 'intro' && (
         <button
           style={{
             position: 'absolute',
@@ -734,9 +733,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <img src={closeIcon} alt="Close" style={{ width: '24px', height: '24px' }} />
+            <X size={24} color="white" strokeWidth={1} />
           ) : (
-            <Pencil size={24} color="white" fill="white" strokeWidth={0} />
+            <Pencil size={24} color="white" strokeWidth={1} />
           )}
         </button>
       )}

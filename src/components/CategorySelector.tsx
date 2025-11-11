@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Check } from 'lucide-react';
+import { X, Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import closeIcon from '@/assets/close-icon.png';
 
 interface CategorySelectorProps {
   open: boolean;
@@ -177,16 +176,9 @@ export function CategorySelector({
             
             <button
               onClick={handleClose}
-              className="text-white transition-opacity hover:opacity-70"
-              style={{ 
-                width: '28px', 
-                height: '28px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
+              className="text-white transition-colors"
             >
-              <img src={closeIcon} alt="Close" style={{ width: '28px', height: '28px' }} />
+              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
             </button>
           </div>
 
@@ -280,8 +272,6 @@ export function CategorySelector({
                               height="26" 
                               viewBox="0 0 24 24" 
                               fill="none"
-                              shapeRendering="crispEdges"
-                              filter="url(#pixelate)"
                               style={{ 
                                 color: 'black',
                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
@@ -290,7 +280,7 @@ export function CategorySelector({
                              <path
                                d="M20 6 9 17l-5-5"
                                stroke="currentColor"
-                               strokeWidth="5"
+                               strokeWidth="1"
                                strokeLinecap="square"
                                strokeLinejoin="miter"
                              />
