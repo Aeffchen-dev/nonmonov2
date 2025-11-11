@@ -801,7 +801,7 @@ export function QuizApp() {
                   marginLeft: addSpace ? '0.3em' : '0',
                   verticalAlign: 'middle',
                   transform: char !== 'o' || index !== 1 ? `rotate(${rotation}deg)` : 'none',
-                  letterSpacing: index < 3 ? '-0.02em' : undefined
+                  letterSpacing: index < 3 ? '-0.04em' : undefined
                 }}
               >
                 {index === 0 && char === 'N' ? (
