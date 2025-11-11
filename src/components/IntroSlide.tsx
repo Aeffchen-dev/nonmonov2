@@ -220,10 +220,10 @@ export function IntroSlide({
         ) : (
           <>
             {/* Description slide - left aligned content */}
-            <div className="flex-1 flex items-center justify-start px-6 py-6">
+            <div className="flex-1 flex items-center justify-start px-4 py-6">
               <p 
                 className="text-left leading-relaxed font-stringer"
-                style={{ fontSize: '12px', color: 'black' }}
+                style={{ fontSize: '12px', color: 'black', paddingLeft: '8px' }}
               >
                 In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt - ihr gestaltet eure Regeln selbst, so wie es zu euch passt.
                 {'\n\n'}
