@@ -775,7 +775,7 @@ export function QuizApp() {
       {/* App Header with controls - Always visible */}
       <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div 
-          className="cursor-pointer font-rauschen uppercase flex items-center" 
+          className="cursor-pointer font-rauschen flex items-center" 
           style={{ 
             fontSize: '22px', 
             fontWeight: 600,

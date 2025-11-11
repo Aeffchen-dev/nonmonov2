@@ -533,21 +533,17 @@ export function QuizCard({
         </div>
       )}
 
-      {/* Edit Button - Fixed position */}
+      {/* Edit Button - Top right corner */}
       {question.category.toLowerCase() !== 'intro' && (
         <button
           style={{
             position: 'absolute',
-            right: '16px',
-            bottom: '16px',
+            right: '0',
+            top: '0',
             width: '58px',
             height: '58px',
             borderRadius: '0',
-            backgroundColor: question.category.toLowerCase() === 'balance'
-              ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
-              : question.category === 'Geistige Intimität'
-              ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
-              : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`,
+            backgroundColor: `color-mix(in hsl, ${categoryColors.cardColor} 80%, white 20%)`,
             backdropFilter: 'blur(4px)',
             opacity: 1,
             display: 'flex',
@@ -556,7 +552,7 @@ export function QuizCard({
             border: 'none',
             cursor: 'pointer',
             boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
-            clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
             zIndex: 30
           }}
           onClick={(e) => {
@@ -564,7 +560,7 @@ export function QuizCard({
             setIsEditing(!isEditing);
           }}
         >
-          {/* Pixelated corner overlay - smaller */}
+          {/* Pixelated corner overlay - top left */}
           <div style={{
             position: 'absolute',
             top: 0,
@@ -577,29 +573,19 @@ export function QuizCard({
             pointerEvents: 'none'
           }}>
             {[
-              [0,0],
-              [0,1]
+              [0,1],
+              [1,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? (question.category.toLowerCase() === 'balance'
-                  ? `color-mix(in hsl, ${categoryColors.cardColor} 35%, ${categoryColors.pageBg} 65%)`
-                  : question.category === 'Geistige Intimität'
-                  ? `color-mix(in hsl, ${categoryColors.cardColor} 95%, white 5%)`
-                  : `color-mix(in hsl, ${categoryColors.cardColor} 45%, ${categoryColors.pageBg} 55%)`) : 'transparent'
+                background: v ? `color-mix(in hsl, ${categoryColors.cardColor} 80%, white 20%)` : 'transparent'
               }} />
             ))}
           </div>
           
           {isEditing ? (
-            <X size={20} color={question.category.toLowerCase() === 'balance'
-              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
-              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
-            } />
+            <X size={20} color="black" />
           ) : (
-            <Pencil size={20} color={question.category.toLowerCase() === 'balance'
-              ? `color-mix(in hsl, ${categoryColors.pageBg} 40%, black 60%)`
-              : `color-mix(in hsl, ${categoryColors.pageBg} 60%, black 40%)`
-            } />
+            <Pencil size={20} color="black" />
           )}
         </button>
       )}
