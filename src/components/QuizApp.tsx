@@ -793,7 +793,7 @@ export function QuizApp() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '0.5vw'
+          gap: '0.25vw'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
