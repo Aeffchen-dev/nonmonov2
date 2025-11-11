@@ -902,14 +902,6 @@ export function QuizApp() {
         <div className="flex-1 flex items-stretch justify-center min-h-0 relative" style={{ overflow: 'visible' }}>
           {loading ? (
             <div className="flex items-center justify-center h-full">
-              <img 
-                src={starLoading}
-                alt="Loading"
-                style={{
-                  width: '80px',
-                  height: '80px'
-                }}
-              />
             </div>
           ) : hasSlides ? (
             <div className="relative w-full h-full flex items-center justify-center" style={{ overflow: 'visible' }}>
