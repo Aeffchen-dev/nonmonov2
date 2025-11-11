@@ -3,7 +3,7 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
-import { Filter } from 'lucide-react';
+import { ListFilter } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -873,7 +873,7 @@ export function QuizApp() {
             color: 'white'
           }}
         >
-          <Filter size={24} strokeLinecap="square" />
+          <ListFilter size={24} strokeLinecap="square" />
         </button>
       </div>
 
