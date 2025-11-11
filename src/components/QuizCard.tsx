@@ -505,12 +505,16 @@ export function QuizCard({
             inset: 0,
             backgroundImage: `url(${cubeIcon})`,
             backgroundRepeat: 'repeat',
-            backgroundSize: '100px 100px',
-            opacity: 0.15,
+            backgroundSize: '80px 80px',
+            opacity: 0.08,
             zIndex: 0,
-            filter: `brightness(0) saturate(100%)`,
-            backgroundColor: categoryColors.pageBg,
-            mixBlendMode: 'multiply'
+            maskImage: `url(${cubeIcon})`,
+            maskRepeat: 'repeat',
+            maskSize: '80px 80px',
+            WebkitMaskImage: `url(${cubeIcon})`,
+            WebkitMaskRepeat: 'repeat',
+            WebkitMaskSize: '80px 80px',
+            backgroundColor: categoryColors.pageBg
           }}
         />
       )}
