@@ -4,6 +4,7 @@ import React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import Hypher from 'hypher';
 import german from 'hyphenation.de';
+import cubeIcon from '@/assets/cube.svg';
 
 // Eye component with synchronized blinking and pupil movement
 function Eye({ 
@@ -496,6 +497,23 @@ export function QuizCard({
           overflow: 'hidden'
         }}
       >
+      {/* Background cube pattern */}
+      {question.category.toLowerCase() !== 'intro' && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url(${cubeIcon})`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '100px 100px',
+            opacity: 0.15,
+            zIndex: 0,
+            filter: `brightness(0) saturate(100%)`,
+            backgroundColor: categoryColors.pageBg,
+            mixBlendMode: 'multiply'
+          }}
+        />
+      )}
       {/* Left Click Area - Previous */}
       <div 
         className="absolute left-0 top-0 w-20 h-full z-20 cursor-pointer"
