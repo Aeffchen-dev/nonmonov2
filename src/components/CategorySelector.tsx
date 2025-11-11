@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -178,9 +178,11 @@ export function CategorySelector({
             
             <button
               onClick={handleClose}
-              className="text-white transition-colors"
+              className="transition-colors"
             >
-              <X className="h-7 w-7" strokeWidth={1} strokeLinecap="square" strokeLinejoin="miter" />
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4L20 20M20 4L4 20" stroke="white" strokeWidth="3" strokeLinecap="round" />
+              </svg>
             </button>
           </div>
 
