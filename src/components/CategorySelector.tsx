@@ -297,7 +297,7 @@ export function CategorySelector({
           </ScrollArea>
 
           {/* Delete entries button */}
-          <div className="flex items-center justify-center px-4 pb-4 pt-2 shrink-0">
+          <div className="flex items-center justify-start px-4 pb-4 pt-2 shrink-0">
             <button
               onClick={() => {
                 // Clear all cookies
