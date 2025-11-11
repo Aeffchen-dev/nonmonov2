@@ -507,7 +507,7 @@ export function QuizCard({
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100vw auto',
             backgroundPosition: 'center 130%',
-            opacity: 1,
+            opacity: 0.5,
             zIndex: 0,
             maskImage: `url(${cubeIcon})`,
             maskRepeat: 'no-repeat',
