@@ -646,11 +646,11 @@ export function QuizCard({
             right: '24px',
             bottom: '24px',
             display: 'inline-grid',
-            gridTemplateColumns: 'repeat(15, 4px)',
-            gridTemplateRows: 'repeat(15, 4px)',
+            gridTemplateColumns: 'repeat(15, 3px)',
+            gridTemplateRows: 'repeat(15, 3px)',
             gap: '0px',
-            width: '60px',
-            height: '60px',
+            width: '45px',
+            height: '45px',
             border: 'none',
             cursor: 'pointer',
             boxShadow: '-2px -2px 4px 0px rgba(0, 0, 0, 1)',
@@ -677,8 +677,8 @@ export function QuizCard({
               <div 
                 key={i} 
                 style={{
-                  width: '4px',
-                  height: '4px',
+                  width: '3px',
+                  height: '3px',
                   backgroundColor: isCorner ? 'transparent' : categoryColors.cardColor,
                   position: 'relative',
                   display: 'flex',

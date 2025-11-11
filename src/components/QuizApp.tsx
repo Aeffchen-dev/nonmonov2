@@ -804,11 +804,11 @@ export function QuizApp() {
                     data-smiley-logo
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(4, 4px)',
-                      gridTemplateRows: 'repeat(4, 4px)',
+                      gridTemplateColumns: 'repeat(4, 3px)',
+                      gridTemplateRows: 'repeat(4, 3px)',
                       gap: '0px',
-                      width: '16px',
-                      height: '16px',
+                      width: '12px',
+                      height: '12px',
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
@@ -823,8 +823,8 @@ export function QuizApp() {
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? '#FFFF33' : 'transparent',
-                        width: '4px',
-                        height: '4px',
+                        width: '3px',
+                        height: '3px',
                         position: 'relative',
                         display: 'flex',
                         alignItems: 'center',
@@ -856,7 +856,7 @@ export function QuizApp() {
                             position: 'absolute',
                             bottom: '0',
                             left: '0',
-                            width: '4px',
+                            width: '3px',
                             height: '1px',
                             backgroundColor: 'black'
                           }} />
@@ -869,11 +869,11 @@ export function QuizApp() {
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(5, 4px)',
-                      gridTemplateRows: 'repeat(5, 4px)',
+                      gridTemplateColumns: 'repeat(5, 3px)',
+                      gridTemplateRows: 'repeat(5, 3px)',
                       gap: '0px',
-                      width: '20px',
-                      height: '20px',
+                      width: '15px',
+                      height: '15px',
                       verticalAlign: 'baseline',
                       marginBottom: '0px'
                     }}
@@ -887,8 +887,8 @@ export function QuizApp() {
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
-                        width: '4px',
-                        height: '4px'
+                        width: '3px',
+                        height: '3px'
                       }} />
                     ))}
                   </div>
