@@ -775,10 +775,10 @@ export function QuizApp() {
       {/* App Header with controls - Always visible */}
       <div className="mt-4 flex items-baseline justify-between w-full px-4" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div 
-          className="cursor-pointer font-rauschen" 
+          className="cursor-pointer font-stringer" 
           style={{ 
             fontSize: '22px', 
-            fontWeight: 600,
+            fontWeight: 100,
             color: getInterpolatedCardColor(),
             letterSpacing: '0.01em'
           }}
