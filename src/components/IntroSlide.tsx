@@ -204,65 +204,6 @@ export function IntroSlide({
               >
                 Swipe um weiter zu navigieren
               </p>
-              
-              {/* Animated indicator - appears after 1s */}
-              {showIndicator && (
-                <div 
-                  className="flex gap-1.5"
-                  style={{
-                    animation: 'fadeInUp 0.5s ease-out',
-                    opacity: 1
-                  }}
-                >
-                  <style>{`
-                    @keyframes fadeInUp {
-                      from {
-                        opacity: 0;
-                        transform: translateY(10px);
-                      }
-                      to {
-                        opacity: 1;
-                        transform: translateY(0);
-                      }
-                    }
-                    @keyframes pulse {
-                      0%, 100% {
-                        opacity: 0.3;
-                      }
-                      50% {
-                        opacity: 1;
-                      }
-                    }
-                  `}</style>
-                  <div 
-                    style={{
-                      width: '6px',
-                      height: '6px',
-                      borderRadius: '50%',
-                      backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite'
-                    }}
-                  />
-                  <div 
-                    style={{
-                      width: '6px',
-                      height: '6px',
-                      borderRadius: '50%',
-                      backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite 0.2s'
-                    }}
-                  />
-                  <div 
-                    style={{
-                      width: '6px',
-                      height: '6px',
-                      borderRadius: '50%',
-                      backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite 0.4s'
-                    }}
-                  />
-                </div>
-              )}
             </div>
           </>
         ) : (
