@@ -190,7 +190,7 @@ export function IntroSlide({
             <div className="flex-1 flex items-center justify-center">
               <h1 
                 className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase text-center leading-tight"
-                style={{ fontWeight: 600, fontStyle: 'normal', color: 'white' }}
+                style={{ fontWeight: 600, fontStyle: 'normal', color: 'black' }}
               >
                 Offene Beziehung: Wie gehen wir das richtig an?
               </h1>
@@ -200,7 +200,7 @@ export function IntroSlide({
             <div className="pb-8 flex flex-col items-center gap-2">
               <p 
                 className="text-center font-stringer"
-                style={{ fontSize: '16px', color: 'white' }}
+                style={{ fontSize: '16px', color: 'black' }}
               >
                 Swipe um weiter zu navigieren
               </p>
@@ -208,11 +208,11 @@ export function IntroSlide({
           </>
         ) : (
           <>
-            {/* Description slide - centered content */}
-            <div className="flex-1 flex items-center justify-center px-2">
+            {/* Description slide - left aligned content */}
+            <div className="flex-1 flex items-center justify-start px-6">
               <p 
-                className="text-center leading-relaxed font-stringer"
-                style={{ fontSize: '16px', color: 'white' }}
+                className="text-left leading-relaxed font-stringer"
+                style={{ fontSize: '13px', color: 'black' }}
               >
                 In einer monogamen Beziehung herrschen allgemein bekannte universelle Regeln. Wohingegen es für offenen Beziehungen keinen Standard gibt - ihr gestaltet eure Regeln selbst, so wie es zu euch passt.
                 {'\n\n'}
@@ -224,7 +224,7 @@ export function IntroSlide({
             <div className="pb-8 flex flex-col items-center gap-2">
               <p 
                 className="text-center font-stringer"
-                style={{ fontSize: '16px', color: 'white' }}
+                style={{ fontSize: '16px', color: 'black' }}
               >
                 Swipe um weiter zu navigieren
               </p>
