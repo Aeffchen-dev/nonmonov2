@@ -519,13 +519,13 @@ export function QuizCard({
               right: '0',
               bottom: '0',
               backgroundColor: 'transparent',
-              color: categoryColors.cardColor,
+              color: '#1A1A1A',
               fontSize: '20px',
               height: '48px',
               display: 'flex',
               alignItems: 'center',
               paddingLeft: '16px',
-              borderTop: `1px solid ${categoryColors.cardColor}`,
+              borderTop: '1px solid #1A1A1A',
               zIndex: 20
             }}
           >
@@ -583,9 +583,9 @@ export function QuizCard({
           </div>
           
           {isEditing ? (
-            <X size={20} color="white" />
+            <X size={20} color="#1A1A1A" />
           ) : (
-            <Pencil size={20} color="white" />
+            <Pencil size={20} color="#1A1A1A" />
           )}
         </button>
       )}
