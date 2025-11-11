@@ -471,7 +471,7 @@ export function QuizCard({
   return (
     <div 
       ref={cardRef}
-      className={`relative w-full max-w-[500px] mx-auto rounded-[40px] select-none`}
+      className={`relative w-full max-w-[500px] mx-auto rounded-[24px] select-none`}
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
@@ -492,7 +492,7 @@ export function QuizCard({
         style={{
           position: 'absolute',
           inset: 0,
-          borderRadius: '40px',
+          borderRadius: '24px',
           overflow: 'hidden'
         }}
       >
@@ -508,6 +508,23 @@ export function QuizCard({
         onClick={onSwipeLeft}
       />
 
+      {/* Category Text - Top right corner */}
+      {question.category.toLowerCase() !== 'intro' && (
+        <div
+          className="font-medium font-stringer"
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            color: 'white',
+            fontSize: '20px',
+            zIndex: 20
+          }}
+        >
+          {question.category}
+        </div>
+      )}
+
       {/* Category Pill - At bottom of card */}
       {question.category.toLowerCase() !== 'intro' && (
           <div
@@ -515,9 +532,9 @@ export function QuizCard({
             className="font-medium font-stringer"
             style={{
               position: 'absolute',
-              left: '0',
-              right: '0',
-              bottom: '0',
+              left: '16px',
+              right: '16px',
+              bottom: '16px',
               backgroundColor: 'white',
               color: '#1A1A1A',
               fontSize: '20px',
@@ -664,7 +681,7 @@ export function QuizCard({
           <h1 
             ref={textRef}
             lang="de"
-            className={`font-rauschen uppercase leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[2rem] md:text-[2.4rem] lg:text-[3.2rem] max-w-full'}`}
+            className={`font-rauschen uppercase leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.26rem] md:text-[1.44rem] lg:text-[1.56rem] max-w-md' : 'text-[1.6rem] md:text-[2rem] lg:text-[2.6rem] max-w-full'}`}
             style={{ 
               fontWeight: 600,
               fontStyle: 'normal',
