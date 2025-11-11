@@ -263,19 +263,7 @@ All colors MUST be HSL.
   }
 }
 
-/* Icon styling - filled and pixelated */
+/* Apply irregular stroke effect to all lucide icons */
 svg[class*="lucide"] {
-  position: relative;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-svg[class*="lucide"] path,
-svg[class*="lucide"] line,
-svg[class*="lucide"] polyline,
-svg[class*="lucide"] circle,
-svg[class*="lucide"] rect {
-  fill: currentColor;
-  stroke: none;
+  filter: url(#roughen);
 }
