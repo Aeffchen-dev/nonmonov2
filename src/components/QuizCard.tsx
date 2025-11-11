@@ -31,8 +31,7 @@ function Eye({
         justifyContent: 'center',
         overflow: 'hidden',
         transform: isBlinking ? 'scaleY(0.1)' : 'scaleY(1)',
-        transition: 'transform 0.15s ease-out',
-        imageRendering: 'pixelated'
+        transition: 'transform 0.15s ease-out'
       }}
     >
       {/* Pupil */}
@@ -43,8 +42,7 @@ function Eye({
           backgroundColor: 'black',
           borderRadius: '50%',
           transform: `translate(${pupilOffset.x}px, ${pupilOffset.y}px)`,
-          transition: 'transform 0.3s ease-out',
-          imageRendering: 'pixelated'
+          transition: 'transform 0.3s ease-out'
         }}
       />
     </div>
@@ -473,14 +471,14 @@ export function QuizCard({
   return (
     <div 
       ref={cardRef}
-      className={`relative w-full max-w-[500px] mx-auto rounded-[24px] select-none`}
+      className={`relative w-full max-w-[500px] mx-auto select-none`}
       style={{
         height: 'calc(100% - 32px)',
         maxHeight: 'calc(100% - 32px)',
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)',
-        imageRendering: 'pixelated'
+        clipPath: 'polygon(0 8px, 4px 8px, 4px 4px, 8px 4px, 8px 0, calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px, 100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px))'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -495,9 +493,7 @@ export function QuizCard({
         style={{
           position: 'absolute',
           inset: 0,
-          borderRadius: '24px',
-          overflow: 'hidden',
-          imageRendering: 'pixelated'
+          overflow: 'hidden'
         }}
       >
       {/* Left Click Area - Previous */}
@@ -529,10 +525,9 @@ export function QuizCard({
               alignItems: 'center',
               paddingLeft: '16px',
               paddingRight: '16px',
-              borderRadius: '40px',
               zIndex: 20,
               width: 'auto',
-              imageRendering: 'pixelated'
+              clipPath: 'polygon(0 6px, 3px 6px, 3px 3px, 6px 3px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px))'
             }}
           >
           {question.category}

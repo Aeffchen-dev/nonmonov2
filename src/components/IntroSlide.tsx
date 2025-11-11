@@ -153,11 +153,11 @@ export function IntroSlide({
 
   return (
     <div 
-      className={`relative w-full max-w-[500px] mx-auto bg-[hsl(var(--card-background))] rounded-2xl shadow-card overflow-hidden select-none max-h-full ${animationClass}`}
+      className={`relative w-full max-w-[500px] mx-auto bg-[hsl(var(--card-background))] shadow-card overflow-hidden select-none max-h-full ${animationClass}`}
       style={{
         height: '100%',
         maxHeight: '100%',
-        imageRendering: 'pixelated'
+        clipPath: 'polygon(0 8px, 4px 8px, 4px 4px, 8px 4px, 8px 0, calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px, 100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px))'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -237,8 +237,7 @@ export function IntroSlide({
                       height: '6px',
                       borderRadius: '50%',
                       backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite',
-                      imageRendering: 'pixelated'
+                      animation: 'pulse 1.5s ease-in-out infinite'
                     }}
                   />
                   <div 
@@ -247,8 +246,7 @@ export function IntroSlide({
                       height: '6px',
                       borderRadius: '50%',
                       backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite 0.2s',
-                      imageRendering: 'pixelated'
+                      animation: 'pulse 1.5s ease-in-out infinite 0.2s'
                     }}
                   />
                   <div 
@@ -257,8 +255,7 @@ export function IntroSlide({
                       height: '6px',
                       borderRadius: '50%',
                       backgroundColor: 'currentColor',
-                      animation: 'pulse 1.5s ease-in-out infinite 0.4s',
-                      imageRendering: 'pixelated'
+                      animation: 'pulse 1.5s ease-in-out infinite 0.4s'
                     }}
                   />
                 </div>
