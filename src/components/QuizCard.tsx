@@ -533,17 +533,17 @@ export function QuizCard({
         </div>
       )}
 
-      {/* Edit Button - Top right corner */}
+      {/* Edit Button - Bottom right corner */}
       {question.category.toLowerCase() !== 'intro' && (
         <button
           style={{
             position: 'absolute',
             right: '0',
-            top: '0',
+            bottom: '0',
             width: '58px',
             height: '58px',
             borderRadius: '0',
-            backgroundColor: `color-mix(in hsl, ${categoryColors.cardColor} 80%, white 20%)`,
+            backgroundColor: `color-mix(in srgb, ${categoryColors.cardColor} 70%, black 30%)`,
             backdropFilter: 'blur(4px)',
             opacity: 1,
             display: 'flex',
@@ -553,7 +553,8 @@ export function QuizCard({
             cursor: 'pointer',
             boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.12)',
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
-            zIndex: 30
+            zIndex: 30,
+            filter: 'saturate(1.5)'
           }}
           onClick={(e) => {
             e.stopPropagation();
@@ -577,15 +578,15 @@ export function QuizCard({
               [1,1]
             ].flat().map((v, i) => (
               <div key={i} style={{
-                background: v ? `color-mix(in hsl, ${categoryColors.cardColor} 80%, white 20%)` : 'transparent'
+                background: v ? `color-mix(in srgb, ${categoryColors.cardColor} 70%, black 30%)` : 'transparent'
               }} />
             ))}
           </div>
           
           {isEditing ? (
-            <X size={20} color="black" />
+            <X size={20} color="white" />
           ) : (
-            <Pencil size={20} color="black" />
+            <Pencil size={20} color="white" />
           )}
         </button>
       )}
