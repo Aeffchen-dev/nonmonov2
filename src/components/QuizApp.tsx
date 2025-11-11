@@ -82,6 +82,7 @@ export function QuizApp() {
   const [logoSmileyRotating, setLogoSmileyRotating] = useState(false);
   const [baseSmileyRotation, setBaseSmileyRotation] = useState(0);
   const [isLogoBlinking, setIsLogoBlinking] = useState(false);
+  const [logoBlinkEye, setLogoBlinkEye] = useState<'left' | 'right'>('left');
   const [showHintAnimation, setShowHintAnimation] = useState(false);
 
   useEffect(() => {
@@ -407,15 +408,17 @@ export function QuizApp() {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentIndex]);
 
-  // Logo smiley blinking
+  // Logo smiley single-eye blinking effect - every 4-7 seconds
   useEffect(() => {
     const blink = () => {
+      // Randomly choose which eye to blink
+      setLogoBlinkEye(Math.random() > 0.5 ? 'left' : 'right');
       setIsLogoBlinking(true);
       setTimeout(() => setIsLogoBlinking(false), 150);
     };
 
     const scheduleNextBlink = () => {
-      const delay = 3000 + Math.random() * 4000; // Blink every 3-7 seconds
+      const delay = 4000 + Math.random() * 3000; // Blink every 4-7 seconds
       return setTimeout(() => {
         blink();
         scheduleNextBlink();
@@ -796,97 +799,94 @@ export function QuizApp() {
                 }}
               >
                 {char === 'o' && index === 1 ? (
-                  // First 'o' - Smiley (smaller to match text)
+                  // First 'o' - Pixelated Smiley
                   <div 
                     data-smiley-logo
                     style={{
-                      display: 'inline-block',
-                      width: '15.6px',
-                      height: '15.6px',
-                      backgroundColor: '#FFFF33',
-                      borderRadius: '50%',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
+                      display: 'inline-grid',
+                      gridTemplateColumns: 'repeat(4, 4px)',
+                      gridTemplateRows: 'repeat(4, 4px)',
+                      gap: '0px',
+                      width: '16px',
+                      height: '16px',
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
-                      paddingLeft: '2.4px',
-                      paddingRight: '2.4px',
                       verticalAlign: 'baseline'
                     }}
                   >
-                    <div style={{ 
-                      display: 'flex', 
-                      gap: '2.16px', 
-                      position: 'absolute', 
-                      top: '4.2px', 
-                      left: '50%', 
-                      transform: `translateX(-50%) scaleY(${isLogoBlinking ? 0.1 : 1})`,
-                      transition: 'transform 0.15s ease-out'
-                    }}>
-                      <div style={{ 
-                        width: '2.16px', 
-                        height: '2.16px', 
-                        backgroundColor: 'black', 
-                        borderRadius: '50%'
-                      }}></div>
-                      <div style={{ 
-                        width: '2.16px', 
-                        height: '2.16px', 
-                        backgroundColor: 'black', 
-                        borderRadius: '50%'
-                      }}></div>
-                    </div>
-                    <div style={{ 
-                      width: '6.6px', 
-                      height: '2.64px', 
-                      border: '1px solid black', 
-                      borderTop: 'none',
-                      borderRadius: '0 0 6.6px 6.6px',
-                      position: 'absolute',
-                      top: '9px',
-                      left: '50%',
-                      transform: 'translateX(-50%)'
-                    }}></div>
+                    {[
+                      [0,1,1,0],
+                      [1,1,1,1],
+                      [1,1,1,1],
+                      [0,1,1,0]
+                    ].flat().map((v, i) => (
+                      <div key={i} style={{
+                        backgroundColor: v ? '#FFFF33' : 'transparent',
+                        width: '4px',
+                        height: '4px',
+                        position: 'relative'
+                      }}>
+                        {/* Left eye - square at position 5 (row 2, col 1) */}
+                        {i === 5 && (
+                          <div style={{
+                            position: 'absolute',
+                            width: '4px',
+                            height: '4px',
+                            backgroundColor: 'black',
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
+                            transition: 'transform 0.15s ease-out'
+                          }} />
+                        )}
+                        {/* Right eye - square at position 6 (row 2, col 2) */}
+                        {i === 6 && (
+                          <div style={{
+                            position: 'absolute',
+                            width: '4px',
+                            height: '4px',
+                            backgroundColor: 'black',
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
+                            transition: 'transform 0.15s ease-out'
+                          }} />
+                        )}
+                        {/* Mouth - bottom pixels at positions 9 and 10 (row 3, col 1 and 2) */}
+                        {(i === 9 || i === 10) && (
+                          <div style={{
+                            position: 'absolute',
+                            bottom: '0',
+                            left: '0',
+                            width: '4px',
+                            height: '1px',
+                            backgroundColor: 'black'
+                          }} />
+                        )}
+                      </div>
+                    ))}
                   </div>
                 ) : char === 'o' && (index === 5 || index === 7) ? (
-                  // Other 'o's - Pixelated heart outlines (white)
+                  // Other 'o's - Pixelated heart outlines (white) - smaller to match smiley size
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(16, 4px)',
-                      gridTemplateRows: 'repeat(16, 4px)',
-                      gap: '1.6px',
-                      width: '92.8px',
-                      height: '92.8px',
+                      gridTemplateColumns: 'repeat(4, 4px)',
+                      gridTemplateRows: 'repeat(4, 4px)',
+                      gap: '0px',
+                      width: '16px',
+                      height: '16px',
                       verticalAlign: 'baseline',
                       marginBottom: '0px'
                     }}
                   >
                     {[
-                      [0,0,0,0,1,1,1,0,0,1,1,1,0,0,0,0],
-                      [0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0],
-                      [0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0],
-                      [0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
-                      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-                      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-                      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-                      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-                      [0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
-                      [0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0],
-                      [0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0],
-                      [0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0],
-                      [0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0],
-                      [0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0],
-                      [0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0],
-                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                      [0,1,0,1],
+                      [1,0,1,0],
+                      [0,1,0,0],
+                      [0,0,0,0]
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
                         width: '4px',
-                        height: '4px',
-                        borderRadius: '0.6px'
+                        height: '4px'
                       }} />
                     ))}
                   </div>

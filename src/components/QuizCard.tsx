@@ -645,29 +645,69 @@ export function QuizCard({
             position: 'absolute',
             right: '24px',
             bottom: '24px',
-            width: '58px',
-            height: '58px',
-            borderRadius: '4px',
-            backgroundColor: 'hsl(var(--card-background))',
-            opacity: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: 'inline-grid',
+            gridTemplateColumns: 'repeat(15, 4px)',
+            gridTemplateRows: 'repeat(15, 4px)',
+            gap: '0px',
+            width: '60px',
+            height: '60px',
             border: 'none',
             cursor: 'pointer',
             boxShadow: '-2px -2px 4px 0px rgba(0, 0, 0, 1)',
-            zIndex: 40
+            zIndex: 40,
+            padding: 0,
+            backgroundColor: 'transparent'
           }}
           onClick={(e) => {
             e.stopPropagation();
             setIsEditing(!isEditing);
           }}
         >
-          {isEditing ? (
-            <X size={20} color="hsl(var(--foreground))" />
-          ) : (
-            <Pencil size={20} color="hsl(var(--foreground))" />
-          )}
+          {Array.from({ length: 15 * 15 }).map((_, i) => {
+            const row = Math.floor(i / 15);
+            const col = i % 15;
+            // Create a pixelated rounded square shape
+            const isCorner = 
+              (row === 0 && (col === 0 || col === 1 || col === 13 || col === 14)) ||
+              (row === 1 && (col === 0 || col === 14)) ||
+              (row === 13 && (col === 0 || col === 14)) ||
+              (row === 14 && (col === 0 || col === 1 || col === 13 || col === 14));
+            
+            return (
+              <div 
+                key={i} 
+                style={{
+                  width: '4px',
+                  height: '4px',
+                  backgroundColor: isCorner ? 'transparent' : categoryColors.cardColor,
+                  position: 'relative',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                {/* Center the icon in the middle of the grid */}
+                {i === Math.floor((15 * 15) / 2) && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    pointerEvents: 'none'
+                  }}>
+                    {isEditing ? (
+                      <X size={20} color="hsl(var(--foreground))" />
+                    ) : (
+                      <Pencil size={20} color="hsl(var(--foreground))" />
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </button>
       )}
     </div>
