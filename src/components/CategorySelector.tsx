@@ -267,7 +267,7 @@ export function CategorySelector({
                             }}
                           >
                           {isSelected && (
-                            <svg 
+                             <svg 
                               width="26" 
                               height="26" 
                               viewBox="0 0 24 24" 
@@ -280,7 +280,7 @@ export function CategorySelector({
                              <path
                                d="M20 6 9 17l-5-5"
                                stroke="currentColor"
-                               strokeWidth="1"
+                               strokeWidth="2"
                                strokeLinecap="square"
                                strokeLinejoin="miter"
                              />
