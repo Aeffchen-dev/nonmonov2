@@ -189,10 +189,21 @@ export function IntroSlide({
             {/* Main title - vertically and horizontally centered */}
             <div className="flex-1 flex items-center justify-center">
               <h1 
-                className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase text-center leading-tight"
+                className="text-center leading-tight"
                 style={{ fontWeight: 600, fontStyle: 'normal', color: 'black' }}
               >
-                Offene Beziehung: Wie gehen wir das richtig an?
+                <div className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase">
+                  Offene Beziehung
+                </div>
+                <div className="text-2xl md:text-3xl lg:text-3xl font-stringer mt-2">
+                  Wie gehen wir das
+                </div>
+                <div className="text-3xl md:text-4xl lg:text-4xl font-rauschen uppercase mt-1" style={{ transform: 'rotate(-2deg)', display: 'inline-block' }}>
+                  richtig
+                </div>
+                <div className="text-2xl md:text-3xl lg:text-3xl font-stringer">
+                  an?
+                </div>
               </h1>
             </div>
             
