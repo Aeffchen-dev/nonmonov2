@@ -785,7 +785,7 @@ export function QuizApp() {
           transform: 'translate(-50%, -50%)',
           fontSize: '20vw',
           fontWeight: 600,
-          color: 'hsl(var(--foreground) / 0.35)',
+          color: '#FFFFFF',
           zIndex: 0,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
