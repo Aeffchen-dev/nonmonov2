@@ -557,7 +557,7 @@ export function QuizCard({
               msHyphens: 'auto',
               wordBreak: 'normal',
               overflowWrap: 'break-word',
-              ...(isEditing && { color: 'white' })
+              ...(isEditing && { color: 'black' })
             }}
           >
             <style>{`
@@ -632,7 +632,7 @@ export function QuizCard({
                 box-shadow: none !important;
               }
               .edit-textarea::placeholder {
-                color: white;
+                color: black;
                 opacity: 0.5;
               }
             `}</style>
@@ -649,7 +649,7 @@ export function QuizCard({
                   fontStyle: 'normal',
                   backgroundColor: categoryColors.cardColor,
                   border: 'none',
-                  color: 'white',
+                  color: 'black',
                   padding: 0,
                   outline: 'none',
                   boxShadow: 'none',
