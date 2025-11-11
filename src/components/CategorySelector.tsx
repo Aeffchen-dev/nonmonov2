@@ -281,7 +281,7 @@ export function CategorySelector({
                               alt="Check" 
                               style={{ 
                                 width: '26px', 
-                                height: '26px',
+                                height: '22px',
                                 animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
                               }}
                             />
