@@ -3,6 +3,7 @@ import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
+import { Sliders } from 'lucide-react';
 import starLoading from '@/assets/star-loading.jpeg';
 
 interface Question {
@@ -888,12 +889,11 @@ export function QuizApp() {
         <button 
           onClick={() => setCategorySelectorOpen(true)}
           className="font-stringer font-medium flex items-center"
+          style={{ 
+            color: 'white'
+          }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.5 17.5L17.5 6.5L17.5 10.5L10.5 17.5L6.5 17.5L6.5 13.5L6.5 17.5Z" stroke="white" strokeWidth="2" strokeLinejoin="miter" fill="none"/>
-            <circle cx="20" cy="20" r="1.5" fill="white" />
-            <circle cx="16" cy="20" r="1.5" fill="white" />
-          </svg>
+          <Sliders size={24} strokeLinecap="square" />
         </button>
       </div>
 
