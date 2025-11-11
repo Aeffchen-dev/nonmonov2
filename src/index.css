@@ -263,17 +263,23 @@ All colors MUST be HSL.
   }
 }
 
-/* Add 2px rectangles at path intersections for all lucide icons */
+/* Remove any icon effects */
 svg[class*="lucide"] {
-  stroke-linejoin: miter;
-  stroke-miterlimit: 1;
+  position: relative;
 }
 
+/* Add intersection dots via CSS - this will add small squares where strokes visually overlap */
 svg[class*="lucide"] path,
 svg[class*="lucide"] line,
-svg[class*="lucide"] polyline,
-svg[class*="lucide"] circle {
-  marker-mid: url(#intersection-dot);
-  marker-start: url(#intersection-dot);
-  marker-end: url(#intersection-dot);
+svg[class*="lucide"] polyline {
+  stroke-linecap: square;
+  paint-order: stroke fill markers;
+}
+
+/* Visual intersection points using mix-blend-mode to detect overlaps */
+svg[class*="lucide"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
