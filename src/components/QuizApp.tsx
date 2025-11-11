@@ -836,8 +836,8 @@ export function QuizApp() {
                       width: '16px',
                       height: '16px',
                       position: 'relative',
-                      transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
-                      transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
+                      transform: `rotate(${loading ? '0deg' : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
+                      transition: loading ? 'none' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
                       verticalAlign: 'middle',
                       marginLeft: '0px'
                     }}
