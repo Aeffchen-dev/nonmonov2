@@ -789,13 +789,18 @@ export function QuizApp() {
         >
           {"non mono".split('').map((char, index) => {
             const addSpace = index === 3;
+            // Generate consistent random rotation between -4 and 4 degrees for each letter
+            const rotations = [-3, 2, -4, 3, -2, 4, -1, 2]; // Pre-defined rotations for consistency
+            const rotation = rotations[index] || 0;
+            
             return (
               <span 
                 key={index} 
                 style={{ 
                   display: 'inline-block',
                   marginLeft: addSpace ? '0.3em' : '0',
-                  verticalAlign: 'middle'
+                  verticalAlign: 'middle',
+                  transform: char !== 'o' || index !== 1 ? `rotate(${rotation}deg)` : 'none'
                 }}
               >
                 {index === 0 && char === 'n' ? (
