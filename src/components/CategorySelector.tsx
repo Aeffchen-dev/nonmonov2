@@ -251,20 +251,20 @@ export function CategorySelector({
                          setTempSelection(newCategories);
                        }}
                      >
-                        <div
-                          className={`flex items-center justify-center`}
-                          style={{ 
-                            width: '44px', 
-                            height: '44px',
-                            borderLeft: `2px solid black`,
-                            backgroundColor: 'transparent',
-                            transition: shouldAnimate && isSelected
-                              ? 'border 0.1s ease-in-out 0.1s'
-                              : isSelected
-                              ? 'none'
-                              : 'border 0.2s ease-in-out'
-                          }}
-                        >
+                         <div
+                           className={`flex items-center justify-center`}
+                           style={{ 
+                             width: '44px', 
+                             height: '44px',
+                             borderLeft: `1px solid black`,
+                             backgroundColor: 'transparent',
+                             transition: shouldAnimate && isSelected
+                               ? 'border 0.1s ease-in-out 0.1s'
+                               : isSelected
+                               ? 'none'
+                               : 'border 0.2s ease-in-out'
+                           }}
+                         >
                           {isSelected && (
                             <svg 
                               width="26" 
