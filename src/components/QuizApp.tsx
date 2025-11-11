@@ -870,20 +870,20 @@ export function QuizApp() {
                   // Other 'o's with decorative white pixels
                   <span style={{ position: 'relative', display: 'inline-block' }}>
                     {char}
-                    {/* Top center white pixel - 9px down */}
+                    {/* Top center white pixel - 11px down */}
                     <div style={{
                       position: 'absolute',
-                      top: '9px',
+                      top: '11px',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       width: '2px',
                       height: '2px',
                       backgroundColor: 'white'
                     }} />
-                    {/* Bottom center white pixel - 4px up */}
+                    {/* Bottom center white pixel - 6px up */}
                     <div style={{
                       position: 'absolute',
-                      bottom: '4px',
+                      bottom: '6px',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       width: '2px',
