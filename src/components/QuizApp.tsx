@@ -838,7 +838,7 @@ export function QuizApp() {
                             width: '2px',
                             height: '2px',
                             backgroundColor: 'black',
-                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1}) translateY(4px)`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
@@ -848,7 +848,7 @@ export function QuizApp() {
                             width: '2px',
                             height: '2px',
                             backgroundColor: 'black',
-                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
+                            transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1}) translateY(4px)`,
                             transition: 'transform 0.15s ease-out'
                           }} />
                         )}
@@ -856,7 +856,7 @@ export function QuizApp() {
                         {(i === 26 || i === 27) && (
                           <div style={{
                             position: 'absolute',
-                            bottom: '0',
+                            bottom: '4px',
                             left: '0',
                             width: '3px',
                             height: '1px',
