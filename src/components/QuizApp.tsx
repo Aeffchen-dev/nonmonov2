@@ -801,8 +801,8 @@ export function QuizApp() {
                     data-smiley-logo
                     style={{
                       display: 'inline-block',
-                      width: '13px',
-                      height: '13px',
+                      width: '15.6px',
+                      height: '15.6px',
                       backgroundColor: '#FFFF33',
                       borderRadius: '50%',
                       alignItems: 'center',
@@ -811,41 +811,41 @@ export function QuizApp() {
                       position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
-                      paddingLeft: '2px',
-                      paddingRight: '2px',
+                      paddingLeft: '2.4px',
+                      paddingRight: '2.4px',
                       verticalAlign: 'baseline'
                     }}
                   >
                     <div style={{ 
                       display: 'flex', 
-                      gap: '1.8px', 
+                      gap: '2.16px', 
                       position: 'absolute', 
-                      top: '3.5px', 
+                      top: '4.2px', 
                       left: '50%', 
                       transform: `translateX(-50%) scaleY(${isLogoBlinking ? 0.1 : 1})`,
                       transition: 'transform 0.15s ease-out'
                     }}>
                       <div style={{ 
-                        width: '1.8px', 
-                        height: '1.8px', 
+                        width: '2.16px', 
+                        height: '2.16px', 
                         backgroundColor: 'black', 
                         borderRadius: '50%'
                       }}></div>
                       <div style={{ 
-                        width: '1.8px', 
-                        height: '1.8px', 
+                        width: '2.16px', 
+                        height: '2.16px', 
                         backgroundColor: 'black', 
                         borderRadius: '50%'
                       }}></div>
                     </div>
                     <div style={{ 
-                      width: '5.5px', 
-                      height: '2.2px', 
+                      width: '6.6px', 
+                      height: '2.64px', 
                       border: '1px solid black', 
                       borderTop: 'none',
-                      borderRadius: '0 0 5.5px 5.5px',
+                      borderRadius: '0 0 6.6px 6.6px',
                       position: 'absolute',
-                      top: '7.5px',
+                      top: '9px',
                       left: '50%',
                       transform: 'translateX(-50%)'
                     }}></div>
@@ -855,13 +855,13 @@ export function QuizApp() {
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(5, 2px)',
-                      gridTemplateRows: 'repeat(5, 2px)',
-                      gap: '0.3px',
-                      width: '11.5px',
-                      height: '11.5px',
+                      gridTemplateColumns: 'repeat(5, 1.8px)',
+                      gridTemplateRows: 'repeat(5, 1.8px)',
+                      gap: '0.84px',
+                      width: '13.8px',
+                      height: '13.8px',
                       verticalAlign: 'baseline',
-                      marginBottom: '1px'
+                      marginBottom: '0px'
                     }}
                   >
                     {[
@@ -873,8 +873,9 @@ export function QuizApp() {
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
-                        width: '2px',
-                        height: '2px'
+                        width: '1.8px',
+                        height: '1.8px',
+                        borderRadius: '0.2px'
                       }} />
                     ))}
                   </div>
