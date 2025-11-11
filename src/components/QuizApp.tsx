@@ -855,12 +855,13 @@ export function QuizApp() {
                   <div 
                     style={{
                       display: 'inline-grid',
-                      gridTemplateColumns: 'repeat(5, 2.5px)',
-                      gridTemplateRows: 'repeat(5, 2.5px)',
+                      gridTemplateColumns: 'repeat(5, 1.8px)',
+                      gridTemplateRows: 'repeat(5, 1.8px)',
                       gap: '0px',
-                      width: '12.5px',
-                      height: '12.5px',
-                      verticalAlign: 'baseline'
+                      width: '9px',
+                      height: '9px',
+                      verticalAlign: 'baseline',
+                      marginBottom: '1px'
                     }}
                   >
                     {[
@@ -872,8 +873,8 @@ export function QuizApp() {
                     ].flat().map((v, i) => (
                       <div key={i} style={{
                         backgroundColor: v ? 'white' : 'transparent',
-                        width: '2.5px',
-                        height: '2.5px'
+                        width: '1.8px',
+                        height: '1.8px'
                       }} />
                     ))}
                   </div>
