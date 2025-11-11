@@ -893,7 +893,7 @@ export function QuizApp() {
             width: '41px',
             height: '41px',
             backgroundColor: 'black',
-            borderRadius: '4px',
+            borderRadius: '50%',
             padding: '2px'
           }}
         >

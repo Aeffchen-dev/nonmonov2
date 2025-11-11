@@ -184,7 +184,7 @@ export function CategorySelector({
                 width: '35px',
                 height: '35px',
                 backgroundColor: 'black',
-                borderRadius: '4px',
+                borderRadius: '50%',
                 padding: '2px',
                 outline: 'none'
               }}
