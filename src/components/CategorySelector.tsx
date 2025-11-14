@@ -116,9 +116,6 @@ export function CategorySelector({
     
     setTempSelection(newSelection);
     setJustToggled(prev => new Set(prev).add(category));
-    
-    // Apply changes immediately
-    onCategoriesChange(newSelection);
   };
 
   const handleApply = () => {
@@ -127,6 +124,8 @@ export function CategorySelector({
   };
 
   const handleClose = () => {
+    // Apply the filter when closing the modal
+    onCategoriesChange(tempSelection);
     onOpenChange(false);
   };
 
