@@ -194,104 +194,73 @@ export function CategorySelector({
 
           {/* Categories List */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="pt-2 pb-4 space-y-2" style={{ marginTop: '8px' }}>
+            <div className="pt-2 pb-4 px-4 space-y-2" style={{ marginTop: '8px' }}>
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
               const shouldAnimate = justToggled.has(category) && isSelected;
               const colors = getCategoryColors(category, index);
-              const checkboxColor = lightenColor(colors.pageBg, 1.1); // 10% lighter for checkbox
               
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between cursor-pointer relative overflow-hidden"
+                  className="flex items-center cursor-pointer relative"
                   style={{ 
-                    paddingLeft: '16px',
-                    paddingRight: '0px',
-                    width: isSelected ? '80vw' : '70vw',
-                    transition: 'width 0.2s ease-in-out'
+                    backgroundColor: 'white',
+                    borderRadius: '24px',
+                    padding: '8px 12px',
+                    transition: 'all 0.2s ease-in-out'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  {/* Dark grey background */}
-                  <div 
-                    className="absolute inset-0"
-                    style={{ 
-                      backgroundColor: '#1a1a1a',
-                      borderTopRightRadius: '24px',
-                      borderBottomRightRadius: '24px',
-                      zIndex: 0
-                    }}
-                  />
-                  
-                   {/* Colored background that expands/contracts */}
-                   <div 
-                     className="absolute inset-y-0 left-0"
-                     style={{ 
-                       background: `linear-gradient(to right, ${darkenColor(colors.cardColor, 0.95)} 0%, ${colors.cardColor} 50%)`,
-                       width: isSelected ? '100%' : '8px',
-                       borderTopRightRadius: '24px',
-                       borderBottomRightRadius: '24px',
-                       transition: shouldAnimate 
-                         ? 'width 0.2s ease-in-out'
-                         : isSelected 
-                         ? 'none'
-                         : 'width 0.2s ease-in-out',
-                       zIndex: 1
-                     }}
-                   />
-                  
-                   <span className="font-stringer font-normal tracking-wide opacity-100 relative z-10" style={{ 
-                     color: isSelected ? colors.pageBg : 'white', 
-                     fontSize: '16px', 
-                     transition: isSelected 
-                       ? 'color 0.3s ease-in-out'
-                       : 'color 0.2s ease-in-out'
-                   }}>
-                     {category}
-                   </span>
-                   <div onClick={(e) => e.stopPropagation()}>
-                     <div
-                       className="relative cursor-pointer opacity-100 z-10"
-                       onClick={() => {
-                         const newCategories = isSelected 
-                           ? tempSelection.filter(c => c !== category)
-                           : [...tempSelection, category];
-                         setTempSelection(newCategories);
-                       }}
-                     >
-                           <div
-                             className={`flex items-center justify-center`}
-                              style={{ 
-                               width: '44px', 
-                               height: '44px',
-                               border: 'none',
-                               borderRadius: '50%',
-                               backgroundColor: isSelected ? colors.cardColor : '#242424',
-                               boxShadow: '0 0 8px rgba(0, 0, 0, 0.24)',
-                               overflow: 'hidden',
-                               transition: shouldAnimate && isSelected
-                                 ? 'all 0.1s ease-in-out 0.1s'
-                                 : isSelected
-                                 ? 'none'
-                                 : 'all 0.2s ease-in-out'
-                             }}
-                           >
-                             {isSelected && (
-                               <img 
-                                 src={checkIcon} 
-                                 alt="Check" 
-                                 style={{ 
-                                   width: '43px',
-                                   height: '43px',
-                                   mixBlendMode: 'multiply',
-                                   animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
-                                 }}
-                               />
-                            )}
-                         </div>
+                  {/* Checkbox before text */}
+                  <div onClick={(e) => e.stopPropagation()}>
+                    <div
+                      className="relative cursor-pointer flex-shrink-0"
+                      onClick={() => {
+                        const newCategories = isSelected 
+                          ? tempSelection.filter(c => c !== category)
+                          : [...tempSelection, category];
+                        setTempSelection(newCategories);
+                      }}
+                    >
+                      <div
+                        className="flex items-center justify-center"
+                        style={{ 
+                          width: '29px', 
+                          height: '29px',
+                          border: 'none',
+                          borderRadius: '50%',
+                          backgroundColor: isSelected ? colors.cardColor : '#e5e5e5',
+                          overflow: 'hidden',
+                          transition: shouldAnimate && isSelected
+                            ? 'all 0.1s ease-in-out 0.1s'
+                            : 'all 0.2s ease-in-out'
+                        }}
+                      >
+                        {isSelected && (
+                          <img 
+                            src={checkIcon} 
+                            alt="Check" 
+                            style={{ 
+                              width: '28px',
+                              height: '28px',
+                              filter: `brightness(0) saturate(100%)`,
+                              animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
+                            }}
+                          />
+                        )}
+                      </div>
                     </div>
                   </div>
+                  
+                  {/* Text with margin */}
+                  <span className="font-stringer font-normal tracking-wide" style={{ 
+                    color: 'black', 
+                    fontSize: '16px',
+                    marginLeft: '8px'
+                  }}>
+                    {category}
+                  </span>
                 </div>
                 );
               })}
