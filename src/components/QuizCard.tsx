@@ -735,9 +735,9 @@ export function QuizCard({
           }}
         >
           {isEditing ? (
-            <img src={closeIcon} alt="Close" className="w-7 h-7 object-contain" style={{ filter: 'invert(1)' }} />
+            <img src={closeIcon} alt="Close" style={{ width: '22px', height: '22px', filter: 'invert(1)' }} />
           ) : (
-            <img src={editIcon} alt="Edit" className="w-8 h-8 object-contain" style={{ filter: 'invert(1)' }} />
+            <img src={editIcon} alt="Edit" style={{ width: '26px', height: '26px', filter: 'invert(1)' }} />
           )}
         </button>
       )}
