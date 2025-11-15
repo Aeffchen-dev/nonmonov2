@@ -630,13 +630,14 @@ export function QuizCard({
                           display: 'inline-block',
                           verticalAlign: 'baseline',
                           transformOrigin: 'center bottom',
-                          fontSize: '120%',
-                          marginRight: '0.1em'
+                          fontSize: '120%'
                         }}
                       >
                         {coreWord}
                       </span>
-                      {trailing}
+                      {trailing ? (
+                        <span style={{ whiteSpace: 'nowrap' }}>{'\u2060'}{trailing}</span>
+                      ) : null}
                     </React.Fragment>
                   );
                 }
