@@ -5,6 +5,7 @@ import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
 import starLoading from '@/assets/star-loading.jpeg';
 import filterIcon from '@/assets/filter-icon.png';
+import heartsImage from '@/assets/hearts.png';
 
 interface Question {
   question: string;
