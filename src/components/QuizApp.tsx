@@ -887,6 +887,21 @@ export function QuizApp() {
                       />
                     </svg>
                   </div>
+                ) : char === 'o' && (index === 5 || index === 7) ? (
+                  // Hearts for the two o's in "mono"
+                  <div 
+                    style={{
+                      display: 'inline-block',
+                      width: '18px',
+                      height: '16px',
+                      backgroundImage: `url(${heartsImage})`,
+                      backgroundSize: '200% 100%',
+                      backgroundPosition: index === 5 ? '0% 0%' : '100% 0%',
+                      backgroundRepeat: 'no-repeat',
+                      verticalAlign: 'middle',
+                      marginLeft: index === 5 ? '1px' : '0px'
+                    }}
+                  />
                 ) : (
                   char
                 )}
