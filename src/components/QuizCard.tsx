@@ -620,7 +620,7 @@ export function QuizCard({
                   const coreWord = word.slice(leading.length, word.length - trailing.length);
                   
                   return (
-                    <span key={index}>
+                    <span key={index} style={{ display: 'inline', whiteSpace: 'normal' }}>
                       {leading}
                       <span 
                         className="font-rauschen"
@@ -628,6 +628,7 @@ export function QuizCard({
                           transform: 'rotate(-2deg)',
                           fontWeight: 600,
                           display: 'inline-block',
+                          verticalAlign: 'baseline',
                           transformOrigin: 'center bottom',
                           fontSize: '120%'
                         }}
