@@ -921,18 +921,20 @@ export function QuizApp() {
                        top: '0px'
                      }}
                    >
-                     <path
-                       d="M60 55
-                          C60 30, 95 25, 100 55
-                          C105 25, 140 30, 140 55
-                          C140 95, 115 120, 100 140
-                          C85 120, 60 95, 60 55 Z"
-                       fill="none"
-                       stroke="#FFF"
-                       strokeWidth="14"
-                       strokeLinecap="round"
-                       strokeLinejoin="round"
-                     />
+                      <path
+                        d="M100 130
+                           C80 105, 40 85, 40 55
+                           C40 30, 65 20, 85 32
+                           C95 38, 100 45, 100 55
+                           C100 45, 105 38, 115 32
+                           C135 20, 160 30, 160 55
+                           C160 85, 120 105, 100 130 Z"
+                        fill="none"
+                        stroke="#FFF"
+                        strokeWidth="14"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                    </svg>
                 ) : (
                   char
