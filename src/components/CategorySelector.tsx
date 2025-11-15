@@ -207,7 +207,7 @@ export function CategorySelector({
                     backgroundColor: 'white',
                     borderRadius: '24px',
                     padding: '4px 4px 4px 16px',
-                    width: '70vw'
+                    width: '80vw'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
