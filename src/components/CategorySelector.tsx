@@ -225,8 +225,8 @@ export function CategorySelector({
                       <div
                         className="flex items-center justify-center"
                         style={{ 
-                          width: '29px', 
-                          height: '29px',
+                          width: '37px', 
+                          height: '37px',
                           border: isSelected ? 'none' : '2px solid #e5e5e5',
                           borderRadius: '50%',
                           backgroundColor: isSelected ? colors.cardColor : 'transparent'
@@ -237,8 +237,8 @@ export function CategorySelector({
                             src={checkIcon} 
                             alt="Check" 
                             style={{ 
-                              width: '28px',
-                              height: '28px',
+                              width: '36px',
+                              height: '36px',
                               mixBlendMode: 'multiply'
                             }}
                           />
