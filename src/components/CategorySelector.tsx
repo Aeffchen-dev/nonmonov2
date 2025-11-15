@@ -237,8 +237,8 @@ export function CategorySelector({
                             src={checkIcon} 
                             alt="Check" 
                             style={{ 
-                              width: '36px',
-                              height: '36px',
+                              width: '16px',
+                              height: '16px',
                               mixBlendMode: 'multiply'
                             }}
                           />
