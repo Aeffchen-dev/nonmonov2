@@ -238,7 +238,8 @@ export function CategorySelector({
                             alt="Check" 
                             style={{ 
                               width: '20px',
-                              height: '20px'
+                              height: '20px',
+                              mixBlendMode: 'multiply'
                             }}
                           />
                         )}
