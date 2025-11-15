@@ -856,34 +856,69 @@ export function QuizApp() {
                   />
                  ) : char === 'o' && index === 5 ? (
                    // Second "o" - Flower icon
-                   <img 
-                     src={flowerIcon}
-                     alt="flower"
+                   <svg 
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 220 220" 
+                     width="20" 
+                     height="20"
                      style={{
                        display: 'inline-block',
-                       width: '20px',
-                       height: '20px',
                        verticalAlign: 'middle',
-                       filter: 'invert(1)',
                        position: 'relative',
                        top: '0px'
                      }}
-                   />
+                   >
+                     <path
+                       d="M110 30
+                          A40 40 0 0 1 150 70
+                          A40 40 0 0 1 150 150
+                          A40 40 0 0 1 70 150
+                          A40 40 0 0 1 70 70
+                          A40 40 0 0 1 110 30 Z"
+                       fill="none"
+                       stroke="#FFF"
+                       strokeWidth="12"
+                       strokeLinejoin="round"
+                       strokeLinecap="round"
+                     />
+                     <path
+                       d="M124 110
+                          A14 14 0 1 1 96 110
+                          A14 14 0 1 1 124 110 Z"
+                       fill="none"
+                       stroke="#FFF"
+                       strokeWidth="12"
+                       strokeLinejoin="round"
+                       strokeLinecap="round"
+                     />
+                   </svg>
                  ) : char === 'o' && index === 7 ? (
                    // Third "o" - Heart icon
-                   <img 
-                     src={heartIcon}
-                     alt="heart"
+                   <svg 
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 200 180" 
+                     width="20" 
+                     height="20"
                      style={{
                        display: 'inline-block',
-                       width: '20px',
-                       height: '20px',
                        verticalAlign: 'middle',
-                       filter: 'invert(1)',
                        position: 'relative',
                        top: '0px'
                      }}
-                   />
+                   >
+                     <path
+                       d="M60 55
+                          C60 30, 95 25, 100 55
+                          C105 25, 140 30, 140 55
+                          C140 95, 115 120, 100 140
+                          C85 120, 60 95, 60 55 Z"
+                       fill="none"
+                       stroke="#FFF"
+                       strokeWidth="14"
+                       strokeLinecap="round"
+                       strokeLinejoin="round"
+                     />
+                   </svg>
                 ) : (
                   char
                 )}
