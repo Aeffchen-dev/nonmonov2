@@ -869,73 +869,73 @@ export function QuizApp() {
                       strokeLinecap="round"
                     />
                   </svg>
-                 ) : char === 'o' && index === 5 ? (
-                   // Second "o" - Flower icon
-                   <svg 
-                     xmlns="http://www.w3.org/2000/svg" 
-                     viewBox="0 0 220 220" 
-                     width="20" 
-                     height="20"
-                     style={{
-                       display: 'inline-block',
-                       verticalAlign: 'middle',
-                       position: 'relative',
-                       top: '0px'
-                     }}
-                   >
-                     <path
-                       d="M110 30
-                          A40 40 0 0 1 150 70
-                          A40 40 0 0 1 150 150
-                          A40 40 0 0 1 70 150
-                          A40 40 0 0 1 70 70
-                          A40 40 0 0 1 110 30 Z"
-                       fill="none"
-                       stroke="#FFF"
-                       strokeWidth="12"
-                       strokeLinejoin="round"
-                       strokeLinecap="round"
-                     />
-                     <path
-                       d="M124 110
-                          A14 14 0 1 1 96 110
-                          A14 14 0 1 1 124 110 Z"
-                       fill="none"
-                       stroke="#FFF"
-                       strokeWidth="12"
-                       strokeLinejoin="round"
-                       strokeLinecap="round"
-                     />
-                   </svg>
-                 ) : char === 'o' && index === 7 ? (
-                   // Third "o" - Heart icon
-                   <svg 
-                     xmlns="http://www.w3.org/2000/svg" 
-                     viewBox="0 0 200 180" 
-                     width="20" 
-                     height="20"
-                     style={{
-                       display: 'inline-block',
-                       verticalAlign: 'middle',
-                       position: 'relative',
-                       top: '0px'
-                     }}
-                   >
+                  ) : char === 'o' && index === 5 ? (
+                    // Second "o" - Heart icon
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 200 180" 
+                      width="20" 
+                      height="20"
+                      style={{
+                        display: 'inline-block',
+                        verticalAlign: 'middle',
+                        position: 'relative',
+                        top: '0px'
+                      }}
+                    >
+                       <path
+                         d="M100 130
+                            C80 105, 40 85, 40 55
+                            C40 30, 65 20, 85 32
+                            C95 38, 100 45, 100 55
+                            C100 45, 105 38, 115 32
+                            C135 20, 160 30, 160 55
+                            C160 85, 120 105, 100 130 Z"
+                         fill="none"
+                         stroke="#FFF"
+                         strokeWidth="14"
+                         strokeLinecap="round"
+                         strokeLinejoin="round"
+                       />
+                    </svg>
+                  ) : char === 'o' && index === 7 ? (
+                    // Third "o" - Flower icon
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 220 220" 
+                      width="20" 
+                      height="20"
+                      style={{
+                        display: 'inline-block',
+                        verticalAlign: 'middle',
+                        position: 'relative',
+                        top: '0px'
+                      }}
+                    >
                       <path
-                        d="M100 130
-                           C80 105, 40 85, 40 55
-                           C40 30, 65 20, 85 32
-                           C95 38, 100 45, 100 55
-                           C100 45, 105 38, 115 32
-                           C135 20, 160 30, 160 55
-                           C160 85, 120 105, 100 130 Z"
+                        d="M110 30
+                           A40 40 0 0 1 150 70
+                           A40 40 0 0 1 150 150
+                           A40 40 0 0 1 70 150
+                           A40 40 0 0 1 70 70
+                           A40 40 0 0 1 110 30 Z"
                         fill="none"
                         stroke="#FFF"
-                        strokeWidth="14"
-                        strokeLinecap="round"
+                        strokeWidth="12"
                         strokeLinejoin="round"
+                        strokeLinecap="round"
                       />
-                   </svg>
+                      <path
+                        d="M124 110
+                           A14 14 0 1 1 96 110
+                           A14 14 0 1 1 124 110 Z"
+                        fill="none"
+                        stroke="#FFF"
+                        strokeWidth="12"
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
+                      />
+                    </svg>
                 ) : (
                   char
                 )}
