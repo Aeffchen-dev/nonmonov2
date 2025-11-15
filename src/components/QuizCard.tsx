@@ -620,7 +620,7 @@ export function QuizCard({
                   const coreWord = word.slice(leading.length, word.length - trailing.length);
                   
                   return (
-                    <span key={index} style={{ display: 'inline', whiteSpace: 'normal' }}>
+                    <React.Fragment key={index}>
                       {leading}
                       <span 
                         className="font-rauschen"
@@ -630,13 +630,14 @@ export function QuizCard({
                           display: 'inline-block',
                           verticalAlign: 'baseline',
                           transformOrigin: 'center bottom',
-                          fontSize: '120%'
+                          fontSize: '120%',
+                          marginRight: '0.1em'
                         }}
                       >
                         {coreWord}
                       </span>
                       {trailing}
-                    </span>
+                    </React.Fragment>
                   );
                 }
                 
