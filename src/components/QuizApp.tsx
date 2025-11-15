@@ -839,21 +839,36 @@ export function QuizApp() {
                   <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
                   // First "o" - Smiley face
-                  <img 
+                  <svg 
                     data-smiley-logo
-                    src={smileyIcon}
-                    alt="smiley"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 200 200" 
+                    width="20" 
+                    height="20"
                     style={{
                       display: 'inline-block',
-                      width: '20px',
-                      height: '20px',
-                      borderRadius: '50%',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
-                      verticalAlign: 'middle',
-                      filter: 'invert(1)'
+                      verticalAlign: 'middle'
                     }}
-                  />
+                  >
+                    <circle
+                      cx="100" cy="100" r="80"
+                      fill="none"
+                      stroke="#FFF"
+                      strokeWidth="12"
+                    />
+                    <circle cx="70" cy="80" r="10" fill="#FFF" />
+                    <circle cx="130" cy="80" r="10" fill="#FFF" />
+                    <path
+                      d="M60 110
+                         Q100 150 140 110"
+                      fill="none"
+                      stroke="#FFF"
+                      strokeWidth="12"
+                      strokeLinecap="round"
+                    />
+                  </svg>
                  ) : char === 'o' && index === 5 ? (
                    // Second "o" - Flower icon
                    <svg 
