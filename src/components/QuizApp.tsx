@@ -829,7 +829,7 @@ export function QuizApp() {
                 key={index} 
                 style={{ 
                   display: 'inline-block',
-                  marginLeft: addSpace ? '0.3em' : (index === 6 ? '-0.4em' : '0'),
+                  marginLeft: addSpace ? '0.3em' : (index === 6 ? '-0.15em' : '0'),
                   verticalAlign: 'middle',
                   transform: (char === 'o' && (index === 1 || index === 5 || index === 7)) ? 'none' : `rotate(${rotation}deg)`,
                   letterSpacing: index < 3 ? '-0.04em' : undefined
@@ -911,7 +911,7 @@ export function QuizApp() {
                         verticalAlign: 'middle',
                         position: 'relative',
                         top: '0px',
-                        left: '-4px'
+                        left: '-2px'
                       }}
                     >
                       <path
