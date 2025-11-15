@@ -889,10 +889,10 @@ export function QuizApp() {
                     </svg>
                   </div>
                 ) : char === 'o' && index === 5 ? (
-                  // Second "o" - Heart icon
+                  // Second "o" - Flower icon
                   <img 
-                    src={heartIcon}
-                    alt="heart"
+                    src={flowerIcon}
+                    alt="flower"
                     style={{
                       display: 'inline-block',
                       width: '16px',
@@ -902,10 +902,10 @@ export function QuizApp() {
                     }}
                   />
                 ) : char === 'o' && index === 7 ? (
-                  // Third "o" - Flower icon
+                  // Third "o" - Heart icon
                   <img 
-                    src={flowerIcon}
-                    alt="flower"
+                    src={heartIcon}
+                    alt="heart"
                     style={{
                       display: 'inline-block',
                       width: '16px',
