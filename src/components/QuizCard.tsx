@@ -629,7 +629,8 @@ export function QuizCard({
                           fontWeight: 600,
                           display: 'inline-block',
                           transformOrigin: 'center bottom',
-                          fontSize: '120%'
+                          fontSize: '120%',
+                          whiteSpace: 'nowrap'
                         }}
                       >
                         {coreWord}
