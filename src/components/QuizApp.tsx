@@ -855,35 +855,35 @@ export function QuizApp() {
                     }}
                   />
                  ) : char === 'o' && index === 5 ? (
-                  // Second "o" - Flower icon
-                  <img 
-                    src={flowerIcon}
-                    alt="flower"
-                    style={{
-                      display: 'inline-block',
-                      width: '16px',
-                      height: '16px',
-                      verticalAlign: 'middle',
-                      filter: 'invert(1)',
-                      position: 'relative',
-                      top: '0px'
-                    }}
-                  />
-                ) : char === 'o' && index === 7 ? (
-                  // Third "o" - Heart icon
-                  <img 
-                    src={heartIcon}
-                    alt="heart"
-                    style={{
-                      display: 'inline-block',
-                      width: '16px',
-                      height: '16px',
-                      verticalAlign: 'middle',
-                      filter: 'invert(1)',
-                      position: 'relative',
-                      top: '0px'
-                    }}
-                  />
+                   // Second "o" - Flower icon
+                   <img 
+                     src={flowerIcon}
+                     alt="flower"
+                     style={{
+                       display: 'inline-block',
+                       width: '20px',
+                       height: '20px',
+                       verticalAlign: 'middle',
+                       filter: 'invert(1)',
+                       position: 'relative',
+                       top: '0px'
+                     }}
+                   />
+                 ) : char === 'o' && index === 7 ? (
+                   // Third "o" - Heart icon
+                   <img 
+                     src={heartIcon}
+                     alt="heart"
+                     style={{
+                       display: 'inline-block',
+                       width: '20px',
+                       height: '20px',
+                       verticalAlign: 'middle',
+                       filter: 'invert(1)',
+                       position: 'relative',
+                       top: '0px'
+                     }}
+                   />
                 ) : (
                   char
                 )}
