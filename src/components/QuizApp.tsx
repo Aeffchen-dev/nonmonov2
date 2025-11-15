@@ -856,7 +856,7 @@ export function QuizApp() {
                       cx="100" cy="100" r="80"
                       fill="none"
                       stroke="#FFF"
-                      strokeWidth="34"
+                      strokeWidth="20"
                     />
                     <circle cx="70" cy="80" r="10" fill="#FFF" />
                     <circle cx="130" cy="80" r="10" fill="#FFF" />
