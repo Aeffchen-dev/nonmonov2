@@ -7,6 +7,7 @@ import starLoading from '@/assets/star-loading.jpeg';
 import filterIcon from '@/assets/filter-icon.png';
 import heartIcon from '@/assets/heart-icon.jpeg';
 import flowerIcon from '@/assets/flower-icon.jpeg';
+import smileyIcon from '@/assets/smiley-icon.jpeg';
 
 interface Question {
   question: string;
@@ -838,56 +839,20 @@ export function QuizApp() {
                   <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
                   // First "o" - Smiley face
-                  <div 
+                  <img 
                     data-smiley-logo
+                    src={smileyIcon}
+                    alt="smiley"
                     style={{
                       display: 'inline-block',
                       width: '16px',
                       height: '16px',
-                      position: 'relative',
                       transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
                       transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
                       verticalAlign: 'middle',
-                      marginLeft: '0px'
+                      filter: 'invert(1)'
                     }}
-                  >
-                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {/* Circle background */}
-                      <circle cx="9" cy="9" r="9" fill="#FFFF33" />
-                      {/* Left eye */}
-                      <circle 
-                        cx="6" 
-                        cy="7" 
-                        r="1" 
-                        fill="black"
-                        style={{
-                          transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
-                          transformOrigin: 'center',
-                          transition: 'transform 0.15s ease-out'
-                        }}
-                      />
-                      {/* Right eye */}
-                      <circle 
-                        cx="12" 
-                        cy="7" 
-                        r="1" 
-                        fill="black"
-                        style={{
-                          transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
-                          transformOrigin: 'center',
-                          transition: 'transform 0.15s ease-out'
-                        }}
-                      />
-                      {/* Smile */}
-                      <path 
-                        d="M 6 11 Q 9 13 12 11" 
-                        stroke="black" 
-                        strokeWidth="1" 
-                        fill="none" 
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
+                  />
                  ) : char === 'o' && index === 5 ? (
                   // Second "o" - Flower icon
                   <img 
