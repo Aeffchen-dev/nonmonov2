@@ -202,12 +202,11 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between cursor-pointer relative"
+                  className="flex items-center justify-between cursor-pointer relative w-full max-w-md"
                   style={{ 
                     backgroundColor: 'white',
                     borderRadius: '24px',
-                    padding: '4px 4px 4px 16px',
-                    width: '80vw'
+                    padding: '4px 4px 4px 16px'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
