@@ -904,7 +904,7 @@ export function QuizApp() {
             padding: '2px'
           }}
         >
-          <img src={filterIcon} alt="Filter" className="w-full h-full object-contain" style={{ filter: 'invert(1)', mixBlendMode: 'multiply' }} />
+          <img src={filterIcon} alt="Filter" className="w-full h-full object-contain" style={{ filter: 'invert(1)' }} />
         </button>
       </div>
 
