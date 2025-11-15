@@ -612,19 +612,29 @@ export function QuizCard({
               return words.map((word, index) => {
                 // Highlight the selected word (either substantive or consistent middle word)
                 if (index === highlightedIndex) {
+                  // Extract leading and trailing punctuation
+                  const leadingMatch = word.match(/^[^\wäöüÄÖÜß]*/);
+                  const trailingMatch = word.match(/[^\wäöüÄÖÜß]*$/);
+                  const leading = leadingMatch ? leadingMatch[0] : '';
+                  const trailing = trailingMatch ? trailingMatch[0] : '';
+                  const coreWord = word.slice(leading.length, word.length - trailing.length);
+                  
                   return (
-                    <span 
-                      key={index}
-                      className="font-rauschen inline-block"
-                      style={{ 
-                        transform: 'rotate(-2deg)',
-                        fontWeight: 600,
-                        display: 'inline-block',
-                        transformOrigin: 'center bottom',
-                        fontSize: '120%'
-                      }}
-                    >
-                      {word}
+                    <span key={index}>
+                      {leading}
+                      <span 
+                        className="font-rauschen inline-block"
+                        style={{ 
+                          transform: 'rotate(-2deg)',
+                          fontWeight: 600,
+                          display: 'inline-block',
+                          transformOrigin: 'center bottom',
+                          fontSize: '120%'
+                        }}
+                      >
+                        {coreWord}
+                      </span>
+                      {trailing}
                     </span>
                   );
                 }
