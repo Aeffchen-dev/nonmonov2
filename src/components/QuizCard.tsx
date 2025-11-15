@@ -623,14 +623,13 @@ export function QuizCard({
                     <span key={index}>
                       {leading}
                       <span 
-                        className="font-rauschen inline-block"
+                        className="font-rauschen"
                         style={{ 
                           transform: 'rotate(-2deg)',
                           fontWeight: 600,
-                          display: 'inline-block',
+                          display: 'inline',
                           transformOrigin: 'center bottom',
-                          fontSize: '120%',
-                          whiteSpace: 'nowrap'
+                          fontSize: '120%'
                         }}
                       >
                         {coreWord}
