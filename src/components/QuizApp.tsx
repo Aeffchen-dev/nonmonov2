@@ -874,8 +874,8 @@ export function QuizApp() {
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       viewBox="0 0 200 180" 
-                      width="20" 
-                      height="20"
+                      width="24" 
+                      height="24"
                       style={{
                         display: 'inline-block',
                         verticalAlign: 'middle',
