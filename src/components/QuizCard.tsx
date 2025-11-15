@@ -623,11 +623,11 @@ export function QuizCard({
                     <span key={index}>
                       {leading}
                       <span 
-                        className="font-rauschen"
+                        className="font-rauschen inline-block"
                         style={{ 
                           transform: 'rotate(-2deg)',
                           fontWeight: 600,
-                          display: 'inline',
+                          display: 'inline-block',
                           transformOrigin: 'center bottom',
                           fontSize: '120%'
                         }}
