@@ -197,7 +197,6 @@ export function CategorySelector({
             <div className="pt-2 pb-4 px-4 space-y-2" style={{ marginTop: '8px' }}>
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
-              const shouldAnimate = justToggled.has(category) && isSelected;
               const colors = getCategoryColors(category, index);
               
               return (
@@ -207,8 +206,8 @@ export function CategorySelector({
                   style={{ 
                     backgroundColor: 'white',
                     borderRadius: '24px',
-                    padding: '8px 12px',
-                    transition: 'all 0.2s ease-in-out'
+                    padding: '8px 10px',
+                    width: 'fit-content'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
@@ -228,13 +227,9 @@ export function CategorySelector({
                         style={{ 
                           width: '29px', 
                           height: '29px',
-                          border: 'none',
+                          border: isSelected ? 'none' : '2px solid #e5e5e5',
                           borderRadius: '50%',
-                          backgroundColor: isSelected ? colors.cardColor : '#e5e5e5',
-                          overflow: 'hidden',
-                          transition: shouldAnimate && isSelected
-                            ? 'all 0.1s ease-in-out 0.1s'
-                            : 'all 0.2s ease-in-out'
+                          backgroundColor: isSelected ? colors.cardColor : 'transparent'
                         }}
                       >
                         {isSelected && (
@@ -244,8 +239,7 @@ export function CategorySelector({
                             style={{ 
                               width: '28px',
                               height: '28px',
-                              filter: `brightness(0) saturate(100%)`,
-                              animation: shouldAnimate ? 'checkmarkAppear 0.1s ease-out 0.1s both' : 'none'
+                              filter: 'brightness(0) invert(1)'
                             }}
                           />
                         )}
