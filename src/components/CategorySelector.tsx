@@ -188,7 +188,7 @@ export function CategorySelector({
                 outline: 'none'
               }}
             >
-              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" style={{ filter: 'invert(1)' }} />
+              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" style={{ filter: 'invert(1)', mixBlendMode: 'multiply' }} />
             </button>
           </div>
 
