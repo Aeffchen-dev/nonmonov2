@@ -194,7 +194,7 @@ export function CategorySelector({
 
           {/* Categories List */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="pt-2 pb-4 px-4 space-y-2" style={{ marginTop: '8px' }}>
+            <div className="pt-2 pb-4 px-4 space-y-2 flex flex-col items-center" style={{ marginTop: '8px' }}>
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
               const colors = getCategoryColors(category, index);
@@ -262,7 +262,7 @@ export function CategorySelector({
           </ScrollArea>
 
           {/* Delete entries button */}
-          <div className="flex items-center justify-start px-4 pb-4 pt-2 shrink-0">
+          <div className="flex items-center justify-center px-4 pb-4 pt-2 shrink-0">
             <button
               onClick={() => {
                 // Clear all cookies
