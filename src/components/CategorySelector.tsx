@@ -202,16 +202,25 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center cursor-pointer relative"
+                  className="flex items-center justify-between cursor-pointer relative"
                   style={{ 
                     backgroundColor: 'white',
                     borderRadius: '24px',
-                    padding: '4px 16px 4px 4px',
+                    padding: '4px 4px 4px 16px',
                     width: '50vw'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  {/* Checkbox before text */}
+                  {/* Text first */}
+                  <span className="font-stringer font-normal tracking-wide" style={{ 
+                    color: 'black', 
+                    fontSize: '16px',
+                    marginRight: '8px'
+                  }}>
+                    {category}
+                  </span>
+                  
+                  {/* Checkbox on the right */}
                   <div onClick={(e) => e.stopPropagation()}>
                     <div
                       className="relative cursor-pointer flex-shrink-0"
@@ -246,15 +255,6 @@ export function CategorySelector({
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Text with margin */}
-                  <span className="font-stringer font-normal tracking-wide" style={{ 
-                    color: 'black', 
-                    fontSize: '16px',
-                    marginLeft: '8px'
-                  }}>
-                    {category}
-                  </span>
                 </div>
                 );
               })}
