@@ -911,7 +911,7 @@ export function QuizApp() {
                         verticalAlign: 'middle',
                         position: 'relative',
                         top: '0px',
-                        left: '-2px'
+                        left: '-1px'
                       }}
                     >
                       <path
