@@ -888,7 +888,7 @@ export function QuizApp() {
                       />
                     </svg>
                   </div>
-                ) : char === 'o' && index === 5 ? (
+                 ) : char === 'o' && index === 5 ? (
                   // Second "o" - Flower icon
                   <img 
                     src={flowerIcon}
@@ -898,7 +898,9 @@ export function QuizApp() {
                       width: '16px',
                       height: '16px',
                       verticalAlign: 'middle',
-                      filter: 'invert(1)'
+                      filter: 'invert(1)',
+                      position: 'relative',
+                      top: '0px'
                     }}
                   />
                 ) : char === 'o' && index === 7 ? (
@@ -911,7 +913,9 @@ export function QuizApp() {
                       width: '16px',
                       height: '16px',
                       verticalAlign: 'middle',
-                      filter: 'invert(1)'
+                      filter: 'invert(1)',
+                      position: 'relative',
+                      top: '0px'
                     }}
                   />
                 ) : (
