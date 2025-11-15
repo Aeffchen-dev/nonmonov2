@@ -893,7 +893,7 @@ export function QuizApp() {
                             C160 85, 120 105, 100 130 Z"
                          fill="none"
                          stroke="#FFF"
-                         strokeWidth="14"
+                         strokeWidth="24"
                          strokeLinecap="round"
                          strokeLinejoin="round"
                        />
@@ -921,7 +921,7 @@ export function QuizApp() {
                            A40 40 0 0 1 110 30 Z"
                         fill="none"
                         stroke="#FFF"
-                        strokeWidth="12"
+                        strokeWidth="24"
                         strokeLinejoin="round"
                         strokeLinecap="round"
                       />
@@ -931,7 +931,7 @@ export function QuizApp() {
                            A14 14 0 1 1 124 110 Z"
                         fill="none"
                         stroke="#FFF"
-                        strokeWidth="12"
+                        strokeWidth="24"
                         strokeLinejoin="round"
                         strokeLinecap="round"
                       />
