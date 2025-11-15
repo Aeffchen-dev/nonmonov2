@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
+import closeIcon from '@/assets/close-icon.png';
 import checkIcon from '@/assets/check-icon.png';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
-
-// Flower icon component (white outline)
-const FlowerIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="2.5" stroke="white" strokeWidth="2" fill="none"/>
-    <circle cx="12" cy="5" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
-    <circle cx="19" cy="12" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
-    <circle cx="12" cy="19" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
-    <circle cx="5" cy="12" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
-  </svg>
-);
 
 interface CategorySelectorProps {
   open: boolean;
@@ -194,10 +184,11 @@ export function CategorySelector({
                 height: '35px',
                 backgroundColor: 'black',
                 borderRadius: '50%',
+                padding: '2px',
                 outline: 'none'
               }}
             >
-              <FlowerIcon />
+              <img src={closeIcon} alt="Close" className="w-full h-full object-contain" style={{ filter: 'invert(1)' }} />
             </button>
           </div>
 
