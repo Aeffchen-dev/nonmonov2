@@ -545,7 +545,7 @@ export function QuizCard({
           <h1 
             ref={textRef}
             lang="de"
-            className={`font-stringer leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.44rem] lg:text-[1.6rem] max-w-md' : 'text-[2rem] md:text-[2.08rem] lg:text-[2.72rem] max-w-full'}`}
+            className={`font-stringer leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.5rem] lg:text-[1.66rem] max-w-md' : 'text-[2rem] md:text-[2.16rem] lg:text-[2.83rem] max-w-full'}`}
             style={{ 
               fontWeight: 400,
               fontStyle: 'normal',
@@ -680,7 +680,7 @@ export function QuizCard({
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
                 placeholder="Deine Antwort"
-                className={`font-rauschen w-full h-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.44rem] lg:text-[1.6rem]' : 'text-[2rem] md:text-[2.08rem] lg:text-[2.72rem]'}`}
+                className={`font-rauschen w-full h-full resize-none edit-textarea ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.5rem] lg:text-[1.66rem]' : 'text-[2rem] md:text-[2.16rem] lg:text-[2.83rem]'}`}
                 style={{
                   fontWeight: 'bold',
                   fontStyle: 'normal',
