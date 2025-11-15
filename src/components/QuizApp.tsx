@@ -6,6 +6,27 @@ import { Switch } from './ui/switch';
 import starLoading from '@/assets/star-loading.jpeg';
 import filterIcon from '@/assets/filter-icon.png';
 
+// Heart icon component (white outline)
+const HeartIcon = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+          stroke="white" 
+          strokeWidth="2" 
+          fill="none"/>
+  </svg>
+);
+
+// Flower icon component (white outline)
+const FlowerIcon = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="2.5" stroke="white" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="5" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
+    <circle cx="19" cy="12" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="19" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
+    <circle cx="5" cy="12" r="3.5" stroke="white" strokeWidth="2" fill="none"/>
+  </svg>
+);
+
 interface Question {
   question: string;
   category: string;
@@ -828,63 +849,39 @@ export function QuizApp() {
                   display: 'inline-block',
                   marginLeft: addSpace ? '0.3em' : '0',
                   verticalAlign: 'middle',
-                  transform: char !== 'o' || index !== 1 ? `rotate(${rotation}deg)` : 'none',
+                  transform: (char === 'o' && (index === 1 || index === 5)) ? 'none' : `rotate(${rotation}deg)`,
                   letterSpacing: index < 3 ? '-0.04em' : undefined
                 }}
               >
                 {index === 0 && char === 'N' ? (
                   <span style={{ fontFeatureSettings: '"ss01" 1' }}>{char}</span>
                 ) : char === 'o' && index === 1 ? (
-                  // Smooth circular smiley
+                  // First "o" - Heart icon
                   <div 
-                    data-smiley-logo
                     style={{
                       display: 'inline-block',
                       width: '16px',
                       height: '16px',
                       position: 'relative',
-                      transform: `rotate(${loading ? (loadingSmileyRotating ? '360deg' : '0deg') : (baseSmileyRotation + (isDragging ? -(dragOffset / window.innerWidth) * 360 : 0))}deg)`,
-                      transition: loading ? 'transform 0.8s ease-in-out' : (isDragging ? 'none' : 'transform 0.3s ease-in-out'),
                       verticalAlign: 'middle',
                       marginLeft: '0px'
                     }}
                   >
-                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {/* Circle background */}
-                      <circle cx="9" cy="9" r="9" fill="#FFFF33" />
-                      {/* Left eye */}
-                      <circle 
-                        cx="6" 
-                        cy="7" 
-                        r="1" 
-                        fill="black"
-                        style={{
-                          transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'left' ? 0.1 : 1})`,
-                          transformOrigin: 'center',
-                          transition: 'transform 0.15s ease-out'
-                        }}
-                      />
-                      {/* Right eye */}
-                      <circle 
-                        cx="12" 
-                        cy="7" 
-                        r="1" 
-                        fill="black"
-                        style={{
-                          transform: `scaleY(${isLogoBlinking && logoBlinkEye === 'right' ? 0.1 : 1})`,
-                          transformOrigin: 'center',
-                          transition: 'transform 0.15s ease-out'
-                        }}
-                      />
-                      {/* Smile */}
-                      <path 
-                        d="M 6 11 Q 9 13 12 11" 
-                        stroke="black" 
-                        strokeWidth="1" 
-                        fill="none" 
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    <HeartIcon size={16} />
+                  </div>
+                ) : char === 'o' && index === 5 ? (
+                  // Second "o" - Flower icon
+                  <div 
+                    style={{
+                      display: 'inline-block',
+                      width: '16px',
+                      height: '16px',
+                      position: 'relative',
+                      verticalAlign: 'middle',
+                      marginLeft: '0px'
+                    }}
+                  >
+                    <FlowerIcon size={16} />
                   </div>
                 ) : (
                   char
