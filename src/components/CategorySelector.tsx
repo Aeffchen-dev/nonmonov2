@@ -206,7 +206,7 @@ export function CategorySelector({
                   style={{ 
                     backgroundColor: 'white',
                     borderRadius: '24px',
-                    padding: '4px 8px 4px 4px',
+                    padding: '4px 16px 4px 4px',
                     width: 'fit-content'
                   }}
                   onClick={() => handleCategoryToggle(category)}
@@ -237,8 +237,8 @@ export function CategorySelector({
                             src={checkIcon} 
                             alt="Check" 
                             style={{ 
-                              width: '20px',
-                              height: '20px',
+                              width: '24px',
+                              height: '24px',
                               mixBlendMode: 'multiply'
                             }}
                           />
