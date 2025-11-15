@@ -895,15 +895,16 @@ export function QuizApp() {
         </div>
         <button 
           onClick={() => setCategorySelectorOpen(true)}
-          className="font-stringer font-medium flex items-center justify-center bg-black"
+          className="font-stringer font-medium flex items-center justify-center"
           style={{
             width: '41px',
             height: '41px',
+            backgroundColor: 'black',
             borderRadius: '50%',
-            padding: '0px'
+            padding: '2px'
           }}
         >
-          <img src={filterIcon} alt="Filter" className="w-full h-full object-cover" style={{ borderRadius: '50%' }} />
+          <img src={filterIcon} alt="Filter" className="w-full h-full object-contain" style={{ filter: 'invert(1)' }} />
         </button>
       </div>
 
