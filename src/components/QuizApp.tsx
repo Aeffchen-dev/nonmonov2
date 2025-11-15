@@ -880,7 +880,8 @@ export function QuizApp() {
                         display: 'inline-block',
                         verticalAlign: 'middle',
                         position: 'relative',
-                        top: '0px'
+                        top: '0px',
+                        left: '-1px'
                       }}
                     >
                        <path
@@ -909,7 +910,8 @@ export function QuizApp() {
                         display: 'inline-block',
                         verticalAlign: 'middle',
                         position: 'relative',
-                        top: '0px'
+                        top: '0px',
+                        left: '-4px'
                       }}
                     >
                       <path
