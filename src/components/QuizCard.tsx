@@ -630,7 +630,13 @@ export function QuizCard({
                           display: 'inline-block',
                           verticalAlign: 'baseline',
                           transformOrigin: 'center bottom',
-                          fontSize: '120%'
+                          fontSize: '120%',
+                          hyphens: 'auto',
+                          WebkitHyphens: 'auto',
+                          MozHyphens: 'auto',
+                          msHyphens: 'auto',
+                          wordBreak: 'keep-all',
+                          overflowWrap: 'break-word'
                         }}
                       >
                         {coreWord}
