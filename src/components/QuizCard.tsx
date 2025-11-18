@@ -559,7 +559,7 @@ export function QuizCard({
               WebkitHyphens: 'auto',
               MozHyphens: 'auto',
               msHyphens: 'auto',
-              overflowWrap: 'normal',
+              overflowWrap: 'break-word',
               ...(isEditing && { color: 'black', marginLeft: '-4px' })
             }}
           >
