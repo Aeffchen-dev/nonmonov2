@@ -554,10 +554,10 @@ export function QuizCard({
               fontSize: isEditing ? '16px' : undefined,
               transform: isEditing ? 'scale(0.95)' : 'scale(1)',
               transition: 'all 0.3s ease',
-            hyphens: 'auto',
-            WebkitHyphens: 'auto',
-            MozHyphens: 'auto',
-            msHyphens: 'auto',
+            hyphens: 'manual',
+            WebkitHyphens: 'manual',
+            MozHyphens: 'manual',
+            msHyphens: 'manual',
             overflowWrap: 'break-word',
               ...(isEditing && { color: 'black', marginLeft: '-4px' })
             }}
