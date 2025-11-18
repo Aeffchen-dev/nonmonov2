@@ -505,6 +505,30 @@ export function QuizApp() {
       orderedQuestions = smartShuffle([...filteredQuestions]);
     }
     
+    // Apply special ordering rules only when all categories are selected (no filter)
+    if (allCategoriesSelected) {
+      // 1. Find and extract the specific opening question
+      const openingQuestionText = "Was erhoffst du dir von unserem heutigen Gespräch?";
+      const openingQuestionIndex = orderedQuestions.findIndex(q => q.question === openingQuestionText);
+      let openingQuestion: Question | null = null;
+      
+      if (openingQuestionIndex !== -1) {
+        openingQuestion = orderedQuestions[openingQuestionIndex];
+        orderedQuestions.splice(openingQuestionIndex, 1);
+      }
+      
+      // 2. Extract all "Reflexion" category questions
+      const reflexionQuestions = orderedQuestions.filter(q => q.category === 'Reflexion');
+      const nonReflexionQuestions = orderedQuestions.filter(q => q.category !== 'Reflexion');
+      
+      // 3. Rebuild the order: opening question first, then others, then Reflexion at the end
+      orderedQuestions = [
+        ...(openingQuestion ? [openingQuestion] : []),
+        ...nonReflexionQuestions,
+        ...reflexionQuestions
+      ];
+    }
+    
     // Add question slides
     orderedQuestions.forEach(q => {
       slides.push({ type: 'question', question: q });
