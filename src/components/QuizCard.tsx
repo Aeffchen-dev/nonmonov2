@@ -658,7 +658,29 @@ export function QuizCard({
                   );
                 }
                 
-                return <span key={index}>{word}</span>;
+                // Hyphenate non-highlighted words only when they might exceed line width
+                // We insert soft hyphens at valid German hyphenation points.
+                if (/^\s+$/.test(word)) {
+                  return <span key={index}>{word}</span>;
+                }
+
+                const leadMatch2 = word.match(/^[^\wäöüÄÖÜß]*/);
+                const trailMatch2 = word.match(/[^\wäöüÄÖÜß]*$/);
+                const lead2 = leadMatch2 ? leadMatch2[0] : '';
+                const trail2 = trailMatch2 ? trailMatch2[0] : '';
+                const core2 = word.slice(lead2.length, word.length - trail2.length);
+
+                // Simple heuristic: only add soft hyphens for longer words
+                const shouldHyphenate = core2.length >= 12;
+                const displayCore2 = shouldHyphenate ? h.hyphenate(core2).join('\u00AD') : core2;
+
+                return (
+                  <React.Fragment key={index}>
+                    {lead2}
+                    <span>{displayCore2}</span>
+                    {trail2}
+                  </React.Fragment>
+                );
               });
             })()}
           </h1>
