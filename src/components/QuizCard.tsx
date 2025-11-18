@@ -624,23 +624,29 @@ export function QuizCard({
                     <React.Fragment key={index}>
                       {leading}
                       <span 
-                        className="font-rauschen"
                         style={{ 
+                          display: 'inline-block',
                           transform: 'rotate(-2deg)',
-                          fontWeight: 600,
-                           display: 'inline',
-                           verticalAlign: 'baseline',
-                           transformOrigin: 'center bottom',
-                          fontSize: '120%',
-                          hyphens: 'auto',
-                          WebkitHyphens: 'auto',
-                          MozHyphens: 'auto',
-                          msHyphens: 'auto',
-                          wordBreak: 'normal',
-                          overflowWrap: 'break-word'
+                          transformOrigin: 'center bottom',
+                          verticalAlign: 'baseline'
                         }}
                       >
-                        {h.hyphenate(coreWord).join('\u00AD')}
+                        <span 
+                          className="font-rauschen"
+                          style={{ 
+                            fontWeight: 600,
+                            display: 'inline',
+                            fontSize: '120%',
+                            hyphens: 'auto',
+                            WebkitHyphens: 'auto',
+                            MozHyphens: 'auto',
+                            msHyphens: 'auto',
+                            wordBreak: 'normal',
+                            overflowWrap: 'break-word'
+                          }}
+                        >
+                          {h.hyphenate(coreWord).join('\u00AD')}
+                        </span>
                       </span>
                       {trailing ? (
                         <span style={{ whiteSpace: 'nowrap' }}>{'\u2060'}{trailing}</span>
