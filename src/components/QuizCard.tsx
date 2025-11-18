@@ -558,7 +558,7 @@ export function QuizCard({
               WebkitHyphens: 'auto',
               MozHyphens: 'auto',
               msHyphens: 'auto',
-              wordBreak: 'keep-all',
+              wordBreak: 'normal',
               overflowWrap: 'break-word',
               ...(isEditing && { color: 'black', marginLeft: '-4px' })
             }}
@@ -571,6 +571,7 @@ export function QuizCard({
             {(() => {
               const text = question.question;
               const words = text.split(/(\s+)/);
+              const h = new Hypher(german);
               let firstSubstantiveFound = false;
               let highlightedIndex = -1;
               
@@ -627,19 +628,19 @@ export function QuizCard({
                         style={{ 
                           transform: 'rotate(-2deg)',
                           fontWeight: 600,
-                          display: 'inline-block',
-                          verticalAlign: 'baseline',
-                          transformOrigin: 'center bottom',
+                           display: 'inline',
+                           verticalAlign: 'baseline',
+                           transformOrigin: 'center bottom',
                           fontSize: '120%',
                           hyphens: 'auto',
                           WebkitHyphens: 'auto',
                           MozHyphens: 'auto',
                           msHyphens: 'auto',
-                          wordBreak: 'keep-all',
+                          wordBreak: 'normal',
                           overflowWrap: 'break-word'
                         }}
                       >
-                        {coreWord}
+                        {h.hyphenate(coreWord).join('\u00AD')}
                       </span>
                       {trailing ? (
                         <span style={{ whiteSpace: 'nowrap' }}>{'\u2060'}{trailing}</span>
