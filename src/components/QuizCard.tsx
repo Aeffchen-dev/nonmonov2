@@ -558,8 +558,8 @@ export function QuizCard({
               WebkitHyphens: 'none',
               MozHyphens: 'none',
               msHyphens: 'none',
-              wordBreak: 'keep-all',
-              overflowWrap: 'normal',
+              wordBreak: 'normal',
+              overflowWrap: 'break-word',
               ...(isEditing && { color: 'black', marginLeft: '-4px' })
             }}
           >
