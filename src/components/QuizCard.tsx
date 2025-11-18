@@ -544,7 +544,6 @@ export function QuizCard({
         <div ref={containerRef} className={`flex-1 flex flex-col w-full ${question.category.toLowerCase() === 'intro' ? 'items-center justify-start text-left' : 'items-start justify-start text-left'}`}>
           <h1 
             ref={textRef}
-            lang="de"
             className={`font-stringer leading-[120%] w-full ${question.category.toLowerCase() === 'intro' ? 'text-[1.6rem] md:text-[1.5rem] lg:text-[1.66rem] max-w-md' : 'text-[2rem] md:text-[2.16rem] lg:text-[2.83rem] max-w-full'}`}
             style={{ 
               fontWeight: 400,
@@ -562,11 +561,6 @@ export function QuizCard({
               ...(isEditing && { color: 'black', marginLeft: '-4px' })
             }}
           >
-            <style>{`
-              h1[lang="de"] {
-                font-variant-emoji: text;
-              }
-            `}</style>
             {(() => {
               const text = question.question;
               const words = text.split(/(\s+)/);
