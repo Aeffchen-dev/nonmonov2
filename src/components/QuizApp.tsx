@@ -978,9 +978,9 @@ export function QuizApp() {
                     const rotation = dragOffset > 0 ? dragProgress * 5 : -dragProgress * 5; // Rotate up to 5 degrees
                     transform = `translateX(${dragOffset}px) scale(${scale}) rotate(${rotation}deg)`;
                   } else if (isTransitioning && transitionDirection === 'left') {
-                    transform = `translateX(calc(-100% - ${slideGap}px)) scale(0.8) rotate(-5deg)`;
+                    transform = 'translateX(-100%) scale(0.8) rotate(-5deg)';
                   } else if (isTransitioning && transitionDirection === 'right') {
-                    transform = `translateX(calc(100% + ${slideGap}px)) scale(0.8) rotate(5deg)`;
+                    transform = 'translateX(100%) scale(0.8) rotate(5deg)';
                   } else if (showHintAnimation && index === 0) {
                     // Hint animation: briefly move left as if being swiped
                     transform = 'translateX(-60px) scale(0.96) rotate(-2deg)';
@@ -994,11 +994,11 @@ export function QuizApp() {
                     // Calculate scale for incoming slide based on drag progress
                     const dragProgress = Math.abs(dragOffset) / 300;
                     const scale = Math.min(1, 0.8 + dragProgress * 0.2); // Scale from 0.8 to 1
-                    transform = `translateX(calc(-100% - ${slideGap}px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
+                    transform = `translateX(calc(-100% + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
                   } else if (isTransitioning && transitionDirection === 'right') {
                     transform = 'translateX(0) scale(1) rotate(0deg)';
                   } else {
-                    transform = `translateX(calc(-100% - ${slideGap}px)) scale(0.8) rotate(0deg)`;
+                    transform = 'translateX(-100%) scale(0.8) rotate(0deg)';
                   }
                 } else if (isNext) {
                   // Next slide positioning
@@ -1006,21 +1006,21 @@ export function QuizApp() {
                     // Calculate scale for incoming slide based on drag progress
                     const dragProgress = Math.abs(dragOffset) / 300;
                     const scale = Math.min(1, 0.8 + dragProgress * 0.2); // Scale from 0.8 to 1
-                    transform = `translateX(calc(100% + ${slideGap}px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
+                    transform = `translateX(calc(100% + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
                   } else if (isTransitioning && transitionDirection === 'left') {
                     transform = 'translateX(0) scale(1) rotate(0deg)';
                   } else if (showHintAnimation && index === 1) {
                     // Hint animation: next slide moves in slightly
-                    transform = `translateX(calc(100% + ${slideGap}px - 60px)) scale(0.86) rotate(0deg)`;
+                    transform = 'translateX(calc(100% - 60px)) scale(0.86) rotate(0deg)';
                   } else {
-                    transform = `translateX(calc(100% + ${slideGap}px)) scale(0.8) rotate(0deg)`;
+                    transform = 'translateX(100%) scale(0.8) rotate(0deg)';
                   }
                 } else if (isPrev2) {
                   // Two slides back positioning - always far off-screen, no transition
-                  transform = `translateX(calc(-200% - ${slideGap * 2}px)) scale(0.8) rotate(0deg)`;
+                  transform = 'translateX(-200%) scale(0.8) rotate(0deg)';
                 } else if (isNext2) {
                   // Two slides forward positioning - always far off-screen, no transition
-                  transform = `translateX(calc(200% + ${slideGap * 2}px)) scale(0.8) rotate(0deg)`;
+                  transform = 'translateX(200%) scale(0.8) rotate(0deg)';
                 }
                 
                 return (
