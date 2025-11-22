@@ -1008,7 +1008,7 @@ export function QuizApp() {
                   transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
                 } else if (isNext2) {
                   // Two slides forward positioning - hidden but in DOM
-                  transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
+                  transform = 'translateX(calc(200% - 32px)) scale(0.8) rotate(0deg)';
                 }
                 
                 return (
