@@ -391,10 +391,14 @@ export function QuizApp() {
       } else if (dragOffset < 0 && currentIndex < slides.length - 1) {
         nextQuestion();
       }
+      // Reset drag state AFTER transition starts to prevent race condition
+      setIsDragging(false);
+      setDragOffset(0);
+    } else {
+      // No transition triggered, safe to reset immediately
+      setIsDragging(false);
+      setDragOffset(0);
     }
-    
-    setIsDragging(false);
-    setDragOffset(0);
   };
 
   const handleKeyPress = (e: KeyboardEvent) => {
