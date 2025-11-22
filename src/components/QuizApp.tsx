@@ -966,9 +966,11 @@ export function QuizApp() {
                     const rotation = dragOffset > 0 ? dragProgress * 5 : -dragProgress * 5; // Rotate up to 5 degrees
                     transform = `translateX(${dragOffset}px) scale(${scale}) rotate(${rotation}deg)`;
                   } else if (isTransitioning && transitionDirection === 'left') {
-                    transform = 'translateX(calc(-100% - 16px)) scale(0.8) rotate(-5deg)';
+                    // During transition: only animate translateX for smoothness
+                    transform = 'translateX(calc(-100% - 16px))';
                   } else if (isTransitioning && transitionDirection === 'right') {
-                    transform = 'translateX(calc(100% + 16px)) scale(0.8) rotate(5deg)';
+                    // During transition: only animate translateX for smoothness
+                    transform = 'translateX(calc(100% + 16px))';
                   } else if (showHintAnimation && index === 0) {
                     // Hint animation: briefly move left as if being swiped
                     transform = 'translateX(-60px) scale(0.96) rotate(-2deg)';
@@ -984,7 +986,8 @@ export function QuizApp() {
                     const scale = Math.min(1, 0.8 + dragProgress * 0.2); // Scale from 0.8 to 1
                     transform = `translateX(calc(-100% - 16px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
                   } else if (isTransitioning && transitionDirection === 'right') {
-                    transform = 'translateX(0) scale(1) rotate(0deg)';
+                    // During transition: only animate translateX for smoothness
+                    transform = 'translateX(0)';
                   } else {
                     transform = 'translateX(calc(-100% - 16px)) scale(0.8) rotate(0deg)';
                   }
@@ -996,7 +999,8 @@ export function QuizApp() {
                     const scale = Math.min(1, 0.8 + dragProgress * 0.2); // Scale from 0.8 to 1
                     transform = `translateX(calc(100% + 16px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
                   } else if (isTransitioning && transitionDirection === 'left') {
-                    transform = 'translateX(0) scale(1) rotate(0deg)';
+                    // During transition: only animate translateX for smoothness
+                    transform = 'translateX(0)';
                   } else if (showHintAnimation && index === 1) {
                     // Hint animation: next slide moves in slightly
                     transform = 'translateX(calc(100% + 16px - 60px)) scale(0.86) rotate(0deg)';
