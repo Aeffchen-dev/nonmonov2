@@ -5,13 +5,23 @@ interface IntroSlideProps {
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   animationClass?: string;
+  onDragStart?: (clientX: number) => void;
+  onDragMove?: (clientX: number) => void;
+  onDragEnd?: () => void;
+  dragOffset?: number;
+  isDragging?: boolean;
 }
 
 export function IntroSlide({ 
   type, 
   onSwipeLeft, 
   onSwipeRight, 
-  animationClass = ''
+  animationClass = '',
+  onDragStart,
+  onDragMove,
+  onDragEnd,
+  dragOffset = 0,
+  isDragging = false
 }: IntroSlideProps) {
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
@@ -37,80 +47,108 @@ export function IntroSlide({
   }, [type]);
 
   const onTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-    setTouchStartY(e.touches[0].clientY);
+    if (onDragStart) {
+      onDragStart(e.touches[0].clientX);
+    } else {
+      setTouchStartX(e.touches[0].clientX);
+      setTouchStartY(e.touches[0].clientY);
+    }
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    if (touchStartX === null || touchStartY === null) return;
-    setTouchEndX(e.touches[0].clientX);
-    setTouchEndY(e.touches[0].clientY);
+    if (onDragMove) {
+      onDragMove(e.touches[0].clientX);
+    } else {
+      if (touchStartX === null || touchStartY === null) return;
+      setTouchEndX(e.touches[0].clientX);
+      setTouchEndY(e.touches[0].clientY);
+    }
   };
 
   const onTouchEnd = () => {
-    if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
-    
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = touchEndY - touchStartY;
-    
-    // Only trigger if horizontal movement is greater than vertical
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
-      if (deltaX > 0) {
-        onSwipeRight();
-      } else {
-        onSwipeLeft();
+    if (onDragEnd) {
+      onDragEnd();
+    } else {
+      if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
+      
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      
+      // Only trigger if horizontal movement is greater than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          onSwipeRight();
+        } else {
+          onSwipeLeft();
+        }
       }
+      
+      // Reset
+      setTouchStartX(null);
+      setTouchStartY(null);
+      setTouchEndX(null);
+      setTouchEndY(null);
     }
-    
-    // Reset
-    setTouchStartX(null);
-    setTouchStartY(null);
-    setTouchEndX(null);
-    setTouchEndY(null);
   };
 
   const onMouseDown = (e: React.MouseEvent) => {
-    setMouseStartX(e.clientX);
-    setMouseStartY(e.clientY);
-    setIsMousePressed(true);
+    if (onDragStart) {
+      onDragStart(e.clientX);
+    } else {
+      setMouseStartX(e.clientX);
+      setMouseStartY(e.clientY);
+      setIsMousePressed(true);
+    }
   };
 
   const onMouseMove = (e: React.MouseEvent) => {
-    if (!isMousePressed || mouseStartX === null || mouseStartY === null) return;
-    setMouseEndX(e.clientX);
-    setMouseEndY(e.clientY);
+    if (onDragMove) {
+      onDragMove(e.clientX);
+    } else {
+      if (!isMousePressed || mouseStartX === null || mouseStartY === null) return;
+      setMouseEndX(e.clientX);
+      setMouseEndY(e.clientY);
+    }
   };
 
   const onMouseUp = () => {
-    if (!isMousePressed || !mouseStartX || !mouseStartY || !mouseEndX || !mouseEndY) return;
-    
-    const deltaX = mouseEndX - mouseStartX;
-    const deltaY = mouseEndY - mouseStartY;
-    
-    // Only trigger if horizontal movement is greater than vertical
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
-      if (deltaX > 0) {
-        onSwipeRight();
-      } else {
-        onSwipeLeft();
+    if (onDragEnd) {
+      onDragEnd();
+    } else {
+      if (!isMousePressed || !mouseStartX || !mouseStartY || !mouseEndX || !mouseEndY) return;
+      
+      const deltaX = mouseEndX - mouseStartX;
+      const deltaY = mouseEndY - mouseStartY;
+      
+      // Only trigger if horizontal movement is greater than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          onSwipeRight();
+        } else {
+          onSwipeLeft();
+        }
       }
+      
+      // Reset
+      setMouseStartX(null);
+      setMouseStartY(null);
+      setMouseEndX(null);
+      setMouseEndY(null);
+      setIsMousePressed(false);
     }
-    
-    // Reset
-    setMouseStartX(null);
-    setMouseStartY(null);
-    setMouseEndX(null);
-    setMouseEndY(null);
-    setIsMousePressed(false);
   };
 
   const onMouseLeave = () => {
-    // Reset mouse state when leaving the element
-    setMouseStartX(null);
-    setMouseStartY(null);
-    setMouseEndX(null);
-    setMouseEndY(null);
-    setIsMousePressed(false);
+    if (onDragEnd && isDragging) {
+      onDragEnd();
+    } else {
+      // Reset mouse state when leaving the element
+      setMouseStartX(null);
+      setMouseStartY(null);
+      setMouseEndX(null);
+      setMouseEndY(null);
+      setIsMousePressed(false);
+    }
   };
 
   return (
