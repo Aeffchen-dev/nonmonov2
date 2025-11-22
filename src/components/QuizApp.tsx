@@ -612,6 +612,17 @@ export function QuizApp() {
   const safeIndex = hasSlides ? Math.min(currentIndex, slides.length - 1) : 0;
   const safeSlide = hasSlides ? slides[safeIndex] : undefined;
 
+  // Helper to convert card color to shade800 background
+  const createShade800Bg = (cardColor: string): string => {
+    // Parse HSL values from string like 'hsl(15, 100%, 50%)'
+    const hslMatch = cardColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+    if (!hslMatch) return 'hsl(0, 0%, 0%)';
+    
+    const [, hue, saturation] = hslMatch;
+    // Create shade800 by keeping hue/saturation but reducing lightness to 15%
+    return `hsl(${hue}, ${saturation}%, 15%)`;
+  };
+
   // Helper to get colors for any slide index
   const getColorsForSlide = (index: number) => {
     if (!hasSlides || index < 0 || index >= slides.length) {
@@ -655,21 +666,24 @@ export function QuizApp() {
         colorIndex = (categoryColorMap[question.category] || 0) % 11 + 1;
     }
     
-    const colorMap = {
-      1: { cardColor: 'hsl(15, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
-      2: { cardColor: 'hsl(248, 100%, 82%)', pageBg: 'hsl(0, 0%, 0%)' },
-      3: { cardColor: 'hsl(60, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
-      4: { cardColor: 'hsl(292, 100%, 78%)', pageBg: 'hsl(0, 0%, 0%)' },
-      5: { cardColor: 'hsl(0, 100%, 58%)', pageBg: 'hsl(0, 0%, 0%)' },
-      6: { cardColor: 'hsl(304, 100%, 60%)', pageBg: 'hsl(0, 0%, 0%)' },
-      7: { cardColor: 'hsl(184, 86%, 64%)', pageBg: 'hsl(0, 0%, 0%)' },
-      8: { cardColor: 'hsl(163, 100%, 55%)', pageBg: 'hsl(0, 0%, 0%)' },
-      9: { cardColor: 'hsl(120, 100%, 50%)', pageBg: 'hsl(0, 0%, 0%)' },
-      10: { cardColor: 'hsl(200, 100%, 77%)', pageBg: 'hsl(0, 0%, 0%)' },
-      11: { cardColor: 'hsl(70, 100%, 49%)', pageBg: 'hsl(0, 0%, 0%)' },
+    const cardColors = {
+      1: 'hsl(15, 100%, 50%)',
+      2: 'hsl(248, 100%, 82%)',
+      3: 'hsl(60, 100%, 50%)',
+      4: 'hsl(292, 100%, 78%)',
+      5: 'hsl(0, 100%, 58%)',
+      6: 'hsl(304, 100%, 60%)',
+      7: 'hsl(184, 86%, 64%)',
+      8: 'hsl(163, 100%, 55%)',
+      9: 'hsl(120, 100%, 50%)',
+      10: 'hsl(200, 100%, 77%)',
+      11: 'hsl(70, 100%, 49%)',
     };
     
-    return colorMap[colorIndex as keyof typeof colorMap] || colorMap[1];
+    const cardColor = cardColors[colorIndex as keyof typeof cardColors] || cardColors[1];
+    const pageBg = createShade800Bg(cardColor);
+    
+    return { cardColor, pageBg };
   };
 
   // Interpolate between two colors using CSS color-mix
