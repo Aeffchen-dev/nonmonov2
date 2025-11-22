@@ -1004,21 +1004,11 @@ export function QuizApp() {
                     transform = 'translateX(calc(100% + 16px)) scale(0.8) rotate(0deg)';
                   }
                 } else if (isPrev2) {
-                  // Two slides back positioning - hidden but in DOM, far off-screen
-                  if (isDragging && dragOffset > 0) {
-                    // During right drag, keep far off-screen
-                    transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
-                  } else {
-                    transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
-                  }
+                  // Two slides back positioning - always far off-screen, no transition
+                  transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
                 } else if (isNext2) {
-                  // Two slides forward positioning - hidden but in DOM, far off-screen
-                  if (isDragging && dragOffset < 0) {
-                    // During left drag, keep far off-screen
-                    transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
-                  } else {
-                    transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
-                  }
+                  // Two slides forward positioning - always far off-screen, no transition
+                  transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
                 }
                 
                 return (
@@ -1029,9 +1019,13 @@ export function QuizApp() {
                       transform,
                       zIndex,
                       transition: isDragging 
-                        ? 'none' 
+                        ? 'none'
+                        : (isPrev2 || isNext2)
+                        ? 'none' // No transition for far slides
+                        : (isTransitioning && !isActive && !((isPrev && transitionDirection === 'right') || (isNext && transitionDirection === 'left')))
+                        ? 'none' // No transition for non-participating slides during transition
                         : showHintAnimation && (index === 0 || index === 1)
-                        ? 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)' // Faster bouncy ease for hint
+                        ? 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)'
                         : 'transform 0.3s ease-out'
                     }}
                   >
