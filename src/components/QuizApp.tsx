@@ -1004,11 +1004,21 @@ export function QuizApp() {
                     transform = 'translateX(calc(100% + 16px)) scale(0.8) rotate(0deg)';
                   }
                 } else if (isPrev2) {
-                  // Two slides back positioning - hidden but in DOM
-                  transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
+                  // Two slides back positioning - hidden but in DOM, far off-screen
+                  if (isDragging && dragOffset > 0) {
+                    // During right drag, keep far off-screen
+                    transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
+                  } else {
+                    transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
+                  }
                 } else if (isNext2) {
-                  // Two slides forward positioning - hidden but in DOM
-                  transform = 'translateX(calc(200% - 32px)) scale(0.8) rotate(0deg)';
+                  // Two slides forward positioning - hidden but in DOM, far off-screen
+                  if (isDragging && dragOffset < 0) {
+                    // During left drag, keep far off-screen
+                    transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
+                  } else {
+                    transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
+                  }
                 }
                 
                 return (
