@@ -63,11 +63,6 @@ interface QuizCardProps {
   onSwipeRight: () => void;
   animationClass?: string;
   categoryIndex?: number;
-  onDragStart?: (clientX: number) => void;
-  onDragMove?: (clientX: number) => void;
-  onDragEnd?: () => void;
-  dragOffset?: number;
-  isDragging?: boolean;
 }
 
 export function QuizCard({ 
@@ -75,12 +70,7 @@ export function QuizCard({
   onSwipeLeft, 
   onSwipeRight, 
   animationClass = '', 
-  categoryIndex = 0,
-  onDragStart,
-  onDragMove,
-  onDragEnd,
-  dragOffset = 0,
-  isDragging = false
+  categoryIndex = 0
 }: QuizCardProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -385,89 +375,61 @@ export function QuizCard({
   const categoryColors = getCategoryColors(categoryIndex);
 
   const onTouchStart = (e: React.TouchEvent) => {
-    if (onDragStart) {
-      onDragStart(e.touches[0].clientX);
-    } else {
-      setTouchEnd(null);
-      setTouchStart(e.targetTouches[0].clientX);
-    }
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    if (onDragMove) {
-      onDragMove(e.touches[0].clientX);
-    } else {
-      setTouchEnd(e.targetTouches[0].clientX);
-    }
+    setTouchEnd(e.targetTouches[0].clientX);
   };
 
   const onTouchEnd = () => {
-    if (onDragEnd) {
-      onDragEnd();
-    } else {
-      if (!touchStart || !touchEnd) return;
-      
-      const distance = touchStart - touchEnd;
-      const isLeftSwipe = distance > minSwipeDistance;
-      const isRightSwipe = distance < -minSwipeDistance;
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
 
-      if (isLeftSwipe) {
-        onSwipeLeft();
-      } else if (isRightSwipe) {
-        onSwipeRight();
-      }
+    if (isLeftSwipe) {
+      onSwipeLeft();
+    } else if (isRightSwipe) {
+      onSwipeRight();
     }
   };
 
   // Mouse drag handlers for desktop
   const onMouseDown = (e: React.MouseEvent) => {
-    if (onDragStart) {
-      onDragStart(e.clientX);
-    } else {
-      setMouseEnd(null);
-      setMouseStart(e.clientX);
-      setIsLocalDragging(true);
-    }
+    setMouseEnd(null);
+    setMouseStart(e.clientX);
+    setIsLocalDragging(true);
   };
 
   const onMouseMove = (e: React.MouseEvent) => {
-    if (onDragMove) {
-      onDragMove(e.clientX);
-    } else {
-      if (!isLocalDragging) return;
-      setMouseEnd(e.clientX);
-    }
+    if (!isLocalDragging) return;
+    setMouseEnd(e.clientX);
   };
 
   const onMouseUp = () => {
-    if (onDragEnd) {
-      onDragEnd();
-    } else {
-      if (!isLocalDragging || !mouseStart || !mouseEnd) {
-        setIsLocalDragging(false);
-        return;
-      }
-      
-      const distance = mouseStart - mouseEnd;
-      const isLeftDrag = distance > minSwipeDistance;
-      const isRightDrag = distance < -minSwipeDistance;
-
-      if (isLeftDrag) {
-        onSwipeLeft();
-      } else if (isRightDrag) {
-        onSwipeRight();
-      }
-      
+    if (!isLocalDragging || !mouseStart || !mouseEnd) {
       setIsLocalDragging(false);
+      return;
     }
+    
+    const distance = mouseStart - mouseEnd;
+    const isLeftDrag = distance > minSwipeDistance;
+    const isRightDrag = distance < -minSwipeDistance;
+
+    if (isLeftDrag) {
+      onSwipeLeft();
+    } else if (isRightDrag) {
+      onSwipeRight();
+    }
+    
+    setIsLocalDragging(false);
   };
 
   const onMouseLeave = () => {
-    if (onDragEnd && isDragging) {
-      onDragEnd();
-    } else {
-      setIsLocalDragging(false);
-    }
+    setIsLocalDragging(false);
   };
 
   return (
