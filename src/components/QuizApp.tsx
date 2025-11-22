@@ -688,7 +688,7 @@ export function QuizApp() {
 
   // Calculate interpolated background color based on drag
   const getInterpolatedBgColor = () => {
-    if (!isDragging && !isTransitioning) {
+    if (!isDragging) {
       const colors = getCurrentColors();
       return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.pageBg : '#000000';
     }
@@ -731,7 +731,7 @@ export function QuizApp() {
 
   // Calculate interpolated card color for header based on drag
   const getInterpolatedCardColor = () => {
-    if (!isDragging && !isTransitioning) {
+    if (!isDragging) {
       const colors = getCurrentColors();
       return safeSlide?.question?.category.toLowerCase() !== 'intro' ? colors.cardColor : '#ffffff';
     }
