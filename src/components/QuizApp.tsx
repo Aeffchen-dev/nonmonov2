@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
@@ -367,8 +367,6 @@ export function QuizApp() {
   };
 
   // Real-time drag handlers
-  const rafId = useRef<number | null>(null);
-
   const handleDragStart = (clientX: number) => {
     if (isTransitioning) return;
     setIsDragging(true);
@@ -378,27 +376,12 @@ export function QuizApp() {
 
   const handleDragMove = (clientX: number) => {
     if (!isDragging) return;
-    
-    // Cancel any pending RAF
-    if (rafId.current !== null) {
-      cancelAnimationFrame(rafId.current);
-    }
-    
-    // Throttle updates with requestAnimationFrame
-    rafId.current = requestAnimationFrame(() => {
-      const offset = clientX - dragStartX;
-      setDragOffset(offset);
-    });
+    const offset = clientX - dragStartX;
+    setDragOffset(offset);
   };
 
   const handleDragEnd = () => {
     if (!isDragging) return;
-    
-    // Cancel any pending RAF
-    if (rafId.current !== null) {
-      cancelAnimationFrame(rafId.current);
-      rafId.current = null;
-    }
     
     const threshold = 120;
     
@@ -1031,7 +1014,6 @@ export function QuizApp() {
                     style={{
                       transform,
                       zIndex,
-                      willChange: 'transform',
                       transition: isDragging 
                         ? 'none' 
                         : showHintAnimation && (index === 0 || index === 1)
