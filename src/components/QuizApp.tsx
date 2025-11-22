@@ -5,7 +5,6 @@ import { IntroSlide } from './IntroSlide';
 import { Switch } from './ui/switch';
 import starLoading from '@/assets/star-loading.jpeg';
 import filterIcon from '@/assets/filter-icon.png';
-import { motion } from 'framer-motion';
 
 interface Question {
   question: string;
@@ -1023,22 +1022,18 @@ export function QuizApp() {
                 }
                 
                 return (
-                  <motion.div
+                  <div
                     key={`slide-${index}`}
                     className="absolute inset-0 w-full h-full"
                     style={{
-                      zIndex
-                    }}
-                    animate={{
-                      transform
-                    }}
-                    transition={
-                      isDragging 
-                        ? { duration: 0 }
+                      transform,
+                      zIndex,
+                      transition: isDragging 
+                        ? 'none' 
                         : showHintAnimation && (index === 0 || index === 1)
-                        ? { type: 'spring', stiffness: 300, damping: 25, mass: 0.8 }
-                        : { type: 'spring', stiffness: 260, damping: 30, mass: 1 }
-                    }
+                        ? 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)' // Faster bouncy ease for hint
+                        : 'transform 0.3s ease-out'
+                    }}
                   >
                     {slide.type === 'intro' ? (
                       <IntroSlide
@@ -1075,7 +1070,7 @@ export function QuizApp() {
                         isDragging={isDragging}
                       />
                     )}
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
