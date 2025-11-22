@@ -480,7 +480,8 @@ export function QuizCard({
         backgroundColor: question.category.toLowerCase() !== 'intro' ? categoryColors.cardColor : 'hsl(var(--card-background))',
         color: question.category.toLowerCase() !== 'intro' ? 'white' : 'hsl(var(--foreground))',
         boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)',
-        borderRadius: '24px'
+        borderRadius: '24px',
+        touchAction: 'none'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}

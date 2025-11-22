@@ -160,7 +160,8 @@ export function IntroSlide({
         borderRadius: '24px',
         backgroundColor: 'hsl(140, 65%, 62%)',
         color: 'white',
-        boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)'
+        boxShadow: '0 0 24px 20px rgba(0, 0, 0, 0.16)',
+        touchAction: 'none'
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
