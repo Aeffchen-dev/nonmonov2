@@ -612,15 +612,15 @@ export function QuizApp() {
   const safeIndex = hasSlides ? Math.min(currentIndex, slides.length - 1) : 0;
   const safeSlide = hasSlides ? slides[safeIndex] : undefined;
 
-  // Helper to convert card color to shade800 background
-  const createShade800Bg = (cardColor: string): string => {
+  // Helper to convert card color to shade900 background (very dark)
+  const createShade900Bg = (cardColor: string): string => {
     // Parse HSL values from string like 'hsl(15, 100%, 50%)'
     const hslMatch = cardColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (!hslMatch) return 'hsl(0, 0%, 0%)';
     
     const [, hue, saturation] = hslMatch;
-    // Create shade800 by keeping hue/saturation but reducing lightness to 15%
-    return `hsl(${hue}, ${saturation}%, 15%)`;
+    // Create very dark shade by keeping hue/saturation but reducing lightness to 8%
+    return `hsl(${hue}, ${saturation}%, 8%)`;
   };
 
   // Helper to get colors for any slide index
@@ -681,16 +681,16 @@ export function QuizApp() {
     };
     
     const cardColor = cardColors[colorIndex as keyof typeof cardColors] || cardColors[1];
-    const pageBg = createShade800Bg(cardColor);
+    const pageBg = createShade900Bg(cardColor);
     
     return { cardColor, pageBg };
   };
 
-  // Interpolate between two colors using CSS color-mix
+  // Interpolate between two colors using CSS color-mix with faster easing
   const interpolateColors = (color1: string, color2: string, factor: number) => {
-    // Apply ease-out cubic easing for smoother transitions
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-    const easedFactor = easeOutCubic(factor);
+    // Apply ease-in-out quad for snappier color transitions
+    const easeInOutQuad = (t: number) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    const easedFactor = easeInOutQuad(factor);
     
     // Convert factor to percentage (0-100)
     const percentage = easedFactor * 100;
@@ -800,9 +800,9 @@ export function QuizApp() {
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', bgColor);
     }
-    // Also update document background to color the areas behind Safari's UI with smooth transition
-    document.body.style.transition = 'background-color 0.3s ease-out';
-    document.documentElement.style.transition = 'background-color 0.3s ease-out';
+    // Also update document background to color the areas behind Safari's UI with snappier transition
+    document.body.style.transition = 'background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    document.documentElement.style.transition = 'background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
     document.body.style.backgroundColor = bgColor;
     document.documentElement.style.backgroundColor = bgColor;
   }, [currentIndex, slides]);
