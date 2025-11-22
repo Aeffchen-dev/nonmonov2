@@ -1032,7 +1032,7 @@ export function QuizApp() {
                         ? 'none' 
                         : showHintAnimation && (index === 0 || index === 1)
                         ? 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)' // Faster bouncy ease for hint
-                        : 'transform 0.3s ease-in-out'
+                        : 'transform 0.3s ease-out'
                     }}
                   >
                     {slide.type === 'intro' ? (
