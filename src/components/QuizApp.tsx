@@ -86,9 +86,21 @@ export function QuizApp() {
   const [isLogoBlinking, setIsLogoBlinking] = useState(false);
   const [logoBlinkEye, setLogoBlinkEye] = useState<'left' | 'right'>('left');
   const [showHintAnimation, setShowHintAnimation] = useState(false);
+  const [slideGap, setSlideGap] = useState(16);
 
   useEffect(() => {
     fetchQuestions();
+  }, []);
+
+  // Set responsive gap based on screen width
+  useEffect(() => {
+    const updateGap = () => {
+      setSlideGap(window.innerWidth < 768 ? 16 : 24);
+    };
+    
+    updateGap();
+    window.addEventListener('resize', updateGap);
+    return () => window.removeEventListener('resize', updateGap);
   }, []);
 
   // Rotate smiley during loading
@@ -966,9 +978,9 @@ export function QuizApp() {
                     const rotation = dragOffset > 0 ? dragProgress * 5 : -dragProgress * 5; // Rotate up to 5 degrees
                     transform = `translateX(${dragOffset}px) scale(${scale}) rotate(${rotation}deg)`;
                   } else if (isTransitioning && transitionDirection === 'left') {
-                    transform = 'translateX(calc(-100% - 16px)) scale(0.8) rotate(-5deg)';
+                    transform = `translateX(calc(-100% - ${slideGap}px)) scale(0.8) rotate(-5deg)`;
                   } else if (isTransitioning && transitionDirection === 'right') {
-                    transform = 'translateX(calc(100% + 16px)) scale(0.8) rotate(5deg)';
+                    transform = `translateX(calc(100% + ${slideGap}px)) scale(0.8) rotate(5deg)`;
                   } else if (showHintAnimation && index === 0) {
                     // Hint animation: briefly move left as if being swiped
                     transform = 'translateX(-60px) scale(0.96) rotate(-2deg)';
@@ -982,11 +994,11 @@ export function QuizApp() {
                     // Calculate scale for incoming slide based on drag progress
                     const dragProgress = Math.abs(dragOffset) / 300;
                     const scale = Math.min(1, 0.8 + dragProgress * 0.2); // Scale from 0.8 to 1
-                    transform = `translateX(calc(-100% - 16px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
+                    transform = `translateX(calc(-100% - ${slideGap}px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
                   } else if (isTransitioning && transitionDirection === 'right') {
                     transform = 'translateX(0) scale(1) rotate(0deg)';
                   } else {
-                    transform = 'translateX(calc(-100% - 16px)) scale(0.8) rotate(0deg)';
+                    transform = `translateX(calc(-100% - ${slideGap}px)) scale(0.8) rotate(0deg)`;
                   }
                 } else if (isNext) {
                   // Next slide positioning
@@ -994,21 +1006,21 @@ export function QuizApp() {
                     // Calculate scale for incoming slide based on drag progress
                     const dragProgress = Math.abs(dragOffset) / 300;
                     const scale = Math.min(1, 0.8 + dragProgress * 0.2); // Scale from 0.8 to 1
-                    transform = `translateX(calc(100% + 16px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
+                    transform = `translateX(calc(100% + ${slideGap}px + ${dragOffset}px)) scale(${scale}) rotate(0deg)`;
                   } else if (isTransitioning && transitionDirection === 'left') {
                     transform = 'translateX(0) scale(1) rotate(0deg)';
                   } else if (showHintAnimation && index === 1) {
                     // Hint animation: next slide moves in slightly
-                    transform = 'translateX(calc(100% + 16px - 60px)) scale(0.86) rotate(0deg)';
+                    transform = `translateX(calc(100% + ${slideGap}px - 60px)) scale(0.86) rotate(0deg)`;
                   } else {
-                    transform = 'translateX(calc(100% + 16px)) scale(0.8) rotate(0deg)';
+                    transform = `translateX(calc(100% + ${slideGap}px)) scale(0.8) rotate(0deg)`;
                   }
                 } else if (isPrev2) {
                   // Two slides back positioning - always far off-screen, no transition
-                  transform = 'translateX(calc(-200% - 32px)) scale(0.8) rotate(0deg)';
+                  transform = `translateX(calc(-200% - ${slideGap * 2}px)) scale(0.8) rotate(0deg)`;
                 } else if (isNext2) {
                   // Two slides forward positioning - always far off-screen, no transition
-                  transform = 'translateX(calc(200% + 32px)) scale(0.8) rotate(0deg)';
+                  transform = `translateX(calc(200% + ${slideGap * 2}px)) scale(0.8) rotate(0deg)`;
                 }
                 
                 return (
